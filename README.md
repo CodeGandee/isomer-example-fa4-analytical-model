@@ -134,7 +134,7 @@ on the calibration split only:
    $
    and active-warp fraction $\rho$, the occupancy efficiency is
    $
-   \eta_{\text{occ}} = \min(1.0,\; 0.05 + 0.95 \sqrt{\rho})
+   \eta_{\text{occ}} = \min(1.0,  0.05 + 0.95 \sqrt{\rho})
    $.
 
 2. **Transfer-size-dependent bandwidth.** Effective HBM, L2, and TMA bandwidths
@@ -154,8 +154,8 @@ $$
 T_{\text{launch}} = \tau_{\text{fixed}} + \tau_{\text{per-tile}} \cdot N_{\text{tiles}}
 $$
 
-Calibration recovers $\tau_{\text{fixed}} = 60\,\mu\text{s}$ and
-$\tau_{\text{per-tile}} = 0\,\mu\text{s}$. The final runtime is
+Calibration recovers $\tau_{\text{fixed}} = 60 \mu\text{s}$ and
+$\tau_{\text{per-tile}} = 0 \mu\text{s}$. The final runtime is
 $T_{\text{pred}} = T_{\text{base}} + T_{\text{launch}}$.
 
 #### Bottleneck label with NCU slack
