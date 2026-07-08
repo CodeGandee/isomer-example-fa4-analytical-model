@@ -37,7 +37,7 @@ block as a read-after-write (RAW) instruction dependency graph whose nodes are
 SASS instruction classes:
 
 - TMA loads for Q, K, V tiles,
-- `tcgen05.mma` for the $Q@K^T$ and $P@V$ Tensor Core contractions,
+- `tcgen05.mma` for the $QK^T$ and $PV$ Tensor Core contractions,
 - SFU `exp` for the online softmax,
 - FP32 scale/update instructions for the running $O$ accumulator,
 - the TMA store of the final $O$ tile.
@@ -128,14 +128,7 @@ bandwidths.
 The refined model adds three physically scoped corrections that are calibrated
 on the calibration split only:
 
-1. **Occupancy factor.** With output tiles
-   $
-   N_{\text{tiles}} = b \cdot h \cdot \lceil s / B_M \rceil \cdot \lceil s / B_N \rceil
-   $
-   and active-warp fraction $\rho$, the occupancy efficiency is
-   $
-   \eta_{\text{occ}} = \min(1.0,  0.05 + 0.95 \sqrt{\rho})
-   $.
+1. **Occupancy factor.** With output tiles $N_{\text{tiles}} = b \cdot h \cdot \lceil s / B_M \rceil \cdot \lceil s / B_N \rceil$ and active-warp fraction $\rho$, the occupancy efficiency is $\eta_{\text{occ}} = \min(1.0, 0.05 + 0.95 \sqrt{\rho})$.
 
 2. **Transfer-size-dependent bandwidth.** Effective HBM, L2, and TMA bandwidths
    are functions of the total transfer size; the exact curves and multiplicative
