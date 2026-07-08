@@ -31,12 +31,57 @@ Individual session summaries are in [`chatlogs/analysis/`](chatlogs/analysis/).
 ## The Analytical Model
 
 This workspace contains several white-box models of FlashAttention-4 forward
-attention on NVIDIA B200. The **main proposed model** is the refined
-real-hardware predictor implemented in
-`repos/topic-main/src/fa4_b200_predictor/improved_predictor.py`. It is the model
-used for the 540-configuration evaluation and is the one we recommend using.
+attention on NVIDIA B200. The **main proposed model** is the **SASS-level RAW
+critical-path model** (Round 3). It models the forward pass of one FA4 tile
+block as a read-after-write (RAW) instruction dependency graph whose nodes are
+SASS instruction classes:
 
-### Inputs and algorithm quantities
+- TMA loads for Q, K, V tiles,
+- `tcgen05.mma` for the $Q@K^T$ and $P@V$ Tensor Core contractions,
+- SFU `exp` for the online softmax,
+- FP32 scale/update instructions for the running $O$ accumulator,
+- the TMA store of the final $O$ tile.
+
+Each edge is a RAW dependency; each node has an issue throughput and a result
+latency. The critical path is the throughput-limited schedule across the DAG
+plus the longest latency chain. Per-iteration time is scaled across all KV
+iterations, with the memory path overlapped using a stage-overlap factor. The
+model therefore predicts not only runtime but *which* instruction class and
+*which* dependency chain saturates for a given input.
+
+The final calibrated SASS model reaches 21.16% validation MAPE on the small
+16/8 B200 split. The paper argues that this level of detail is the right
+abstraction for diagnosing which hardware component and execution path will be
+the bottleneck.
+
+### Runnable approximation: node-saturation model
+
+The current code provides a concrete, runnable approximation of the SASS
+abstraction in `DetailedNodeModel`
+(`repos/topic-main/src/fa4_b200_predictor/detailed_node_model.py`). It treats
+the forward pass as a sequence of hardware-node executions (TMA load, Tensor
+Core MMA, SFU `exp`, FP32 FMA update, TMA store) and reports the predicted
+saturated component and blocking path. On the small split it reaches 16.69%
+validation MAPE and agrees with NCU component-saturation evidence (see
+`component_saturate_experiment.py`).
+
+### Sub-core partition scheduling model
+
+Round 2 refines the per-SM reservation model by modelling each Blackwell SM as
+four independent sub-core partitions. Warps are distributed across partitions,
+and the SM makespan is the busiest partition's instruction schedule. It
+reaches 16.41% validation MAPE on the small split and is useful for studying
+intra-SM scheduler bottlenecks.
+
+### Fast calibrated runtime predictor
+
+For broad configuration matrices where the full instruction dependency graph is
+not required, the repository also includes a fast roofline + launch-overhead
+predictor (`repos/topic-main/src/fa4_b200_predictor/improved_predictor.py`).
+This is the model used for the 540-configuration B200 evaluation and is the one
+to reach for when you need a runtime estimate quickly.
+
+#### Inputs and algorithm quantities
 
 The predictor takes a configuration tuple
 
@@ -59,7 +104,7 @@ quantities in `predictor.py`:
 | SMEM bytes | $B_{\text{SMEM}}$ | $b \cdot h \cdot s \cdot d \cdot 8 \cdot \sigma$ |
 | TMA bytes | $B_{\text{TMA}}$ | $\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 2.5 \cdot \sigma$ |
 
-### Roofline core
+#### Roofline core
 
 The baseline roofline is the maximum of the dominant-domain times:
 
@@ -78,7 +123,7 @@ where $R_{\text{MMA}}$ and $R_{\text{MUFU}}$ are device-level peak Tensor
 Core and special-function throughputs and the $\beta$ terms are effective
 bandwidths.
 
-### Bounded corrections
+#### Bounded corrections
 
 The refined model adds three physically scoped corrections that are calibrated
 on the calibration split only:
@@ -100,7 +145,7 @@ on the calibration split only:
    are stored in `constants.py` and scaled by $\eta_{\text{occ}}$ and bounded
    efficiency factors.
 
-### Launch-overhead term
+#### Launch-overhead term
 
 The dominant correction when moving from emulator to real B200 silicon is a
 fixed kernel dispatch latency:
@@ -113,7 +158,7 @@ Calibration recovers $\tau_{\text{fixed}} = 60\,\mu\text{s}$ and
 $\tau_{\text{per-tile}} = 0\,\mu\text{s}$. The final runtime is
 $T_{\text{pred}} = T_{\text{base}} + T_{\text{launch}}$.
 
-### Bottleneck label with NCU slack
+#### Bottleneck label with NCU slack
 
 The model labels the bottleneck as the domain with the largest individual time.
 Because NCU SpeedOfLight reports every profiled FA4 config as compute-bound even
@@ -122,7 +167,7 @@ $\gamma = 3.0$: if the dominant memory time is within a factor
 $(1 + \gamma)$ of the dominant compute time, the config is labelled
 compute-bound. This slack changes only the label, not the predicted runtime.
 
-### Accuracy
+#### Accuracy
 
 On 540 real B200 configurations (20% calibration, 20% validation, 60% query):
 
@@ -133,25 +178,6 @@ On 540 real B200 configurations (20% calibration, 20% validation, 60% query):
 | Validation within 30% | 93.3% |
 | Query within 30% | 96.4% |
 | NCU bottleneck accuracy | 100% on both splits |
-
-### Alternative execution-flow models
-
-The paper also documents three progressively more detailed execution-flow
-models that expose *which* hardware unit saturates and *which* execution path
-blocks. They are implemented in
-`repos/topic-main/src/fa4_b200_predictor/detailed_node_model.py` and are kept as
-alternatives rather than the main proposed predictor:
-
-- **Node-saturation / per-SM reservation model** (Round 1) names the saturating
-  unit (Tensor Core, SFU, FP pipe, TMA) and reaches 16.69% validation MAPE on a
-  small 16/8 split.
-- **Sub-core partition scheduling model** (Round 2) models each SM as four
-  independent partitions and reaches 16.41% validation MAPE.
-- **SASS-level RAW critical-path model** (Round 3) traces instruction
-  dependencies and reaches 21.16% validation MAPE.
-
-These models are useful for diagnosis; the refined roofline + launch-overhead
-predictor is the recommended model for runtime prediction.
 
 ## Repository Layout
 

@@ -1,9 +1,12 @@
 # Main Predictor
 
-The main proposed model is `fa4_b200_predictor.improved_predictor.ImprovedPredictor`.
-It combines a roofline workload breakdown with bounded corrections for
-occupancy, transfer-size-dependent bandwidth, precision-specific throughput,
-and a fixed launch-overhead term.
+The fast, calibrated runtime predictor is
+`fa4_b200_predictor.improved_predictor.ImprovedPredictor`. It combines a
+roofline workload breakdown with bounded corrections for occupancy,
+transfer-size-dependent bandwidth, precision-specific throughput, and a fixed
+launch-overhead term. This is the model used for the 540-configuration B200
+evaluation; the main *proposed* model in the paper is the SASS-level RAW
+critical-path model documented in [Alternative models](alternative-models.md).
 
 ## Inputs
 
