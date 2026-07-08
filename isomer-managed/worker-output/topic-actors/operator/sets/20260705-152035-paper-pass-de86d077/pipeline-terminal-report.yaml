@@ -1,0 +1,42 @@
+pipeline_id: paper-pass
+status: complete
+stages_run:
+  - stage_id: outline
+    skill: isomer-deepsci-paper-outline
+    status: complete
+    artifacts_in:
+      - artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e
+      - artifact-ANALYSIS_CAMPAIGN_SUMMARY-e8fa897761c1
+    artifacts_out:
+      - artifact-PAPER_VIEW-05381acfd95c
+      - research_task-SECTION_WRITING_PLAN-9c82294575fc
+      - artifact-outline-validation-report-ca2deb683304
+    route_decision: ready_for_write
+    notes: null
+  - stage_id: draft
+    skill: isomer-deepsci-write
+    status: complete
+    artifacts_in:
+      - artifact-PAPER_VIEW-05381acfd95c
+      - research_task-SECTION_WRITING_PLAN-9c82294575fc
+    artifacts_out:
+      - artifact-DRAFT_SECTION_SET-34fb534e1a6c
+      - view_manifest-MANUSCRIPT_VALIDATION_REPORT-871aca7fc09c
+    route_decision: review
+    notes: null
+  - stage_id: audit
+    skill: isomer-deepsci-review
+    status: complete
+    artifacts_in:
+      - artifact-DRAFT_SECTION_SET-34fb534e1a6c
+      - view_manifest-MANUSCRIPT_VALIDATION_REPORT-871aca7fc09c
+    artifacts_out:
+      - artifact-REVIEW_REPORT-d7b43af5dbff
+      - artifact-REVISION_LOG-136dc4a2657d
+      - decision_record-REVIEW_ROUTE_DECISION-91f4063a629b
+    route_decision: finalize
+    notes: only minor textual fixes remain
+final_artifact: decision_record-REVIEW_ROUTE_DECISION-91f4063a629b
+recommended_next: finalize
+blocker: null
+resume_point: null

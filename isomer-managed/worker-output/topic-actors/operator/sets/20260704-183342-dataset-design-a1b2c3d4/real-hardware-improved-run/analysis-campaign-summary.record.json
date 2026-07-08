@@ -1,0 +1,103 @@
+{
+  "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/analysis-campaign-summary.md",
+  "mutated": true,
+  "ok": true,
+  "operation": "create",
+  "query_index": {
+    "counts": {
+      "claims": 0,
+      "edges": 0,
+      "facts": 12,
+      "files": 1,
+      "ideas": 0,
+      "metrics": 0,
+      "records": 1,
+      "routes": 0
+    },
+    "diagnostics": [],
+    "mutated": true,
+    "ok": true,
+    "operation": "refresh"
+  },
+  "record": {
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/analysis-campaign-summary.md",
+    "created_at": "2026-07-04T21:02:05Z",
+    "id": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e",
+    "lifecycle_refs": {
+      "topic_actor_name": "operator"
+    },
+    "provenance_refs": [
+      "provenance:artifact:artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e"
+    ],
+    "record_kind": "artifact",
+    "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+    "status": "ready",
+    "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+    "transition_metadata": {
+      "consumer": "decision, finalize, write, experiment, idea",
+      "content_semantic_label": "topic.records.artifacts",
+      "created_by": "isomer-cli ext research records create",
+      "format_profile_ref": "isomer:deepsci/record-format/profile/report/analysis-campaign-summary/v1",
+      "payload_digest": "sha256:3ca825716cd39baf3690a386a22454d2059b622b9fce056b4dacf54ba1f495ac",
+      "placeholder": "<ANALYSIS_CAMPAIGN_SUMMARY>",
+      "producer": "isomer-deepsci-analysis",
+      "render_format": "markdown",
+      "render_status": "rendered",
+      "rendered_markdown_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/analysis-campaign-summary.md",
+      "schema_ref": "isomer:deepsci/record-format/schema/report/analysis-campaign-summary/v1",
+      "schema_source_kind": "provider_asset",
+      "semantic_label": "topic.records.artifacts",
+      "skill": "isomer-deepsci-analysis",
+      "structured_payload": true,
+      "template_ref": "isomer:deepsci/record-format/template/markdown/report/analysis-campaign-summary/v1",
+      "template_source_kind": "provider_asset",
+      "topic_actor_name": "operator",
+      "validation_status": "valid"
+    },
+    "updated_at": "2026-07-04T21:02:05Z"
+  },
+  "structured_payload": {
+    "created_at": "2026-07-04T21:02:05Z",
+    "format_profile_ref": "isomer:deepsci/record-format/profile/report/analysis-campaign-summary/v1",
+    "id": "structured-payload-artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e",
+    "payload": {
+      "metadata": {
+        "recorded_at": "2026-07-04T21:01:22.593738Z"
+      },
+      "sections": {
+        "contradiction": "All NCU-profiled configs are labeled compute-bound, but the white-box model predicts memory-bound (hbm/tma) for a substantial share of them.",
+        "key_findings": {
+          "finding_1": "MAPE and within-30% thresholds are satisfied; bottleneck accuracy is the only failing gate.",
+          "finding_2": "The bottleneck miss is systematic: predicted memory-bound vs NCU compute-bound.",
+          "finding_3": "Remaining error sources include coarse white-box\u2192NCU bottleneck mapping and unmodeled scheduler/warp effects."
+        },
+        "partial_support": "NCU bottleneck accuracy is 60.0% on validation (10 profiled) and 74.3% on query (35 profiled), just below the 75% target.",
+        "slice_run": "Audit experiment metrics, calibration gains, and NCU bottleneck mapping.",
+        "stable_support": "The improved predictor reduced validation MAPE from 55.64% to 12.62% (\u0394 +43.02 pp) and query MAPE from 43.12% to 10.01% (\u0394 +33.12 pp). Validation within-30% improved to 93.3% and query within-30% to 96.4%. Launch-overhead correction (launch_fixed_us=60.0) was the dominant fix.",
+        "unresolved_ambiguity": "The validation profiled subset is only 10 configs, so 60% may be noisy. It is unclear whether the gap is best fixed by raising compute-component costs or by a coarser compute/memory binary mapping."
+      },
+      "status": "ready",
+      "summary": "A single evidence slice audited the experiment metrics, calibration parameters, and NCU bottleneck labels. The launch-overhead correction was the dominant improvement. The remaining error is concentrated in white-box-to-NCU bottleneck mapping: the model frequently predicts memory-bound behavior while NCU reports compute-bound.",
+      "title": "Analysis campaign summary: bottleneck-accuracy audit"
+    },
+    "payload_digest": "sha256:3ca825716cd39baf3690a386a22454d2059b622b9fce056b4dacf54ba1f495ac",
+    "provenance_refs": [
+      "provenance:structured-payload:artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e"
+    ],
+    "record_id": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e",
+    "render_diagnostics": [],
+    "render_status": "rendered",
+    "rendered_markdown_digest": "sha256:8f6ee3d292e62aabd1c66a285a5f764e7dce45db542f07dbf9d3b21ae7a04c0c",
+    "rendered_markdown_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/analysis-campaign-summary.md",
+    "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+    "schema_ref": "isomer:deepsci/record-format/schema/report/analysis-campaign-summary/v1",
+    "schema_source_kind": "provider_asset",
+    "schema_version": "deepsci-structured-record.v1",
+    "template_ref": "isomer:deepsci/record-format/template/markdown/report/analysis-campaign-summary/v1",
+    "template_source_kind": "provider_asset",
+    "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+    "updated_at": "2026-07-04T21:02:05Z",
+    "validation_diagnostics": [],
+    "validation_status": "valid"
+  }
+}

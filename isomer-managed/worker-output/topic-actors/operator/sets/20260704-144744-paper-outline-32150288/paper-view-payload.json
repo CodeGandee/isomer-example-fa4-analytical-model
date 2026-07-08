@@ -1,0 +1,110 @@
+{
+  "title": "Paper View: A White-Box Analytical Model for FlashAttention-4 Runtime on NVIDIA B200",
+  "summary": "Reader-facing thesis, story spine, scoped claims, method abstraction, evaluation plan, and analysis plan for the FA4 B200 runtime-predictor paper.",
+  "status": "ready",
+  "metadata": {
+    "placeholder": "<PAPER_VIEW>",
+    "producer": "isomer-deepsci-paper-outline",
+    "consumer": "write, review",
+    "skill": "isomer-deepsci-paper-outline"
+  },
+  "sections": {
+    "thesis": "The FlashAttention-4 paper roofline is a useful first-order model, but it systematically overestimates achievable throughput because it assumes peak HBM/L2/TMA bandwidth and full occupancy. By adding three physically interpretable corrections—tile-size-dependent occupancy, transfer-size-dependent effective bandwidth, and precision-specific Tensor Core/MUFU rates—the model predicts B200 forward-pass runtime within 4.5% MAPE and correctly labels the dominant bottleneck on every held-out configuration.",
+    "story_spine": [
+      "Kernel runtime prediction is usually treated as a black-box regression problem; we argue that a white-box model grounded in the GPU execution model is more useful for bottleneck diagnosis.",
+      "The FlashAttention-4 roofline provides a clean algorithmic baseline but ignores occupancy saturation and effective bandwidth on Blackwell.",
+      "We extend the roofline with bounded, interpretable corrections and calibrate them on a disjoint set of emulator-generated measurements.",
+      "Ablations show that effective TMA/L2 bandwidth is the dominant error source; occupancy and precision terms refine the result.",
+      "The combined model satisfies every success criterion and can identify the limiting hardware domain without launching the kernel."
+    ],
+    "target_reader": "Systems and machine-learning researchers, GPU kernel engineers, and performance analysts who need interpretable, hardware-grounded runtime estimates for attention kernels.",
+    "scoped_claims": [
+      "On the held-out synthetic validation set of 160 FlashAttention-4 forward-pass configurations, the combined predictor achieves 4.50% MAPE versus 22.22% for the reproduced roofline baseline.",
+      "All 160 validation configurations fall within 30% absolute error, and the predicted dominant bottleneck matches the emulator on all 160.",
+      "The TMA/L2 effective-bandwidth correction alone achieves 5.76% MAPE; occupancy and precision terms reduce MAPE further to 4.50% and max APE from 19.9% to 14.4%.",
+      "The model operates from the input configuration alone and does not use measured runtime of the target input."
+    ],
+    "method_abstraction": {
+      "input": "A FlashAttention-4 forward-pass configuration: batch size, number of heads, sequence length, head dimension, causal mask, and precision (BF16/FP16/FP8/FP4).",
+      "algorithm_quantities": "White-box counts of MMA FLOPs, exponential/softmax operations, HBM bytes, L2 bytes, shared-memory bytes, and TMA bytes derived from the FA4 algorithm.",
+      "baseline": "A max-domain roofline using peak B200 HBM bandwidth, L2 bandwidth, shared-memory bandwidth, Tensor Core MMA throughput, and MUFU throughput.",
+      "corrections": [
+        "Occupancy factor: active-warps estimate per tile geometry, with throughput scaling sub-linearly at low occupancy.",
+        "Effective bandwidth: transfer-size-dependent HBM, L2, and TMA throughput curves that account for latency and protocol overhead.",
+        "Precision-specific throughput: per-precision Tensor Core MMA and MUFU rates rather than a single FLOP constant."
+      ],
+      "output": "Predicted runtime in milliseconds, predicted dominant bottleneck label, and per-stage time breakdown."
+    },
+    "evaluation_plan": {
+      "dataset": "Synthetic configuration matrix spanning batch, heads, sequence length, head dimension, causal/non-causal mask, and precision.",
+      "split": "20% calibration split for bounded factor estimation, 20% held-out validation split for accuracy reporting, 60% reserved for future query/tests.",
+      "metrics": [
+        "Mean Absolute Percentage Error (MAPE) of predicted_runtime_ms",
+        "Max Absolute Percentage Error (Max APE)",
+        "Percentage of validation configs within 30% absolute error",
+        "Bottleneck-label accuracy"
+      ],
+      "comparator": "Reproduced and B200-extended FlashAttention-4 paper roofline baseline (artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4).",
+      "fairness_rules": [
+        "No model uses the measured runtime of a target input.",
+        "Calibration constants come only from the disjoint calibration split.",
+        "All predictors use the same hardware clocks, tile assumptions, and metric definitions."
+      ]
+    },
+    "analysis_plan": [
+      "Ablation: report MAPE, max APE, 30%-error coverage, and bottleneck accuracy for baseline, occupancy-only, TMA/L2-effective-bandwidth-only, precision-only, and combined models.",
+      "Precision breakdown: report per-precision MAPE and max APE to check for format-specific failure modes.",
+      "Per-bottleneck residual: compare MAPE and max APE across HBM, L2, TMA, MMA, and MUFU-limited configurations to show where the model is strongest and weakest.",
+      "Worst-case inspection: list the top three configurations by absolute percentage error and explain whether the residual is a structural limitation or a calibration edge case.",
+      "Calibration-overfitting check: compare calibration-set MAPE (4.56%) with validation-set MAPE (4.50%) to show the model is not overfitting the calibration split."
+    ],
+    "outline": [
+      {
+        "section": "Abstract",
+        "content": "State the problem (black-box runtime models hide causality), the approach (extend the FlashAttention-4 roofline with occupancy, effective bandwidth, and precision terms), the key results (4.50% MAPE, 100% within 30%, 100% bottleneck accuracy, +17.7 pp vs baseline), and the implication (bottleneck diagnosis without kernel execution). Keep to one paragraph."
+      },
+      {
+        "section": "Introduction",
+        "content": "Motivate white-box GPU performance modeling for attention kernels. Define the goal: predict FlashAttention-4 runtime and identify the bottleneck from input configuration alone. Summarize the three corrections and the empirical result. List contributions: (1) a white-box analytical predictor with physically interpretable corrections, (2) an ablation showing TMA/L2 bandwidth is the dominant error source, (3) a validation protocol and emulator-grounded evidence. Provide a roadmap."
+      },
+      {
+        "section": "Related Work",
+        "content": "Review FlashAttention-1 through FlashAttention-4 algorithmic advances and their roofline-style analyses. Survey GPU performance modeling: analytical roofline models, microbenchmark-driven effective-bandwidth models, simulation/emulation, and black-box ML surrogates. Discuss Blackwell architecture specifics (TMA, increased L2 bandwidth, Tensor Core variants). Identify the gap: existing FA4 roofline models do not systematically account for occupancy, transfer-size-dependent bandwidth, or precision-specific throughput on B200."
+      },
+      {
+        "section": "Method / Model",
+        "content": "Present the white-box workload computation (FLOPs, bytes, op counts). Define the baseline roofline. Introduce each correction with its equation: occupancy factor as a function of tile count and SM resident-warps limit; effective HBM, L2, and TMA bandwidth as functions of transfer size; precision-specific MMA and MUFU rates. Explain bounded calibration and the bottleneck-labeling rule. Include a figure or algorithm box summarizing the predictor pipeline."
+      },
+      {
+        "section": "Experiments",
+        "content": "Describe the synthetic configuration matrix and the train/validation split. Explain the high-fidelity white-box emulator and why it was used in place of silicon sweeps. Define the five predictor variants, the calibration procedure (bounded grid search), and the evaluation metrics. State the success criteria from the evaluation contract."
+      },
+      {
+        "section": "Results",
+        "content": "Present a table comparing baseline, occupancy-only, TMA/L2-effective-bandwidth, precision-only, and combined models. Report combined MAPE, max APE, 30%-error coverage, and bottleneck accuracy. Include a precision breakdown table and a per-bottleneck residual table. Provide a scatter plot of predicted vs measured runtime and a residual-by-bottleneck plot. Discuss worst cases."
+      },
+      {
+        "section": "Limitations",
+        "content": "State that ground truth is emulator-based, not real silicon. Note the synthetic matrix and omitted launch parameters (custom tile sizes, num_splits, fused variants). Acknowledge that tile-size and occupancy assumptions are approximations and that calibration factors may need re-validation on silicon. Mention the 3% emulator noise floor."
+      },
+      {
+        "section": "Conclusion",
+        "content": "Summarize the contribution: a white-box predictor that meets all success criteria by correcting the FA4 roofline with occupancy, effective bandwidth, and precision terms. Emphasize that the model enables bottleneck diagnosis without kernel execution. Outline next steps: silicon transfer validation, extension to custom launch parameters, and integration into a kernel-design search loop."
+      }
+    ],
+    "figures_and_tables": [
+      "Table 1: Ablation metrics (baseline, occupancy-only, TMA/L2-effective-bandwidth, precision-only, combined).",
+      "Table 2: Per-precision MAPE and max APE for the combined model.",
+      "Table 3: Per-bottleneck MAPE and max APE for the combined model.",
+      "Figure 1: Predicted vs measured runtime (combined model) with identity line and 30% error bands.",
+      "Figure 2: Residual distribution by predicted bottleneck.",
+      "Figure 3: Model pipeline diagram (config -> workload -> corrected roofline -> runtime + bottleneck)."
+    ],
+    "citation_needs": [
+      "FlashAttention-4 paper (arXiv 2603.05451v1)",
+      "Blackwell microbenchmarks (arXiv 2512.02189v1)",
+      "White-box GPU performance modeling methodology (arXiv 2605.04178v1)",
+      "Prior FlashAttention papers and roofline analyses as context permits"
+    ]
+  }
+}

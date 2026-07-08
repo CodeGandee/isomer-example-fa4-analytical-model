@@ -1,0 +1,82 @@
+digraph gpu_execution {
+    graph [
+        rankdir=TB,
+        dpi=100,
+        fontname="sans-serif",
+        fontsize=14,
+        label="",
+        labelloc=t,
+        labeljust=center
+    ];
+    node [
+        shape=box,
+        style="filled,rounded",
+        fillcolor="#f8f8f8",
+        fontname="sans-serif",
+        fontsize=11
+    ];
+    edge [
+        fontname="sans-serif",
+        fontsize=9,
+        color="#333333",
+        arrowsize=0.8
+    ];
+
+    host [label="Host dispatch /\nkernel launch", fillcolor="#e6f2ff"];
+
+    subgraph cluster_gpu {
+        label="NVIDIA B200 GPU (180 SMs)";
+        labelloc=t;
+        style="rounded,filled";
+        fillcolor="#f0f0f0";
+        color="#666666";
+
+        subgraph cluster_sm {
+            label="One SM (zoom)";
+            labelloc=t;
+            style="filled,rounded";
+            fillcolor="#fffbe6";
+            color="#aaaaaa";
+
+            sched [label="Warp schedulers\n(4 per SM)"];
+            score [label="Scoreboard"];
+            rf [label="Register file\n(RF / accumulators)"];
+            oc [label="Operand\ncollectors"];
+            tc [label="Tensor Core\nMMA unit", fillcolor="#e6ffe6"];
+            mufu [label="MUFU / SFU\nunit", fillcolor="#ffe6e6"];
+            l1 [label="L1 data cache"];
+            smem [label="Shared memory\n(SMEM)"];
+        }
+
+        xbar [label="On-chip interconnect\n(xbar / NoC)", fillcolor="#eeeeee"];
+    }
+
+    l2 [label="L2 cache\n(partitioned)", fillcolor="#e6e6ff"];
+    mempart [label="Memory partitions\n+ HBM controllers", fillcolor="#fff0e6"];
+    hbm [label="HBM banks /\nrow buffers", fillcolor="#ffe6f2"];
+
+    host -> xbar [label="grid + tile descriptors"];
+
+    xbar -> l2 [label="miss traffic"];
+    l2 -> mempart [label="L2 misses"];
+    mempart -> hbm [label="DRAM requests"];
+
+    hbm -> mempart -> l2 -> xbar [label="Q/K/V load", color="#1f77b4", fontcolor="#1f77b4"];
+    xbar -> l1 [label="to L1", color="#1f77b4", fontcolor="#1f77b4"];
+    l1 -> rf [label="to RF / SMEM", color="#1f77b4", fontcolor="#1f77b4"];
+    l1 -> smem [label="to SMEM", color="#1f77b4", fontcolor="#1f77b4"];
+
+    rf -> oc [label="operands"];
+    oc -> tc [label="MMA Q@K^T\nP@V", color="#2ca02c", fontcolor="#2ca02c"];
+    tc -> rf [label="accumulators", color="#2ca02c", fontcolor="#2ca02c"];
+
+    rf -> mufu [label="softmax exp", color="#ff7f0e", fontcolor="#ff7f0e"];
+    mufu -> smem [label="row reduction", color="#ff7f0e", fontcolor="#ff7f0e"];
+    smem -> rf [label="scaled scores", color="#ff7f0e", fontcolor="#ff7f0e"];
+
+    rf -> l1 -> xbar -> l2 -> mempart -> hbm [label="O store", color="#9467bd", fontcolor="#9467bd"];
+
+    sched -> score -> rf -> oc [style="invis"];
+    rf -> l1 [style="invis"];
+    xbar -> l1 [style="invis"];
+}

@@ -1,0 +1,65 @@
+{
+  "title": "Main Run Record: FA4 B200 Combined Predictor Experiment",
+  "summary": "White-box experiment run for the FA4 B200 runtime model hypothesis.",
+  "status": "completed",
+  "sections": {
+    "run_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1-run-20260704-130224",
+    "contract_reference": "artifact-EVALUATION_CONTRACT-7f255a5e6694",
+    "implementation_change_map": {
+      "changed_files": [
+        "repos/topic-main/src/fa4_b200_predictor/__init__.py",
+        "repos/topic-main/src/fa4_b200_predictor/constants.py",
+        "repos/topic-main/src/fa4_b200_predictor/predictor.py",
+        "repos/topic-main/src/fa4_b200_predictor/emulator.py",
+        "repos/topic-main/src/fa4_b200_predictor/config_matrix.py",
+        "repos/topic-main/src/fa4_b200_predictor/calibrate.py",
+        "repos/topic-main/src/fa4_b200_predictor/evaluate.py",
+        "repos/topic-main/src/fa4_b200_predictor/run_experiment.py"
+      ],
+      "intended_mechanism": "Added tile-size-dependent occupancy, effective HBM/L2/TMA bandwidth curves, precision-specific MMA/MUFU throughput, and a bounded launch-overhead term to the FA4 paper roofline baseline.",
+      "risks": "Emulator-based ground truth is a documented limitation; real B200 kernel measurements would strengthen evidence."
+    },
+    "commands": [
+      {
+        "command": "python -m fa4_b200_predictor.run_experiment --output-dir <operation_set_dir> --seed 20260704",
+        "cwd": "repos/topic-main/src",
+        "purpose": "Generate configs, emulate ground truth, calibrate predictors, evaluate on held-out validation set."
+      }
+    ],
+    "environment_facts": {
+      "gpu": "NVIDIA B200",
+      "compute_capability": "10.0",
+      "driver_version": "590.48.01",
+      "cuda_runtime": "13.1",
+      "peak_sm_clock_mhz": 1965,
+      "memory_clock_mhz": 3996,
+      "ncu_version": "2025.4.1.0",
+      "ncu_path": "<NCU_PATH>",
+      "python": "3.11",
+      "seed": 20260704
+    },
+    "outputs": {
+      "operation_set_dir": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-130224-experiment-7f255a5e",
+      "metrics_file": "validation_metrics.json",
+      "predictions_file": "combined_predictions.csv",
+      "calibration_params_file": "calibration_params.json",
+      "config_splits_dir": "configs"
+    },
+    "metrics": {
+      "baseline_mape": 22.216442058711912,
+      "combined_mape": 4.496608444017569,
+      "delta_mape_pp": 17.719831614694343,
+      "max_ape": 14.363718640933895,
+      "pct_within_30": 100.0,
+      "bottleneck_accuracy": 100.0
+    },
+    "seeds": [20260704],
+    "last_known_good_state": "Run completed successfully; all metrics finite and success criteria met."
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-experiment",
+    "placeholder": "<MAIN_RUN_RECORD>",
+    "producer": "isomer-deepsci-experiment",
+    "consumer": "isomer-deepsci-analysis, decision, optimize, finalize"
+  }
+}

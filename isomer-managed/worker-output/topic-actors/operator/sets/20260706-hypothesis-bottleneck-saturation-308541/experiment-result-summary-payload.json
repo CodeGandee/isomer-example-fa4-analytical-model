@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "consumer": "isomer-deepsci-analysis, decision, optimize, finalize",
+    "placeholder": "<EXPERIMENT_RESULT_SUMMARY>",
+    "producer": "isomer-deepsci-experiment",
+    "skill": "isomer-deepsci-experiment"
+  },
+  "sections": {
+    "ablations_summary": {
+      "combined": {
+        "coarse_bottleneck_accuracy": 66.67,
+        "fine_bottleneck_accuracy": 66.67,
+        "n_configs": 12,
+        "n_regimes": 4
+      }
+    },
+    "baseline_relation": "n/a",
+    "caveats": [
+      "Only four of the six white-box bottleneck labels (hbm, tma, mma, mufu) are independently saturatable with the current workload model; l2 and smem bandwidths dominate the other memory stages in every tested configuration.",
+      "NCU SpeedOfLight reports only coarse compute/memory families. The fine label mapping back to mma/mufu and hbm/l2/smem/tma uses predictor per-stage times, so fine-label accuracy is not an independent hardware measurement.",
+      "All profiling used a single B200 GPU (cuda:0) with NCU 2025.4.1; multi-GPU and concurrency effects are not captured.",
+      "The experiment keeps the combined predictor's default calibration (hbm_factor=0.80, l2_factor=0.70, tma_factor=0.65, smem_factor=0.90, mma_efficiency=0.85, mufu_efficiency=0.85)."
+    ],
+    "claim_update": "The selected hypothesis is partially supported: the white-box predictor correctly identifies compute-bound regimes (mma and mufu) but over-predicts memory/TMA dominance for several configurations that hardware counters measure as compute-bound.",
+    "claim_verdict": "partially_supported",
+    "comparability": "Ground truth is NCU SpeedOfLight compute/memory throughput on real B200 hardware. Predictions come from the combined white-box predictor with no runtime calibration; only bottleneck labels are compared.",
+    "failure_mode": "The model's TMA time is too large relative to MMA time for medium-size problems, causing three TMA-targeted configs to be labelled memory-bound by the model while NCU reports them as compute-bound. One HBM-targeted config is also misclassified.",
+    "intervention": "Selected 12 extreme FA4 configurations across hbm/tma/mma/mufu regimes, predicted bottleneck labels with the combined white-box predictor, and profiled each config with ncu --section SpeedOfLight on cuda:0.",
+    "metrics": {
+      "coarse_bottleneck_accuracy": 66.66666666666666,
+      "fine_bottleneck_accuracy": 66.66666666666666,
+      "n_configs": 12,
+      "ncu_error": 0,
+      "ncu_ok": 12,
+      "per_regime": {
+        "hbm": {
+          "coarse_accuracy": 66.67,
+          "count": 3,
+          "fine_accuracy": 66.67,
+          "ncu_coarse_labels": ["memory", "memory", "compute"],
+          "ncu_fine_labels": ["hbm", "hbm", "mma"],
+          "predicted_labels": ["hbm", "hbm", "hbm"]
+        },
+        "mma": {
+          "coarse_accuracy": 100.0,
+          "count": 3,
+          "fine_accuracy": 100.0,
+          "ncu_coarse_labels": ["compute", "compute", "compute"],
+          "ncu_fine_labels": ["mma", "mma", "mma"],
+          "predicted_labels": ["mma", "mma", "mma"]
+        },
+        "mufu": {
+          "coarse_accuracy": 100.0,
+          "count": 3,
+          "fine_accuracy": 100.0,
+          "ncu_coarse_labels": ["compute", "compute", "compute"],
+          "ncu_fine_labels": ["mufu", "mufu", "mufu"],
+          "predicted_labels": ["mufu", "mufu", "mufu"]
+        },
+        "tma": {
+          "coarse_accuracy": 0.0,
+          "count": 3,
+          "fine_accuracy": 0.0,
+          "ncu_coarse_labels": ["compute", "compute", "compute"],
+          "ncu_fine_labels": ["mma", "mma", "mma"],
+          "predicted_labels": ["tma", "tma", "tma"]
+        }
+      }
+    },
+    "next_action": "Proceed to isomer-deepsci-analysis to diagnose why the model over-weights TMA relative to MMA for medium-size configs and whether an overlap term or revised TMA bandwidth curve improves bottleneck classification.",
+    "primary_metric": "coarse_bottleneck_accuracy_vs_ncu_speed_of_light",
+    "research_question": "Can the FA4 B200 white-box predictor correctly predict the dominant bottleneck regime when configurations are pushed to saturate a specific hardware component?",
+    "selected_hypothesis_id": "bottleneck-saturation-validation-20260706",
+    "takeaway": "The predictor is a useful bottleneck classifier for strongly compute-bound configs (mma/mufu) but currently misclassifies medium-size memory/TMA configs as memory-bound when hardware counters show they are compute-bound."
+  },
+  "status": "ready",
+  "summary": "Bottleneck-saturation experiment on B200: predictor is 100% accurate on mma/mufu regimes but 0% accurate on the tma regime and 67% on the hbm regime.",
+  "title": "Experiment Result Summary: Bottleneck-Saturation Validation of the FA4 B200 Predictor"
+}

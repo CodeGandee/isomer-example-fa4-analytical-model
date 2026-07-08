@@ -1,0 +1,12 @@
+{
+  "tc_efficiency": 3.0,
+  "sfu_efficiency": 0.20000799744646316,
+  "fp_efficiency": 3.0,
+  "mem_efficiency": 0.9798226856140166,
+  "partition_imbalance_factor": 1.6094252028702893,
+  "stage_overlap_factor": 0.85,
+  "launch_overhead_us": 16.39856082847466,
+  "num_sms": 176,
+  "partitions_per_sm": 4,
+  "peak_sm_clock_mhz": 1965.0
+}

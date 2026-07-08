@@ -1,0 +1,54 @@
+pipeline_id: empirical-pass
+status: complete
+stages_run:
+  - stage_id: frame
+    skill: isomer-deepsci-scout
+    status: complete
+    artifacts_in: []
+    artifacts_out:
+      - research-frame
+    route_decision: baseline
+    notes: Framing clear; evaluation contract and baseline shortlist recorded.
+  - stage_id: comparator
+    skill: isomer-deepsci-baseline
+    status: complete
+    artifacts_in:
+      - research-frame
+    artifacts_out:
+      - comparator-contract
+    route_decision: idea
+    notes: FlashAttention-4 paper roofline for B200 accepted as comparator.
+  - stage_id: ideate
+    skill: isomer-deepsci-idea
+    status: complete
+    artifacts_in:
+      - research-frame
+      - comparator-contract
+    artifacts_out:
+      - selected-hypothesis
+    route_decision: experiment
+    notes: Selected hypothesis fa4-b200-whitebox-occupancy-tma-l2-precision-v1.
+  - stage_id: run
+    skill: isomer-deepsci-experiment
+    status: complete
+    artifacts_in:
+      - selected-hypothesis
+      - comparator-contract
+    artifacts_out:
+      - experiment-result
+    route_decision: analysis
+    notes: Hypothesis supported; combined model MAPE 4.50% vs baseline 22.22%.
+  - stage_id: interpret
+    skill: isomer-deepsci-analysis
+    status: complete
+    artifacts_in:
+      - experiment-result
+      - comparator-contract
+    artifacts_out:
+      - analysis-finding
+    route_decision: finalize
+    notes: TMA/L2 bandwidth correction dominant; occupancy and precision terms refine.
+final_artifact: analysis-finding
+recommended_next: finalize
+blocker: null
+resume_point: null

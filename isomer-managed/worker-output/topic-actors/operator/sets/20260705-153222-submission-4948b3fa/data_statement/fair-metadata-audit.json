@@ -1,0 +1,4 @@
+{
+  "title": "FAIR Metadata Audit",
+  "body": "# FAIR Metadata Audit\n\n| Element | Status | Notes |\n|---|---|---|\n| Findable | blocked | No public repository or DOI yet. |\n| Accessible | blocked | Data available on request only until deposit. |\n| Interoperable | partial | CSV columns are self-describing in `generate_figures.py`; formal data dictionary pending. |\n| Reusable | partial | Code and data licenses are planned but not assigned. |\n| README | pending | Will be added to public repository. |\n| Provenance | partial | Measurement protocol described in Section 4.2; full provenance log pending. |\n\nNo invented accession numbers or licenses are claimed.\n"
+}

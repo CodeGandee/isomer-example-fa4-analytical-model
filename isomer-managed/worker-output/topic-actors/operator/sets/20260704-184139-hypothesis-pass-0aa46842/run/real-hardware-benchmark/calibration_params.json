@@ -1,0 +1,23 @@
+{
+  "combined": {
+    "hbm_factor": 0.95,
+    "mma_efficiency": 0.95,
+    "mufu_efficiency": 0.95,
+    "launch_overhead_us": 0.0
+  },
+  "ablations": {
+    "occupancy_only": {
+      "mma_efficiency": 1.0,
+      "mufu_efficiency": 1.0
+    },
+    "tma_l2_effective_bw": {
+      "hbm_factor": 0.95,
+      "l2_factor": 0.45,
+      "tma_factor": 0.75
+    },
+    "precision_only": {
+      "mma_efficiency": 1.0,
+      "mufu_efficiency": 1.0
+    }
+  }
+}

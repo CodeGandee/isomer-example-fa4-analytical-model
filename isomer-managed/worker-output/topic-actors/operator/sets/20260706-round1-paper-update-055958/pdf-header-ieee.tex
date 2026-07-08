@@ -1,0 +1,19 @@
+\usepackage{newunicodechar}
+\usepackage{tabularx}
+\usepackage{chngcntr}
+\usepackage{fancyvrb}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{fontsize=\scriptsize}
+\sloppy
+% Allow line breaks inside \texttt after escaped underscores
+\renewcommand{\texttt}[1]{%
+  \begingroup
+  \ttfamily
+  \catcode`_=12
+  \def\_{\char`\_\allowbreak}%
+  #1%
+  \endgroup
+}
+\counterwithout{figure}{section}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{μ}{\ensuremath{\mu}}

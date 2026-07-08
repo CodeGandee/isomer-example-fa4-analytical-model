@@ -1,0 +1,3 @@
+model,mape,max_ape,pct_within_30,bottleneck_accuracy,ncu_bottleneck_accuracy,ncu_profiled_count,n_configs
+baseline_fa4_roofline,55.64357557358759,364.8441999680641,46.666666666666664,0.0,,,105
+improved,12.621659832731694,74.92812013573487,93.33333333333333,0.0,60.0,10,105

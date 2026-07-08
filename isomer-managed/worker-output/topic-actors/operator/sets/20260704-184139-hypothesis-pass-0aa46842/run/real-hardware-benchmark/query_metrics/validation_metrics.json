@@ -1,0 +1,44 @@
+{
+  "baseline_fa4_roofline": {
+    "mape": 42.3015192502897,
+    "max_ape": 353.93053513355477,
+    "pct_within_30": 51.388888888888886,
+    "bottleneck_accuracy": 100.0,
+    "n_configs": 504
+  },
+  "occupancy_only": {
+    "mape": 42.3015192502897,
+    "max_ape": 353.93053513355477,
+    "pct_within_30": 51.388888888888886,
+    "bottleneck_accuracy": 100.0,
+    "n_configs": 504
+  },
+  "tma_l2_effective_bw": {
+    "mape": 53.96422552836364,
+    "max_ape": 505.22448143194015,
+    "pct_within_30": 49.20634920634921,
+    "bottleneck_accuracy": 85.91269841269842,
+    "n_configs": 504
+  },
+  "precision_only": {
+    "mape": 42.3015192502897,
+    "max_ape": 353.93053513355477,
+    "pct_within_30": 51.388888888888886,
+    "bottleneck_accuracy": 100.0,
+    "n_configs": 504
+  },
+  "combined": {
+    "mape": 65.19667316074563,
+    "max_ape": 598.3284483847924,
+    "pct_within_30": 41.07142857142857,
+    "bottleneck_accuracy": 85.91269841269842,
+    "n_configs": 504
+  },
+  "combined_calibration": {
+    "mape": 74.52531165274445,
+    "max_ape": 487.9463472268535,
+    "pct_within_30": 43.333333333333336,
+    "bottleneck_accuracy": 89.44444444444444,
+    "n_configs": 180
+  }
+}

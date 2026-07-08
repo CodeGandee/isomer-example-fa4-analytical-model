@@ -1,0 +1,65 @@
+digraph blackwell_fa4_execution {
+    rankdir=LR;
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+    edge [fontname="Helvetica", fontsize=9, arrowhead=vee];
+    graph [fontname="Helvetica", fontsize=12, bgcolor="white"];
+
+    // Memory hierarchy column
+    subgraph cluster_memory {
+        label="Memory hierarchy";
+        color=lightgrey;
+        style=rounded;
+        HBM [label="HBM3e\n8 TB/s peak", fillcolor="#f4cccc", width=1.6];
+        L2 [label="L2 Cache\n64 MB, 24 TB/s", fillcolor="#cfe2f3", width=1.6];
+        XBAR [label="Crossbar / NoC", fillcolor="#d9ead3", width=1.6];
+    }
+
+    // SM column
+    subgraph cluster_sm {
+        label="Streaming Multiprocessor (SM) × 176";
+        color=darkgreen;
+        style=rounded;
+
+        TMA [label="TMA unit\nasync load/store", fillcolor="#fff2cc", width=1.6];
+        TMEM [label="Tensor Memory\n256 KB/SM", fillcolor="#d9d2e9", width=1.6];
+        TC [label="5th-gen Tensor Cores\nFP16/FP8/FP4 MMA", fillcolor="#ead1dc", width=1.6];
+        SFU [label="SFU\nexp / rsqrt", fillcolor="#fce5cd", width=1.6];
+        FP [label="FP32 / INT32\nscale / update", fillcolor="#fce5cd", width=1.6];
+        Sched [label="Warp Schedulers\n4 per SM", fillcolor="#ddebf7", width=1.6];
+        LDST [label="LD/ST units\nL1 / shared mem", fillcolor="#d9ead3", width=1.6];
+    }
+
+    // Align memory hierarchy vertically
+    { rank=same; HBM; L2; XBAR }
+    HBM -> L2 [label="miss traffic"];
+    L2 -> XBAR [label="miss traffic"];
+
+    // Crossbar to TMA
+    XBAR -> TMA [label="coalesced\nTMA requests", lhead=cluster_sm];
+
+    // Scheduler issues to units
+    Sched -> TC [style=dashed, label="issue"];
+    Sched -> SFU [style=dashed, label="issue"];
+    Sched -> FP [style=dashed, label="issue"];
+    Sched -> LDST [style=dashed, label="issue"];
+
+    // Data flow inside SM
+    TMA -> TMEM [label="Q/K/V tiles"];
+    TMEM -> TC [label="operands"];
+    TC -> TMEM [label="accumulators"];
+    TMEM -> SFU [label="scores"];
+    SFU -> FP [label="exp(row)"];
+    FP -> TC [label="normalized\nscores"];
+    TC -> TMEM [label="P@V output"];
+    TMEM -> LDST [label="O tile"];
+    LDST -> TMA [label="async\nstore"];
+
+    // Store path back to memory
+    TMA -> XBAR [label="store O", ltail=cluster_sm];
+    XBAR -> L2 [label="writeback"];
+    L2 -> HBM [label="dirty\nevictions"];
+
+    // Force vertical alignment of SM units
+    { rank=same; TMA; TMEM; TC }
+    { rank=same; SFU; FP; Sched; LDST }
+}

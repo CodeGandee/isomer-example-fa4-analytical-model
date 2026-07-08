@@ -1,0 +1,4 @@
+{
+  "title": "Finalize Continuity Update — FlashAttention-4 White-Box Runtime Model",
+  "body": "# Finalize Continuity Update — FlashAttention-4 White-Box Runtime Model\n\n- record_type: view_manifest / continuity note\n- produced_by: isomer-deepsci-finalize at submission-pass close\n- resume_point: real B200 silicon validation and repository deposit\n- first_reads:\n  - close/final-summary.md\n  - close/claim-ledger.md\n  - close/resume-packet.md\n  - bundle/revised-draft.md\n- blocked_gates: silicon validation, venue selection, public repository deposit\n- next_action_when_resumed: update data-availability statement with real identifiers; rerun `isomer-deepsci-finalize` closure decision\n- notes: The paper bundle is ready; only external evidence and venue packaging remain.\n"
+}

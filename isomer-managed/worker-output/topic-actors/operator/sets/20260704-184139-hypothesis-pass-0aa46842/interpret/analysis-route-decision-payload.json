@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "consumer": "any production DeepSci research skill",
+    "placeholder": "<ANALYSIS_ROUTE_DECISION>",
+    "producer": "isomer-deepsci-analysis",
+    "skill": "isomer-deepsci-analysis"
+  },
+  "sections": {
+    "decision": "experiment",
+    "evidence_refs": [
+      "artifact-ANALYSIS_CAMPAIGN_SUMMARY-9932a6e83b29",
+      "evidence_item-EXPERIMENT_RESULT_SUMMARY-0e6af52b5f23",
+      "run-MAIN_RUN_RECORD-cc19cf5c010a"
+    ],
+    "reason": "The real-hardware hypothesis is refuted and the analysis identifies concrete, addressable transfer gaps: (1) launch-overhead/small-config latency is unmodeled, (2) efficiency factors are misspecified for real B200 scheduling, and (3) bottleneck labels lack hardware-counter ground truth. The best next step is a targeted experiment that adds a launch-overhead term, expands the calibration search space, and revalidates on real B200 measurements.",
+    "route": "experiment"
+  },
+  "status": "ready",
+  "summary": "Route to a targeted follow-up experiment to close the real-hardware transfer gaps.",
+  "title": "Analysis Route Decision: Follow-up Experiment"
+}

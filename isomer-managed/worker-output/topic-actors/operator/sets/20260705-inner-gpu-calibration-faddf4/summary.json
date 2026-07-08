@@ -1,0 +1,24 @@
+{
+  "calibration_mape_percent": 18.26,
+  "validation_mape_percent": 21.39,
+  "baseline_validation_mape_percent": 56.23,
+  "improved_validation_mape_percent": 14.89,
+  "calibration_count": 16,
+  "validation_count": 8,
+  "calibration_success": true,
+  "fit_params": [
+    1.5492405422505267,
+    0.9436807361725201,
+    0.09255035962029354,
+    0.3071915546672825,
+    0.65
+  ],
+  "spec": {
+    "mma_throughput_per_sm_per_clock_fp16": 3172.8446305290786,
+    "mma_throughput_per_sm_per_clock_fp8": 6345.689261058157,
+    "operand_collector_efficiency": 0.9436807361725201,
+    "l1_miss_rate": 0.09255035962029354,
+    "l2_miss_rate": 0.3071915546672825,
+    "hbm_row_buffer_hit_rate": 0.65
+  }
+}

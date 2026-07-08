@@ -1,0 +1,35 @@
+pipeline_id: hypothesis-pass
+status: complete
+stages_run:
+  - stage_id: ideate
+    skill: isomer-deepsci-idea
+    status: complete
+    artifacts_in:
+      - artifact-SELECTED_HYPOTHESIS-80aa602f908c
+    artifacts_out:
+      - artifact-SELECTED_HYPOTHESIS-38690c2ae38c
+    route_decision: experiment
+    notes: Selected the bottleneck-threshold calibration hypothesis; set ready_for_experiment=true.
+  - stage_id: run
+    skill: isomer-deepsci-experiment
+    status: complete
+    artifacts_in:
+      - artifact-SELECTED_HYPOTHESIS-38690c2ae38c
+    artifacts_out:
+      - evidence_item-EXPERIMENT_RESULT_SUMMARY-6e2d99577a95
+    route_decision: analysis
+    notes: Reused the 540-config real B200 measurement matrix and 60 NCU records from the previous improved run; calibrated bottleneck_mem_slack=3.0 on calibration NCU labels. Refined predictor status supported.
+  - stage_id: interpret
+    skill: isomer-deepsci-analysis
+    status: complete
+    artifacts_in:
+      - evidence_item-EXPERIMENT_RESULT_SUMMARY-6e2d99577a95
+    artifacts_out:
+      - artifact-ANALYSIS_CAMPAIGN_SUMMARY-e8fa897761c1
+    route_decision: decision
+    notes: Confirmed bottleneck accuracy improved to 100% on validation/query while MAPE and within-30% remained unchanged.
+final_artifact: artifact-ANALYSIS_CAMPAIGN_SUMMARY-e8fa897761c1
+recommended_next: decision
+blocker: null
+resume_point: null
+generated_at: 2026-07-05T14:45:51Z

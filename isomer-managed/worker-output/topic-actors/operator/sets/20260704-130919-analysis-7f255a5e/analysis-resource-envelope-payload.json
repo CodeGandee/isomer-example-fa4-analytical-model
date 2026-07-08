@@ -1,0 +1,24 @@
+{
+  "title": "Analysis Resource Envelope: FA4 B200 Read-Only Audit",
+  "summary": "Execution envelope for the analysis stage: a read-only audit of existing experiment outputs, run on the local workstation with no additional compute budget required.",
+  "status": "ready",
+  "sections": {
+    "device": "Local Linux workstation",
+    "cpu": "sufficient for CSV/JSON audit",
+    "memory": "low (a few MB of predictions and metrics)",
+    "storage": "worker output root on <PROJECT_ROOT>/isomer-content",
+    "wall_clock": "analysis stage bounded to minutes (no new experiment launched)",
+    "dependencies": ["pixi-managed Python 3.11 environment", "isomer-cli"],
+    "credentials": "none required",
+    "services": "none required",
+    "concurrency": "single-threaded audit",
+    "blocked_slices": "none; no supplementary slices were needed because the existing experiment outputs already answer the evidence question.",
+    "runnable_now": ["read-only audit of validation_metrics.json, combined_predictions.csv, and calibration_params.json"]
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-analysis",
+    "placeholder": "<ANALYSIS_RESOURCE_ENVELOPE>",
+    "producer": "isomer-deepsci-analysis",
+    "consumer": "campaign design and execution"
+  }
+}

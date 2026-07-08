@@ -1,0 +1,57 @@
+{
+  "slice_a_findings": {
+    "tma_configs_mean_tma_over_mma": 2.0078760159488476,
+    "other_configs_mean_tma_over_mma": 5.372997861888495
+  },
+  "slice_b_findings": {
+    "best_overlap_frac": 0.75,
+    "best_coarse_accuracy": 0.9166666666666666,
+    "full_table": [
+      {
+        "overlap_frac": 0.0,
+        "coarse_accuracy": 0.6666666666666666,
+        "correct": 8,
+        "total": 12,
+        "hbm_accuracy": 0.6666666666666666,
+        "tma_accuracy": 0.0,
+        "mma_accuracy": 1.0,
+        "mufu_accuracy": 1.0
+      },
+      {
+        "overlap_frac": 0.25,
+        "coarse_accuracy": 0.75,
+        "correct": 9,
+        "total": 12,
+        "hbm_accuracy": 0.6666666666666666,
+        "tma_accuracy": 0.3333333333333333,
+        "mma_accuracy": 1.0,
+        "mufu_accuracy": 1.0
+      },
+      {
+        "overlap_frac": 0.5,
+        "coarse_accuracy": 0.75,
+        "correct": 9,
+        "total": 12,
+        "hbm_accuracy": 0.6666666666666666,
+        "tma_accuracy": 0.3333333333333333,
+        "mma_accuracy": 1.0,
+        "mufu_accuracy": 1.0
+      },
+      {
+        "overlap_frac": 0.75,
+        "coarse_accuracy": 0.9166666666666666,
+        "correct": 11,
+        "total": 12,
+        "hbm_accuracy": 0.6666666666666666,
+        "tma_accuracy": 1.0,
+        "mma_accuracy": 1.0,
+        "mufu_accuracy": 1.0
+      }
+    ]
+  },
+  "slice_c_findings": {
+    "best_tma_factor": 1.0,
+    "best_mma_efficiency": 0.5,
+    "best_coarse_accuracy": 0.9166666666666666
+  }
+}

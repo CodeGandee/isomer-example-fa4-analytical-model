@@ -1,0 +1,91 @@
+{
+  "predictor": "combined",
+  "total_configs": 12,
+  "ncu_ok": 12,
+  "ncu_error": 0,
+  "overall_coarse_accuracy": 0.6666666666666666,
+  "overall_fine_accuracy": 0.6666666666666666,
+  "per_regime": {
+    "hbm": {
+      "count": 3,
+      "coarse_accuracy": 0.6666666666666666,
+      "fine_accuracy": 0.6666666666666666,
+      "predicted_labels": [
+        "hbm",
+        "hbm",
+        "hbm"
+      ],
+      "ncu_coarse_labels": [
+        "memory",
+        "memory",
+        "compute"
+      ],
+      "ncu_fine_labels": [
+        "hbm",
+        "hbm",
+        "mma"
+      ]
+    },
+    "tma": {
+      "count": 3,
+      "coarse_accuracy": 0.0,
+      "fine_accuracy": 0.0,
+      "predicted_labels": [
+        "tma",
+        "tma",
+        "tma"
+      ],
+      "ncu_coarse_labels": [
+        "compute",
+        "compute",
+        "compute"
+      ],
+      "ncu_fine_labels": [
+        "mma",
+        "mma",
+        "mma"
+      ]
+    },
+    "mma": {
+      "count": 3,
+      "coarse_accuracy": 1.0,
+      "fine_accuracy": 1.0,
+      "predicted_labels": [
+        "mma",
+        "mma",
+        "mma"
+      ],
+      "ncu_coarse_labels": [
+        "compute",
+        "compute",
+        "compute"
+      ],
+      "ncu_fine_labels": [
+        "mma",
+        "mma",
+        "mma"
+      ]
+    },
+    "mufu": {
+      "count": 3,
+      "coarse_accuracy": 1.0,
+      "fine_accuracy": 1.0,
+      "predicted_labels": [
+        "mufu",
+        "mufu",
+        "mufu"
+      ],
+      "ncu_coarse_labels": [
+        "compute",
+        "compute",
+        "compute"
+      ],
+      "ncu_fine_labels": [
+        "mufu",
+        "mufu",
+        "mufu"
+      ]
+    }
+  },
+  "note": "L2 and SMEM labels are not independently saturatable with the current white-box workload model; their bandwidth peaks dominate HBM/TMA in all tested configs."
+}

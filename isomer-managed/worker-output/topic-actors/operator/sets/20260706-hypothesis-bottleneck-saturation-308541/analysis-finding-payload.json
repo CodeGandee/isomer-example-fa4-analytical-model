@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "consumer": "isomer-deepsci-decision, optimize, finalize",
+    "placeholder": "<ANALYSIS_FINDING>",
+    "producer": "isomer-deepsci-analysis",
+    "skill": "isomer-deepsci-analysis"
+  },
+  "sections": {
+    "claim": "The FA4 B200 white-box predictor correctly identifies compute-bound regimes but over-predicts memory/TMA dominance for medium-size problems.",
+    "evidence": [
+      "12 saturation configs were profiled with NCU SpeedOfLight; 12 returned valid compute/memory counters.",
+      "Coarse accuracy (compute vs memory) was 66.7% overall: 100% for mma, 100% for mufu, 66.7% for hbm, and 0% for tma.",
+      "The three TMA-targeted configs (batch=16/16/2048-128, batch=8/32/4096-128, batch=4/64/2048-64) were predicted as memory/tma but measured as compute/mma by NCU, with compute_pct 53-72% and memory_pct 12-26%.",
+      "One HBM-targeted config (batch=32/16/512-64) was predicted as memory/hbm but measured as compute/mma (compute_pct 32.6%, memory_pct 15.7%)."
+    ],
+    "implications": [
+      "The predictor's TMA bandwidth model (tma_bytes_per_ns=240, factor=0.65) appears too low relative to effective compute overlap, making TMA time dominate when hardware is still compute-limited.",
+      "The coarse compute/memory split is the most trustworthy comparison; fine labels for memory stages are derived from the model itself and should be treated as diagnostic, not ground truth.",
+      "L2 and SMEM labels cannot be independently validated because the current workload model never makes them the dominant memory stage."
+    ],
+    "limitations": [
+      "NCU SpeedOfLight only resolves compute vs memory, not individual memory hierarchies.",
+      "Single-GPU profiling ignores batching, multi-GPU, and concurrency effects.",
+      "Only bf16 precision was tested; fp8 and fp16 may shift bottlenecks."
+    ],
+    "next_action": "Investigate whether the TMA time should be overlapped with MMA rather than added to a max() roofline, or whether the TMA bandwidth constant needs recalibration."
+  },
+  "status": "ready",
+  "summary": "Analysis of saturation experiment: model is reliable for compute-bound regimes but needs TMA/compute overlap revision for memory-bound regimes.",
+  "title": "Analysis Finding: Bottleneck-Saturation Diagnostic for the FA4 B200 Predictor"
+}

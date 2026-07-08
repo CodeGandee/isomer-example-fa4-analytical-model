@@ -1,0 +1,46 @@
+{
+  "status": "supported",
+  "baseline_mape": 22.216442058711912,
+  "combined_mape": 4.496608444017569,
+  "delta_mape_pp": 17.719833614694345,
+  "max_ape": 14.363718640933895,
+  "pct_within_30": 100.0,
+  "bottleneck_accuracy": 100.0,
+  "ablations": {
+    "baseline_fa4_roofline": {
+      "mape": 22.216442058711912,
+      "max_ape": 42.06718171196807,
+      "pct_within_30": 76.875,
+      "bottleneck_accuracy": 89.375,
+      "n_configs": 160
+    },
+    "occupancy_only": {
+      "mape": 18.106574231292488,
+      "max_ape": 38.38854685687727,
+      "pct_within_30": 77.5,
+      "bottleneck_accuracy": 86.875,
+      "n_configs": 160
+    },
+    "tma_l2_effective_bw": {
+      "mape": 5.758436049235228,
+      "max_ape": 19.906339561002735,
+      "pct_within_30": 100.0,
+      "bottleneck_accuracy": 100.0,
+      "n_configs": 160
+    },
+    "precision_only": {
+      "mape": 18.20977571528774,
+      "max_ape": 42.06718171196807,
+      "pct_within_30": 76.875,
+      "bottleneck_accuracy": 89.375,
+      "n_configs": 160
+    },
+    "combined": {
+      "mape": 4.496608444017569,
+      "max_ape": 14.363718640933895,
+      "pct_within_30": 100.0,
+      "bottleneck_accuracy": 100.0,
+      "n_configs": 160
+    }
+  }
+}

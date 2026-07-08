@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "consumer": "execution",
+    "placeholder": "<IMPLEMENTATION_CHANGE_MAP>",
+    "producer": "isomer-deepsci-experiment",
+    "skill": "isomer-deepsci-experiment"
+  },
+  "sections": {
+    "changes": [
+      {
+        "description": "Added a real-hardware benchmark harness that generates the dataset-design matrix, launches flash_attn_func on cuda:0, measures median runtime, splits calibration/validation/query, calibrates the combined predictor on calibration data only, and reports validation/query metrics.",
+        "files_added": [
+          "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/repos/topic-main/src/fa4_b200_predictor/real_hardware_benchmark.py"
+        ],
+        "files_modified": [],
+        "motivation": "The previous empirical pass used an emulator because torch and flash-attn were not installed. The environment is now ready, so real B200 kernel launches are required to validate the predictor.",
+        "risk": "fp4 precision is unsupported by the installed FA4 build; the harness falls back to bf16/fp16/fp8. Tiny configs are dominated by launch overhead not modeled by the predictor."
+      }
+    ],
+    "comparator_read_only": true,
+    "summary": "Single-file addition of a real-hardware benchmark harness; no changes to existing predictor, calibrate, or evaluate modules."
+  },
+  "status": "ready",
+  "summary": "Implementation change map for the real-hardware benchmark harness.",
+  "title": "Implementation Change Map: Real-Hardware Benchmark Harness"
+}

@@ -1,0 +1,50 @@
+{
+  "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/pipeline-terminal-report.yaml",
+  "mutated": true,
+  "ok": true,
+  "operation": "create",
+  "query_index": {
+    "counts": {
+      "claims": 0,
+      "edges": 0,
+      "facts": 0,
+      "files": 1,
+      "ideas": 0,
+      "metrics": 0,
+      "records": 1,
+      "routes": 0
+    },
+    "diagnostics": [],
+    "mutated": true,
+    "ok": true,
+    "operation": "refresh"
+  },
+  "record": {
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/pipeline-terminal-report.yaml",
+    "created_at": "2026-07-04T21:03:08Z",
+    "id": "artifact-pipeline-terminal-report-2b29337563c1",
+    "lifecycle_refs": {
+      "topic_actor_name": "operator"
+    },
+    "provenance_refs": [
+      "provenance:artifact:artifact-pipeline-terminal-report-2b29337563c1"
+    ],
+    "record_kind": "artifact",
+    "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+    "status": "ready",
+    "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+    "transition_metadata": {
+      "consumer": "External controller, isomer-deepsci-decision, user.",
+      "content_semantic_label": "topic.records.artifacts",
+      "created_by": "isomer-cli ext research records create",
+      "placeholder": "pipeline-terminal-report",
+      "producer": "isomer-deepsci-pipeline at the end of a recipe run.",
+      "profile": "report.pipeline-terminal-report",
+      "semantic_label": "topic.records.artifacts",
+      "skill": "isomer-deepsci-pipeline",
+      "topic_actor_name": "operator"
+    },
+    "updated_at": "2026-07-04T21:03:08Z"
+  },
+  "structured_payload": null
+}

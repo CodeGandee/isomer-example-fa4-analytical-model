@@ -1,0 +1,78 @@
+digraph subcore_partition {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+    edge [fontname="Helvetica", fontsize=9];
+
+    SM [label="Streaming Multiprocessor (SM)\n4 partitions, 64 warps", fillcolor="#ddebf7"];
+
+    subgraph cluster_p0 {
+        label="Partition 0";
+        color=lightblue;
+        P0Sched [label="Scheduler 0", fillcolor="#fff2cc"];
+        P0TC [label="Tensor Core\nissue slot", fillcolor="#ead1dc"];
+        P0SFU [label="SFU\nissue slot", fillcolor="#fce5cd"];
+        P0FP [label="FP32/INT32\nissue slot", fillcolor="#fce5cd"];
+        P0MEM [label="LD/ST\nissue slot", fillcolor="#d9ead3"];
+    }
+
+    subgraph cluster_p1 {
+        label="Partition 1";
+        color=lightblue;
+        P1Sched [label="Scheduler 1", fillcolor="#fff2cc"];
+        P1TC [label="Tensor Core\nissue slot", fillcolor="#ead1dc"];
+        P1SFU [label="SFU\nissue slot", fillcolor="#fce5cd"];
+        P1FP [label="FP32/INT32\nissue slot", fillcolor="#fce5cd"];
+        P1MEM [label="LD/ST\nissue slot", fillcolor="#d9ead3"];
+    }
+
+    subgraph cluster_p2 {
+        label="Partition 2";
+        color=lightblue;
+        P2Sched [label="Scheduler 2", fillcolor="#fff2cc"];
+        P2TC [label="Tensor Core\nissue slot", fillcolor="#ead1dc"];
+        P2SFU [label="SFU\nissue slot", fillcolor="#fce5cd"];
+        P2FP [label="FP32/INT32\nissue slot", fillcolor="#fce5cd"];
+        P2MEM [label="LD/ST\nissue slot", fillcolor="#d9ead3"];
+    }
+
+    subgraph cluster_p3 {
+        label="Partition 3";
+        color=lightblue;
+        P3Sched [label="Scheduler 3", fillcolor="#fff2cc"];
+        P3TC [label="Tensor Core\nissue slot", fillcolor="#ead1dc"];
+        P3SFU [label="SFU\nissue slot", fillcolor="#fce5cd"];
+        P3FP [label="FP32/INT32\nissue slot", fillcolor="#fce5cd"];
+        P3MEM [label="LD/ST\nissue slot", fillcolor="#d9ead3"];
+    }
+
+    SM -> P0Sched [label="warps"];
+    SM -> P1Sched [label="warps"];
+    SM -> P2Sched [label="warps"];
+    SM -> P3Sched [label="warps"];
+
+    P0Sched -> P0TC [style=dashed];
+    P0Sched -> P0SFU [style=dashed];
+    P0Sched -> P0FP [style=dashed];
+    P0Sched -> P0MEM [style=dashed];
+
+    P1Sched -> P1TC [style=dashed];
+    P1Sched -> P1SFU [style=dashed];
+    P1Sched -> P1FP [style=dashed];
+    P1Sched -> P1MEM [style=dashed];
+
+    P2Sched -> P2TC [style=dashed];
+    P2Sched -> P2SFU [style=dashed];
+    P2Sched -> P2FP [style=dashed];
+    P2Sched -> P2MEM [style=dashed];
+
+    P3Sched -> P3TC [style=dashed];
+    P3Sched -> P3SFU [style=dashed];
+    P3Sched -> P3FP [style=dashed];
+    P3Sched -> P3MEM [style=dashed];
+
+    Bottleneck [label="SM makespan =\nbusiest partition", shape=ellipse, fillcolor="#f4cccc"];
+    P0TC -> Bottleneck [style=invis];
+    P1TC -> Bottleneck [style=invis];
+    P2TC -> Bottleneck [style=invis];
+    P3TC -> Bottleneck [style=invis];
+}

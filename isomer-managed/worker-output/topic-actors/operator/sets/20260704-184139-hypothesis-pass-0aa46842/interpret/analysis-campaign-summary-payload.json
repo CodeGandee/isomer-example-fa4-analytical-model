@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "consumer": "decision, finalize, write, experiment, idea",
+    "paper_surface": "analysis_campaign_summary",
+    "placeholder": "<ANALYSIS_CAMPAIGN_SUMMARY>",
+    "producer": "isomer-deepsci-analysis",
+    "skill": "isomer-deepsci-analysis",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "caveats": [
+      "measured_bottleneck is a white-box proxy from the uncalibrated baseline predictor; no hardware counters were collected.",
+      "fp4 precision is unsupported by the installed FA4 build, so real-hardware coverage is bf16/fp16/fp8 only.",
+      "The analysis is based on a single B200 GPU (cuda:0); multi-GPU or multi-node behavior is not covered.",
+      "The calibration search space was limited to hbm_factor, mma_efficiency, mufu_efficiency, and launch_overhead_us; l2_factor, tma_factor, and smem_factor were fixed."
+    ],
+    "claim_update": "The real-hardware hypothesis is refuted. The existing white-box predictor does not meet the useful-improvement threshold on real B200 measurements. The emulator result was not predictive of silicon behavior because the model omits launch-overhead-dominated small-config latency and because its calibrated efficiency factors do not generalize to real kernel scheduling.",
+    "claim_verdict": "refuted",
+    "key_findings": [
+      "On real B200 hardware, the combined predictor MAPE is 62.1% versus the baseline 42.1% (validation set, n=180); the model is 20.0 percentage points worse than the uncalibrated baseline.",
+      "On the emulator, the same model achieved 4.5% MAPE versus a 22.2% baseline, an improvement of 17.7 percentage points. The sign of the transfer effect reversed.",
+      "245 of 864 measured configs (28%) have measured runtime below 0.2 ms and are dominated by launch overhead that the predictor does not capture.",
+      "After filtering tiny configs (measured >= 0.2 ms and predicted >= 0.1 ms), the combined predictor still underperforms the baseline: validation MAPE 61.2% vs 39.2%, query MAPE 52.2% vs 33.8%.",
+      "The uncalibrated default combined predictor is worse (73.9% validation MAPE) than the calibrated one (62.1%), so calibration helps but cannot compensate for missing physics.",
+      "Bottleneck-label proxy accuracy is 89.4% on validation and 85.9% on query, but this is measured against a model-derived proxy, not hardware counters."
+    ],
+    "next_actions": [
+      "Add an explicit launch-overhead / small-kernel latency term to the predictor, conditioned on grid size or measured runtime regime.",
+      "Recalibrate on real B200 measurements with an expanded search space that includes l2_factor, tma_factor, smem_factor, and a precision-specific launch overhead.",
+      "Collect NCU or similar hardware-counter profiles on a representative subset to replace the white-box bottleneck proxy with measured bottleneck labels.",
+      "Re-run the hypothesis pass after the model change; if the useful-improvement threshold is still not met, route to decision to abandon or fundamentally redesign the predictor."
+    ],
+    "research_question": "Does the existing white-box predictor transfer from emulator to real B200 FlashAttention-4 measurements, and if not, what gaps explain the failure?",
+    "route_decision": "experiment",
+    "route_reason": "The real-hardware test refuted the hypothesis and identified concrete missing terms (launch-overhead/small-config latency, better calibration of memory factors, real hardware-counter bottleneck labels). The next productive step is a targeted experiment to add those terms and revalidate.",
+    "stable_support": [
+      "The measurement harness is sound: 864 real B200 kernel launches completed without OOM or error, with 3 warmup + 10 timed runs per config and median reporting.",
+      "The split, calibration, and evaluation pipeline is unchanged from the accepted comparator contract.",
+      "The baseline predictor remains the best-performing model on real hardware, so the comparator is still valid."
+    ],
+    "contradiction": [
+      "The combined predictor, which strongly beat the baseline on the emulator, is significantly worse than the baseline on real B200 measurements.",
+      "Calibrating the combined model on real data pushes hbm_factor, mma_efficiency, and mufu_efficiency to their ceiling (0.95) yet still produces poor predictions, indicating the model form is misspecified for silicon."
+    ],
+    "partial_support": [],
+    "unresolved_ambiguity": [
+      "Whether the poor real-hardware accuracy is primarily launch overhead for small configs or also reflects incorrect effective-bandwidth modeling for large configs.",
+      "Whether fp8 behavior on real B200 matches the predictor's throughput assumptions; fp8 was tested but not isolated in a dedicated slice."
+    ],
+    "transfer_gaps": [
+      {
+        "gap": "Launch overhead / small-config latency",
+        "evidence": "245 configs (28%) have measured runtime < 0.2 ms; predictor under-predicts these by up to 600% APE.",
+        "impact": "Inflates combined MAPE by a large margin; filtering tiny configs still leaves combined worse than baseline but reduces the gap."
+      },
+      {
+        "gap": "Misspecified effective-bandwidth and efficiency factors",
+        "evidence": "Calibration pushes hbm_factor, mma_efficiency, mufu_efficiency to 0.95 yet validation MAPE remains 62.1%. Default combined predictor is 73.9% MAPE.",
+        "impact": "The model cannot simultaneously fit calibration and validation; the white-box terms do not capture real B200 scheduling and memory behavior."
+      },
+      {
+        "gap": "No hardware-counter bottleneck labels",
+        "evidence": "measured_bottleneck is a proxy from the uncalibrated baseline predictor.",
+        "impact": "Bottleneck-label accuracy is unverifiable as a real-hardware metric; reported 89.4% is only meaningful relative to the proxy."
+      },
+      {
+        "gap": "Reduced precision coverage",
+        "evidence": "fp4 is unsupported by the installed FA4 build and was skipped.",
+        "impact": "The test covers 75% of the design matrix precision formats; the full 1,152-config matrix was not run."
+      }
+    ]
+  },
+  "status": "ready",
+  "summary": "Real B200 measurements refute the predictor hypothesis. The analysis identifies launch-overhead-dominated small configs and misspecified efficiency factors as the main transfer gaps.",
+  "title": "Analysis Campaign Summary: Real-Hardware Transfer Gap for the FA4 B200 Predictor"
+}

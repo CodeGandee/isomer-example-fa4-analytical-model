@@ -1,0 +1,104 @@
+{
+  "title": "Review Report: A White-Box Analytical Model for FlashAttention-4 Runtime on NVIDIA B200",
+  "summary": "Skeptical review of the FA4 B200 white-box runtime predictor draft. The empirical result is strong and traceable, but the manuscript misstates what was calibrated in the combined model. Route: revise.",
+  "status": "ready",
+  "metadata": {
+    "placeholder": "<REVIEW_REPORT>",
+    "skill": "isomer-deepsci-review",
+    "producer": "isomer-deepsci-review",
+    "consumer": "write, rebuttal, finalize",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator",
+    "paper_surface": "review_report",
+    "source_draft": "artifact-DRAFT_SECTION_SET-db586e5e0d48",
+    "source_validation_report": "view_manifest-MANUSCRIPT_VALIDATION_REPORT-de3a171ebf2d",
+    "source_paper_bundle": "artifact-PAPER_BUNDLE_CHECKPOINT-a1f0b0ac3937",
+    "source_analysis_summary": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154",
+    "source_claim_boundary": "view_manifest-CLAIM_EVIDENCE_BOUNDARY-d5c04da9b675",
+    "source_experiment_result": "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5",
+    "source_claim_validation": "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673"
+  },
+  "sections": {
+    "review_mode": {
+      "review_followup_policy": "single-round text correction, then re-review or finalize",
+      "manuscript_edit_mode": "targeted revision; no new experiments required",
+      "source_compile_preference": "Tectonic first; LaTeX engine fallback only when required or blocked",
+      "manuscript_source_status": "draft-section-set ready for revision; source is Markdown"
+    },
+    "summary": {
+      "paper_draft_record": "artifact-DRAFT_SECTION_SET-db586e5e0d48",
+      "overall_judgment": "revise",
+      "top_risks": [
+        "Combined-model calibration factors misstated (claims six calibrated, evidence shows four calibrated + fixed defaults)",
+        "Related Work citation placeholders unresolved",
+        "Figures 1–3 described but not rendered"
+      ]
+    },
+    "strengths": [
+      "Complete manuscript structure covering all outline sections",
+      "Core numerical claims traceable to validation_metrics.json and combined_predictions.csv",
+      "Explicit emulator caveat keeps claim boundary clear",
+      "Clean ablation design isolating occupancy, bandwidth, and precision effects",
+      "Auditable white-box source code"
+    ],
+    "weaknesses": [
+      "Calibration-factor misstatement between manuscript and code/artifact",
+      "Citation placeholders in Related Work",
+      "Unrendered figures",
+      "No BibTeX entries",
+      "References section delegates FlashAttention-1/2/3 citations to the scouting report"
+    ],
+    "key_issues": [
+      {
+        "id": 1,
+        "title": "Combined-model calibration factors misstated",
+        "why_it_matters": "Misrepresents the interpretability claim; reviewer will check calibration artifact and code.",
+        "evidence_anchor": "calibration_params.json and calibrate.py in operation set 20260704-130224-experiment-7f255a5e",
+        "risk_level": "high",
+        "likely_route": "revise text; no new experiment"
+      },
+      {
+        "id": 2,
+        "title": "Placeholder citations and incomplete references",
+        "why_it_matters": "Prevents submission readiness and undermines Related Work positioning.",
+        "evidence_anchor": "draft-section-set.md Related Work and References sections",
+        "risk_level": "medium",
+        "likely_route": "citation-polish pass"
+      },
+      {
+        "id": 3,
+        "title": "Figures 1–3 not rendered",
+        "why_it_matters": "Camera-ready paper requires actual plots.",
+        "evidence_anchor": "paper-bundle-manifest outstanding_items",
+        "risk_level": "medium",
+        "likely_route": "isomer-deepsci-paper-plot or isomer-deepsci-figure-polish"
+      }
+    ],
+    "actionable_suggestions": [
+      {
+        "problem": "Combined model described as calibrating six factors",
+        "cause": "Ablation values copied into combined-model description",
+        "actionable_fix": "State combined model calibrates four factors and fixes l2_factor/tma_factor/smem_factor at defaults",
+        "acceptance_criterion": "Every calibration claim matches calibration_params.json and calibrate.py"
+      },
+      {
+        "problem": "Placeholder citations in Related Work",
+        "cause": "Write stage deferred citation expansion",
+        "actionable_fix": "Resolve placeholders against literature scouting reports and add full BibTeX",
+        "acceptance_criterion": "No bracket-style placeholders remain; every cited work has BibTeX"
+      },
+      {
+        "problem": "Figures 1–3 described but absent",
+        "cause": "Deferred to plotting stage",
+        "actionable_fix": "Generate figures from combined_predictions.csv and validation_metrics.json",
+        "acceptance_criterion": "Figure files exist and are correctly referenced"
+      }
+    ],
+    "experiment_inventory": {
+      "existing_coverage": "All required metrics, ablations, and predictions already produced.",
+      "lacking_evidence": "None.",
+      "text_only_gaps": "Calibration description, citations, and figure rendering."
+    },
+    "route_decision": "revise"
+  }
+}

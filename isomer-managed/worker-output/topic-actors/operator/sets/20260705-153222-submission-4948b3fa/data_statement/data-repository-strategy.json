@@ -1,0 +1,4 @@
+{
+  "title": "Repository Strategy",
+  "body": "# Repository Strategy\n\n- Planned repository: a public GitHub repository for code and a Zenodo deposit for the real-hardware measurement CSVs and NCU profiles.\n- Identifiers: none assigned yet.\n- Versioning: code will be tagged to match the submitted bundle; data deposit will include a README describing the measurement protocol and column definitions.\n- License: code under MIT; data under CC-BY-4.0 (subject to final author decision).\n- Embargo: none planned.\n- Citation: a `CITATION.cff` file will be added before submission.\n"
+}

@@ -1,0 +1,19 @@
+{
+  "cycle_calibration_mape_percent": 7.37,
+  "cycle_validation_mape_percent": 13.16,
+  "baseline_validation_mape_percent": 56.23,
+  "improved_validation_mape_percent": 14.89,
+  "calibration_count": 16,
+  "validation_count": 8,
+  "calibration_success": true,
+  "fit_params": {
+    "tc_efficiency": 3.0,
+    "mufu_efficiency": 0.4874128621601015,
+    "hbm_efficiency": 1.0,
+    "l1_miss_rate": 0.08,
+    "l2_miss_rate": 0.25,
+    "occupancy_efficiency": 1.3129155593826278,
+    "memory_overlap_factor": 0.85,
+    "launch_overhead_us": 16.027670498194713
+  }
+}

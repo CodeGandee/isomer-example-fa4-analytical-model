@@ -1,0 +1,79 @@
+{
+  "title": "Analysis Campaign Summary: FA4 B200 White-Box Runtime Model (Revision-Pass Update)",
+  "summary": "Updated interpretation for the revision pass: the combined predictor remains supported, but the calibration description is corrected to four searched factors plus fixed defaults. The analysis also authorizes a figure-generation and citation-resolution writeback to the draft.",
+  "status": "supported",
+  "sections": {
+    "route_decision": "write",
+    "route_reason": "The empirical evidence already supports the combined predictor. The revision pass only needs text corrections, real citations, and rendered figures, so the analysis stage routes to isomer-deepsci-write rather than to new experiments.",
+    "research_question": "Does the revised draft accurately describe which bounded factors are calibrated in the combined model, and can the existing evidence support corrected prose, a complete bibliography, and three rendered figures?",
+    "claim_verdict": "supported_with_revision",
+    "claim_update": "The combined white-box predictor is supported. The calibration claim is narrowed: the combined model searches four factors (hbm_factor, mma_efficiency, mufu_efficiency, launch_overhead_us) while l2_factor, tma_factor, and smem_factor are fixed at defaults (0.70, 0.65, 0.90). The TMA/L2 ablation separately calibrates l2_factor=0.45 and tma_factor=0.70.",
+    "key_findings": [
+      "Combined model MAPE is 4.50% versus the baseline 22.22%, an improvement of 17.72 percentage points.",
+      "All 160 held-out validation configurations are within 30% absolute error.",
+      "Bottleneck-label accuracy is 100%; the predicted dominant bottleneck matches the emulator on every config.",
+      "The TMA/L2 effective-bandwidth ablation alone achieves 5.76% MAPE, confirming bandwidth modeling is the largest single error source in the baseline roofline.",
+      "Occupancy and precision terms, though small individually, refine the combined model from 5.76% to 4.50% MAPE and reduce max APE from 19.91% to 14.36%."
+    ],
+    "calibration_correction": {
+      "combined_model_searched_factors": {
+        "hbm_factor": 0.85,
+        "mma_efficiency": 0.85,
+        "mufu_efficiency": 0.85,
+        "launch_overhead_us": 0.5
+      },
+      "combined_model_fixed_defaults": {
+        "l2_factor": 0.7,
+        "tma_factor": 0.65,
+        "smem_factor": 0.9
+      },
+      "tma_l2_ablation_calibrated_factors": {
+        "hbm_factor": 0.85,
+        "l2_factor": 0.45,
+        "tma_factor": 0.7
+      },
+      "evidence_anchor": "operation set 20260704-130224-experiment-7f255a5e: calibration_params.json and calibrate.py calibrate_combined"
+    },
+    "figure_generation_plan": {
+      "figure_1": "Predicted vs measured runtime scatter for the combined model on the 160-config validation set, with identity line and 30% error bands. Source: combined_predictions.csv.",
+      "figure_2": "Residual distribution by predicted bottleneck (TMA, HBM, MMA, MUFU) for the combined model. Source: combined_predictions.csv.",
+      "figure_3": "Predictor pipeline diagram: input configuration -> algorithm quantities -> baseline roofline -> occupancy / effective bandwidth / precision corrections -> calibration -> predicted runtime and bottleneck label. Source: predictor.py and calibrate.py logic."
+    },
+    "citation_resolution_plan": {
+      "sources_to_resolve": [
+        "FlashAttention-4 paper (Zadouri et al., arXiv:2603.05451v1)",
+        "FlashAttention-3 paper (Shah et al., NeurIPS 2024 / arXiv:2407.08608)",
+        "FlashAttention-2 paper (Dao, arXiv:2307.08691)",
+        "FlashAttention-1 paper (Dao et al., NeurIPS 2022 / arXiv:2205.14135)",
+        "Blackwell microbenchmarks (Jarmusch & Chandrasekaran, arXiv:2512.02189v3)",
+        "Roofline model (Williams, Waterman & Patterson, CACM 2009)",
+        "Hierarchical Roofline for GPUs (Yang, Kurth & Williams, Concurrency and Computation 2019)",
+        "Microbenchmark-driven analytical GPU modeling (Jarmusch & Chandrasekaran, arXiv:2605.04178v1)"
+      ],
+      "output": "A references.bib file with complete BibTeX entries and inline LaTeX/Markdown citations in Related Work."
+    },
+    "caveats": [
+      "Ground-truth runtimes were produced by a documented high-fidelity white-box emulator, not by real B200 kernel launches; silicon validation would strengthen the finding.",
+      "The combined model calibrates four factors, not six; l2_factor and tma_factor values reported for the combined model in the previous draft were actually from the TMA/L2 ablation.",
+      "The validation matrix is synthetic and covers batch, heads, seqlen, head_dim, causal, and precision only."
+    ],
+    "next_actions": [
+      "Update the draft with the corrected calibration description in Sections 3.3, 3.4, and 5.6.",
+      "Render Figures 1-3 from combined_predictions.csv and embed them in the revised draft.",
+      "Resolve Related Work citation placeholders and attach a complete references.bib.",
+      "Run manuscript validation and route to finalize if all checks pass."
+    ]
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-analysis",
+    "placeholder": "<ANALYSIS_CAMPAIGN_SUMMARY>",
+    "producer": "isomer-deepsci-analysis",
+    "consumer": "decision, finalize, write, experiment, idea",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator",
+    "paper_surface": "analysis_campaign_summary",
+    "parent_summary": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154",
+    "source_review_report": "artifact-REVIEW_REPORT-7387e22762b6",
+    "source_revision_log": "artifact-REVISION_LOG-a0e3491acece"
+  }
+}

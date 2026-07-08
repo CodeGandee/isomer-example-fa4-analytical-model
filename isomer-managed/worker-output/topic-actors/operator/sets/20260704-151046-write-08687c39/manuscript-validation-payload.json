@@ -1,0 +1,43 @@
+{
+  "title": "Manuscript Validation Report: FA4 B200 Revised Draft",
+  "summary": "Validation of the revised draft-section-set against the claim-evidence boundary. All review issues are addressed.",
+  "status": "validated_ready",
+  "metadata": {
+    "placeholder": "<MANUSCRIPT_VALIDATION_REPORT>",
+    "skill": "isomer-deepsci-write",
+    "producer": "isomer-deepsci-write",
+    "consumer": "review, finalize, decision",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator",
+    "paper_surface": "manuscript_validation",
+    "validated_draft_record": "<DRAFT_SECTION_SET>"
+  },
+  "sections": {
+    "claim_support": {
+      "status": "pass",
+      "notes": "All numerical claims trace to validation_metrics.json and combined_predictions.csv. The calibration-factor description now matches calibration_params.json and calibrate.py."
+    },
+    "citation_legitimacy": {
+      "status": "pass",
+      "notes": "All Related Work placeholders replaced with verified citations; references.bib contains complete BibTeX entries."
+    },
+    "figure_readiness": {
+      "status": "pass",
+      "notes": "Figures 1-3 are rendered and embedded in the revised draft."
+    },
+    "section_coverage": {
+      "status": "pass",
+      "notes": "All outline sections present, plus a complete References section."
+    },
+    "language_hygiene": {
+      "status": "pass",
+      "notes": "No operator, agent, route-control, or worktree language in manuscript prose."
+    },
+    "bundle_readiness": {
+      "status": "ready_for_finalization",
+      "notes": "Revised draft is coherent and all review blockers are resolved."
+    },
+    "remaining_blockers": [],
+    "next_route": "finalize"
+  }
+}

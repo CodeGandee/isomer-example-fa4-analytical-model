@@ -1,0 +1,44 @@
+{
+  "skill": "isomer-deepsci-pipeline",
+  "pass": "revision-pass",
+  "status": "complete",
+  "topic_ref": "flash-attention-4-whitebox-runtime-model",
+  "topic_workspace_ref": "flash-attention-4-whitebox-runtime-model",
+  "operation_set": "20260705-paper-revision-gpu-diagram-cb397a",
+  "stages": {
+    "context-preflight": {
+      "status": "complete",
+      "note": "Existing paper bundle located and copied into operator revision set."
+    },
+    "revision": {
+      "status": "complete",
+      "note": "Added Figure 4 GPU hardware component execution system diagram and Section 3.7 cycle-level execution model; updated abstract, contributions, results, limitations, and conclusion."
+    },
+    "quality-check": {
+      "status": "complete",
+      "note": "pixi run lint passed; generate_figures.py regenerated all figures."
+    },
+    "self-review": {
+      "status": "complete",
+      "note": "Self-review report produced; no blockers identified."
+    }
+  },
+  "outputs": {
+    "revised_draft": "revised-draft.md",
+    "figures": {
+      "figure1": "figures/figure1_predicted_vs_measured.svg",
+      "figure2": "figures/figure2_residuals_by_bottleneck.svg",
+      "figure3": "figures/figure3_pipeline.png",
+      "figure4_svg": "figures/figure4_gpu_execution_system.svg",
+      "figure4_dot": "figures/figure4_gpu_execution_system.dot"
+    },
+    "generator": "generate_figures.py",
+    "self_review_report": "self-review-report.md",
+    "data": {
+      "validation_predictions": "refined_validation_predictions.csv",
+      "query_predictions": "refined_query_predictions.csv"
+    }
+  },
+  "blockers": [],
+  "next_action": "Create durable research records for the revised draft, self-review report, and pipeline terminal report, then archive the operation set."
+}

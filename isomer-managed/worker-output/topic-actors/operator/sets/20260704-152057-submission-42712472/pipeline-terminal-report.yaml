@@ -1,0 +1,52 @@
+pipeline_id: submission-pass
+status: complete
+stages_run:
+  - stage_id: audit
+    skill: isomer-deepsci-review
+    status: complete
+    artifacts_in:
+      - artifact-DRAFT_SECTION_SET-5c025ab25427
+    artifacts_out:
+      - artifact-REVIEW_AUDIT_PLAN-24636808b8b1
+      - evidence_item-LITERATURE_BENCHMARK_NOTE-956bd3369486
+      - artifact-REVIEW_REPORT-c8f50ecff3c7
+      - artifact-REVISION_LOG-0ed6229dfd6b
+      - decision_record-REVIEW_ROUTE_DECISION-73235ad09c5a
+    route_decision: finalize
+    notes: Review confirmed route_decision finalize; no further text revision required.
+  - stage_id: data_statement
+    skill: isomer-deepsci-nature-data
+    status: complete
+    artifacts_in:
+      - artifact-DRAFT_SECTION_SET-5c025ab25427
+    artifacts_out:
+      - view_manifest-DATA_AVAILABILITY_CONTEXT-af4bb037b492
+      - evidence_item-DATASET_INVENTORY-c4f22b91569a
+      - decision_record-DATA_ACCESS_CLASSIFICATION-eeba8926b1a3
+      - artifact-REPOSITORY_STRATEGY-a8085cc4fdf6
+      - artifact-DATA_AVAILABILITY_STATEMENT-f531b0230c94
+      - artifact-DATASET_CITATION_ACTIONS-4c84646cefc8
+      - artifact-FAIR_METADATA_AUDIT-1b4cb4d7e469
+    route_decision: null
+    notes: General data-availability statement produced because venue is unspecified; no blocker.
+  - stage_id: close
+    skill: isomer-deepsci-finalize
+    status: complete
+    artifacts_in:
+      - artifact-REVIEW_REPORT-c8f50ecff3c7
+      - artifact-DATA_AVAILABILITY_STATEMENT-f531b0230c94
+      - artifact-DRAFT_SECTION_SET-5c025ab25427
+    artifacts_out:
+      - view_manifest-FINALIZE_CONTEXT_BRIEF-b37a43793ae7
+      - artifact-CLAIM_LEDGER-54dbc7dfb340
+      - artifact-FINAL_LIMITATIONS_REPORT-6720a0f2920e
+      - artifact-FINAL_SUMMARY-48f5ac15112b
+      - artifact-RESUME_PACKET-540150ee14bd
+      - decision_record-CLOSURE_DECISION-99920824616d
+      - view_manifest-FINALIZE_CONTINUITY_UPDATE-4ce4fed89c0b
+    route_decision: park
+    notes: Closure decision is park pending real B200 silicon validation and venue confirmation.
+final_artifact: artifact-FINAL_SUMMARY-48f5ac15112b
+recommended_next: park
+blocker: null
+resume_point: null

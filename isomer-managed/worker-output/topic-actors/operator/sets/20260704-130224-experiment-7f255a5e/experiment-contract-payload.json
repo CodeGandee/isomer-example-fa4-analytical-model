@@ -1,0 +1,43 @@
+{
+  "title": "Experiment Contract: FA4 B200 Combined Occupancy/TMA-L2/Precision Predictor",
+  "summary": "Fixed run contract for testing the selected Flash Attention 4 B200 runtime-model hypothesis.",
+  "status": "ready",
+  "sections": {
+    "run_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1-run-20260704-130224",
+    "research_question": "Does adding tile-size-dependent occupancy, effective HBM/L2/TMA bandwidth, and precision-specific Tensor Core MMA/MUFU throughput to the accepted FA4 paper roofline baseline reduce held-out MAPE of predicted_runtime_ms on B200?",
+    "null_hypothesis": "The combined predictor does not beat the FA4 paper roofline baseline by at least 5 percentage points MAPE on the held-out validation set.",
+    "alternative_hypothesis": "The combined predictor reduces held-out MAPE by at least 5 percentage points and meets the useful-improvement threshold.",
+    "selected_hypothesis_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1",
+    "research_type": "white-box analytical model calibration and validation",
+    "observation_that_answers": "Held-out validation MAPE of the combined model is <= 25%, >= 75% of configs are within 30% abs error, bottleneck-label accuracy >= 75%, and delta MAPE vs baseline >= 5 percentage points improvement.",
+    "comparator_id": "fa4-paper-roofline-b200",
+    "comparator_variant_id": "default",
+    "dataset": "Synthetic FA4 configuration matrix: batch, heads, seqlen, head_dim, causal, precision.",
+    "split": "20% calibration, 20% held-out validation, 60% query; deterministic split with seed 20260704.",
+    "primary_metric": "held_out_mape_predicted_runtime_ms",
+    "required_metric_keys": [
+      "held_out_mape_predicted_runtime_ms",
+      "max_absolute_percentage_error",
+      "pct_validation_configs_within_30_pct_abs_error",
+      "bottleneck_label_accuracy"
+    ],
+    "evaluator_assumptions": "White-box predictors estimate runtime from algorithm quantities and hardware throughput. Ground truth is produced by a documented white-box emulator with hidden B200 efficiency factors and 3% residual noise.",
+    "expected_outputs": [
+      "validation_metrics.json",
+      "combined_predictions.csv",
+      "calibration_params.json",
+      "experiment_result.json"
+    ],
+    "stop_condition": "Combined model meets all success criteria on held-out validation set.",
+    "abandonment_condition": "After two calibration rounds the combined model fails to beat baseline MAPE by >= 5 percentage points or fails the useful-improvement threshold.",
+    "compute_budget": "Single CPU run; emulator-based ground truth. Real B200 kernel execution was infeasible within the time budget.",
+    "strongest_alternative_hypothesis": "The TMA/L2 effective-bandwidth correction alone captures most of the improvement, and occupancy/precision terms add little.",
+    "route_linkage": "Proceeds from decision_record-IDEA_ROUTE_DECISION-67d409112cbb; on success routes to isomer-deepsci-analysis."
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-experiment",
+    "placeholder": "<EXPERIMENT_CONTRACT>",
+    "producer": "isomer-deepsci-experiment",
+    "consumer": "execution and validation"
+  }
+}

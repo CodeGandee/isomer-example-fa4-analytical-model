@@ -1,0 +1,18 @@
+tmp/
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+# local temp surface

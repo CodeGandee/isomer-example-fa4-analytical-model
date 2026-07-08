@@ -1,0 +1,49 @@
+{
+  "title": "Paper State Snapshot: FA4 B200 White-Box Runtime Predictor",
+  "summary": "Snapshot of paper-line state before drafting the FlashAttention-4 B200 white-box runtime predictor manuscript.",
+  "status": "ready",
+  "metadata": {
+    "placeholder": "<PAPER_STATE_SNAPSHOT>",
+    "producer": "isomer-deepsci-paper-outline",
+    "consumer": "paper-outline, write",
+    "skill": "isomer-deepsci-paper-outline"
+  },
+  "sections": {
+    "latest_context_verdict": {
+      "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+      "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+      "topic_workspace_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model",
+      "topic_actor_name": "operator",
+      "workspace_runtime_status": "ready",
+      "checked_records": [
+        "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154",
+        "decision_record-ANALYSIS_ROUTE_DECISION-21767b5a6cb1",
+        "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5",
+        "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673",
+        "artifact-SELECTED_HYPOTHESIS-bab659036a3c",
+        "artifact-EVALUATION_CONTRACT-7f255a5e6694",
+        "artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4"
+      ],
+      "prompt_durable_relation": "matched",
+      "route": "write"
+    },
+    "selected_hypothesis": {
+      "hypothesis_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1",
+      "one_sentence": "Adding occupancy, effective HBM/L2/TMA bandwidth, and precision-specific throughput terms to the FlashAttention-4 roofline produces an analytical B200 runtime predictor that beats the roofline baseline by more than 5 percentage points MAPE."
+    },
+    "empirical_status": {
+      "claim_verdict": "supported",
+      "combined_mape": 4.496608444017569,
+      "baseline_mape": 22.216442058711912,
+      "delta_mape_pp": 17.719831614694343,
+      "pct_within_30": 100.0,
+      "bottleneck_accuracy": 100.0,
+      "n_validation_configs": 160
+    },
+    "paper_target": {
+      "form": "short technical paper or report",
+      "audience": "systems and machine-learning researchers and kernel engineers interested in white-box GPU performance modeling",
+      "contribution_claim": "A white-box analytical model for FlashAttention-4 runtime on NVIDIA B200 that identifies dominant bottlenecks without launching the kernel, with accuracy competitive with the accepted roofline baseline."
+    }
+  }
+}

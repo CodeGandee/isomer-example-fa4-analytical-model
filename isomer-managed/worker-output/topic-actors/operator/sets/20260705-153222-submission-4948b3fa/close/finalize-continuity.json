@@ -1,0 +1,4 @@
+{
+  "title": "Finalize Continuity Update",
+  "body": "# Finalize Continuity Update\n\n- Closure route: `park`.\n- Authoritative node: submission-pass operation set `20260705-153222-submission-4948b3fa`.\n- Superseded nodes: previous emulator-only submission pass `20260704-152057-submission-42712472`.\n- What changed: real B200 measurements replaced emulator ground truth; launch-overhead term and NCU slack added; bundle updated.\n- Next route: public repository deposit, then finalize/publish.\n"
+}

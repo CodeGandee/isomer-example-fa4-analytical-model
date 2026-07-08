@@ -1,0 +1,97 @@
+{
+  "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/views/research-records/view_manifest/analysis-continuity-update.md",
+  "mutated": true,
+  "ok": true,
+  "operation": "create",
+  "query_index": {
+    "counts": {
+      "claims": 0,
+      "edges": 0,
+      "facts": 8,
+      "files": 1,
+      "ideas": 0,
+      "metrics": 0,
+      "records": 1,
+      "routes": 0
+    },
+    "diagnostics": [],
+    "mutated": true,
+    "ok": true,
+    "operation": "refresh"
+  },
+  "record": {
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/views/research-records/view_manifest/analysis-continuity-update.md",
+    "created_at": "2026-07-04T21:02:29Z",
+    "id": "view_manifest-ANALYSIS_CONTINUITY_UPDATE-abadfef9671b",
+    "lifecycle_refs": {
+      "topic_actor_name": "operator"
+    },
+    "provenance_refs": [
+      "provenance:view_manifest:view_manifest-ANALYSIS_CONTINUITY_UPDATE-abadfef9671b"
+    ],
+    "record_kind": "view_manifest",
+    "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+    "status": "ready",
+    "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+    "transition_metadata": {
+      "consumer": "future research work",
+      "content_semantic_label": "topic.records.views",
+      "created_by": "isomer-cli ext research records create",
+      "format_profile_ref": "isomer:deepsci/record-format/profile/control/analysis-continuity-update/v1",
+      "payload_digest": "sha256:c8c6d27a05b9526ab03be7668cab229def1b0bdec096fceb4f64413f76429f7b",
+      "placeholder": "<ANALYSIS_CONTINUITY_UPDATE>",
+      "producer": "isomer-deepsci-analysis",
+      "render_format": "markdown",
+      "render_status": "rendered",
+      "rendered_markdown_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/views/research-records/view_manifest/analysis-continuity-update.md",
+      "schema_ref": "isomer:deepsci/record-format/schema/control/analysis-continuity-update/v1",
+      "schema_source_kind": "provider_asset",
+      "semantic_label": "topic.records.views",
+      "skill": "isomer-deepsci-analysis",
+      "structured_payload": true,
+      "template_ref": "isomer:deepsci/record-format/template/markdown/control/analysis-continuity-update/v1",
+      "template_source_kind": "provider_asset",
+      "topic_actor_name": "operator",
+      "validation_status": "valid"
+    },
+    "updated_at": "2026-07-04T21:02:29Z"
+  },
+  "structured_payload": {
+    "created_at": "2026-07-04T21:02:29Z",
+    "format_profile_ref": "isomer:deepsci/record-format/profile/control/analysis-continuity-update/v1",
+    "id": "structured-payload-view_manifest-ANALYSIS_CONTINUITY_UPDATE-abadfef9671b",
+    "payload": {
+      "metadata": {
+        "recorded_at": "2026-07-04T21:01:22.593738Z"
+      },
+      "sections": {
+        "dependencies": "Access to the same NVIDIA B200 host and NCU tooling. The existing 540-config measurement set as the baseline comparison.",
+        "last_completed_stage": "interpret (isomer-deepsci-analysis)",
+        "next_action": "Run a targeted isomer-deepsci-experiment that adjusts white-box compute/memory component weights and re-profiles configs on B200.",
+        "risks": "NCU profiling is time-consuming; prioritize the validation set and a stratified query subset. Bottleneck labels may remain noisy for small kernels due to launch-overhead dominance."
+      },
+      "status": "ready",
+      "summary": "The next empirical iteration should start from the current calibration and focus narrowly on NCU bottleneck mapping.",
+      "title": "Analysis continuity update: preserve MAPE gains, refine bottleneck mapping"
+    },
+    "payload_digest": "sha256:c8c6d27a05b9526ab03be7668cab229def1b0bdec096fceb4f64413f76429f7b",
+    "provenance_refs": [
+      "provenance:structured-payload:view_manifest-ANALYSIS_CONTINUITY_UPDATE-abadfef9671b"
+    ],
+    "record_id": "view_manifest-ANALYSIS_CONTINUITY_UPDATE-abadfef9671b",
+    "render_diagnostics": [],
+    "render_status": "rendered",
+    "rendered_markdown_digest": "sha256:bd1a1bcead16019c488a9701adb81cc1fb001cd3d9efcfb8268c058b4dd0ff1d",
+    "rendered_markdown_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/views/research-records/view_manifest/analysis-continuity-update.md",
+    "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+    "schema_ref": "isomer:deepsci/record-format/schema/control/analysis-continuity-update/v1",
+    "schema_source_kind": "provider_asset",
+    "schema_version": "deepsci-structured-record.v1",
+    "template_ref": "isomer:deepsci/record-format/template/markdown/control/analysis-continuity-update/v1",
+    "template_source_kind": "provider_asset",
+    "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+    "updated_at": "2026-07-04T21:02:29Z",
+    "validation_diagnostics": [],
+    "validation_status": "valid"
+  }
+}

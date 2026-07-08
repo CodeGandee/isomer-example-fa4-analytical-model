@@ -1,0 +1,6 @@
+# Data Access Classification
+
+- Real B200 timing CSVs, configuration matrix, predictor code, figure source data: generated; not yet in a public repository; available from the corresponding authors on reasonable request until deposit.
+- NCU profile CSVs: generated; stored locally; will be included in the planned public deposit.
+- Reused public literature: arXiv preprints and cited papers; freely available.
+- No restricted, controlled, or third-party licensed data are used.

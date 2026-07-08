@@ -1,0 +1,44 @@
+[
+  {
+    "placeholder": "<DATA_AVAILABILITY_CONTEXT>",
+    "record_id": "view_manifest-DATA_AVAILABILITY_CONTEXT-af4bb037b492",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/views/research-records/view_manifest/data-availability-context.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/data_statement/data-availability-context.json"
+  },
+  {
+    "placeholder": "<DATASET_INVENTORY>",
+    "record_id": "evidence_item-DATASET_INVENTORY-c4f22b91569a",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/evidence_item/dataset-inventory.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/data_statement/dataset-inventory.json"
+  },
+  {
+    "placeholder": "<DATA_ACCESS_CLASSIFICATION>",
+    "record_id": "decision_record-DATA_ACCESS_CLASSIFICATION-eeba8926b1a3",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/decision_record/data-access-classification.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/data_statement/data-access-classification.json"
+  },
+  {
+    "placeholder": "<REPOSITORY_STRATEGY>",
+    "record_id": "artifact-REPOSITORY_STRATEGY-a8085cc4fdf6",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/data-repository-strategy.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/data_statement/data-repository-strategy.json"
+  },
+  {
+    "placeholder": "<DATA_AVAILABILITY_STATEMENT>",
+    "record_id": "artifact-DATA_AVAILABILITY_STATEMENT-f531b0230c94",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/data-availability-statement.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/data_statement/data-availability-statement.json"
+  },
+  {
+    "placeholder": "<DATASET_CITATION_ACTIONS>",
+    "record_id": "artifact-DATASET_CITATION_ACTIONS-4c84646cefc8",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/dataset-citation-actions.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/data_statement/dataset-citation-actions.json"
+  },
+  {
+    "placeholder": "<FAIR_METADATA_AUDIT>",
+    "record_id": "artifact-FAIR_METADATA_AUDIT-1b4cb4d7e469",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/fair-metadata-audit.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/data_statement/fair-metadata-audit.json"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "operation_set": "20260705-153222-submission-4948b3fa",
+  "created_records": {
+    "data_availability_statement": "artifact-DATA_AVAILABILITY_STATEMENT-9649d66c",
+    "claim_ledger": "artifact-CLAIM_LEDGER-17563d6f",
+    "final_limitations_report": "artifact-FINAL_LIMITATIONS_REPORT-dc8749c0",
+    "final_summary": "artifact-FINAL_SUMMARY-fc75b922",
+    "resume_packet": "artifact-RESUME_PACKET-e14f7a3d",
+    "closure_decision": "decision_record-CLOSURE_DECISION-4b441b63",
+    "pipeline_terminal_report": "artifact-pipeline-terminal-report-227f863f"
+  },
+  "record_creation_status": {
+    "data_availability_statement": true,
+    "claim_ledger": true,
+    "final_limitations_report": true,
+    "final_summary": true,
+    "resume_packet": true,
+    "closure_decision": true,
+    "pipeline_terminal_report": true
+  }
+}

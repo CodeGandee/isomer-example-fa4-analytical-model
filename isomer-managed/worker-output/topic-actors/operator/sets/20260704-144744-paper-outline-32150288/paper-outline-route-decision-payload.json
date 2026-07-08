@@ -1,0 +1,31 @@
+{
+  "title": "Paper Outline Route Decision: Proceed to Write",
+  "summary": "Route decision for the paper-outline stage of the FA4 B200 white-box runtime predictor.",
+  "status": "ready",
+  "metadata": {
+    "placeholder": "<PAPER_OUTLINE_ROUTE_DECISION>",
+    "producer": "isomer-deepsci-paper-outline",
+    "consumer": "analysis, decision, write",
+    "skill": "isomer-deepsci-paper-outline"
+  },
+  "sections": {
+    "decision": "write",
+    "ready_for_write": true,
+    "route": "isomer-deepsci-write",
+    "reason": "The paper view and evidence view are separated, the claim-evidence boundary is explicit, the outline validation report passes all checks with no blockers, and the section writing plan provides actionable jobs for each manuscript section. The empirical pass is finalized and all required durable records are current.",
+    "evidence_basis": [
+      "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154",
+      "decision_record-ANALYSIS_ROUTE_DECISION-21767b5a6cb1",
+      "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5",
+      "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673",
+      "artifact-SELECTED_HYPOTHESIS-bab659036a3c",
+      "artifact-EVALUATION_CONTRACT-7f255a5e6694",
+      "artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4"
+    ],
+    "conditions_for_revisiting": [
+      "The write stage identifies a claim that lacks evidence or a figure that cannot be reproduced from the experiment output set.",
+      "A reviewer or downstream gate finds an unsupported generalization in the drafted manuscript.",
+      "Real B200 measurements become available and materially change the result boundary."
+    ]
+  }
+}

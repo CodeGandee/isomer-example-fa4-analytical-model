@@ -1,0 +1,4 @@
+{
+  "title": "Review Audit Plan",
+  "body": "# Review Audit Plan\n\nAudit the finalized real-hardware paper bundle before submission packaging.\n\n- Claim set: white-box FA4 B200 predictor accuracy, launch-overhead correction, NCU bottleneck calibration.\n- Strongest evidence: 540 real B200 measurements; final validation MAPE 12.62%, query MAPE 10.01%; 100% NCU bottleneck accuracy.\n- Weakest evidence: all NCU profiles are compute-bound; memory-bound generalisation untested; fp4 unsupported.\n- Likely rejection routes: coverage claims overstated, reproducibility without public repository, reference verification.\n- Comparator: reproduced FA4 roofline baseline.\n- Language risks: none material; minor reference hygiene remains.\n- Route target: finalize if review route decision is `finalize`.\n"
+}

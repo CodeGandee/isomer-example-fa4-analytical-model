@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "consumer": "analysis, optimize, decision, finalize, idea",
+    "placeholder": "<EXPERIMENT_ROUTE_DECISION>",
+    "producer": "isomer-deepsci-experiment",
+    "skill": "isomer-deepsci-experiment"
+  },
+  "sections": {
+    "decision": "analysis",
+    "evidence_refs": [
+      "evidence_item-EXPERIMENT_RESULT_SUMMARY-0e6af52b5f23",
+      "run-MAIN_RUN_RECORD-cc19cf5c010a"
+    ],
+    "reason": "The real-hardware experiment refuted the hypothesis (combined MAPE 62.1% vs baseline 42.1%; delta -20.0 pp; only 47% within 30%). The next step is isomer-deepsci-analysis to identify transfer gaps, especially launch-overhead-dominated small configs and the mismatch between calibrated efficiency factors and real B200 scheduling.",
+    "route": "analysis"
+  },
+  "status": "ready",
+  "summary": "Route to analysis after real-hardware experiment refuted the selected hypothesis.",
+  "title": "Experiment Route Decision: Analysis"
+}

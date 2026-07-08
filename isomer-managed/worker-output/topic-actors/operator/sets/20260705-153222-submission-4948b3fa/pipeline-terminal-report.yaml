@@ -1,0 +1,43 @@
+pipeline_id: submission-pass
+status: complete
+stages_run:
+- stage_id: audit
+  skill: isomer-deepsci-review
+  status: complete
+  artifacts_in:
+  - artifact-PAPER_BUNDLE_CHECKPOINT-3ea4159c97ba
+  artifacts_out:
+  - artifact-REVIEW_REPORT-d7b43af5dbff
+  - decision_record-REVIEW_ROUTE_DECISION-91f4063a629b
+  route_decision: finalize
+  notes: Existing review report confirms route decision finalize; no new experiments
+    required.
+- stage_id: data_statement
+  skill: isomer-deepsci-nature-data
+  status: complete
+  artifacts_in:
+  - artifact-PAPER_BUNDLE_CHECKPOINT-3ea4159c97ba
+  artifacts_out:
+  - artifact-DATA_AVAILABILITY_STATEMENT-9649d66c
+  route_decision: null
+  notes: General data-availability statement produced because venue is unspecified;
+    no blocker.
+- stage_id: close
+  skill: isomer-deepsci-finalize
+  status: complete
+  artifacts_in:
+  - artifact-REVIEW_REPORT-d7b43af5dbff
+  - artifact-DATA_AVAILABILITY_STATEMENT-9649d66c
+  - artifact-PAPER_BUNDLE_CHECKPOINT-3ea4159c97ba
+  artifacts_out:
+  - artifact-CLAIM_LEDGER-17563d6f
+  - artifact-FINAL_LIMITATIONS_REPORT-dc8749c0
+  - artifact-FINAL_SUMMARY-fc75b922
+  - artifact-RESUME_PACKET-e14f7a3d
+  - decision_record-CLOSURE_DECISION-4b441b63
+  route_decision: park
+  notes: Closure decision is park pending public repository deposit and venue confirmation.
+final_artifact: artifact-FINAL_SUMMARY-fc75b922
+recommended_next: park
+blocker: null
+resume_point: null

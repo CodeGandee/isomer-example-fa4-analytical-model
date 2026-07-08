@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "consumer": "candidate generation",
+    "placeholder": "<CURRENT_BOARD_PACKET>",
+    "producer": "isomer-deepsci-idea",
+    "skill": "isomer-deepsci-idea"
+  },
+  "sections": {
+    "incumbent": {
+      "name": "FlashAttention-4 Paper Roofline Model reproduced and extended for NVIDIA B200",
+      "record_id": "artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4",
+      "status": "accepted comparator",
+      "what_it_beat": "Naive max(compute, memory) roofline sanity check."
+    },
+    "current_mainline": "Extend the FA4 paper roofline with B200-specific white-box terms (occupancy, TMA/L2, precision throughput, exponential emulation) and validate against held-out B200 runtime.",
+    "latest_decisive_result": "Baseline stage accepted the FA4 paper roofline as comparator with caveats; B200 host spec verified; flash-attention repository at commit 002cce0 available; comparability contract records required calibration constants for HBM bandwidth, L2 efficiency, TMA latency, SMEM bandwidth, Tensor Core MMA throughput, and occupancy limits.",
+    "strongest_negative_evidence": "The FA4 paper roofline intentionally abstracts L2/HBM, TMA latency, occupancy, and TMEM effects; these are exactly the terms that dominate error when tile sizes or precisions change on Blackwell.",
+    "active_blocker": "none",
+    "stale_routes": [
+      "Replace FA4 roofline with a closed-source predictor (cuDNN/Triton) — rejected in baseline shortlist.",
+      "Target consumer GPUs or non-B200 precisions (SageAttention family) — scope mismatch.",
+      "Use measured runtime as a feature — violates comparability contract."
+    ],
+    "next_decision_scope": "mechanism",
+    "budget_class": "slow-check",
+    "budget_justification": "Validation requires building a Python/SymPy predictor, collecting measured B200 runtime and NCU counters on calibration/validation splits, and fitting bounded white-box constants."
+  },
+  "status": "ready",
+  "summary": "Current board packet for the FlashAttention-4 B200 runtime model idea pass.",
+  "title": "Current Board Packet: FlashAttention-4 B200 Runtime Model Idea Pass"
+}

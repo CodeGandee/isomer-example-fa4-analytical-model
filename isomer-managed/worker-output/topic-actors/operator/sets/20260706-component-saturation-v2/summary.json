@@ -1,0 +1,42 @@
+[
+  {
+    "round": 1,
+    "n_configs": 4,
+    "n_ncu_ok": 4,
+    "matches": 4,
+    "accuracy_pct": 100.0,
+    "output_dir": "actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260706-component-saturation-v2/round1"
+  },
+  {
+    "round": 2,
+    "n_configs": 4,
+    "n_ncu_ok": 4,
+    "matches": 0,
+    "accuracy_pct": 0.0,
+    "output_dir": "actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260706-component-saturation-v2/round2"
+  },
+  {
+    "round": 3,
+    "n_configs": 4,
+    "n_ncu_ok": 4,
+    "matches": 0,
+    "accuracy_pct": 0.0,
+    "output_dir": "actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260706-component-saturation-v2/round3"
+  },
+  {
+    "round": 4,
+    "n_configs": 4,
+    "n_ncu_ok": 4,
+    "matches": 0,
+    "accuracy_pct": 0.0,
+    "output_dir": "actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260706-component-saturation-v2/round4"
+  },
+  {
+    "round": 5,
+    "n_configs": 4,
+    "n_ncu_ok": 4,
+    "matches": 2,
+    "accuracy_pct": 50.0,
+    "output_dir": "actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260706-component-saturation-v2/round5"
+  }
+]

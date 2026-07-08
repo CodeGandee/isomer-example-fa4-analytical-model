@@ -1,0 +1,56 @@
+{
+  "title": "Baseline Shortlist",
+  "summary": "Comparator candidates for the Flash Attention 4 white-box runtime model on NVIDIA B200.",
+  "status": "ready",
+  "sections": {
+    "anchor_comparator": {
+      "name": "FlashAttention-4 Paper Roofline Model",
+      "provenance": "arXiv 2603.05451v1",
+      "metric_fit": "Direct forward-pass roofline on Blackwell (MMA, SMEM, exponential).",
+      "implementation": "Must be reproduced from paper into Python/SymPy predictor in repos/topic-main.",
+      "expected_cost": "Low-medium",
+      "downstream_value": "First credible white-box model and foundation for refinement.",
+      "main_risk": "Ignores L2/HBM, TMA latency, occupancy; needs calibration.",
+      "route": "reproduce / extend"
+    },
+    "sanity_checks": [
+      {
+        "name": "Naive Max(Compute, Memory) Roofline",
+        "provenance": "Standard GPU roofline",
+        "metric_fit": "Lower-bound baseline the white-box model should beat.",
+        "implementation": "Trivial Python implementation.",
+        "expected_cost": "Very low",
+        "downstream_value": "Shows improvement over crude bound.",
+        "main_risk": "Too weak for final comparator.",
+        "route": "attach"
+      },
+      {
+        "name": "Measured B200 Kernel Runtime",
+        "provenance": "Host B200 + official flash-attention benchmarks",
+        "metric_fit": "Target variable, not a predictor.",
+        "implementation": "Build and run repo benchmark scripts; collect NCU.",
+        "expected_cost": "Medium",
+        "downstream_value": "Required for calibration and validation.",
+        "main_risk": "Direct measurement leakage if used for predictions.",
+        "route": "import as ground truth only"
+      }
+    ],
+    "rejected": [
+      {
+        "name": "cuDNN 9.13 / Triton Attention",
+        "reason": "Closed-source or different kernels; only indirect plausibility checks."
+      },
+      {
+        "name": "SageAttention family",
+        "reason": "Targets consumer GPUs and quantization outside B200 datacenter scope."
+      }
+    ],
+    "recommended_next_action": "Route to isomer-deepsci-baseline and reproduce the FA4 paper roofline model, then extend with B200 memory/occupancy terms and validate against measured B200 runtime."
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-scout",
+    "placeholder": "<BASELINE_SHORTLIST>",
+    "producer": "isomer-deepsci-scout",
+    "consumer": "isomer-deepsci-baseline, isomer-deepsci-idea, isomer-deepsci-decision"
+  }
+}

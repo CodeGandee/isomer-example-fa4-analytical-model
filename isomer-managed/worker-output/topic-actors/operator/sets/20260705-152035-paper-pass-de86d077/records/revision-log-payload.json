@@ -1,0 +1,32 @@
+{
+  "title": "Revision Log",
+  "summary": "Actionable fixes identified during review.",
+  "items": [
+    {
+      "location": "Section 5.7",
+      "issue": "Worst-case context (small absolute runtimes) could be more explicit",
+      "severity": "minor",
+      "fix": "Keep current quantification; no new data needed"
+    },
+    {
+      "location": "Section 6",
+      "issue": "NCU compute-bound caveat should remain prominent",
+      "severity": "minor",
+      "fix": "No change required"
+    },
+    {
+      "location": "References",
+      "issue": "arXiv IDs inherited from previous bundle should be verified before submission",
+      "severity": "minor",
+      "fix": "Flag for author/submission step"
+    },
+    {
+      "location": "Output format",
+      "issue": "No PDF toolchain in project",
+      "severity": "informational",
+      "fix": "PDF generation is a post-pipeline step requiring LaTeX/pandoc"
+    }
+  ],
+  "new_experiments_required": false,
+  "status": "ready"
+}

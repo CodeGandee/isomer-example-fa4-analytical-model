@@ -1,0 +1,98 @@
+{
+  "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/decision_record/analysis-route-decision.md",
+  "mutated": true,
+  "ok": true,
+  "operation": "create",
+  "query_index": {
+    "counts": {
+      "claims": 0,
+      "edges": 0,
+      "facts": 9,
+      "files": 1,
+      "ideas": 0,
+      "metrics": 0,
+      "records": 1,
+      "routes": 1
+    },
+    "diagnostics": [],
+    "mutated": true,
+    "ok": true,
+    "operation": "refresh"
+  },
+  "record": {
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/decision_record/analysis-route-decision.md",
+    "created_at": "2026-07-04T21:02:18Z",
+    "id": "decision_record-ANALYSIS_ROUTE_DECISION-a5c159bc619a",
+    "lifecycle_refs": {
+      "topic_actor_name": "operator"
+    },
+    "provenance_refs": [
+      "provenance:decision_record:decision_record-ANALYSIS_ROUTE_DECISION-a5c159bc619a"
+    ],
+    "record_kind": "decision_record",
+    "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+    "status": "ready",
+    "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+    "transition_metadata": {
+      "consumer": "any production DeepSci research skill",
+      "content_semantic_label": "topic.records.artifacts",
+      "created_by": "isomer-cli ext research records create",
+      "format_profile_ref": "isomer:deepsci/record-format/profile/decision/analysis-route-decision/v1",
+      "payload_digest": "sha256:07cb852af2226bdbbd09ac5bb2ff19e3e8cda52c306353f4f24e13ed4e19704e",
+      "placeholder": "<ANALYSIS_ROUTE_DECISION>",
+      "producer": "isomer-deepsci-analysis",
+      "render_format": "markdown",
+      "render_status": "rendered",
+      "rendered_markdown_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/decision_record/analysis-route-decision.md",
+      "schema_ref": "isomer:deepsci/record-format/schema/decision/analysis-route-decision/v1",
+      "schema_source_kind": "provider_asset",
+      "semantic_label": "topic.records.artifacts",
+      "skill": "isomer-deepsci-analysis",
+      "structured_payload": true,
+      "template_ref": "isomer:deepsci/record-format/template/markdown/decision/analysis-route-decision/v1",
+      "template_source_kind": "provider_asset",
+      "topic_actor_name": "operator",
+      "validation_status": "valid"
+    },
+    "updated_at": "2026-07-04T21:02:18Z"
+  },
+  "structured_payload": {
+    "created_at": "2026-07-04T21:02:18Z",
+    "format_profile_ref": "isomer:deepsci/record-format/profile/decision/analysis-route-decision/v1",
+    "id": "structured-payload-decision_record-ANALYSIS_ROUTE_DECISION-a5c159bc619a",
+    "payload": {
+      "metadata": {
+        "recorded_at": "2026-07-04T21:01:22.593738Z"
+      },
+      "sections": {
+        "alternative_reason": "If NCU profiling capacity is limited and MAPE/within-30% performance is sufficient for downstream use, the result can be finalized with a caveat that bottleneck labels are approximate.",
+        "alternative_route": "finalize",
+        "conditions_for_experiment": "Keep launch_fixed_us=60.0 and current MAPE calibration as the starting point. Profile additional configs (ideally all validation and a larger query sample) to stabilize bottleneck accuracy. Adjust MMA/MUFU vs HBM/L2/SMEM/TMA component weights or introduce a compute/memory binary mapping and re-evaluate NCU bottleneck accuracy. If bottleneck accuracy still falls short after the mapping fix, consider accepting the result with documented limitations.",
+        "reason": "The improved predictor passes MAPE and within-30% thresholds but narrowly misses the \u226575% NCU bottleneck-accuracy threshold (60.0% validation, 74.3% query). The gap is systematic (predicted memory-bound vs NCU compute-bound) and small enough that a targeted calibration of compute-vs-memory component weights is likely to close it, without repeating the full B200 measurement sweep.",
+        "route": "experiment"
+      },
+      "status": "ready",
+      "summary": "Route to a narrow follow-up experiment that preserves the calibrated launch-overhead and MAPE gains while refining the white-box-to-NCU bottleneck mapping.",
+      "title": "Analysis route decision: targeted bottleneck-mapping experiment"
+    },
+    "payload_digest": "sha256:07cb852af2226bdbbd09ac5bb2ff19e3e8cda52c306353f4f24e13ed4e19704e",
+    "provenance_refs": [
+      "provenance:structured-payload:decision_record-ANALYSIS_ROUTE_DECISION-a5c159bc619a"
+    ],
+    "record_id": "decision_record-ANALYSIS_ROUTE_DECISION-a5c159bc619a",
+    "render_diagnostics": [],
+    "render_status": "rendered",
+    "rendered_markdown_digest": "sha256:cf1d62a030dd37237bff6201404bdf1021af5fc89482083e6b04d9e56b0f7659",
+    "rendered_markdown_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/decision_record/analysis-route-decision.md",
+    "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+    "schema_ref": "isomer:deepsci/record-format/schema/decision/analysis-route-decision/v1",
+    "schema_source_kind": "provider_asset",
+    "schema_version": "deepsci-structured-record.v1",
+    "template_ref": "isomer:deepsci/record-format/template/markdown/decision/analysis-route-decision/v1",
+    "template_source_kind": "provider_asset",
+    "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+    "updated_at": "2026-07-04T21:02:18Z",
+    "validation_diagnostics": [],
+    "validation_status": "valid"
+  }
+}

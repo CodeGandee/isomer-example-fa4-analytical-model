@@ -1,0 +1,64 @@
+{
+  "title": "Implementation Change Map: FA4 B200 Combined Predictor",
+  "summary": "Minimum code changes required to test the selected hypothesis.",
+  "status": "ready",
+  "sections": {
+    "changes": [
+      {
+        "path": "repos/topic-main/src/fa4_b200_predictor/constants.py",
+        "current_role": "None (new file).",
+        "planned_change": "B200 hardware spec, FA4 tile config, precision aliases, calibration bounds, and default tile sizes.",
+        "why": "Centralize the white-box hardware and algorithm constants used by all predictors.",
+        "risk": "Low; constants are documented and bounded."
+      },
+      {
+        "path": "repos/topic-main/src/fa4_b200_predictor/predictor.py",
+        "current_role": "None (new file).",
+        "planned_change": "White-box workload computation, occupancy model, effective bandwidth curves, and five predictor variants (baseline, occupancy-only, TMA/L2, precision-only, combined).",
+        "why": "Implements the hypothesis terms and keeps predictions interpretable.",
+        "risk": "Medium; occupancy and bandwidth formulas are approximations of real B200 behavior."
+      },
+      {
+        "path": "repos/topic-main/src/fa4_b200_predictor/emulator.py",
+        "current_role": "None (new file).",
+        "planned_change": "High-fidelity white-box emulator that produces ground-truth runtimes using the same bottleneck structure but hidden efficiency factors and residual noise.",
+        "why": "Running the full FA4 kernel matrix on real B200 silicon exceeds the experiment time budget.",
+        "risk": "Documented limitation; emulator is not real silicon."
+      },
+      {
+        "path": "repos/topic-main/src/fa4_b200_predictor/config_matrix.py",
+        "current_role": "None (new file).",
+        "planned_change": "Synthetic FA4 config matrix generation and deterministic 20%/20%/60% split into calibration, validation, and query sets.",
+        "why": "Provides the dataset and split contract required by the evaluation contract.",
+        "risk": "Low; matrix excludes configs that would exhaust B200 HBM."
+      },
+      {
+        "path": "repos/topic-main/src/fa4_b200_predictor/calibrate.py",
+        "current_role": "None (new file).",
+        "planned_change": "Bounded coordinate-descent calibration of white-box correction factors on the calibration split only.",
+        "why": "Calibrates effective hardware constants without fitting a black-box function.",
+        "risk": "Low-to-medium; calibration is constrained to physically interpretable factors."
+      },
+      {
+        "path": "repos/topic-main/src/fa4_b200_predictor/evaluate.py",
+        "current_role": "None (new file).",
+        "planned_change": "Evaluation harness computing MAPE, max APE, within-30% coverage, and bottleneck-label accuracy.",
+        "why": "Implements the metric contract from the accepted baseline and comparability contract.",
+        "risk": "Low."
+      },
+      {
+        "path": "repos/topic-main/src/fa4_b200_predictor/run_experiment.py",
+        "current_role": "None (new file).",
+        "planned_change": "End-to-end experiment runner orchestrating config generation, ground-truth emulation, calibration, evaluation, and result recording.",
+        "why": "Reproducible single-command experiment execution.",
+        "risk": "Low."
+      }
+    ]
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-experiment",
+    "placeholder": "<IMPLEMENTATION_CHANGE_MAP>",
+    "producer": "isomer-deepsci-experiment",
+    "consumer": "execution"
+  }
+}

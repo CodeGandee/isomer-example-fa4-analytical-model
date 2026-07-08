@@ -1,0 +1,4 @@
+{
+  "title": "FAIR Metadata Audit — FlashAttention-4 White-Box Runtime Model",
+  "body": "# FAIR Metadata Audit — FlashAttention-4 White-Box Runtime Model\n\n| FAIR principle | Status | Notes |\n| --- | --- | --- |\n| Findable | partial | No public repository or DOI yet; title/description ready |\n| Accessible | partial | Files available on request; public access pending deposit |\n| Interoperable | ready | CSV/JSON for tabular data; Python source code; README planned |\n| Reusable | partial | License to be chosen at deposit; provenance described in draft |\n| README / metadata | pending | README with column descriptions and reproduction steps needed |\n| License | pending | MIT for code; CC-BY-4.0 or CC0 for data |\n| Provenance | ready | Emulator and calibration protocol described in Section 4 |\n\nNo blocker: all pending items are normal pre-submission deposit tasks, not missing evidence.\n"
+}

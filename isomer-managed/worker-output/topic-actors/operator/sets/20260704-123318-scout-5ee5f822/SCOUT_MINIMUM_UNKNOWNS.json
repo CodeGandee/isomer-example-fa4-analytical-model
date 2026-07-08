@@ -1,0 +1,25 @@
+{
+  "title": "Scout Minimum Unknowns",
+  "summary": "Unresolved route-changing questions for the Flash Attention 4 white-box runtime model.",
+  "status": "ready",
+  "sections": {
+    "unknowns": [
+      "B200 sustained HBM bandwidth and L2 transaction parameters.",
+      "FA4 default tile sizes, warpgroup assignment, and 2-CTA mode per precision.",
+      "TMA latency and TMEM allocation constraints per SM.",
+      "Fraction of exponentials emulated and conditional-rescaling threshold tau.",
+      "Primary accuracy threshold and validation split."
+    ],
+    "route_impact": "These questions affect baseline model construction and validation plan but do not block routing to isomer-deepsci-baseline.",
+    "revisit_scout_if": [
+      "Operator rejects proposed accuracy threshold or split.",
+      "FA4 tile/occupancy details cannot be sourced or measured."
+    ]
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-scout",
+    "placeholder": "<SCOUT_MINIMUM_UNKNOWNS>",
+    "producer": "isomer-deepsci-scout",
+    "consumer": "isomer-deepsci-scout, literature discovery, evaluation contract drafting, baseline shortlist drafting."
+  }
+}

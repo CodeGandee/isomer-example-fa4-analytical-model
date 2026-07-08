@@ -1,0 +1,14 @@
+{
+  "hbm_factor": 3.0,
+  "l2_factor": 1.5,
+  "smem_factor": 0.9,
+  "tma_factor": 3.0,
+  "mma_efficiency": 1.75,
+  "mufu_efficiency": 1.1,
+  "fp8_mma_boost": 1.5,
+  "launch_fixed_us": 60.0,
+  "launch_per_tile_us": 0.0,
+  "small_overhead_us": 0.0,
+  "small_seqlen_threshold": 2048,
+  "bottleneck_mem_slack": 3.0
+}

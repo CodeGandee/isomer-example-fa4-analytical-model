@@ -1,0 +1,12 @@
+{
+  "tma_efficiency": 3.0,
+  "tc_efficiency": 0.2797282596105065,
+  "sfu_efficiency": 0.2,
+  "fp_efficiency": 3.0,
+  "dependency_slack_factor": 2.4741676519707823,
+  "stage_overlap_factor": 0.85,
+  "launch_overhead_us": 15.976979713944642,
+  "num_sms": 176,
+  "partitions_per_sm": 4,
+  "peak_sm_clock_mhz": 1965.0
+}

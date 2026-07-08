@@ -1,0 +1,71 @@
+{
+  "title": "Pipeline Terminal Report: revision-pass",
+  "summary": "Revision-pass completed successfully; the revised draft is ready for finalization.",
+  "status": "complete",
+  "metadata": {
+    "placeholder": "pipeline-terminal-report",
+    "skill": "isomer-deepsci-pipeline",
+    "producer": "isomer-deepsci-pipeline",
+    "consumer": "External controller, isomer-deepsci-decision, user.",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "pipeline_id": "revision-pass",
+    "status": "complete",
+    "stages_run": [
+      {
+        "stage_id": "audit",
+        "skill": "isomer-deepsci-review",
+        "status": "complete",
+        "artifacts_in": [
+          "artifact-DRAFT_SECTION_SET-db586e5e0d48"
+        ],
+        "artifacts_out": [
+          "artifact-REVIEW_REPORT-7387e22762b6",
+          "artifact-REVISION_LOG-a0e3491acece"
+        ],
+        "route_decision": "revise",
+        "notes": "Reused existing review output; route_decision confirmed revise."
+      },
+      {
+        "stage_id": "fill_gaps",
+        "skill": "isomer-deepsci-analysis",
+        "status": "complete",
+        "artifacts_in": [
+          "artifact-REVIEW_REPORT-7387e22762b6",
+          "artifact-DRAFT_SECTION_SET-db586e5e0d48"
+        ],
+        "artifacts_out": [
+          "artifact-ANALYSIS_CAMPAIGN_SUMMARY-444c0bb36be5",
+          "decision_record-ANALYSIS_ROUTE_DECISION-cb3fcea2f9c8"
+        ],
+        "route_decision": "write",
+        "notes": "Updated analysis summary with corrected calibration description and figure/citation generation plan."
+      },
+      {
+        "stage_id": "revise",
+        "skill": "isomer-deepsci-write",
+        "status": "complete",
+        "artifacts_in": [
+          "artifact-ANALYSIS_CAMPAIGN_SUMMARY-444c0bb36be5",
+          "artifact-DRAFT_SECTION_SET-db586e5e0d48"
+        ],
+        "artifacts_out": [
+          "artifact-DRAFT_SECTION_SET-5c025ab25427",
+          "evidence_item-CITATION_LEDGER-b645b26c7cc5",
+          "view_manifest-DISPLAY_PLAN-021a6050302d",
+          "view_manifest-MANUSCRIPT_VALIDATION_REPORT-b891ad14d155",
+          "artifact-PAPER_BUNDLE_CHECKPOINT-897e4e2419c7",
+          "decision_record-WRITING_ROUTE_DECISION-4a4ac1ab087e"
+        ],
+        "route_decision": "finalize",
+        "notes": "Revised draft produced with corrected text, rendered figures, complete references, and passing manuscript validation."
+      }
+    ],
+    "final_artifact": "artifact-DRAFT_SECTION_SET-5c025ab25427",
+    "recommended_next": "finalize",
+    "blocker": null,
+    "resume_point": null
+  }
+}

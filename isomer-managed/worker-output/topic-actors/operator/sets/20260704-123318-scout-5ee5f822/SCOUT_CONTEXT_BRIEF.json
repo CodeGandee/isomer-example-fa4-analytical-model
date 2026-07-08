@@ -1,0 +1,24 @@
+{
+  "title": "Scout Context Brief",
+  "summary": "Reconstructed research frame for the Flash Attention 4 white-box runtime model on NVIDIA B200.",
+  "status": "ready",
+  "sections": {
+    "research_topic": "flash-attention-4-whitebox-runtime-model",
+    "task_frame": "Build a white-box, hardware-grounded predictor of Flash Attention 4 forward-pass kernel runtime in milliseconds from input configuration, without executing the queried kernel.",
+    "scope": {
+      "gpu_target": "NVIDIA B200, single GPU",
+      "precisions": ["BF16", "FP16", "FP8", "FP4"],
+      "inputs": ["batch size", "heads", "sequence length", "head dimension", "mask mode", "precision"],
+      "excluded": ["backward pass", "multi-GPU/tensor-parallel"]
+    },
+    "comparator_status": "No existing white-box FA4 runtime predictor found. FA4 paper roofline analysis is the seed comparator.",
+    "evidence": ["intent/src/topic-overview.md", "intent/src/topic-env-gate.md", "actors/operator/host-b200-spec.md", "repos/extern/flash-attention", "arXiv 2603.05451v1", "arXiv 2512.02189v1", "arXiv 2605.04178v1"],
+    "blockers": "None for routing to isomer-deepsci-baseline."
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-scout",
+    "placeholder": "<SCOUT_CONTEXT_BRIEF>",
+    "producer": "isomer-deepsci-scout from user context, Workspace Runtime records, Artifacts, Findings, Evidence Items, and Decision Records.",
+    "consumer": "isomer-deepsci-scout, isomer-deepsci-baseline, isomer-deepsci-idea, isomer-deepsci-decision"
+  }
+}

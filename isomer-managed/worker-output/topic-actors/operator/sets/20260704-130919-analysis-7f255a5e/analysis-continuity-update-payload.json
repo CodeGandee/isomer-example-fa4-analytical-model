@@ -1,0 +1,32 @@
+{
+  "title": "Analysis Continuity Update: FA4 B200 White-Box Predictor",
+  "summary": "Reusable conclusions from the analysis stage of the FA4 B200 empirical pass. The combined white-box predictor is supported and the empirical pass is finalized.",
+  "status": "ready",
+  "sections": {
+    "reusable_conclusions": [
+      "The combined predictor (occupancy + effective HBM/L2/TMA bandwidth + precision-specific MMA/MUFU throughput) is supported on the held-out validation set.",
+      "TMA/L2 effective-bandwidth modeling is the dominant source of improvement; occupancy and precision terms provide a smaller but measurable further reduction in MAPE and max APE.",
+      "All success criteria are met: MAPE 4.50%, 100% within 30% error, 100% bottleneck-label accuracy, +17.7pp vs baseline.",
+      "The largest residual errors occur on TMA-limited and small-HBM configurations; the model still stays within the 30% envelope.",
+      "The empirical pass is emulator-validated only; real B200 silicon measurements would be the strongest next validation."
+    ],
+    "created_records": [
+      "evidence_item-ANALYSIS_CONTEXT_BRIEF-10710eca9f26",
+      "evidence_item-PARENT_RESULT_EVIDENCE-524c4bdb38e9",
+      "view_manifest-ANALYSIS_RESOURCE_ENVELOPE-07031abaf992",
+      "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154",
+      "decision_record-ANALYSIS_ROUTE_DECISION-21767b5a6cb1"
+    ],
+    "route_state": "finalize",
+    "open_follow_ups": [
+      "Transfer-validation on real B200 kernel launches when feasible.",
+      "Sensitivity to custom tile sizes, num_splits, and fused variants outside the synthetic matrix."
+    ]
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-analysis",
+    "placeholder": "<ANALYSIS_CONTINUITY_UPDATE>",
+    "producer": "isomer-deepsci-analysis",
+    "consumer": "future research work"
+  }
+}

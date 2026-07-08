@@ -1,0 +1,22 @@
+{
+  "title": "Draft Section Set: White-Box FA4 B200 Predictor on Real Hardware",
+  "summary": "Full manuscript draft rewritten for real B200 silicon, with updated figures, tables, and claim-evidence alignment.",
+  "sections": {
+    "abstract": {"status": "drafted", "claims": ["real-hardware validation", "launch-overhead correction", "NCU bottleneck calibration"]},
+    "introduction": {"status": "drafted", "claims": ["emulator-to-silicon narrative", "first pass refuted", "final thresholds met"]},
+    "related_work": {"status": "drafted", "claims": []},
+    "method": {"status": "drafted", "claims": ["bounded corrections", "launch overhead", "NCU slack"]},
+    "experiments": {"status": "drafted", "claims": ["540 measured configs", "60 NCU-profiled", "fp4 unsupported"]},
+    "results": {"status": "drafted", "claims": ["Table 2 across passes", "Table 3 per precision", "Figures 1-2 updated"]},
+    "limitations": {"status": "drafted", "claims": ["compute-only NCU labels", "synthetic matrix"]},
+    "conclusion": {"status": "drafted", "claims": []}
+  },
+  "draft_path": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260705-152035-paper-pass-de86d077/bundle/revised-draft.md",
+  "figures": [
+    "figures/figure1_predicted_vs_measured.svg",
+    "figures/figure2_residuals_by_bottleneck.svg",
+    "figures/figure3_pipeline.png"
+  ],
+  "route_decision": "review",
+  "status": "ready"
+}

@@ -1,0 +1,4 @@
+{
+  "title": "Closure Decision — FlashAttention-4 White-Box Runtime Model",
+  "body": "# Closure Decision — FlashAttention-4 White-Box Runtime Model\n\n- closure_decision: park\n- rationale: The real-hardware paper bundle is internally consistent and the final refined predictor meets its success thresholds on NVIDIA B200. However, no public repository or persistent identifiers exist yet and the target venue is unspecified. Publishing now would make reproducibility claims premature.\n- evidence: See `close/claim-ledger.md` and `close/final-limitations-report.md`.\n- reopen_conditions:\n  - Public repository with code, real B200 measurements, NCU profiles, and README is deposited.\n  - Target venue chosen and data policy confirmed.\n  - References verified.\n- next_responsible_route: resume with `isomer-deepsci-finalize` after public deposit, or route to venue-specific polishing.\n"
+}

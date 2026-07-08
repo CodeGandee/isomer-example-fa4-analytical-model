@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "consumer": "analysis slices and route decision",
+    "placeholder": "<ANALYSIS_CONTEXT_BRIEF>",
+    "producer": "isomer-deepsci-analysis",
+    "skill": "isomer-deepsci-analysis"
+  },
+  "sections": {
+    "evidence_question": "Why does the existing white-box predictor succeed on the emulator but fail on real B200 FlashAttention-4 measurements, and what transfer gaps must be closed?",
+    "parent_claim": "The existing white-box predictor (fa4-b200-whitebox-occupancy-tma-l2-precision-v1) achieves the useful-improvement threshold when validated against real B200 FlashAttention-4 forward-pass measurements.",
+    "parent_result": "evidence_item-EXPERIMENT_RESULT_SUMMARY-0e6af52b5f23",
+    "stop_condition": "Stop when the dominant transfer gaps are identified and a concrete next experiment or model change is justified."
+  },
+  "status": "ready",
+  "summary": "Analysis context for interpreting the real-hardware refutation of the FA4 B200 predictor.",
+  "title": "Analysis Context Brief: Real-Hardware Transfer Gap"
+}

@@ -1,0 +1,26 @@
+digraph sass_critical_path {
+    rankdir=LR;
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+    edge [fontname="Helvetica", fontsize=9];
+
+    LoadQ [label="TMA load Q\n(latency L_TMA)", fillcolor="#d9ead3"];
+    LoadK [label="TMA load K\n(latency L_TMA)", fillcolor="#d9ead3"];
+    LoadV [label="TMA load V\n(latency L_TMA)", fillcolor="#d9ead3"];
+    MMA_QK [label="tcgen05.mma\nQ@K^T\n(latency L_TC)", fillcolor="#ead1dc"];
+    SFU [label="SFU exp\n(latency L_SFU)", fillcolor="#fce5cd"];
+    FP [label="FP scale/update\n(latency L_FP)", fillcolor="#fce5cd"];
+    MMA_PV [label="tcgen05.mma\nP@V\n(latency L_TC)", fillcolor="#ead1dc"];
+    StoreO [label="TMA store O\n(latency L_store)", fillcolor="#d9ead3"];
+
+    LoadQ -> MMA_QK [label="RAW"];
+    LoadK -> MMA_QK [label="RAW"];
+    MMA_QK -> SFU [label="RAW"];
+    SFU -> FP [label="RAW"];
+    FP -> MMA_PV [label="RAW"];
+    LoadV -> MMA_PV [label="RAW"];
+    MMA_PV -> StoreO [label="RAW"];
+
+    Critical [label="Critical path =\nlongest RAW chain +\nthroughput limits", shape=ellipse, fillcolor="#f4cccc"];
+    MMA_QK -> Critical [style=invis];
+    MMA_PV -> Critical [style=invis];
+}

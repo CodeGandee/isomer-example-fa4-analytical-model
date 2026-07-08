@@ -1,0 +1,18 @@
+{
+  "baseline_fa4_roofline": {
+    "mape": 43.12323317406717,
+    "max_ape": 281.39327129644573,
+    "pct_within_30": 52.72727272727273,
+    "bottleneck_accuracy": 0.0,
+    "n_configs": 330
+  },
+  "improved": {
+    "mape": 10.008106134891227,
+    "max_ape": 59.913861813349186,
+    "pct_within_30": 96.36363636363636,
+    "bottleneck_accuracy": 0.0,
+    "n_configs": 330,
+    "ncu_bottleneck_accuracy": 74.28571428571429,
+    "ncu_profiled_count": 35
+  }
+}

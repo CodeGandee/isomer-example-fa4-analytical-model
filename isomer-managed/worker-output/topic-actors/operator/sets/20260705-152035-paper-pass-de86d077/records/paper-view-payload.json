@@ -1,0 +1,49 @@
+{
+  "title": "White-Box FlashAttention-4 Runtime Prediction on NVIDIA B200",
+  "summary": "Paper outline for a short technical paper validating a white-box FA4 runtime predictor on real B200 hardware, including launch-overhead and NCU-guided bottleneck calibration.",
+  "one_sentence_idea": "A white-box analytical predictor for FlashAttention-4 forward runtime, calibrated only on real B200 silicon, achieves \u226413% validation MAPE and 100% NCU bottleneck accuracy after adding a fixed launch-overhead term and an NCU-guided bottleneck slack.",
+  "sections": {
+    "abstract": {
+      "purpose": "Summarize problem, method, real-hardware result, and limitation.",
+      "key_claims": ["Real-hardware validation", "launch-overhead correction", "NCU bottleneck calibration"]
+    },
+    "introduction": {
+      "purpose": "Motivate white-box prediction and the emulator-to-silicon narrative arc.",
+      "key_claims": ["Emulator preliminary result", "first real pass refuted", "final model meets thresholds"]
+    },
+    "related_work": {
+      "purpose": "Position against FlashAttention family and GPU analytical models.",
+      "key_claims": []
+    },
+    "method": {
+      "purpose": "Describe workload, baseline roofline, bounded corrections, launch overhead, and NCU slack.",
+      "key_claims": ["Bounded calibration grid", "NCU-guided bottleneck mapping"]
+    },
+    "experiments": {
+      "purpose": "Describe matrix, measurement protocol, NCU subset, and metrics.",
+      "key_claims": ["540 measured configs", "60 NCU-profiled", "fp4 unsupported"]
+    },
+    "results": {
+      "purpose": "Report emulator vs real hardware, ablations, and final metrics.",
+      "key_claims": ["First pass refuted", "improved pass 12.62%/10.01% MAPE", "refined pass 100% NCU accuracy"]
+    },
+    "limitations": {
+      "purpose": "State coverage and validation caveats.",
+      "key_claims": ["All NCU labels compute-bound", "synthetic matrix", "driver-specific calibration"]
+    },
+    "conclusion": {
+      "purpose": "Summarize contributions and next steps.",
+      "key_claims": []
+    }
+  },
+  "required_displays": [
+    "Table 1: White-box algorithm quantities",
+    "Table 2: Real-hardware results across passes",
+    "Table 3: Final per-precision accuracy",
+    "Figure 1: Predicted vs measured runtime",
+    "Figure 2: Residual distribution by predicted bottleneck",
+    "Figure 3: Predictor pipeline diagram"
+  ],
+  "route_decision": "ready_for_write",
+  "status": "ready"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "placeholder": "<REVIEW_AUDIT_PLAN>",
+    "record_id": "artifact-REVIEW_AUDIT_PLAN-24636808b8b1",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/review-audit-plan.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/audit/review-audit-plan.json"
+  },
+  {
+    "placeholder": "<LITERATURE_BENCHMARK_NOTE>",
+    "record_id": "evidence_item-LITERATURE_BENCHMARK_NOTE-956bd3369486",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/evidence_item/literature-benchmark-note.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/audit/literature-benchmark-note.json"
+  },
+  {
+    "placeholder": "<REVIEW_REPORT>",
+    "record_id": "artifact-REVIEW_REPORT-c8f50ecff3c7",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/review-report.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/audit/review-report.json"
+  },
+  {
+    "placeholder": "<REVISION_LOG>",
+    "record_id": "artifact-REVISION_LOG-0ed6229dfd6b",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/revision-log.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/audit/revision-log.json"
+  },
+  {
+    "placeholder": "<REVIEW_ROUTE_DECISION>",
+    "record_id": "decision_record-REVIEW_ROUTE_DECISION-73235ad09c5a",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/decision_record/review-route-decision.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/audit/review-route-decision.json"
+  }
+]

@@ -1,0 +1,108 @@
+{
+  "status": "refuted",
+  "status_reason": "Improved predictor fails at least one useful-improvement threshold.",
+  "hypothesis_id": "fa4-b200-improved-launch-overhead-ncu-calibration-v1",
+  "precisions_tested": [
+    "bf16",
+    "fp16",
+    "fp8"
+  ],
+  "precisions_skipped": [
+    "fp4"
+  ],
+  "config_counts": {
+    "generated": 540,
+    "calibration": 105,
+    "validation": 105,
+    "query": 330,
+    "ok": 540,
+    "oom": 0,
+    "error": 0,
+    "ok_calibration": 105,
+    "ok_validation": 105,
+    "ok_query": 330,
+    "ncu_profiled": 0,
+    "ncu_ok": 0,
+    "ncu_error": 0
+  },
+  "calibration_params": {
+    "hbm_factor": 5.0,
+    "l2_factor": 1.5,
+    "smem_factor": 0.9,
+    "tma_factor": 5.0,
+    "mma_efficiency": 1.75,
+    "mufu_efficiency": 1.1,
+    "fp8_mma_boost": 1.5,
+    "launch_fixed_us": 40.0,
+    "launch_per_tile_us": 0.0,
+    "small_overhead_us": 30.0,
+    "small_seqlen_threshold": 2048
+  },
+  "validation_metrics": {
+    "baseline_mape": 57.13237809274871,
+    "improved_mape": 9.705022895835409,
+    "delta_mape_pp": 47.4273551969133,
+    "max_ape": 28.783793600629988,
+    "pct_within_30": 100.0,
+    "bottleneck_accuracy": 0.0,
+    "ncu_bottleneck_accuracy": NaN,
+    "ncu_profiled_count": 0,
+    "n_configs": 105,
+    "per_model": {
+      "baseline_fa4_roofline": {
+        "mape": 57.13237809274871,
+        "max_ape": 368.9852131255468,
+        "pct_within_30": 46.666666666666664,
+        "bottleneck_accuracy": 0.0,
+        "n_configs": 105
+      },
+      "improved": {
+        "mape": 9.705022895835409,
+        "max_ape": 28.783793600629988,
+        "pct_within_30": 100.0,
+        "bottleneck_accuracy": 0.0,
+        "n_configs": 105,
+        "ncu_bottleneck_accuracy": NaN,
+        "ncu_profiled_count": 0
+      }
+    }
+  },
+  "query_metrics": {
+    "baseline_mape": 43.88691485062168,
+    "improved_mape": 9.598037979685818,
+    "delta_mape_pp": 34.28887687093586,
+    "max_ape": 33.66403242798229,
+    "pct_within_30": 97.87878787878788,
+    "bottleneck_accuracy": 0.0,
+    "ncu_bottleneck_accuracy": NaN,
+    "ncu_profiled_count": 0,
+    "n_configs": 330,
+    "per_model": {
+      "baseline_fa4_roofline": {
+        "mape": 43.88691485062168,
+        "max_ape": 285.63398272272195,
+        "pct_within_30": 52.72727272727273,
+        "bottleneck_accuracy": 0.0,
+        "n_configs": 330
+      },
+      "improved": {
+        "mape": 9.598037979685818,
+        "max_ape": 33.66403242798229,
+        "pct_within_30": 97.87878787878788,
+        "bottleneck_accuracy": 0.0,
+        "n_configs": 330,
+        "ncu_bottleneck_accuracy": NaN,
+        "ncu_profiled_count": 0
+      }
+    }
+  },
+  "environment": {
+    "device_name": "NVIDIA B200",
+    "cuda_version": "13.0",
+    "torch_version": "2.12.1+cu130"
+  },
+  "caveats": [
+    "fp4 precision is not supported by the installed FA4 build and was skipped.",
+    "Bottleneck accuracy uses NCU SpeedOfLight compute/memory labels on a profiled subset; unprofiled configs are excluded from that metric."
+  ]
+}

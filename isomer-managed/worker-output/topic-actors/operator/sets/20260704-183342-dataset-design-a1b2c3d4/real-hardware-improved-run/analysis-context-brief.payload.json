@@ -1,0 +1,14 @@
+{
+  "title": "Analysis context brief: interpret refuted real-hardware experiment",
+  "summary": "The parent experiment produced a refuted result because the improved predictor missed the \u226575% NCU bottleneck-accuracy gate while passing MAPE and within-30% gates. This analysis determines whether the residual bottleneck gap warrants another experiment or is small enough to accept with documented limitations.",
+  "status": "ready",
+  "sections": {
+    "parent_result": "Experiment 'fa4-b200-improved-launch-overhead-ncu-calibration-v1' on NVIDIA B200.",
+    "evidence_question": "Does the improved predictor meet all usefulness thresholds, and what is the smallest follow-up that can close the remaining bottleneck-accuracy gap?",
+    "comparison_target": "MAPE \u226425%, \u226575% of predictions within 30%, and \u226575% NCU bottleneck accuracy.",
+    "stop_condition": "Stop once the error sources are identified and a route decision (experiment or finalize) is recorded."
+  },
+  "metadata": {
+    "recorded_at": "2026-07-04T21:01:22.593738Z"
+  }
+}

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" font-family="sans-serif" font-size="12">
+
+<rect width="1000" height="520" fill="white"/>
+<line x1="90" y1="380.0" x2="820" y2="380.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="78" y="384.0" text-anchor="end" font-size="12" fill="#333">0%</text>
+<line x1="90" y1="322.0" x2="820" y2="322.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="78" y="326.0" text-anchor="end" font-size="12" fill="#333">20%</text>
+<line x1="90" y1="264.0" x2="820" y2="264.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="78" y="268.0" text-anchor="end" font-size="12" fill="#333">40%</text>
+<line x1="90" y1="205.99999999999997" x2="820" y2="205.99999999999997" stroke="#e0e0e0" stroke-width="1"/>
+<text x="78" y="209.99999999999997" text-anchor="end" font-size="12" fill="#333">60%</text>
+<line x1="90" y1="148.0" x2="820" y2="148.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="78" y="152.0" text-anchor="end" font-size="12" fill="#333">80%</text>
+<line x1="90" y1="90.0" x2="820" y2="90.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="78" y="94.0" text-anchor="end" font-size="12" fill="#333">100%</text>
+<rect x="99.125" y="203.004626616373" width="103.41666666666667" height="176.995373383627" fill="#1f77b4" stroke="white" stroke-width="1"/>
+<text x="150.83333333333334" y="295.5023133081865" text-anchor="middle" font-size="11" fill="white" font-weight="bold">61%</text>
+<rect x="99.125" y="50.447485579853094" width="103.41666666666667" height="152.5571410365199" fill="#ff7f0e" stroke="white" stroke-width="1"/>
+<text x="150.83333333333334" y="130.72605609811305" text-anchor="middle" font-size="11" fill="white" font-weight="bold">53%</text>
+<rect x="99.125" y="32.29810857143266" width="103.41666666666667" height="18.149377008420437" fill="#2ca02c" stroke="white" stroke-width="1"/>
+<rect x="99.125" y="6.3000066903438565" width="103.41666666666667" height="25.9981018810888" fill="#d62728" stroke="white" stroke-width="1"/>
+<text x="150.83333333333334" y="23.299057630888257" text-anchor="middle" font-size="11" fill="white" font-weight="bold">9%</text>
+<text x="150.83333333333334" y="410" text-anchor="end" font-size="12" fill="#333" transform="rotate(-45,150.83333333333334,410)">R1: Tensor Core MMA</text>
+<rect x="220.79166666666666" y="283.4426597730947" width="103.41666666666667" height="96.55734022690531" fill="#1f77b4" stroke="white" stroke-width="1"/>
+<text x="272.5" y="335.7213298865474" text-anchor="middle" font-size="11" fill="white" font-weight="bold">33%</text>
+<rect x="220.79166666666666" y="136.32738858938166" width="103.41666666666667" height="147.11527118371305" fill="#ff7f0e" stroke="white" stroke-width="1"/>
+<text x="272.5" y="213.88502418123818" text-anchor="middle" font-size="11" fill="white" font-weight="bold">51%</text>
+<rect x="220.79166666666666" y="115.01688283129442" width="103.41666666666667" height="21.31050575808724" fill="#2ca02c" stroke="white" stroke-width="1"/>
+<rect x="220.79166666666666" y="93.6505848119115" width="103.41666666666667" height="21.36629801938293" fill="#d62728" stroke="white" stroke-width="1"/>
+<text x="272.5" y="410" text-anchor="end" font-size="12" fill="#333" transform="rotate(-45,272.5,410)">R2: FMA compute</text>
+<rect x="342.45833333333337" y="258.4231850259723" width="103.41666666666667" height="121.57681497402768" fill="#1f77b4" stroke="white" stroke-width="1"/>
+<text x="394.1666666666667" y="323.21159251298616" text-anchor="middle" font-size="11" fill="white" font-weight="bold">42%</text>
+<rect x="342.45833333333337" y="141.352012306017" width="103.41666666666667" height="117.0711727199553" fill="#ff7f0e" stroke="white" stroke-width="1"/>
+<text x="394.1666666666667" y="203.88759866599466" text-anchor="middle" font-size="11" fill="white" font-weight="bold">40%</text>
+<rect x="342.45833333333337" y="128.85818649905377" width="103.41666666666667" height="12.493825806963224" fill="#2ca02c" stroke="white" stroke-width="1"/>
+<rect x="342.45833333333337" y="75.66831466879404" width="103.41666666666667" height="53.18987183025974" fill="#d62728" stroke="white" stroke-width="1"/>
+<text x="394.1666666666667" y="106.2632505839239" text-anchor="middle" font-size="11" fill="white" font-weight="bold">18%</text>
+<text x="394.1666666666667" y="410" text-anchor="end" font-size="12" fill="#333" transform="rotate(-45,394.1666666666667,410)">R3: TMA load</text>
+<rect x="464.12500000000006" y="261.5620417794738" width="103.41666666666667" height="118.43795822052618" fill="#1f77b4" stroke="white" stroke-width="1"/>
+<text x="515.8333333333334" y="324.7810208897369" text-anchor="middle" font-size="11" fill="white" font-weight="bold">41%</text>
+<rect x="464.12500000000006" y="58.31955113523159" width="103.41666666666667" height="203.24249064424222" fill="#ff7f0e" stroke="white" stroke-width="1"/>
+<text x="515.8333333333334" y="163.9407964573527" text-anchor="middle" font-size="11" fill="white" font-weight="bold">70%</text>
+<rect x="464.12500000000006" y="34.027666792223755" width="103.41666666666667" height="24.291884343007833" fill="#2ca02c" stroke="white" stroke-width="1"/>
+<text x="515.8333333333334" y="50.17360896372767" text-anchor="middle" font-size="11" fill="white" font-weight="bold">8%</text>
+<rect x="464.12500000000006" y="11.1611972049033" width="103.41666666666667" height="22.866469587320456" fill="#d62728" stroke="white" stroke-width="1"/>
+<text x="515.8333333333334" y="26.59443199856353" text-anchor="middle" font-size="11" fill="white" font-weight="bold">8%</text>
+<text x="515.8333333333334" y="410" text-anchor="end" font-size="12" fill="#333" transform="rotate(-45,515.8333333333334,410)">R4: FP32 update</text>
+<rect x="585.7916666666666" y="259.36907941039703" width="103.41666666666667" height="120.63092058960297" fill="#1f77b4" stroke="white" stroke-width="1"/>
+<text x="637.5" y="323.6845397051985" text-anchor="middle" font-size="11" fill="white" font-weight="bold">42%</text>
+<rect x="585.7916666666666" y="155.97954460285354" width="103.41666666666667" height="103.3895348075435" fill="#ff7f0e" stroke="white" stroke-width="1"/>
+<text x="637.5" y="211.67431200662529" text-anchor="middle" font-size="11" fill="white" font-weight="bold">36%</text>
+<rect x="585.7916666666666" y="142.66773535175435" width="103.41666666666667" height="13.3118092510992" fill="#2ca02c" stroke="white" stroke-width="1"/>
+<rect x="585.7916666666666" y="73.66757398972078" width="103.41666666666667" height="69.00016136203357" fill="#d62728" stroke="white" stroke-width="1"/>
+<text x="637.5" y="112.16765467073756" text-anchor="middle" font-size="11" fill="white" font-weight="bold">24%</text>
+<text x="637.5" y="410" text-anchor="end" font-size="12" fill="#333" transform="rotate(-45,637.5,410)">R5: TMA store</text>
+<text x="455.0" y="502" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">Intended saturation round</text>
+<text x="26" y="235.0" text-anchor="middle" transform="rotate(-90,26,235.0)" font-size="14" fill="#333">Mean fraction of SM active cycles</text>
+<text x="455.0" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#222">NCU-reported pipe activity fractions by round</text>
+<rect x="840" y="110" width="16" height="16" fill="#1f77b4" stroke="white" stroke-width="1"/>
+<text x="864" y="122" font-size="13" fill="#333">Tensor Core</text>
+<rect x="840" y="136" width="16" height="16" fill="#ff7f0e" stroke="white" stroke-width="1"/>
+<text x="864" y="148" font-size="13" fill="#333">FMA compute</text>
+<rect x="840" y="162" width="16" height="16" fill="#2ca02c" stroke="white" stroke-width="1"/>
+<text x="864" y="174" font-size="13" fill="#333">SFU/XU</text>
+<rect x="840" y="188" width="16" height="16" fill="#d62728" stroke="white" stroke-width="1"/>
+<text x="864" y="200" font-size="13" fill="#333">TMA load</text>
+</svg>

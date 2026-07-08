@@ -1,0 +1,49 @@
+{
+  "title": "Parent Result Evidence: FA4 B200 Experiment Outputs",
+  "summary": "Collected experiment artifacts that the analysis stage interprets: validation metrics, per-config predictions, calibration parameters, and the experiment contract/result records.",
+  "status": "ready",
+  "sections": {
+    "parent_result_refs": [
+      "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5",
+      "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673",
+      "run-MAIN_RUN_RECORD-a1ae25dec69e",
+      "decision_record-EXPERIMENT_ROUTE_DECISION-a7d4922d15b4",
+      "artifact-EVALUATION_CONTRACT-7f255a5e6694",
+      "artifact-SELECTED_HYPOTHESIS-bab659036a3c",
+      "artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4"
+    ],
+    "experiment_files": {
+      "operation_set_dir": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-130224-experiment-7f255a5e",
+      "validation_metrics_json": "validation_metrics.json",
+      "combined_predictions_csv": "combined_predictions.csv",
+      "calibration_params_json": "calibration_params.json",
+      "experiment_result_json": "experiment_result.json"
+    },
+    "primary_metrics": {
+      "baseline_mape": 22.216442058711912,
+      "combined_mape": 4.496608444017569,
+      "delta_mape_pp": 17.719833614694345,
+      "max_ape": 14.363718640933895,
+      "pct_within_30": 100.0,
+      "bottleneck_accuracy": 100.0,
+      "n_validation_configs": 160
+    },
+    "ablations": {
+      "baseline_fa4_roofline": { "mape": 22.22, "max_ape": 42.07, "pct_within_30": 76.88, "bottleneck_accuracy": 89.38, "n_configs": 160 },
+      "occupancy_only": { "mape": 18.11, "max_ape": 38.39, "pct_within_30": 77.50, "bottleneck_accuracy": 86.88, "n_configs": 160 },
+      "tma_l2_effective_bw": { "mape": 5.76, "max_ape": 19.91, "pct_within_30": 100.00, "bottleneck_accuracy": 100.00, "n_configs": 160 },
+      "precision_only": { "mape": 18.21, "max_ape": 42.07, "pct_within_30": 76.88, "bottleneck_accuracy": 89.38, "n_configs": 160 },
+      "combined": { "mape": 4.50, "max_ape": 14.36, "pct_within_30": 100.00, "bottleneck_accuracy": 100.00, "n_configs": 160 }
+    },
+    "calibrated_parameters": {
+      "combined": { "hbm_factor": 0.85, "mma_efficiency": 0.85, "mufu_efficiency": 0.85, "launch_overhead_us": 0.5 },
+      "tma_l2_effective_bw": { "hbm_factor": 0.85, "l2_factor": 0.45, "tma_factor": 0.7 }
+    }
+  },
+  "metadata": {
+    "skill": "isomer-deepsci-analysis",
+    "placeholder": "<PARENT_RESULT_EVIDENCE>",
+    "producer": "experiment, write, review, decision, or user context",
+    "consumer": "isomer-deepsci-analysis"
+  }
+}

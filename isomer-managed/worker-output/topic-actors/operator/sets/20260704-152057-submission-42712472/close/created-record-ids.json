@@ -1,0 +1,44 @@
+[
+  {
+    "placeholder": "<FINALIZE_CONTEXT_BRIEF>",
+    "record_id": "view_manifest-FINALIZE_CONTEXT_BRIEF-b37a43793ae7",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/views/research-records/view_manifest/finalize-context.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/close/finalize-context.json"
+  },
+  {
+    "placeholder": "<CLAIM_LEDGER>",
+    "record_id": "artifact-CLAIM_LEDGER-54dbc7dfb340",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/claim-ledger.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/close/claim-ledger.json"
+  },
+  {
+    "placeholder": "<FINAL_LIMITATIONS_REPORT>",
+    "record_id": "artifact-FINAL_LIMITATIONS_REPORT-6720a0f2920e",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/final-limitations-report.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/close/final-limitations-report.json"
+  },
+  {
+    "placeholder": "<FINAL_SUMMARY>",
+    "record_id": "artifact-FINAL_SUMMARY-48f5ac15112b",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/final-summary.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/close/final-summary.json"
+  },
+  {
+    "placeholder": "<RESUME_PACKET>",
+    "record_id": "artifact-RESUME_PACKET-540150ee14bd",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/artifact/resume-packet.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/close/resume-packet.json"
+  },
+  {
+    "placeholder": "<CLOSURE_DECISION>",
+    "record_id": "decision_record-CLOSURE_DECISION-99920824616d",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/artifacts/research-records/decision_record/closure-decision.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/close/closure-decision.json"
+  },
+  {
+    "placeholder": "<FINALIZE_CONTINUITY_UPDATE>",
+    "record_id": "view_manifest-FINALIZE_CONTINUITY_UPDATE-4ce4fed89c0b",
+    "content_path": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/records/views/research-records/view_manifest/finalize-continuity.md",
+    "payload_file": "<PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/close/finalize-continuity.json"
+  }
+]

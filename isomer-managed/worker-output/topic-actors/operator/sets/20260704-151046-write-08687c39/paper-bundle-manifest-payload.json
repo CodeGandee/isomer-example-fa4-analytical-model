@@ -1,0 +1,56 @@
+{
+  "title": "Paper Bundle Checkpoint: FA4 B200 White-Box Runtime Predictor (Revised)",
+  "summary": "Checkpoint for the revised manuscript bundle. The calibration description is corrected, citations are resolved, and figures are rendered.",
+  "status": "revised_ready",
+  "metadata": {
+    "placeholder": "<PAPER_BUNDLE_CHECKPOINT>",
+    "skill": "isomer-deepsci-write",
+    "producer": "isomer-deepsci-write",
+    "consumer": "review, finalize, user",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator",
+    "paper_surface": "bundle_manifest",
+    "bundle_stage": "revised-draft",
+    "next_stage": "isomer-deepsci-finalize"
+  },
+  "sections": {
+    "bundle_contents": [
+      {
+        "role": "draft_sections",
+        "placeholder": "<DRAFT_SECTION_SET>",
+        "file": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-151046-write-08687c39/revised-draft.md"
+      },
+      {
+        "role": "references",
+        "placeholder": "<CITATION_LEDGER>",
+        "file": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-151046-write-08687c39/references.bib"
+      },
+      {
+        "role": "validation_report",
+        "placeholder": "<MANUSCRIPT_VALIDATION_REPORT>",
+        "file": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-151046-write-08687c39/manuscript-validation-payload.json"
+      }
+    ],
+    "source_evidence": [
+      "artifact-REVIEW_REPORT-7387e22762b6",
+      "artifact-REVISION_LOG-a0e3491acece",
+      "artifact-ANALYSIS_CAMPAIGN_SUMMARY-444c0bb36be5",
+      "decision_record-ANALYSIS_ROUTE_DECISION-cb3fcea2f9c8",
+      "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5",
+      "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673"
+    ],
+    "source_worker_outputs": [
+      "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-130224-experiment-7f255a5e",
+      "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-150056-review-3603f87c",
+      "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-150902-analysis-ec591ab9",
+      "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-151046-write-08687c39"
+    ],
+    "outstanding_items": [
+      "Route to finalize or external review."
+    ],
+    "route_decision": {
+      "next_skill": "isomer-deepsci-finalize",
+      "reason": "Revised draft passes manuscript validation and resolves all review blockers."
+    }
+  }
+}

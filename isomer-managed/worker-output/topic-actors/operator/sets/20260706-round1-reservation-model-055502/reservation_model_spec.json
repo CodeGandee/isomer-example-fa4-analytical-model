@@ -1,0 +1,30 @@
+{
+  "tc_efficiency": 1.1959348654962858,
+  "sfu_efficiency": 0.6810263953831777,
+  "fp_efficiency": 3.0,
+  "tma_efficiency": 1.0,
+  "tmem_efficiency": 1.0,
+  "cluster_efficiency": 1.0,
+  "stage_overlap_factor": 0.85,
+  "launch_overhead_us": 16.126837099840067,
+  "tmem_spill_coefficient": 0.0,
+  "num_sms": 176,
+  "peak_sm_clock_mhz": 1965.0,
+  "tc_mma_throughput_per_sm_per_clock": {
+    "fp32": 3072.0,
+    "fp16": 6144.0,
+    "bf16": 6144.0,
+    "fp8": 12288.0,
+    "fp4": 24576.0
+  },
+  "sfu_throughput_per_sm_per_clock": {
+    "fp32": 16.0,
+    "fp16": 16.0,
+    "bf16": 16.0,
+    "fp8": 16.0,
+    "fp4": 16.0
+  },
+  "tma_peak_bw_gbps": 8000.0,
+  "tmem_peak_bw_gbps": 24000.0,
+  "tmem_capacity_kb_per_sm": 256.0
+}

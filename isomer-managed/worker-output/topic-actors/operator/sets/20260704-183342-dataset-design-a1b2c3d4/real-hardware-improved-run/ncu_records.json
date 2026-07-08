@@ -1,0 +1,962 @@
+[
+  {
+    "compute_pct": 70.54,
+    "memory_pct": 25.4,
+    "duration_ns": 802656.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpco_lzvqz/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 72.37,
+    "memory_pct": 8.73,
+    "duration_ns": 7971136.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpq4mpjp1x/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 72.44,
+    "memory_pct": 7.94,
+    "duration_ns": 3970624.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp_08z6puk/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 62.6,
+    "memory_pct": 26.97,
+    "duration_ns": 5640928.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpi5p7qpj4/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 63.86,
+    "memory_pct": 26.99,
+    "duration_ns": 21620608.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp90p6ewkp/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 84.63,
+    "memory_pct": 30.68,
+    "duration_ns": 8465888.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmprw99a66p/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 57.89,
+    "memory_pct": 12.46,
+    "duration_ns": 19493088.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpgakt1qp8/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 58.13,
+    "memory_pct": 21.24,
+    "duration_ns": 270304.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpwgedywgg/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 61.63,
+    "memory_pct": 13.49,
+    "duration_ns": 699520.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpm933do74/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 57.17,
+    "memory_pct": 12.33,
+    "duration_ns": 5030880.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpujh6ivkl/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 62.5,
+    "memory_pct": 8.3,
+    "duration_ns": 655520.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpcmx3b7nr/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 71.65,
+    "memory_pct": 16.05,
+    "duration_ns": 8096736.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpdt61q71m/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 52.79,
+    "memory_pct": 13.71,
+    "duration_ns": 711360.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpi5cvzcki/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 37.29,
+    "memory_pct": 11.27,
+    "duration_ns": 81408.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpk2aed0rj/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 51.21,
+    "memory_pct": 11.4,
+    "duration_ns": 224064.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpuzj9o6oa/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 42.01,
+    "memory_pct": 9.67,
+    "duration_ns": 119328.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpt5ngzt1s/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 42.07,
+    "memory_pct": 19.57,
+    "duration_ns": 96128.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmps2xvdbmj/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 62.79,
+    "memory_pct": 27.06,
+    "duration_ns": 5669728.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpmn1b32fp/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 53.58,
+    "memory_pct": 11.74,
+    "duration_ns": 378880.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpu8so1r_4/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 45.94,
+    "memory_pct": 13.29,
+    "duration_ns": 103136.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpfu52pj_6/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 79.28,
+    "memory_pct": 28.31,
+    "duration_ns": 2478688.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmphiu0xem2/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 61.69,
+    "memory_pct": 27.58,
+    "duration_ns": 1620736.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpgwxnkgsf/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 63.8,
+    "memory_pct": 26.97,
+    "duration_ns": 21546080.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpdpfkrvqe/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 57.4,
+    "memory_pct": 27.61,
+    "duration_ns": 468992.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmptbwj23jr/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 42.51,
+    "memory_pct": 19.78,
+    "duration_ns": 94528.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp5ja03j4t/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 57.71,
+    "memory_pct": 21.09,
+    "duration_ns": 266976.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpi5plemhb/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 71.64,
+    "memory_pct": 16.03,
+    "duration_ns": 8107328.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpk0r6ae4n/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 70.66,
+    "memory_pct": 25.44,
+    "duration_ns": 811040.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpmtnqpgy5/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 67.63,
+    "memory_pct": 10.55,
+    "duration_ns": 15633728.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpis4laz53/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 79.39,
+    "memory_pct": 28.35,
+    "duration_ns": 2518464.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp821r36h9/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 73.8,
+    "memory_pct": 8.05,
+    "duration_ns": 15304928.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmph3sct8u_/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 66.42,
+    "memory_pct": 10.44,
+    "duration_ns": 4120416.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpertpo4bg/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 68.68,
+    "memory_pct": 8.59,
+    "duration_ns": 2204896.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpfhu1mdgo/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 51.19,
+    "memory_pct": 11.4,
+    "duration_ns": 223520.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp4svnlwmf/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 66.7,
+    "memory_pct": 7.54,
+    "duration_ns": 300768.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpgxjvwq5v/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 57.06,
+    "memory_pct": 12.31,
+    "duration_ns": 5011392.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpinp9qt_k/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 37.26,
+    "memory_pct": 11.13,
+    "duration_ns": 82016.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp6wza_hgf/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 52.84,
+    "memory_pct": 7.95,
+    "duration_ns": 207136.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmppf_y5ljj/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 59.78,
+    "memory_pct": 15.25,
+    "duration_ns": 2257664.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp4w9bm43g/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 61.43,
+    "memory_pct": 27.47,
+    "duration_ns": 1604064.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpjdqz8lu4/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 42.58,
+    "memory_pct": 14.05,
+    "duration_ns": 235648.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpt4739fud/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 42.04,
+    "memory_pct": 9.67,
+    "duration_ns": 117728.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpl_6mw8w3/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 55.85,
+    "memory_pct": 12.11,
+    "duration_ns": 1377376.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpj3bylryq/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 70.46,
+    "memory_pct": 7.8,
+    "duration_ns": 1090272.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpjwvj79pl/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 43.83,
+    "memory_pct": 24.11,
+    "duration_ns": 151552.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpeg_yf9bh/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 58.15,
+    "memory_pct": 27.98,
+    "duration_ns": 465248.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp964jvbtn/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 60.76,
+    "memory_pct": 12.38,
+    "duration_ns": 324896.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpnwidfros/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 61.67,
+    "memory_pct": 13.5,
+    "duration_ns": 695552.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpdz9hbzc_/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 37.8,
+    "memory_pct": 7.6,
+    "duration_ns": 77760.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmprhblpwp2/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 52.98,
+    "memory_pct": 11.61,
+    "duration_ns": 383616.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 2048,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpw76__74l/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 50.88,
+    "memory_pct": 7.66,
+    "duration_ns": 95456.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpw9g66yng/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 32.07,
+    "memory_pct": 13.96,
+    "duration_ns": 86784.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp_d2lmmek/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 56.03,
+    "memory_pct": 12.15,
+    "duration_ns": 1355552.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmplhpgqs85/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 68.15,
+    "memory_pct": 14.78,
+    "duration_ns": 2285184.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpgcq5z30l/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 57.89,
+    "memory_pct": 12.46,
+    "duration_ns": 19506176.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 64,
+      "causal": false,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpan7uzpwp/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 64.13,
+    "memory_pct": 16.68,
+    "duration_ns": 7787712.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpeamuhpks/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 64.74,
+    "memory_pct": 10.42,
+    "duration_ns": 1154592.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 4096,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "fp8"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpmofa80cw/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 43.79,
+    "memory_pct": 24.09,
+    "duration_ns": 150016.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 1024,
+      "head_dim": 128,
+      "causal": false,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpvfhml404/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 68.19,
+    "memory_pct": 14.78,
+    "duration_ns": 2296288.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 8192,
+      "head_dim": 64,
+      "causal": true,
+      "precision": "fp16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmpjxtnlihm/invocation.py",
+    "ncu_returncode": 0
+  },
+  {
+    "compute_pct": 84.6,
+    "memory_pct": 30.86,
+    "duration_ns": 8412448.0,
+    "bottleneck": "compute",
+    "config": {
+      "batch": 4,
+      "heads": 32,
+      "seqlen": 16384,
+      "head_dim": 128,
+      "causal": true,
+      "precision": "bf16"
+    },
+    "ncu_command": "ncu --target-processes all --kernel-name-base function --kernel-name regex:flash_attn --section SpeedOfLight --csv <PROJECT_ROOT>/isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/.pixi/envs/default/bin/python /tmp/tmp1irb83lj/invocation.py",
+    "ncu_returncode": 0
+  }
+]

@@ -1,0 +1,35 @@
+pipeline_id: paper-pass
+status: paused
+stages_run:
+  - stage_id: outline
+    skill: isomer-deepsci-paper-outline
+    status: complete
+    artifacts_in:
+      - analysis-finding
+    artifacts_out:
+      - paper-outline
+    route_decision: write
+    notes: Paper outline ready for write.
+  - stage_id: draft
+    skill: isomer-deepsci-write
+    status: complete
+    artifacts_in:
+      - paper-outline
+      - analysis-finding
+    artifacts_out:
+      - draft-section-set
+    route_decision: review
+    notes: Draft manuscript ready; validation passed with partial gaps.
+  - stage_id: audit
+    skill: isomer-deepsci-review
+    status: paused
+    artifacts_in:
+      - draft-section-set
+    artifacts_out:
+      - review-report
+    route_decision: revise
+    notes: Review returned revise due to calibration-factor misstatement, missing citations/BibTeX, and unrendered figures.
+final_artifact: review-report
+recommended_next: revision-pass
+blocker: null
+resume_point: audit

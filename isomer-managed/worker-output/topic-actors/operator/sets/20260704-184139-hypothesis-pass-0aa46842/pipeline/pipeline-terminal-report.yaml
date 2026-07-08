@@ -1,0 +1,39 @@
+pipeline_id: hypothesis-pass
+status: complete
+stages_run:
+  - stage_id: ideate
+    skill: isomer-deepsci-idea
+    status: complete
+    artifacts_in:
+      - artifact-SELECTED_HYPOTHESIS-bab659036a3c
+    artifacts_out:
+      - artifact-SELECTED_HYPOTHESIS-80aa602f908c
+    route_decision: experiment
+    notes: Refined the selected hypothesis for real-hardware validation on B200; set ready_for_experiment=true.
+  - stage_id: run
+    skill: isomer-deepsci-experiment
+    status: complete
+    artifacts_in:
+      - artifact-SELECTED_HYPOTHESIS-80aa602f908c
+    artifacts_out:
+      - evidence_item-EXPERIMENT_RESULT_SUMMARY-0e6af52b5f23
+      - run-MAIN_RUN_RECORD-cc19cf5c010a
+      - decision_record-EXPERIMENT_ROUTE_DECISION-882b4b189d19
+      - artifact-IMPLEMENTATION_CHANGE_MAP-757b165cc2a7
+    route_decision: analysis
+    notes: Real B200 benchmark of 864 configs (bf16/fp16/fp8) completed in 222s. Hypothesis refuted.
+  - stage_id: interpret
+    skill: isomer-deepsci-analysis
+    status: complete
+    artifacts_in:
+      - evidence_item-EXPERIMENT_RESULT_SUMMARY-0e6af52b5f23
+    artifacts_out:
+      - evidence_item-ANALYSIS_CONTEXT_BRIEF-daed8feb7775
+      - artifact-ANALYSIS_CAMPAIGN_SUMMARY-9932a6e83b29
+      - decision_record-ANALYSIS_ROUTE_DECISION-b7e5994bbb9b
+    route_decision: experiment
+    notes: Identified launch-overhead small-config latency and misspecified efficiency factors as transfer gaps.
+final_artifact: artifact-ANALYSIS_CAMPAIGN_SUMMARY-9932a6e83b29
+recommended_next: experiment
+blocker: null
+resume_point: null

@@ -1,0 +1,4 @@
+{
+  "title": "Literature Benchmark Note",
+  "body": "# Literature Benchmark Note\n\nThe bundle positions itself against the FlashAttention-4 roofline model [Zadouri et al., 2026] and prior emulator-grounded white-box modeling [Jarmusch & Chandrasekaran, 2026a/2026b]. No stronger nearby comparator on real B200 silicon is cited, so the real-hardware validation is the primary novelty claim. Venue expectations are unspecified; the current bundle is ready for archive or submission once a target venue and public repository are chosen.\n"
+}

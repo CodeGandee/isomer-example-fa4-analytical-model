@@ -1,0 +1,58 @@
+{
+  "title": "Literature Benchmark Note: FA4 B200 White-Box Runtime Predictor",
+  "summary": "Benchmark of the draft's Related Work and citation coverage against the topic's literature scouting reports and standard venue expectations.",
+  "status": "ready",
+  "metadata": {
+    "placeholder": "<LITERATURE_BENCHMARK_NOTE>",
+    "skill": "isomer-deepsci-review",
+    "producer": "isomer-deepsci-review",
+    "consumer": "review, scout, write",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator",
+    "paper_surface": "literature_benchmark_note",
+    "source_literature_scouting": "artifact-LITERATURE_SCOUTING_REPORT-fc6d5ca8b4a3",
+    "source_literature_survey": "artifact-LITERATURE_SURVEY_REPORT-1cf5125a64f8",
+    "source_draft": "artifact-DRAFT_SECTION_SET-db586e5e0d48"
+  },
+  "sections": {
+    "coverage_gaps": [
+      {
+        "topic": "FlashAttention-1/2",
+        "status": "placeholder",
+        "action": "Resolve from literature scouting report and add full citation"
+      },
+      {
+        "topic": "FlashAttention-3",
+        "status": "placeholder",
+        "action": "Resolve from literature scouting report and add full citation"
+      },
+      {
+        "topic": "FlashAttention-4",
+        "status": "arXiv ID only",
+        "action": "Add full BibTeX entry for arXiv 2603.05451v1"
+      },
+      {
+        "topic": "Roofline model",
+        "status": "placeholder",
+        "action": "Add real citation"
+      },
+      {
+        "topic": "GPU performance modeling",
+        "status": "placeholder",
+        "action": "Add real citations"
+      },
+      {
+        "topic": "Blackwell microbenchmarks",
+        "status": "arXiv ID only",
+        "action": "Add full BibTeX entry for arXiv 2512.02189v1"
+      },
+      {
+        "topic": "White-box methodology",
+        "status": "arXiv ID only",
+        "action": "Add full BibTeX entry for arXiv 2605.04178v1"
+      }
+    ],
+    "venue_expectations": "A strong systems/ML-hardware submission cites the algorithm paper, prior FlashAttention versions, roofline/machine-balance literature, recent white-box GPU modeling work, and architecture/microbenchmark papers.",
+    "recommendation": "Resolve placeholders using the literature scouting reports, add full BibTeX entries, and ensure every arXiv ID has title, authors, year, and primary category."
+  }
+}

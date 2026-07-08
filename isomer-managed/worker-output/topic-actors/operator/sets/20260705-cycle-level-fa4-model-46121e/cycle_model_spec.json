@@ -1,0 +1,30 @@
+{
+  "tc_efficiency": 3.0,
+  "mufu_efficiency": 0.4874128621601015,
+  "hbm_efficiency": 1.0,
+  "l1_miss_rate": 0.08,
+  "l2_miss_rate": 0.25,
+  "occupancy_efficiency": 1.3129155593826278,
+  "memory_overlap_factor": 0.85,
+  "launch_overhead_us": 16.027670498194713,
+  "xbar_contention_scale": 0.5,
+  "tc_mma_throughput_per_sm_per_clock": {
+    "fp32": 1024.0,
+    "fp16": 2048.0,
+    "bf16": 2048.0,
+    "fp8": 4096.0,
+    "fp4": 8192.0
+  },
+  "mufu_throughput_per_sm_per_clock": {
+    "fp32": 16.0,
+    "fp16": 16.0,
+    "bf16": 16.0,
+    "fp8": 16.0,
+    "fp4": 16.0
+  },
+  "peak_hbm_bw_gbps": 4480.0,
+  "peak_l2_bw_gbps": 24000.0,
+  "peak_l1_bw_gbps": 48000.0,
+  "num_sms": 180,
+  "peak_sm_clock_mhz": 1965.0
+}

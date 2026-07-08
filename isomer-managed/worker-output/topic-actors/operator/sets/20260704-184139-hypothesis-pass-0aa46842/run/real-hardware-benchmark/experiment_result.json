@@ -1,0 +1,161 @@
+{
+  "status": "refuted",
+  "status_reason": "Combined predictor fails at least one useful-improvement threshold on real B200 measurements.",
+  "hypothesis_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1-real-hardware",
+  "precisions_tested": [
+    "bf16",
+    "fp16",
+    "fp8"
+  ],
+  "precisions_skipped": [
+    "fp4"
+  ],
+  "config_counts": {
+    "generated": 864,
+    "calibration": 180,
+    "validation": 180,
+    "query": 504,
+    "ok": 864,
+    "oom": 0,
+    "error": 0,
+    "ok_calibration": 180,
+    "ok_validation": 180,
+    "ok_query": 504
+  },
+  "calibration_params": {
+    "hbm_factor": 0.95,
+    "mma_efficiency": 0.95,
+    "mufu_efficiency": 0.95,
+    "launch_overhead_us": 0.0
+  },
+  "ablation_params": {
+    "occupancy_only": {
+      "mma_efficiency": 1.0,
+      "mufu_efficiency": 1.0
+    },
+    "tma_l2_effective_bw": {
+      "hbm_factor": 0.95,
+      "l2_factor": 0.45,
+      "tma_factor": 0.75
+    },
+    "precision_only": {
+      "mma_efficiency": 1.0,
+      "mufu_efficiency": 1.0
+    }
+  },
+  "validation_metrics": {
+    "baseline_mape": 42.100286872399245,
+    "combined_mape": 62.14468575323019,
+    "delta_mape_pp": -20.044398880830947,
+    "max_ape": 600.5116170863935,
+    "pct_within_30": 47.22222222222222,
+    "bottleneck_accuracy": 89.44444444444444,
+    "n_configs": 180,
+    "per_model": {
+      "baseline_fa4_roofline": {
+        "mape": 42.100286872399245,
+        "max_ape": 355.349648072884,
+        "pct_within_30": 51.666666666666664,
+        "bottleneck_accuracy": 100.0,
+        "n_configs": 180
+      },
+      "occupancy_only": {
+        "mape": 42.100286872399245,
+        "max_ape": 355.349648072884,
+        "pct_within_30": 51.666666666666664,
+        "bottleneck_accuracy": 100.0,
+        "n_configs": 180
+      },
+      "tma_l2_effective_bw": {
+        "mape": 52.02891539167534,
+        "max_ape": 507.11658127172325,
+        "pct_within_30": 52.22222222222222,
+        "bottleneck_accuracy": 89.44444444444444,
+        "n_configs": 180
+      },
+      "precision_only": {
+        "mape": 42.100286872399245,
+        "max_ape": 355.349648072884,
+        "pct_within_30": 51.666666666666664,
+        "bottleneck_accuracy": 100.0,
+        "n_configs": 180
+      },
+      "combined": {
+        "mape": 62.14468575323019,
+        "max_ape": 600.5116170863935,
+        "pct_within_30": 47.22222222222222,
+        "bottleneck_accuracy": 89.44444444444444,
+        "n_configs": 180
+      },
+      "combined_calibration": {
+        "mape": 74.52531165274445,
+        "max_ape": 487.9463472268535,
+        "pct_within_30": 43.333333333333336,
+        "bottleneck_accuracy": 89.44444444444444,
+        "n_configs": 180
+      }
+    }
+  },
+  "query_metrics": {
+    "baseline_mape": 42.3015192502897,
+    "combined_mape": 65.19667316074563,
+    "delta_mape_pp": -22.89515391045593,
+    "max_ape": 598.3284483847924,
+    "pct_within_30": 41.07142857142857,
+    "bottleneck_accuracy": 85.91269841269842,
+    "n_configs": 504,
+    "per_model": {
+      "baseline_fa4_roofline": {
+        "mape": 42.3015192502897,
+        "max_ape": 353.93053513355477,
+        "pct_within_30": 51.388888888888886,
+        "bottleneck_accuracy": 100.0,
+        "n_configs": 504
+      },
+      "occupancy_only": {
+        "mape": 42.3015192502897,
+        "max_ape": 353.93053513355477,
+        "pct_within_30": 51.388888888888886,
+        "bottleneck_accuracy": 100.0,
+        "n_configs": 504
+      },
+      "tma_l2_effective_bw": {
+        "mape": 53.96422552836364,
+        "max_ape": 505.22448143194015,
+        "pct_within_30": 49.20634920634921,
+        "bottleneck_accuracy": 85.91269841269842,
+        "n_configs": 504
+      },
+      "precision_only": {
+        "mape": 42.3015192502897,
+        "max_ape": 353.93053513355477,
+        "pct_within_30": 51.388888888888886,
+        "bottleneck_accuracy": 100.0,
+        "n_configs": 504
+      },
+      "combined": {
+        "mape": 65.19667316074563,
+        "max_ape": 598.3284483847924,
+        "pct_within_30": 41.07142857142857,
+        "bottleneck_accuracy": 85.91269841269842,
+        "n_configs": 504
+      },
+      "combined_calibration": {
+        "mape": 74.52531165274445,
+        "max_ape": 487.9463472268535,
+        "pct_within_30": 43.333333333333336,
+        "bottleneck_accuracy": 89.44444444444444,
+        "n_configs": 180
+      }
+    }
+  },
+  "environment": {
+    "device_name": "NVIDIA B200",
+    "cuda_version": "13.0",
+    "torch_version": "2.12.1+cu130"
+  },
+  "caveats": [
+    "measured_bottleneck is a white-box proxy from the uncalibrated baseline predictor; hardware counters were not collected.",
+    "fp4 precision is not supported by the installed FA4 build and was skipped."
+  ]
+}

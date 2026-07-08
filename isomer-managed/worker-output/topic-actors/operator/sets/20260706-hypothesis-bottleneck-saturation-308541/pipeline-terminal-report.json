@@ -1,0 +1,65 @@
+{
+  "skill": "isomer-deepsci-pipeline",
+  "pass": "hypothesis-pass",
+  "status": "complete",
+  "pipeline_id": "hypothesis-pass",
+  "topic_ref": "flash-attention-4-whitebox-runtime-model",
+  "topic_workspace_ref": "flash-attention-4-whitebox-runtime-model",
+  "operation_set": "20260706-hypothesis-bottleneck-saturation-308541",
+  "stages_run": [
+    {
+      "stage_id": "context-preflight",
+      "skill": "isomer-deepsci-pipeline",
+      "status": "complete",
+      "artifacts_in": [],
+      "artifacts_out": [],
+      "route_decision": null,
+      "notes": "Existing objective contract and comparability contract located; no callback conflicts."
+    },
+    {
+      "stage_id": "ideate",
+      "skill": "isomer-deepsci-idea",
+      "status": "complete",
+      "artifacts_in": [],
+      "artifacts_out": ["artifact-SELECTED_HYPOTHESIS-5f352ca47bb6", "artifact-EXPERIMENT_CONTRACT-ec13ae32e89f"],
+      "route_decision": "experiment",
+      "notes": "Selected hypothesis and experiment contract created for bottleneck saturation predictability."
+    },
+    {
+      "stage_id": "run",
+      "skill": "isomer-deepsci-experiment",
+      "status": "complete",
+      "artifacts_in": ["artifact-SELECTED_HYPOTHESIS-5f352ca47bb6", "artifact-EXPERIMENT_CONTRACT-ec13ae32e89f"],
+      "artifacts_out": ["experiment-result-summary"],
+      "route_decision": "analysis",
+      "notes": "Profiled 12 saturation configs with NCU SpeedOfLight on cuda:0; 12/12 returned valid coarse compute/memory labels."
+    },
+    {
+      "stage_id": "interpret",
+      "skill": "isomer-deepsci-analysis",
+      "status": "complete",
+      "artifacts_in": ["experiment-result-summary"],
+      "artifacts_out": ["analysis-finding"],
+      "route_decision": "decision",
+      "notes": "Identified TMA/compute overlap as the main model weakness for medium-size memory-bound configs."
+    }
+  ],
+  "outputs": {
+    "selected_hypothesis": "artifact-SELECTED_HYPOTHESIS-5f352ca47bb6",
+    "experiment_contract": "artifact-EXPERIMENT_CONTRACT-ec13ae32e89f",
+    "experiment_result_summary": "experiment-result-summary",
+    "analysis_finding": "analysis-finding",
+    "selected_hypothesis_file": "selected-hypothesis.md",
+    "experiment_contract_file": "experiment-contract.md",
+    "experiment_result_summary_file": "experiment-result-summary-payload.json",
+    "analysis_finding_file": "analysis-finding-payload.json",
+    "saturation_predictions_csv": "saturation_predictions.csv",
+    "saturation_ncu_results_csv": "saturation_ncu_results.csv",
+    "saturation_accuracy_report_json": "saturation_accuracy_report.json"
+  },
+  "final_artifact": "analysis-finding",
+  "recommended_next": "decision",
+  "blocker": null,
+  "resume_point": null,
+  "blockers": []
+}

@@ -1,0 +1,20 @@
+{
+  "best_overlap_frac": 0.6,
+  "expanded_total_configs": 24,
+  "ncu_ok": 24,
+  "ncu_error": 0,
+  "baseline_coarse_accuracy": 0.625,
+  "best_coarse_accuracy": 0.875,
+  "per_regime_baseline_accuracy": {
+    "hbm": 0.625,
+    "tma": 0.0,
+    "mma": 1.0,
+    "mufu": 1.0
+  },
+  "per_regime_best_accuracy": {
+    "hbm": 0.625,
+    "tma": 1.0,
+    "mma": 1.0,
+    "mufu": 1.0
+  }
+}
