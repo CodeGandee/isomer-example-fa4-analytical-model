@@ -40,30 +40,30 @@ used for the 540-configuration evaluation and is the one we recommend using.
 
 The predictor takes a configuration tuple
 
-\[
+$$
 (b, h, s, d, \text{causal}, p)
-\]
+$$
 
-where \(b\) is batch size, \(h\) is number of heads, \(s\) is sequence length,
-\(d\) is head dimension, `causal` is a boolean mask flag, and \(p\) is the
+where $b$ is batch size, $h$ is number of heads, $s$ is sequence length,
+$d$ is head dimension, `causal` is a boolean mask flag, and $p$ is the
 precision (bf16, fp16, fp8). From this input the code computes the algorithm
 quantities in `predictor.py`:
 
 | Quantity | Symbol | Formula |
 |----------|--------|---------|
-| Causal sequence factor | \(\sigma\) | \(0.5\) if causal, else \(1.0\) |
-| MMA FLOPs | \(F_{\text{MMA}}\) | \(4 \cdot b \cdot h \cdot s^2 \cdot d \cdot \sigma\) |
-| Softmax ops | \(E\) | \(2 \cdot b \cdot h \cdot s^2 \cdot \sigma\) |
-| HBM bytes | \(B_{\text{HBM}}\) | \(\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 4\) |
-| L2 bytes | \(B_{\text{L2}}\) | \(\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 6 \cdot \sigma\) |
-| SMEM bytes | \(B_{\text{SMEM}}\) | \(b \cdot h \cdot s \cdot d \cdot 8 \cdot \sigma\) |
-| TMA bytes | \(B_{\text{TMA}}\) | \(\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 2.5 \cdot \sigma\) |
+| Causal sequence factor | $\sigma$ | $0.5$ if causal, else $1.0$ |
+| MMA FLOPs | $F_{\text{MMA}}$ | $4 \cdot b \cdot h \cdot s^2 \cdot d \cdot \sigma$ |
+| Softmax ops | $E$ | $2 \cdot b \cdot h \cdot s^2 \cdot \sigma$ |
+| HBM bytes | $B_{\text{HBM}}$ | $\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 4$ |
+| L2 bytes | $B_{\text{L2}}$ | $\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 6 \cdot \sigma$ |
+| SMEM bytes | $B_{\text{SMEM}}$ | $b \cdot h \cdot s \cdot d \cdot 8 \cdot \sigma$ |
+| TMA bytes | $B_{\text{TMA}}$ | $\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 2.5 \cdot \sigma$ |
 
 ### Roofline core
 
 The baseline roofline is the maximum of the dominant-domain times:
 
-\[
+$$
 T_{\text{base}} = \max\left(
 \frac{F_{\text{MMA}}}{R_{\text{MMA}}},
 \frac{E}{R_{\text{MUFU}}},
@@ -71,12 +71,11 @@ T_{\text{base}} = \max\left(
 \frac{B_{\text{L2}}}{\beta_{\text{L2}}},
 \frac{B_{\text{SMEM}}}{\beta_{\text{SMEM}}},
 \frac{B_{\text{TMA}}}{\beta_{\text{TMA}}}
+\right)
+$$
 
-ight)
-\]
-
-where \(R_{\text{MMA}}\) and \(R_{\text{MUFU}}\) are device-level peak Tensor
-Core and special-function throughputs and the \(\beta\) terms are effective
+where $R_{\text{MMA}}$ and $R_{\text{MUFU}}$ are device-level peak Tensor
+Core and special-function throughputs and the $\beta$ terms are effective
 bandwidths.
 
 ### Bounded corrections
@@ -85,24 +84,20 @@ The refined model adds three physically scoped corrections that are calibrated
 on the calibration split only:
 
 1. **Occupancy factor.** With output tiles
-   \(
-   N_{\text{tiles}} = b \cdot h \cdot \lceil s / B_M 
-ceil \cdot \lceil s / B_N 
-ceil
-   \)
-   and active-warp fraction \(
-ho\), the occupancy efficiency is
-   \(
-   \eta_{\text{occ}} = \min(1.0,\; 0.05 + 0.95 \sqrt{
-ho})
-   \).
+   $
+   N_{\text{tiles}} = b \cdot h \cdot \lceil s / B_M \rceil \cdot \lceil s / B_N \rceil
+   $
+   and active-warp fraction $\rho$, the occupancy efficiency is
+   $
+   \eta_{\text{occ}} = \min(1.0,\; 0.05 + 0.95 \sqrt{\rho})
+   $.
 
 2. **Transfer-size-dependent bandwidth.** Effective HBM, L2, and TMA bandwidths
    are functions of the total transfer size; the exact curves and multiplicative
    calibration factors are in `predictor.py` and `improved_predictor.py`.
 
 3. **Precision-specific throughput.** Per-precision MMA and MUFU rate tables
-   are stored in `constants.py` and scaled by \(\eta_{\text{occ}}\) and bounded
+   are stored in `constants.py` and scaled by $\eta_{\text{occ}}$ and bounded
    efficiency factors.
 
 ### Launch-overhead term
@@ -110,21 +105,21 @@ ho})
 The dominant correction when moving from emulator to real B200 silicon is a
 fixed kernel dispatch latency:
 
-\[
+$$
 T_{\text{launch}} = \tau_{\text{fixed}} + \tau_{\text{per-tile}} \cdot N_{\text{tiles}}
-\]
+$$
 
-Calibration recovers \(\tau_{\text{fixed}} = 60\,\mu\text{s}\) and
-\(\tau_{\text{per-tile}} = 0\,\mu\text{s}\). The final runtime is
-\(T_{\text{pred}} = T_{\text{base}} + T_{\text{launch}}\).
+Calibration recovers $\tau_{\text{fixed}} = 60\,\mu\text{s}$ and
+$\tau_{\text{per-tile}} = 0\,\mu\text{s}$. The final runtime is
+$T_{\text{pred}} = T_{\text{base}} + T_{\text{launch}}$.
 
 ### Bottleneck label with NCU slack
 
 The model labels the bottleneck as the domain with the largest individual time.
 Because NCU SpeedOfLight reports every profiled FA4 config as compute-bound even
 when the raw white-box memory time is comparable, we add an NCU-guided slack
-\(\gamma = 3.0\): if the dominant memory time is within a factor
-\((1 + \gamma)\) of the dominant compute time, the config is labelled
+$\gamma = 3.0$: if the dominant memory time is within a factor
+$(1 + \gamma)$ of the dominant compute time, the config is labelled
 compute-bound. This slack changes only the label, not the predicted runtime.
 
 ### Accuracy
