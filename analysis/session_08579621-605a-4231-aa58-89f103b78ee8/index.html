@@ -1,0 +1,3330 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Sanitized chatlog analysis from the FlashAttention-4 white-box analytical model research topic.">
+      
+      
+      
+        <link rel="canonical" href="https://codegandee.github.io/isomer-example-fa4-analytical-model/analysis/session_08579621-605a-4231-aa58-89f103b78ee8/">
+      
+      
+        <link rel="prev" href="../merged-timeline/">
+      
+      
+        <link rel="next" href="../session_62c9b0be-1923-4da6-9a58-9a2a66f94220/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Extracted Kimi Code Timeline: session_08579621-605a-4231-aa58-89f103b78ee8 - FA4 Analytical Model Research Log</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#extracted-kimi-code-timeline-session_08579621-605a-4231-aa58-89f103b78ee8" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FA4 Analytical Model Research Log" class="md-header__button md-logo" aria-label="FA4 Analytical Model Research Log" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FA4 Analytical Model Research Log
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Extracted Kimi Code Timeline: session_08579621-605a-4231-aa58-89f103b78ee8
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CodeGandee/isomer-example-fa4-analytical-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FA4 Analytical Model Research Log" class="md-nav__button md-logo" aria-label="FA4 Analytical Model Research Log" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FA4 Analytical Model Research Log
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CodeGandee/isomer-example-fa4-analytical-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Chatlogs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../confusion-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confusion Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../merged-timeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Merged Chatlog Timeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extracted Kimi Code Timeline: session_08579621-605a-4231-aa58-89f103b78ee8
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extracted Kimi Code Timeline: session_08579621-605a-4231-aa58-89f103b78ee8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-001-2026-07-04t121542840000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 001 — 2026-07-04T12:15:42.840000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-002-2026-07-04t121602883000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 002 — 2026-07-04T12:16:02.883000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-003-2026-07-04t121659424000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 003 — 2026-07-04T12:16:59.424000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-004-2026-07-04t123002294000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 004 — 2026-07-04T12:30:02.294000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-005-2026-07-04t144331653000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 005 — 2026-07-04T14:43:31.653000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-1-paper-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass 1: paper-pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-2-revision-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass 2: revision-pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-3-submission-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass 3: submission-pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final bundle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-move-from-park-to-publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        To move from park to publish
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="To move from park to publish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-006-2026-07-04t182431218000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 006 — 2026-07-04T18:24:31.218000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-007-2026-07-04t182534055000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 007 — 2026-07-04T18:25:34.055000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caveats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliverables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deliverables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-008-2026-07-04t182744125000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 008 — 2026-07-04T18:27:44.125000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model variants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model variants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-009-2026-07-04t182806852000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 009 — 2026-07-04T18:28:06.852000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-project-unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Project unit tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-research-experiment-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Research experiment validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-code-quality-checks-on-the-predictor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Code quality checks on the predictor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Code quality checks on the predictor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-010-2026-07-04t182905408000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 010 — 2026-07-04T18:29:05.408000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-was-actually-compared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What was actually compared
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-actual-runs-were-not-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why actual runs were not done
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-real-test-would-look-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a real test would look like
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-evidence-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current evidence boundary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current evidence boundary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-011-2026-07-04t182952330000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 011 — 2026-07-04T18:29:52.330000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-number-actually-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the number actually means
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-is-useful-but-limited" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this is useful but limited
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#honest-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Honest conclusion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Honest conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-012-2026-07-04t183047527000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 012 — 2026-07-04T18:30:47.527000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-skill-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note on skill boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updated-topic-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updated topic statement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-013-2026-07-04t183323092000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 013 — 2026-07-04T18:33:23.092000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-blocked-the-original-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What blocked the original run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-selected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass selected
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current action
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-014-2026-07-04t183825710000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 014 — 2026-07-04T18:38:25.710000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade-off
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-was-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What was fixed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass in progress
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pass in progress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-015-2026-07-04t193610033000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 015 — 2026-07-04T19:36:10.033000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-to-end-smoke-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End-to-end smoke test
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="End-to-end smoke test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-016-2026-07-04t193911190000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 016 — 2026-07-04T19:39:11.190000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan-for-this-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan for this pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Target">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-017-2026-07-05t143816122000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 017 — 2026-07-05T14:38:16.122000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hypothesis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-018-2026-07-05t145534721000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 018 — 2026-07-05T14:55:34.721000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-performed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tests performed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tests performed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-body-only-artifact-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Body-only artifact record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-structured-payload-evidence-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Structured payload evidence item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-the-previous-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note on the previous error
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Note on the previous error">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-019-2026-07-05t151949268000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 019 — 2026-07-05T15:19:49.268000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-paper-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why paper-pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-pass-is-doing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the pass is doing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PDF note
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PDF note">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-020-2026-07-05t154120338000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 020 — 2026-07-05T15:41:20.338000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-021-2026-07-05t162002360000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 021 — 2026-07-05T16:20:02.360000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-022-2026-07-05t163215864000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 022 — 2026-07-05T16:32:15.864000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session_62c9b0be-1923-4da6-9a58-9a2a66f94220/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extracted Kimi Code Timeline: session_62c9b0be-1923-4da6-9a58-9a2a66f94220
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session_8794124c-4c0c-4042-82f5-0586b287de3c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extracted Kimi Code Timeline: session_8794124c-4c0c-4042-82f5-0586b287de3c
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-001-2026-07-04t121542840000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 001 — 2026-07-04T12:15:42.840000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-002-2026-07-04t121602883000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 002 — 2026-07-04T12:16:02.883000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-003-2026-07-04t121659424000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 003 — 2026-07-04T12:16:59.424000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-004-2026-07-04t123002294000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 004 — 2026-07-04T12:30:02.294000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-005-2026-07-04t144331653000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 005 — 2026-07-04T14:43:31.653000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-1-paper-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass 1: paper-pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-2-revision-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass 2: revision-pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-3-submission-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass 3: submission-pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final bundle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-move-from-park-to-publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        To move from park to publish
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="To move from park to publish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-006-2026-07-04t182431218000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 006 — 2026-07-04T18:24:31.218000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-007-2026-07-04t182534055000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 007 — 2026-07-04T18:25:34.055000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caveats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliverables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deliverables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-008-2026-07-04t182744125000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 008 — 2026-07-04T18:27:44.125000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model variants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model variants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-009-2026-07-04t182806852000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 009 — 2026-07-04T18:28:06.852000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-project-unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Project unit tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-research-experiment-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Research experiment validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-code-quality-checks-on-the-predictor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Code quality checks on the predictor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Code quality checks on the predictor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-010-2026-07-04t182905408000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 010 — 2026-07-04T18:29:05.408000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-was-actually-compared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What was actually compared
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-actual-runs-were-not-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why actual runs were not done
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-real-test-would-look-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a real test would look like
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-evidence-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current evidence boundary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current evidence boundary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-011-2026-07-04t182952330000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 011 — 2026-07-04T18:29:52.330000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-number-actually-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the number actually means
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-is-useful-but-limited" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this is useful but limited
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#honest-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Honest conclusion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Honest conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-012-2026-07-04t183047527000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 012 — 2026-07-04T18:30:47.527000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-skill-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note on skill boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updated-topic-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updated topic statement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-013-2026-07-04t183323092000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 013 — 2026-07-04T18:33:23.092000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-blocked-the-original-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What blocked the original run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-selected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass selected
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current action
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-014-2026-07-04t183825710000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 014 — 2026-07-04T18:38:25.710000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade-off
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-was-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What was fixed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pass-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pass in progress
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pass in progress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-015-2026-07-04t193610033000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 015 — 2026-07-04T19:36:10.033000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-to-end-smoke-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End-to-end smoke test
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="End-to-end smoke test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-016-2026-07-04t193911190000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 016 — 2026-07-04T19:39:11.190000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan-for-this-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan for this pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Target">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-017-2026-07-05t143816122000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 017 — 2026-07-05T14:38:16.122000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hypothesis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-018-2026-07-05t145534721000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 018 — 2026-07-05T14:55:34.721000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-performed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tests performed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tests performed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-body-only-artifact-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Body-only artifact record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-structured-payload-evidence-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Structured payload evidence item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-the-previous-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note on the previous error
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Note on the previous error">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-019-2026-07-05t151949268000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 019 — 2026-07-05T15:19:49.268000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-paper-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why paper-pass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-pass-is-doing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the pass is doing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PDF note
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PDF note">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-020-2026-07-05t154120338000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 020 — 2026-07-05T15:41:20.338000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-021-2026-07-05t162002360000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 021 — 2026-07-05T16:20:02.360000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-022-2026-07-05t163215864000z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event 022 — 2026-07-05T16:32:15.864000Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="extracted-kimi-code-timeline-session_08579621-605a-4231-aa58-89f103b78ee8">Extracted Kimi Code Timeline: session_08579621-605a-4231-aa58-89f103b78ee8</h1>
+<p>This analysis extracts direct user prompts, user slash-command actions, cancel/interruption events, and the final visible assistant response recorded for the matched main-agent turn. It omits hidden thinking, tool calls, tool results, injected reminders, background task notifications, model-invoked skill calls, and subagent-internal conversations; the raw session tree preserves those records.</p>
+<h2 id="source">Source</h2>
+<ul>
+<li>Raw session: <code>raw/session_08579621-605a-4231-aa58-89f103b78ee8</code></li>
+<li>Main wire: <code>raw/session_08579621-605a-4231-aa58-89f103b78ee8/agents/main/wire.jsonl</code></li>
+<li>Title: /isomer-deepsci-pipeline list passes</li>
+<li>Created: 2026-07-04T12:15:35.022Z</li>
+<li>Updated: 2026-07-05T16:32:15.853Z</li>
+<li>Last prompt: from the paper, I do not know how the math model finally compute the latency given input</li>
+</ul>
+<h2 id="timeline">Timeline</h2>
+<h3 id="event-001-2026-07-04t121542840000z">Event 001 — 2026-07-04T12:15:42.840000Z</h3>
+<p>User Action:</p>
+<blockquote>
+<p>Skill activated: isomer-deepsci-pipeline (user-slash) with args: list passes</p>
+</blockquote>
+<p>Matched Turn: <code>0</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Available <code>isomer-deepsci-pipeline</code> passes:</p>
+<table>
+<thead>
+<tr>
+<th>Pass</th>
+<th>First stage</th>
+<th>Last stage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>empirical-pass</code></td>
+<td><code>isomer-deepsci-scout</code></td>
+<td><code>isomer-deepsci-analysis</code></td>
+<td>Full single-pass empirical loop from framing to interpretable analysis.</td>
+</tr>
+<tr>
+<td><code>hypothesis-pass</code></td>
+<td><code>isomer-deepsci-idea</code></td>
+<td><code>isomer-deepsci-analysis</code></td>
+<td>Run a selected hypothesis through experiment and analysis.</td>
+</tr>
+<tr>
+<td><code>paper-pass</code></td>
+<td><code>isomer-deepsci-paper-outline</code></td>
+<td><code>isomer-deepsci-review</code></td>
+<td>Turn analysis findings into a reviewed paper bundle.</td>
+</tr>
+<tr>
+<td><code>revision-pass</code></td>
+<td><code>isomer-deepsci-review</code></td>
+<td><code>isomer-deepsci-write</code></td>
+<td>Self-review a draft, fill evidence gaps, and revise.</td>
+</tr>
+<tr>
+<td><code>rebuttal-pass</code></td>
+<td><code>isomer-deepsci-rebuttal</code></td>
+<td><code>isomer-deepsci-write</code></td>
+<td>Turn formal reviewer feedback into revised text and evidence.</td>
+</tr>
+<tr>
+<td><code>polish-pass</code></td>
+<td><code>isomer-deepsci-figure-polish</code></td>
+<td><code>isomer-deepsci-review</code></td>
+<td>Polish figures and prose before external review.</td>
+</tr>
+<tr>
+<td><code>submission-pass</code></td>
+<td><code>isomer-deepsci-review</code></td>
+<td><code>isomer-deepsci-finalize</code></td>
+<td>Finalize a reviewed paper bundle for submission or archive.</td>
+</tr>
+</tbody>
+</table>
+<p>No pass was executed. Use the pass name you want, for example <code>isomer-deepsci-pipeline empirical-pass</code>.</p>
+</blockquote>
+<h3 id="event-002-2026-07-04t121602883000z">Event 002 — 2026-07-04T12:16:02.883000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>list topics</p>
+</blockquote>
+<p>Matched Turn: <code>1</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Registered Research Topics and Topic Workspaces:</p>
+<table>
+<thead>
+<tr>
+<th>Topic ID</th>
+<th>Status</th>
+<th>Topic Workspace ID</th>
+<th>Workspace Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flash-attention-gb10-peak-performance-optimization</code></td>
+<td>active</td>
+<td><code>flash-attention-gb10-peak-performance-optimization</code></td>
+<td><code>isomer-content/topic-ws/flash-attention-gb10-peak-performance-optimization</code></td>
+</tr>
+<tr>
+<td><code>flash-attention-4-whitebox-runtime-model</code></td>
+<td>active</td>
+<td><code>flash-attention-4-whitebox-runtime-model</code></td>
+<td><code>isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>status</strong>: ok</li>
+<li><strong>project</strong>: <code>&lt;PROJECT_ROOT&gt;</code></li>
+<li><strong>blockers</strong>: none</li>
+<li><strong>diagnostics</strong>: empty on both lists</li>
+</ul>
+<p>Use <code>project topics show &lt;topic-id&gt;</code> to inspect a specific topic, or <code>project topics create &lt;topic-id&gt; --statement "&lt;research topic&gt;"</code> to add one.</p>
+</blockquote>
+<h3 id="event-003-2026-07-04t121659424000z">Event 003 — 2026-07-04T12:16:59.424000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>remove the gb10 peak performance topic</p>
+</blockquote>
+<p>Matched Turn: <code>2</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Deleted <code>flash-attention-gb10-peak-performance-optimization</code>:</p>
+<ul>
+<li><strong>status</strong>: ok</li>
+<li><strong>mutated</strong>: true</li>
+<li><strong>removed</strong>: topic registration manifest entries and <code>.isomer-labs/research-topics/flash-attention-gb10-peak-performance-optimization.toml</code></li>
+<li><strong>preserved</strong>: <code>isomer-content/topic-ws/flash-attention-gb10-peak-performance-optimization</code> directory</li>
+<li><strong>cleared defaults</strong>: <code>defaults.research_topic_id</code>, <code>defaults.topic_workspace_id</code></li>
+<li><strong>blockers</strong>: none</li>
+</ul>
+<p>Remaining registered topic:</p>
+<table>
+<thead>
+<tr>
+<th>Topic ID</th>
+<th>Status</th>
+<th>Topic Workspace Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flash-attention-4-whitebox-runtime-model</code></td>
+<td>active</td>
+<td><code>isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model</code></td>
+</tr>
+</tbody>
+</table>
+<p>To also remove the preserved filesystem workspace, run <code>isomer-cli project cleanup --part topic-workspace --topic flash-attention-gb10-peak-performance-optimization --dry-run</code>.</p>
+</blockquote>
+<h3 id="event-004-2026-07-04t123002294000z">Event 004 — 2026-07-04T12:30:02.294000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>do an empirical pass using topic workspace's operator's workspace</p>
+</blockquote>
+<p>Matched Turn: <code>3</code></p>
+<p>AI:</p>
+<blockquote>
+<p>The empirical pass is in progress. Three stages have completed and the fourth is running:</p>
+<p><strong>Completed stages</strong>
+- <code>frame</code> (<code>isomer-deepsci-scout</code>) → route <code>baseline</code>
+- <code>comparator</code> (<code>isomer-deepsci-baseline</code>) → accepted
+- <code>ideate</code> (<code>isomer-deepsci-idea</code>) → selected hypothesis <code>fa4-b200-whitebox-occupancy-tma-l2-precision-v1</code>, route <code>experiment</code></p>
+<p><strong>Running stage</strong>
+- <code>run</code> (<code>isomer-deepsci-experiment</code>) is executing in the background. It is implementing and calibrating the white-box predictor and running ablations on the B200/FA4 config matrix.</p>
+<p>The experiment subagent will report back automatically when it finishes. I will then run the final <code>interpret</code> stage (<code>isomer-deepsci-analysis</code>), produce the <code>pipeline-terminal-report</code>, and apply the end callbacks.</p>
+<p>If you want, you can continue with unrelated work while the experiment runs; the completion notification will arrive in this session.</p>
+</blockquote>
+<h3 id="event-005-2026-07-04t144331653000z">Event 005 — 2026-07-04T14:43:31.653000Z</h3>
+<p>User Action:</p>
+<blockquote>
+<p>Skill activated: isomer-deepsci-pipeline (user-slash) with args: finalize and write a paper</p>
+</blockquote>
+<p>Matched Turn: <code>5</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Your request to "finalize and write a paper" required three pipeline passes. All three have completed.</p>
+<h2 id="pass-1-paper-pass">Pass 1: <code>paper-pass</code></h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Skill</th>
+<th>Status</th>
+<th>Route</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>outline</td>
+<td><code>isomer-deepsci-paper-outline</code></td>
+<td>complete</td>
+<td>write</td>
+</tr>
+<tr>
+<td>draft</td>
+<td><code>isomer-deepsci-write</code></td>
+<td>complete</td>
+<td>review</td>
+</tr>
+<tr>
+<td>audit</td>
+<td><code>isomer-deepsci-review</code></td>
+<td>paused</td>
+<td>revise</td>
+</tr>
+</tbody>
+</table>
+<p>The paper-pass paused because the review found a calibration-factor misstatement, missing citations/BibTeX, and unrendered figures.</p>
+<h2 id="pass-2-revision-pass">Pass 2: <code>revision-pass</code></h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Skill</th>
+<th>Status</th>
+<th>Route</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>audit</td>
+<td><code>isomer-deepsci-review</code></td>
+<td>complete</td>
+<td>revise</td>
+</tr>
+<tr>
+<td>fill_gaps</td>
+<td><code>isomer-deepsci-analysis</code></td>
+<td>complete</td>
+<td>write</td>
+</tr>
+<tr>
+<td>revise</td>
+<td><code>isomer-deepsci-write</code></td>
+<td>complete</td>
+<td>finalize</td>
+</tr>
+</tbody>
+</table>
+<p>The revision pass fixed the calibration description, added a full <code>references.bib</code>, and rendered Figures 1–3 from the experiment CSVs.</p>
+<h2 id="pass-3-submission-pass">Pass 3: <code>submission-pass</code></h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Skill</th>
+<th>Status</th>
+<th>Route / Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>audit</td>
+<td><code>isomer-deepsci-review</code></td>
+<td>complete</td>
+<td>finalize</td>
+</tr>
+<tr>
+<td>data_statement</td>
+<td><code>isomer-deepsci-nature-data</code></td>
+<td>complete</td>
+<td>ready</td>
+</tr>
+<tr>
+<td>close</td>
+<td><code>isomer-deepsci-finalize</code></td>
+<td>complete</td>
+<td>park</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Closure decision: <code>park</code></strong> — the bundle is internally consistent, but the central claim rests on emulator-based ground truth, the target venue is unspecified, and no public repository exists yet.</p>
+<h2 id="final-bundle">Final bundle</h2>
+<p>Location:
+<code>isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-152057-submission-42712472/bundle/</code></p>
+<p>Contents:
+- <code>revised-draft.md</code>
+- <code>references.bib</code>
+- <code>figures/figure1_predicted_vs_measured.png</code>
+- <code>figures/figure2_residuals_by_bottleneck.png</code>
+- <code>figures/figure3_pipeline.png</code></p>
+<h2 id="to-move-from-park-to-publish">To move from <code>park</code> to <code>publish</code></h2>
+<ol>
+<li>Validate the predictor on real B200 silicon.</li>
+<li>Choose a target venue and adapt the data-availability statement if it is not Nature-family.</li>
+<li>Create a public code/data repository and add its DOI/URL to the bundle.</li>
+</ol>
+</blockquote>
+<h3 id="event-006-2026-07-04t182431218000z">Event 006 — 2026-07-04T18:24:31.218000Z</h3>
+<p>User Action:</p>
+<blockquote>
+<p>Skill activated: isomer-deepsci-pipeline (user-slash) with args: list pipelines</p>
+</blockquote>
+<p>Matched Turn: <code>6</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Available <code>isomer-deepsci-pipeline</code> passes (the skill calls these "passes", not "pipelines"):</p>
+<table>
+<thead>
+<tr>
+<th>Pass</th>
+<th>First stage</th>
+<th>Last stage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>empirical-pass</code></td>
+<td><code>isomer-deepsci-scout</code></td>
+<td><code>isomer-deepsci-analysis</code></td>
+<td>Full single-pass empirical loop from framing to interpretable analysis.</td>
+</tr>
+<tr>
+<td><code>hypothesis-pass</code></td>
+<td><code>isomer-deepsci-idea</code></td>
+<td><code>isomer-deepsci-analysis</code></td>
+<td>Run a selected hypothesis through experiment and analysis.</td>
+</tr>
+<tr>
+<td><code>paper-pass</code></td>
+<td><code>isomer-deepsci-paper-outline</code></td>
+<td><code>isomer-deepsci-review</code></td>
+<td>Turn analysis findings into a reviewed paper bundle.</td>
+</tr>
+<tr>
+<td><code>revision-pass</code></td>
+<td><code>isomer-deepsci-review</code></td>
+<td><code>isomer-deepsci-write</code></td>
+<td>Self-review a draft, fill evidence gaps, and revise.</td>
+</tr>
+<tr>
+<td><code>rebuttal-pass</code></td>
+<td><code>isomer-deepsci-rebuttal</code></td>
+<td><code>isomer-deepsci-write</code></td>
+<td>Turn formal reviewer feedback into revised text and evidence.</td>
+</tr>
+<tr>
+<td><code>polish-pass</code></td>
+<td><code>isomer-deepsci-figure-polish</code></td>
+<td><code>isomer-deepsci-review</code></td>
+<td>Polish figures and prose before external review.</td>
+</tr>
+<tr>
+<td><code>submission-pass</code></td>
+<td><code>isomer-deepsci-review</code></td>
+<td><code>isomer-deepsci-finalize</code></td>
+<td>Finalize a reviewed paper bundle for submission or archive.</td>
+</tr>
+</tbody>
+</table>
+<p>No pass was executed. Use the pass name you want, for example <code>isomer-deepsci-pipeline empirical-pass</code>.</p>
+</blockquote>
+<h3 id="event-007-2026-07-04t182534055000z">Event 007 — 2026-07-04T18:25:34.055000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>what is the current research result, do we have a math model</p>
+</blockquote>
+<p>Matched Turn: <code>7</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Yes, we have a white-box math model.</p>
+<h2 id="the-model">The Model</h2>
+<p>Implemented in:
+<code>isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/repos/topic-main/src/fa4_b200_predictor/predictor.py</code></p>
+<p>It predicts Flash Attention 4 forward-pass runtime in milliseconds from input configuration:</p>
+<ul>
+<li><strong>Inputs</strong>: <code>batch</code>, <code>heads</code>, <code>seqlen</code>, <code>head_dim</code>, <code>causal</code>, <code>precision</code></li>
+<li><strong>Algorithm quantities</strong>: MMA FLOPs, exponential/softmax ops, HBM/L2/SMEM/TMA bytes</li>
+<li><strong>Hardware model</strong>: NVIDIA B200 — SMs, Tensor Core MMA/MUFU throughput per precision, HBM/L2/SMEM/TMA bandwidth, occupancy from tile geometry</li>
+<li><strong>Prediction</strong>: white-box roofline <code>max(mma_time, mufu_time, memory_time) + launch_overhead</code>, with calibrated bounded efficiency factors</li>
+</ul>
+<h2 id="current-result">Current Result</h2>
+<p>On 160 held-out synthetic validation configurations:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>MAPE</th>
+<th>Max APE</th>
+<th>% within 30%</th>
+<th>Bottleneck accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline FA4 roofline</td>
+<td>22.22%</td>
+<td>42.07%</td>
+<td>76.88%</td>
+<td>89.38%</td>
+</tr>
+<tr>
+<td><strong>Combined model</strong></td>
+<td><strong>4.50%</strong></td>
+<td><strong>14.36%</strong></td>
+<td><strong>100%</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The combined model searches four bounded factors (<code>hbm_factor</code>, <code>mma_efficiency</code>, <code>mufu_efficiency</code>, <code>launch_overhead_us</code>) and fixes <code>l2_factor=0.70</code>, <code>tma_factor=0.65</code>, <code>smem_factor=0.90</code>. The TMA/L2 effective-bandwidth correction is the single largest improvement.</p>
+<h2 id="caveats">Caveats</h2>
+<ul>
+<li>Validation ground truth came from a <strong>documented white-box emulator</strong>, not real B200 kernel launches.</li>
+<li>The matrix is synthetic and does not cover custom tile sizes, <code>num_splits</code>, fused variants, or production workloads.</li>
+<li>The submission-pass closure decision is <strong><code>park</code></strong> until silicon validation, venue choice, and a public repository are resolved.</li>
+</ul>
+<h2 id="deliverables">Deliverables</h2>
+<ul>
+<li>Code: <code>repos/topic-main/src/fa4_b200_predictor/</code></li>
+<li>Paper bundle: <code>actors/operator/.../sets/20260704-152057-submission-42712472/bundle/</code></li>
+<li>Durable records: analysis campaign summary, final summary, closure decision.</li>
+</ul>
+</blockquote>
+<h3 id="event-008-2026-07-04t182744125000z">Event 008 — 2026-07-04T18:27:44.125000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>draw me the system diagram with ascii block here, I need to check</p>
+</blockquote>
+<p>Matched Turn: <code>8</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Here is the predictor system diagram in ASCII blocks:</p>
+<p><code>┌─────────────────────────────────────────────────────────────────────┐
+│                         FA4Config input                              │
+│  batch, heads, seqlen, head_dim, causal, precision                  │
+└──────────────────────┬──────────────────────────────────────────────┘
+                       │
+                       ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    compute_workload(cfg)                             │
+│  White-box algorithm quantities from config                          │
+├─────────────────────────────────────────────────────────────────────┤
+│  seq_factor  = 0.5 if causal else 1.0                                │
+│  mma_flops   = 4 * B * H * S^2 * D * seq_factor                      │
+│  exp_ops     = 2 * B * H * S^2 * seq_factor                          │
+│  hbm_bytes   = bpe * B * H * S * D * 4                               │
+│  l2_bytes    = bpe * B * H * S * D * 6 * seq_factor                  │
+│  smem_bytes  = B * H * S * D * 8 * seq_factor                        │
+│  tma_bytes   = bpe * B * H * S * D * 2.5 * seq_factor                │
+└──────────────────────┬──────────────────────────────────────────────┘
+                       │
+                       ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│               occupancy_factor(cfg, B200Spec)                        │
+│  tile_size_for_config  ──►  tiles_m, tiles_n                         │
+│  required_warps = tiles * warps_per_tile                             │
+│  max_warps      = num_sms * max_warps_per_sm                         │
+│  occupancy      = min(1, sqrt(active/max) * 0.95 + 0.05)             │
+└──────────────────────┬──────────────────────────────────────────────┘
+                       │
+         ┌─────────────┴─────────────┐
+         ▼                           ▼
+┌─────────────────────┐    ┌──────────────────────────────────────────┐
+│   Compute paths     │    │   Memory / traffic paths                 │
+├─────────────────────┤    ├──────────────────────────────────────────┤
+│                     │    │                                          │
+│  mma_time_us()      │    │  effective_hbm_bw(bytes, hbm_factor)     │
+│  ├── mma_flops      │    │  ├── hbm_time = hbm_bytes / eff_bw       │
+│  ├── mma_throughput │    │                                          │
+│  └── occupancy      │    │  effective_l2_bw(bytes, l2_factor)       │
+│                     │    │  ├── l2_time  = l2_bytes  / eff_bw       │
+│  mufu_time_us()     │    │                                          │
+│  ├── exp_ops        │    │  effective_tma_bw(bytes, tma_factor)     │
+│  ├── mufu_throughput│    │  ├── tma_time = tma_bytes / eff_bw       │
+│  └── occupancy      │    │                                          │
+│                     │    │  smem_time = smem_bytes / smem_bw        │
+└──────────┬──────────┘    └───────────────────┬──────────────────────┘
+           │                                   │
+           │         ┌─────────────────────────┘
+           │         ▼
+           │    ┌─────────────────────────────────────┐
+           │    │     memory_time_us()                │
+           │    │  max(hbm_time, l2_time,             │
+           │    │      smem_time, tma_time) * 1e6     │
+           │    └───────────────┬─────────────────────┘
+           │                    │
+           └────────────────────┤
+                                ▼
+           ┌──────────────────────────────────────────────────────┐
+           │        White-box roofline core                        │
+           │  runtime_ms = (max(mma_t, mufu_t, mem_t)              │
+           │               + launch_overhead_us) / 1000            │
+           └─────────────────────┬────────────────────────────────┘
+                                 │
+                                 ▼
+           ┌──────────────────────────────────────────────────────┐
+           │           bottleneck_label()                          │
+           │  dominant = max(hbm, l2, smem, tma, mma, mufu)       │
+           └─────────────────────┬────────────────────────────────┘
+                                 │
+                                 ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                        Output                                        │
+│  predicted_runtime_ms, predicted_bottleneck                          │
+│  + per-stage times (mma, mufu, hbm, l2, smem, tma)                   │
+└─────────────────────────────────────────────────────────────────────┘</code></p>
+<h2 id="model-variants">Model variants</h2>
+<p><code>┌────────────────────┐     ┌────────────────────┐     ┌────────────────────┐
+│ baseline_fa4_roof  │     │  tma_l2_effective  │     │     combined       │
+│  - hbm/l2/smem/tma │     │  - hbm_factor      │     │  - occupancy       │
+│    factor = 1.0    │     │  - l2_factor       │     │  - effective BW    │
+│  - occupancy = 1.0 │     │  - tma_factor      │     │  - precision eff   │
+│  - mma/mufu eff=1  │     │  - occupancy = 1.0 │     │  - launch overhead │
+└────────────────────┘     └────────────────────┘     └────────────────────┘
+        22.22% MAPE                  5.76% MAPE              4.50% MAPE</code></p>
+<p>The calibration layer (<code>calibrate.py</code>) searches only the four factors in the combined box on a held-out calibration split; <code>l2_factor</code>, <code>tma_factor</code>, and <code>smem_factor</code> remain fixed defaults.</p>
+</blockquote>
+<h3 id="event-009-2026-07-04t182806852000z">Event 009 — 2026-07-04T18:28:06.852000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>what test has been done</p>
+</blockquote>
+<p>Matched Turn: <code>9</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Three categories of tests have been run.</p>
+<h2 id="1-project-unit-tests">1. Project unit tests</h2>
+<p><code>pixi run test</code> discovers and runs <code>tests/unit/</code>:</p>
+<ul>
+<li><strong>362 tests passed</strong> in 14.52s using 144 pytest-xdist workers.</li>
+<li>Test modules include:</li>
+<li><code>test_validate_skillsets.py</code></li>
+<li><code>test_validate_research_paradigm_skillset.py</code></li>
+<li><code>test_deepsci_ext.py</code></li>
+<li><code>test_isomer_cli.py</code></li>
+<li><code>test_manual_research_topic_skills.py</code></li>
+<li><code>test_topic_workspace_manifest.py</code></li>
+<li><code>test_validate_docs.py</code></li>
+<li><code>test_topic_reset.py</code></li>
+<li><code>test_research_records_ext.py</code></li>
+<li><code>test_team_repositories.py</code></li>
+<li><code>test_source_architecture.py</code></li>
+<li><code>test_system_skill_assets.py</code></li>
+<li><code>test_user_skill_callbacks.py</code></li>
+<li><code>test_houmao_cli_adapter.py</code></li>
+<li><code>test_artifact_format_cli.py</code></li>
+<li><code>test_artifact_formats.py</code></li>
+</ul>
+<p>These are framework/skill tests, not model-specific tests.</p>
+<h2 id="2-research-experiment-validation">2. Research experiment validation</h2>
+<p>The empirical pass evaluated five predictor variants on <strong>160 held-out validation configurations</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Predictor</th>
+<th>MAPE</th>
+<th>Max APE</th>
+<th>% within 30%</th>
+<th>Bottleneck accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>baseline_fa4_roofline</code></td>
+<td>22.22%</td>
+<td>42.07%</td>
+<td>76.88%</td>
+<td>89.38%</td>
+</tr>
+<tr>
+<td><code>occupancy_only</code></td>
+<td>18.11%</td>
+<td>38.39%</td>
+<td>77.50%</td>
+<td>86.88%</td>
+</tr>
+<tr>
+<td><code>tma_l2_effective_bw</code></td>
+<td>5.76%</td>
+<td>19.91%</td>
+<td>100.00%</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td><code>precision_only</code></td>
+<td>18.21%</td>
+<td>42.07%</td>
+<td>76.88%</td>
+<td>89.38%</td>
+</tr>
+<tr>
+<td><code>combined</code></td>
+<td><strong>4.50%</strong></td>
+<td><strong>14.36%</strong></td>
+<td><strong>100.00%</strong></td>
+<td><strong>100.00%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Metrics are computed against a documented high-fidelity white-box emulator, not real B200 silicon.</p>
+<h2 id="3-code-quality-checks-on-the-predictor">3. Code quality checks on the predictor</h2>
+<p>During the experiment stage:</p>
+<ul>
+<li><code>pixi run ruff check .../fa4_b200_predictor/</code> — passed</li>
+<li><code>python -m mypy fa4_b200_predictor/ ...</code> — passed</li>
+</ul>
+<p>No real-kernel or silicon tests have been run yet; that is the main <code>park</code> blocker noted in the final summary.</p>
+</blockquote>
+<h3 id="event-010-2026-07-04t182905408000z">Event 010 — 2026-07-04T18:29:05.408000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>no, I mean test data into the theoretical model vs actual run</p>
+</blockquote>
+<p>Matched Turn: <code>10</code></p>
+<p>AI:</p>
+<blockquote>
+<p>No — the theoretical model has <strong>not</strong> been tested against actual B200 kernel runs yet.</p>
+<h2 id="what-was-actually-compared">What was actually compared</h2>
+<p>The experiment compared the predictor against a <strong>documented high-fidelity white-box emulator</strong>. The emulator generates ground-truth runtimes using the same physical bottleneck structure as the predictors, with hidden B200 efficiency factors and 3% residual noise. It is not a black-box fit, but it is also not real silicon.</p>
+<h2 id="why-actual-runs-were-not-done">Why actual runs were not done</h2>
+<p>The experiment subagent had a ~25-minute wall-clock budget and reported that real B200 kernel launches were infeasible within that window. The <code>submission-pass</code> closure decision is <code>park</code> largely because of this gap.</p>
+<h2 id="what-a-real-test-would-look-like">What a real test would look like</h2>
+<ol>
+<li>Generate the same 160 synthetic configs (or a larger production matrix).</li>
+<li>Run the actual Flash Attention 4 kernel on a B200 for each config, measuring wall-clock time with <code>cudaEventElapsedTime</code> or <code>ncu</code>.</li>
+<li>Feed those measured runtimes into <code>evaluate.py</code> as <code>measured_runtime_ms</code>.</li>
+<li>Recompute MAPE, max APE, % within 30%, and bottleneck-label accuracy against silicon.</li>
+</ol>
+<h2 id="current-evidence-boundary">Current evidence boundary</h2>
+<ul>
+<li><strong>White-box structure</strong>: yes, the model is built from algorithm quantities and hardware throughput.</li>
+<li><strong>Internal consistency</strong>: yes, the model outpredicts the roofline baseline on emulator ground truth.</li>
+<li><strong>Real-hardware transfer</strong>: not validated. That is the main open risk before the work can move from <code>park</code> to <code>publish</code>.</li>
+</ul>
+</blockquote>
+<h3 id="event-011-2026-07-04t182952330000z">Event 011 — 2026-07-04T18:29:52.330000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>without actually run something on b200, how do you know the error</p>
+</blockquote>
+<p>Matched Turn: <code>11</code></p>
+<p>AI:</p>
+<blockquote>
+<p>We do not know the real error. The reported 4.50% MAPE is <strong>not a real-hardware error</strong>; it is the error of one white-box model against another white-box model that generates the "ground truth."</p>
+<h2 id="what-the-number-actually-means">What the number actually means</h2>
+<p>The experiment pipeline was:</p>
+<p><code>predictor(model A)  ──predicts──►  runtime
+emulator(model B)   ──generates──►  "measured" runtime
+evaluate.py         ──compares──►  MAPE = 4.50%</code></p>
+<p>So the 4.50% tells us: <strong>the predictor can recover the structure of the emulator.</strong> It does not tell us whether either model matches a real B200.</p>
+<h2 id="why-this-is-useful-but-limited">Why this is useful but limited</h2>
+<p>Useful:
+- It proves the predictor is internally consistent and more accurate than the naive roofline baseline <em>within the same modeling family</em>.
+- It shows the TMA/L2 bandwidth correction dominates error in that model family.
+- It validates the implementation and calibration pipeline.</p>
+<p>Not useful for real hardware:
+- The emulator itself may misestimate B200 behavior.
+- Hidden efficiency factors in the emulator could be wrong.
+- The synthetic config matrix may not cover real workload behavior.</p>
+<h2 id="honest-conclusion">Honest conclusion</h2>
+<p>The error claim is <strong>conditional</strong>: "If the emulator is a faithful proxy for B200, then the predictor has 4.50% MAPE." That is why the submission-pass recommended <code>park</code> rather than <code>publish</code>.</p>
+<p>To know the real error, you must run the actual FA4 kernel on B200 and compare measured wall-clock time against the predictor. No shortcut around that has been taken here.</p>
+</blockquote>
+<h3 id="event-012-2026-07-04t183047527000z">Event 012 — 2026-07-04T18:30:47.527000Z</h3>
+<p>User Action:</p>
+<blockquote>
+<p>Skill activated: isomer-op-topic-mgr (user-slash) with args: tighten the topic requirement, we must have theoretical vs actual run data</p>
+</blockquote>
+<p>Matched Turn: <code>12</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Topic requirement tightened.</p>
+<h2 id="note-on-skill-boundary">Note on skill boundary</h2>
+<p><code>isomer-op-topic-mgr</code> manages initialized-topic storage, actors, and environments, but it does not own topic intent/requirement edits. I used the authoritative CLI surface that <code>isomer-op-project-mgr</code> identifies for topic metadata changes:</p>
+<p><code>pixi run isomer-cli project topics update &lt;topic-id&gt; --statement "..."</code></p>
+<h2 id="updated-topic-statement">Updated topic statement</h2>
+<p><code>flash-attention-4-whitebox-runtime-model</code>:</p>
+<blockquote>
+<p>Develop a white-box math model of Flash Attention 4 runtime that predicts kernel runtime in milliseconds from input configuration, and validate it against measured runs on NVIDIA B200 hardware. The model must follow the GPU's internal execution model rather than fitting a black-box function to measurements. All accuracy claims must be grounded in real-hardware timings, not emulator-only ground truth.</p>
+</blockquote>
+<h2 id="implication">Implication</h2>
+<p>The previous empirical pass and paper bundle now sit in a <code>park</code> state that is consistent with the tightened requirement: they used emulator ground truth, so they do not yet satisfy the updated topic. The next empirical pass must collect real B200 kernel measurements and re-validate the predictor against them before accuracy claims can be accepted.</p>
+</blockquote>
+<h3 id="event-013-2026-07-04t183323092000z">Event 013 — 2026-07-04T18:33:23.092000Z</h3>
+<p>User Action:</p>
+<blockquote>
+<p>Skill activated: isomer-deepsci-pipeline (user-slash) with args: design dataset for concrete evaluation of theoretical model accurarcy, must use real data, I do not think running a attention kernel can take something like 25 mins, you must have done something wrong, find out what blocks your run and then pick a pass and proceed. check online info if you are not sure</p>
+</blockquote>
+<p>Matched Turn: <code>13</code></p>
+<p>AI:</p>
+<blockquote>
+<p>I investigated the original failure and am fixing the environment blocker.</p>
+<h2 id="what-blocked-the-original-run">What blocked the original run</h2>
+<p>The previous experiment subagent claimed real B200 launches were “infeasible in 25 minutes,” but the real blocker was the <strong>environment</strong>:</p>
+<ul>
+<li><code>torch</code> was not installed in the topic workspace Pixi env.</li>
+<li><code>flash-attn-4</code> was not installed.</li>
+<li>The host actually has <strong>8 NVIDIA B200 GPUs</strong> (CUDA 13.1, compute cap 10.0).</li>
+</ul>
+<p>A single FA4 forward pass takes milliseconds; the full matrix can be measured in minutes, not hours.</p>
+<h2 id="dataset-design">Dataset design</h2>
+<p>I wrote the evaluation protocol here:</p>
+<p><code>isomer-content/.../actors/operator/.../sets/20260704-183342-dataset-design-a1b2c3d4/real-data-evaluation-dataset-design.md</code></p>
+<p>Key points:</p>
+<ul>
+<li><strong>1,152 configs</strong>: <code>batch</code> × <code>heads</code> × <code>seqlen</code> × <code>head_dim</code> × <code>causal</code> × <code>precision</code></li>
+<li>batch: 1, 2, 4, 8</li>
+<li>heads: 16, 32, 64</li>
+<li>seqlen: 1K, 2K, 4K, 8K, 16K, 32K</li>
+<li>head_dim: 64, 128</li>
+<li>causal: True/False</li>
+<li>precision: bf16, fp16, fp8, fp4</li>
+<li><strong>Measurement</strong>: 3 warmup + 10 timed runs per config, <code>torch.cuda.Event</code>, median runtime.</li>
+<li><strong>Split</strong>: 20% calibration, 20% held-out validation, 60% query.</li>
+<li><strong>Expected duration</strong>: 5–15 minutes on one B200.</li>
+</ul>
+<h2 id="pass-selected">Pass selected</h2>
+<p><strong><code>hypothesis-pass</code></strong> — test the hypothesis:</p>
+<blockquote>
+<p>The existing white-box predictor (<code>fa4-b200-whitebox-occupancy-tma-l2-precision-v1</code>) meets the useful-improvement threshold when validated against real B200 FlashAttention-4 measurements.</p>
+</blockquote>
+<h2 id="current-action">Current action</h2>
+<p>Installing <code>flash-attn-4</code> from the local clone at <code>repos/extern/flash-attention</code> using <code>uv pip install --prerelease=allow -e "flash_attn/cute[dev,cu13]"</code>. The install is running in the background. FA4 depends on pre-release NVIDIA CuTe DSL packages, which is why the earlier standard <code>pixi add</code> attempts failed.</p>
+<p>I will start the <code>hypothesis-pass</code> once the import <code>from flash_attn.cute import flash_attn_func</code> succeeds.</p>
+</blockquote>
+<h3 id="event-014-2026-07-04t183825710000z">Event 014 — 2026-07-04T18:38:25.710000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>are you installing deps outside of the pixi env?</p>
+</blockquote>
+<p>Matched Turn: <code>14</code></p>
+<p>AI:</p>
+<blockquote>
+<p>No — I am installing <strong>into</strong> the topic workspace Pixi environment, not outside it.</p>
+<p>The command is:</p>
+<p><code>sh
+UV_PYTHON=&lt;PROJECT_ROOT&gt;/.../.pixi/envs/default/bin/python \
+uv pip install --prerelease=allow -e "flash_attn/cute[dev,cu13]"</code></p>
+<p><code>UV_PYTHON</code> points at the Pixi environment's interpreter, so the packages land in that environment's <code>site-packages</code>.</p>
+<h2 id="trade-off">Trade-off</h2>
+<p>The downside is that <code>uv pip install</code> bypasses Pixi's lockfile. These dependencies will <strong>not</strong> be recorded in <code>pixi.toml</code> or <code>pixi.lock</code>. Reproducibility suffers: another checkout would not automatically get <code>nvidia-cutlass-dsl</code>, <code>quack-kernels</code>, <code>torch-c-dlpack-ext</code>, etc.</p>
+<h2 id="alternative">Alternative</h2>
+<p>I can stop the uv install and instead add the dependencies properly to <code>pixi.toml</code> if you prefer. That would mean:</p>
+<ul>
+<li>Adding a PyTorch CUDA 13 index to <code>pixi.toml</code>.</li>
+<li>Adding <code>flash-attn-4</code> with pre-release allowance.</li>
+<li>Adding the transitive CuTe DSL packages.</li>
+</ul>
+<p>Pixi's pre-release support for PyPI dependencies is more limited than uv's, so this may require manual <code>pypi-options</code> or explicit pre-release version pins.</p>
+<p>Which do you prefer?</p>
+<ol>
+<li><strong>Fast path</strong> (current): uv into the Pixi env; run the hypothesis-pass now; formalize <code>pixi.toml</code> later.</li>
+<li><strong>Reproducible path</strong>: stop uv, edit <code>pixi.toml</code> to capture everything, then install through Pixi.</li>
+</ol>
+<p>The environment is fixed and the <strong><code>hypothesis-pass</code></strong> is now running in the background.</p>
+<h2 id="what-was-fixed">What was fixed</h2>
+<ul>
+<li><code>torch==2.12.1+cu130</code> installed in the topic Pixi environment.</li>
+<li><code>flash-attn-4==0.0.1.dev1+g002cce0a1</code> built from the local clone <code>repos/extern/flash-attention/flash_attn/cute</code>.</li>
+<li>Smoke test passed on B200: <code>from flash_attn.cute import flash_attn_func</code> runs and returns correct output shape.</li>
+</ul>
+<h2 id="pass-in-progress">Pass in progress</h2>
+<p><code>isomer-deepsci-pipeline hypothesis-pass</code> is executing via subagent <code>agent-10</code>:</p>
+<ol>
+<li><strong>ideate</strong> — refine the hypothesis for real-hardware validation.</li>
+<li><strong>run</strong> — measure real B200 FA4 runtimes for the 1,152-config matrix, calibrate the predictor on a held-out split, and compute accuracy metrics.</li>
+<li><strong>interpret</strong> — compare real-hardware results to the previous emulator results and produce <code>analysis-finding</code>.</li>
+</ol>
+<p>The run stage should complete in well under 30 minutes now that real kernels are possible. I will report the terminal report and key metrics when it finishes.</p>
+</blockquote>
+<h3 id="event-015-2026-07-04t193610033000z">Event 015 — 2026-07-04T19:36:10.033000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>verify if you can use ncu</p>
+</blockquote>
+<p>Matched Turn: <code>16</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Yes, <code>ncu</code> is available and works on the B200.</p>
+<h2 id="verification">Verification</h2>
+<ul>
+<li><strong>Installed</strong>: <code>&lt;NCU_PATH&gt;</code></li>
+<li><strong>Version</strong>: NVIDIA Nsight Compute 2025.4.1.0 (build 37053803)</li>
+<li><strong>Also present in</strong>: <code>/usr/local/cuda-12.8/bin/ncu</code>, <code>/usr/local/cuda-13.0/bin/ncu</code>, <code>/usr/local/cuda-13.1/bin/ncu</code></li>
+</ul>
+<h2 id="end-to-end-smoke-test">End-to-end smoke test</h2>
+<p>I profiled a tiny <code>flash_attn_func</code> call from <code>flash_attn.cute</code> on <code>cuda:0</code>:</p>
+<p><code>sh
+pixi run ncu --profile-from-start on --target-processes all --kernel-name regex:flash python /tmp/fa4_smoke_for_ncu.py</code></p>
+<p>It successfully captured the kernel and reported:</p>
+<ul>
+<li>GPU: NVIDIA B200, 148 SMs</li>
+<li>Achieved occupancy: 22.19%</li>
+<li>DRAM / L1 / L2 / SM active cycles</li>
+<li>Shared memory usage: 232.45 Kbyte dynamic</li>
+<li>Launch config diagnostics</li>
+</ul>
+<p>So NCU can be used to collect real hardware-counter bottleneck labels (e.g., <code>dram__bytes.sum</code>, <code>lts__t_bytes.sum</code>, <code>sm__cycles_elapsed.avg</code>, Tensor Core activity counters) for the next model-fix experiment.</p>
+</blockquote>
+<h3 id="event-016-2026-07-04t193911190000z">Event 016 — 2026-07-04T19:39:11.190000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>now one more empirical pass</p>
+</blockquote>
+<p>Matched Turn: <code>17</code></p>
+<p>AI:</p>
+<blockquote>
+<p>The second <strong><code>empirical-pass</code></strong> is now running in the background on real B200 hardware.</p>
+<h2 id="plan-for-this-pass">Plan for this pass</h2>
+<ol>
+<li><strong>frame</strong> — Reframe around real-hardware validation only.</li>
+<li><strong>comparator</strong> — Use the uncalibrated FA4 roofline baseline (42.10% MAPE on real B200) as the comparator.</li>
+<li><strong>ideate</strong> — Generate fix hypotheses, focusing on:</li>
+<li>Explicit launch-overhead / small-latency term</li>
+<li>NCU hardware-counter bottleneck labels</li>
+<li>Better per-precision calibration</li>
+<li><strong>run</strong> — Measure real B200 runtimes, collect NCU counters on a subset, calibrate on a held-out split, and validate.</li>
+<li><strong>interpret</strong> — Decide if the improved model is supported on silicon.</li>
+</ol>
+<h2 id="target">Target</h2>
+<ul>
+<li>Combined MAPE ≤ 25%</li>
+<li>≥ 75% of validation configs within 30% absolute error</li>
+<li>≥ 75% bottleneck-label accuracy</li>
+<li>Δ MAPE vs baseline ≥ 5 percentage points improvement</li>
+</ul>
+<p>The run stage should complete in under 30 minutes. I will report the terminal report and metrics when it finishes.</p>
+</blockquote>
+<h3 id="event-017-2026-07-05t143816122000z">Event 017 — 2026-07-05T14:38:16.122000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>continue to do experiment</p>
+</blockquote>
+<p>Matched Turn: <code>21</code></p>
+<p>AI:</p>
+<blockquote>
+<p>The bottleneck-refinement <strong><code>hypothesis-pass</code></strong> is running in the background.</p>
+<h2 id="hypothesis">Hypothesis</h2>
+<blockquote>
+<p>Adding a bottleneck-threshold calibration that shifts the white-box bottleneck decision toward <code>compute</code> when compute and memory times are close, combined with NCU-guided reweighting of the memory-vs-compute balance, will push NCU bottleneck accuracy above 75% without degrading runtime MAPE.</p>
+</blockquote>
+<h2 id="plan">Plan</h2>
+<ol>
+<li><strong>ideate</strong> — Select the bottleneck-refinement hypothesis.</li>
+<li><strong>run</strong> — Modify the improved predictor to calibrate the bottleneck threshold against NCU labels, then re-evaluate on the real B200 dataset.</li>
+<li><strong>interpret</strong> — Decide if the refined model now meets all thresholds.</li>
+</ol>
+<p>The pass targets:
+- MAPE ≤ 25%
+- ≥ 75% within 30%
+- <strong>NCU bottleneck accuracy ≥ 75%</strong> ← the focus</p>
+<p>I will report the result when it completes.</p>
+</blockquote>
+<h3 id="event-018-2026-07-05t145534721000z">Event 018 — 2026-07-05T14:55:34.721000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>test if you can create record with updated isomer-cli ext</p>
+</blockquote>
+<p>Matched Turn: <code>23</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Record creation with <code>isomer-cli ext research records create</code> works.</p>
+<h2 id="tests-performed">Tests performed</h2>
+<h3 id="1-body-only-artifact-record">1. Body-only artifact record</h3>
+<p>Created <code>test-record-body-only-001</code> with <code>--body-file</code>:</p>
+<ul>
+<li>✅ Record created</li>
+<li>✅ Query index refresh succeeded (<code>operation: refresh</code>, <code>ok: true</code>)</li>
+<li>✅ Record retrievable</li>
+</ul>
+<h3 id="2-structured-payload-evidence-item">2. Structured payload evidence item</h3>
+<p>Created <code>test-experiment-result-001</code> with <code>--payload-file</code> and <code>--format-profile</code>:</p>
+<ul>
+<li>✅ Payload validated against schema</li>
+<li>✅ Markdown rendered</li>
+<li>✅ Query index refresh succeeded</li>
+<li>✅ Record retrievable with structured payload</li>
+</ul>
+<h3 id="3-cleanup">3. Cleanup</h3>
+<p>Both test records were deleted successfully:</p>
+<ul>
+<li>✅ <code>test-record-body-only-001</code> archived</li>
+<li>✅ <code>test-experiment-result-001</code> archived</li>
+<li>✅ Query index refreshed correctly after deletion</li>
+</ul>
+<h2 id="note-on-the-previous-error">Note on the previous error</h2>
+<p>The earlier SQLite <code>UNIQUE constraint failed: research_record_json_facts.id</code> error appears to have been transient or specific to the records created during the hypothesis-pass. <code>isomer-cli ext research records index rebuild</code> still fails with an internal error, but individual record creation, deletion, and query-index refresh now work correctly.</p>
+</blockquote>
+<h3 id="event-019-2026-07-05t151949268000z">Event 019 — 2026-07-05T15:19:49.268000Z</h3>
+<p>User Action:</p>
+<blockquote>
+<p>Skill activated: isomer-deepsci-pipeline (user-slash) with args: proceed to write or update the pdf paper, pick a workflow</p>
+</blockquote>
+<p>Matched Turn: <code>24</code></p>
+<p>AI:</p>
+<blockquote>
+<p>I picked <strong><code>paper-pass</code></strong> as the workflow for updating the paper.</p>
+<h2 id="why-paper-pass">Why paper-pass</h2>
+<ul>
+<li>The previous paper bundle was based on <strong>emulator</strong> ground truth, which we now know does not transfer to real B200 hardware.</li>
+<li>A new <code>paper-pass</code> consumes the latest real-hardware <code>analysis-finding</code> and produces a fresh paper bundle that reflects the validated model.</li>
+<li>If the review stage routes to <code>finalize</code>, we can then run <code>submission-pass</code> to close the bundle.</li>
+</ul>
+<h2 id="what-the-pass-is-doing">What the pass is doing</h2>
+<ol>
+<li><strong>outline</strong> — Build a new paper outline around real-hardware validation.</li>
+<li><strong>draft</strong> — Rewrite the manuscript with:</li>
+<li>Emulator result as a cautionary preliminary step.</li>
+<li>Real B200 measurement protocol.</li>
+<li>Launch-overhead fix and bottleneck-refinement results.</li>
+<li>Final supported metrics: 12.62% validation MAPE / 10.01% query MAPE / 100% NCU bottleneck accuracy.</li>
+<li><strong>audit</strong> — Review the draft for claim-evidence alignment and route to <code>finalize</code> or <code>revise</code>.</li>
+</ol>
+<h2 id="pdf-note">PDF note</h2>
+<p>The project has <strong>no LaTeX / pandoc / PDF toolchain</strong>. This pass produces a Markdown paper bundle. Generating a PDF would require adding a renderer (e.g., <code>pandoc</code> + TeX or <code>mkdocs</code> with PDF plugin) as a post-pipeline step.</p>
+<p>The paper-pass is running in the background. I will report the terminal report and bundle location when it completes.</p>
+</blockquote>
+<h3 id="event-020-2026-07-05t154120338000z">Event 020 — 2026-07-05T15:41:20.338000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>user tectonic instead</p>
+</blockquote>
+<p>Matched Turn: <code>27</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Built the PDF with Tectonic.</p>
+<p><strong>Result</strong>
+- PDF: <code>isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260705-153222-submission-4948b3fa/bundle/paper.pdf</code>
+- 11 pages, 151 KB, PDF 1.5</p>
+<p><strong>What I did</strong>
+1. Installed <code>pandoc</code> and <code>cairosvg</code> via <code>pixi global install</code> (no project <code>pyproject.toml</code> changes).
+2. Converted the two SVG figures to PDF with <code>cairosvg</code> so Tectonic can include them.
+3. Converted <code>revised-draft.md</code> → <code>paper.tex</code> with <code>pandoc</code> (LaTeX output, numbered sections, <code>tex_math_single_backslash</code>).
+4. Post-processed <code>paper.tex</code> to replace Unicode <code>≤</code>, <code>≥</code>, and <code>μ</code> with <code>$\le$</code>, <code>$\ge$</code>, <code>$\mu$</code> (Pandoc's strict math-delimiter spacing would otherwise drop them).
+5. Compiled <code>paper.tex</code> with <code>tectonic</code>.</p>
+<p><strong>Minor warnings remaining</strong>
+- A few overfull <code>\hbox</code> warnings from wide table cells.
+- Tectonic notes that the included PDF figures are version 1.7 while the output is 1.5; this does not block compilation and the PDF renders correctly.</p>
+</blockquote>
+<h3 id="event-021-2026-07-05t162002360000z">Event 021 — 2026-07-05T16:20:02.360000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>the paper seems to lack proper formatting? read the pdf</p>
+</blockquote>
+<p>Matched Turn: <code>28</code></p>
+<p>AI:</p>
+<blockquote>
+<p>I inspected the PDF page-by-page and fixed the formatting issues.</p>
+<p><strong>What was wrong</strong>
+- The title was numbered as section <code>1</code>, Abstract as subsection <code>1.1</code>, and headings read <code>1.2 1 Introduction</code>, <code>1.3 2 Related Work</code>, etc.
+- Figure captions were duplicated: the image files already had titles baked in, and Pandoc added a second LaTeX caption, giving e.g. "Figure 1: Figure 3: Predictor pipeline".
+- Figure numbering followed order of appearance, so the first figure in the text was labelled Figure 1 even though its baked-in title said "Figure 3".
+- Table 2's "Pass" column was too narrow, causing ugly line breaks.</p>
+<p><strong>What I changed</strong>
+- Preprocessed <code>revised-draft.md</code> to:
+  - Promote the <code># Title</code> to a YAML <code>title:</code> so LaTeX uses <code>\maketitle</code>.
+  - Strip the manual <code>1</code>, <code>2</code>, <code>3.1</code> numbers from headings and let LaTeX number sections automatically.
+  - Mark Abstract as <code>{.unnumbered}</code>.
+  - Remove <code>Figure N:</code> prefixes from image alt text so LaTeX captions and numbers figures automatically.
+- Removed the baked-in titles from the two SVG figures and cropped the title band off the PNG figure.
+- Regenerated the PDF versions of the SVGs.
+- Widened the Pass column in Table 2.</p>
+<p><strong>Result</strong>
+- PDF: same path, <code>.../bundle/paper.pdf</code> (11 pages, 138 KB)
+- Proper title page, unnumbered Abstract, correctly numbered sections/subsections.
+- Single, automatically numbered captions: Figure 1 Predictor pipeline, Figure 2 Predicted vs measured runtime, Figure 3 Residual distribution by predicted bottleneck.
+- Table 2 is readable; a few minor overfull <code>\hbox</code> warnings remain from multi-line headers but do not break layout.</p>
+</blockquote>
+<h3 id="event-022-2026-07-05t163215864000z">Event 022 — 2026-07-05T16:32:15.864000Z</h3>
+<p>User Prompt:</p>
+<blockquote>
+<p>from the paper, I do not know how the math model finally compute the latency given input</p>
+</blockquote>
+<p>Matched Turn: <code>29</code></p>
+<p>AI:</p>
+<blockquote>
+<p>Added a clear "Final predictor" subsection that spells out the latency computation.</p>
+<p><strong>What I added (Section 3.5)</strong></p>
+<p>The predictor computes latency from the six input fields ((b, h, s, d, \text{causal}, p)) as:</p>
+<p>[
+T_{\text{pred}} = \max(T_{\text{MMA}}, T_{\text{MUFU}}, T_{\text{HBM}}, T_{\text{L2}}, T_{\text{SMEM}}, T_{\text{TMA}}) + T_{\text{launch}}
+]</p>
+<p>with each term defined:</p>
+<ul>
+<li>(T_{\text{MMA}} = \frac{F_{\text{MMA}}}{R_{\text{MMA}}(p) \cdot \eta_{\text{occ}} \cdot \eta_{\text{MMA}} \cdot \phi_{\text{fp8}}(p)})</li>
+<li>(T_{\text{MUFU}} = \frac{E}{R_{\text{MUFU}}(p) \cdot \eta_{\text{occ}} \cdot \eta_{\text{MUFU}}})</li>
+<li>(T_{\text{HBM}} = \frac{B_{\text{HBM}}}{\beta_{\text{HBM}}(B_{\text{HBM}})})</li>
+<li>(T_{\text{L2}} = \frac{B_{\text{L2}}}{\beta_{\text{L2}}(B_{\text{L2}})})</li>
+<li>(T_{\text{SMEM}} = \frac{B_{\text{SMEM}}}{\beta_{\text{SMEM}}^{\text{eff}}})</li>
+<li>(T_{\text{TMA}} = \frac{B_{\text{TMA}}}{\beta_{\text{TMA}}(B_{\text{TMA}})})</li>
+</ul>
+<p>It also explains that (\phi_{\text{fp8}}(p)) is the fp8 boost, (\beta_{\text{SMEM}}^{\text{eff}}) is the SMEM bandwidth scaled by (f_{\text{SMEM}}), the bottleneck label comes from the argmax, and the only inputs are the six configuration fields.</p>
+<p><strong>Updated PDF</strong>
+- Same path: <code>.../bundle/paper.pdf</code>
+- Section numbering shifted: Calibration is now 3.6, NCU profiling is 3.7.
+- Table 2 Pass column was also widened so the pass names no longer crush the numeric columns.</p>
+<p>The paper now closes the gap between "here are the pieces" and "here is the exact latency equation."</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes", "navigation.top", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

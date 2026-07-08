@@ -1,0 +1,1369 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Sanitized chatlog analysis from the FlashAttention-4 white-box analytical model research topic.">
+      
+      
+      
+        <link rel="canonical" href="https://codegandee.github.io/isomer-example-fa4-analytical-model/analysis/confusion-analysis/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../merged-timeline/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Confusion Analysis - FA4 Analytical Model Research Log</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#confusion-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FA4 Analytical Model Research Log" class="md-header__button md-logo" aria-label="FA4 Analytical Model Research Log" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FA4 Analytical Model Research Log
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Confusion Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CodeGandee/isomer-example-fa4-analytical-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FA4 Analytical Model Research Log" class="md-nav__button md-logo" aria-label="FA4 Analytical Model Research Log" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FA4 Analytical Model Research Log
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CodeGandee/isomer-example-fa4-analytical-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Chatlogs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confusion Analysis
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confusion Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correction-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-prompts-that-built-the-analytical-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Prompts That Built the Analytical Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Prompts That Built the Analytical Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-model-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Model Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-hardware-validation-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Hardware Validation Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-flow-and-mini-simulator-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware-Flow and Mini-Simulator Direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bottleneck-saturated-component-and-blocking-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bottleneck, Saturated Component, and Blocking Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-and-operational-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical and Operational Presentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condensed-model-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condensed Model Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-prompts-that-shaped-experimentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Prompts That Shaped Experimentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Prompts That Shaped Experimentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-hardware-over-proxy-ground-truth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real Hardware Over Proxy Ground Truth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnose-failed-runs-before-declaring-infeasibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnose Failed Runs Before Declaring Infeasibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ncu-as-concrete-counter-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NCU as Concrete Counter Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targeted-saturation-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Targeted Saturation Experiments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auditable-experiment-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditable Experiment Reporting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condensed-experiment-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condensed Experiment Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-prompts-that-shaped-paper-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Prompts That Shaped Paper Writing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Prompts That Shaped Paper Writing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drafting-and-paper-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drafting and Paper Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendered-pdf-inspection-and-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendered-PDF Inspection and Formatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paper-structure-and-venue-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paper Structure and Venue Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explaining-the-analytical-model-in-the-paper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explaining the Analytical Model in the Paper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimental-evidence-in-the-paper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experimental Evidence in the Paper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condensed-paper-writing-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condensed Paper-Writing Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-implications-for-gpu-analytical-modeling-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Implications for GPU Analytical Modeling Callbacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-prompt-reminder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Prompt Reminder
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../merged-timeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Merged Chatlog Timeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session_08579621-605a-4231-aa58-89f103b78ee8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extracted Kimi Code Timeline: session_08579621-605a-4231-aa58-89f103b78ee8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session_62c9b0be-1923-4da6-9a58-9a2a66f94220/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extracted Kimi Code Timeline: session_62c9b0be-1923-4da6-9a58-9a2a66f94220
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session_8794124c-4c0c-4042-82f5-0586b287de3c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extracted Kimi Code Timeline: session_8794124c-4c0c-4042-82f5-0586b287de3c
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correction-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-prompts-that-built-the-analytical-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Prompts That Built the Analytical Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Prompts That Built the Analytical Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-model-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Model Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-hardware-validation-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Hardware Validation Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-flow-and-mini-simulator-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware-Flow and Mini-Simulator Direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bottleneck-saturated-component-and-blocking-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bottleneck, Saturated Component, and Blocking Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-and-operational-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical and Operational Presentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condensed-model-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condensed Model Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-prompts-that-shaped-experimentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Prompts That Shaped Experimentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Prompts That Shaped Experimentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-hardware-over-proxy-ground-truth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real Hardware Over Proxy Ground Truth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnose-failed-runs-before-declaring-infeasibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnose Failed Runs Before Declaring Infeasibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ncu-as-concrete-counter-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NCU as Concrete Counter Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targeted-saturation-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Targeted Saturation Experiments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auditable-experiment-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditable Experiment Reporting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condensed-experiment-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condensed Experiment Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-prompts-that-shaped-paper-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Prompts That Shaped Paper Writing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Prompts That Shaped Paper Writing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drafting-and-paper-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drafting and Paper Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendered-pdf-inspection-and-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendered-PDF Inspection and Formatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paper-structure-and-venue-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paper Structure and Venue Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explaining-the-analytical-model-in-the-paper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explaining the Analytical Model in the Paper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimental-evidence-in-the-paper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experimental Evidence in the Paper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condensed-paper-writing-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condensed Paper-Writing Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-implications-for-gpu-analytical-modeling-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Implications for GPU Analytical Modeling Callbacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-prompt-reminder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Prompt Reminder
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="confusion-analysis">Confusion Analysis</h1>
+<p>This note summarizes what the <code>flash-attention-4-whitebox-runtime-model</code> chatlog analysis shows about patterns that misled the agent and required explicit user correction. The main source is <code>merged-timeline.md</code> in this directory.</p>
+<h2 id="summary">Summary</h2>
+<p>The recurring pattern is that the agent often accepts a nearby proxy for success: emulator accuracy instead of real B200 validation, coarse NCU bottleneck labels instead of component/path proof, build success instead of rendered-paper inspection, and a failed run instead of experiment evidence. The sections below organize those corrections by the three work surfaces the user kept sharpening: analytical-model definition, experimentation, and paper writing.</p>
+<pre><code class="language-text">proxy success -&gt; agent declares progress -&gt; user tightens reality check
+     |                    |                           |
+     |                    v                           v
+emulator MAPE       &quot;fixed&quot; PDF              real B200 / page image /
+coarse NCU label    generated artifact       exact hardware component
+</code></pre>
+<h2 id="correction-map">Correction Map</h2>
+<table>
+<thead>
+<tr>
+<th>Misleading cue</th>
+<th>Agent tendency</th>
+<th>User correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Emulator has ground truth</td>
+<td>Report accuracy-like confidence</td>
+<td>Require real B200 validation for accuracy claims</td>
+</tr>
+<tr>
+<td>NCU says compute-bound</td>
+<td>Treat bottleneck as explained</td>
+<td>Ask for exact saturated component and blocking path</td>
+</tr>
+<tr>
+<td>Build command finishes</td>
+<td>Assume PDF or figure is fixed</td>
+<td>Inspect rendered page and preserve semantics</td>
+</tr>
+<tr>
+<td>Run fails or is slow</td>
+<td>Treat experiment as infeasible</td>
+<td>Diagnose the measurement path before rejecting the experiment</td>
+</tr>
+<tr>
+<td>Simulator repo exists</td>
+<td>Focus on running simulator</td>
+<td>Use simulator as architecture/modeling reference</td>
+</tr>
+<tr>
+<td>Formula works in code</td>
+<td>Use code identifiers in paper math</td>
+<td>Use concise symbols and define notation near use</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-prompts-that-built-the-analytical-model">User Prompts That Built the Analytical Model</h2>
+<p>The chatlog also shows a separate, constructive thread: the user repeatedly refined what the analytical model was supposed to be. This matters because many corrections were not isolated fixes; they were attempts to pull the agent toward a sharper model contract.</p>
+<h3 id="core-model-contract">Core Model Contract</h3>
+<p>The initial topic prompt in Event 002 defines the core model: a white-box Flash Attention 4 runtime model that predicts milliseconds from input, follows the GPU internal execution model, avoids complex black-box fitting, identifies bottlenecks, and bases analysis on hardware rather than per-input kernel execution.</p>
+<p>Events 004, 006, and 007 make that contract concrete. The user adds NCU because the model must reach SM/cache level, sets NVIDIA B200 as the target GPU, and requires B200 architecture, execution flow, hardware specifics, closed-form formulas for each model part, probabilistic handling for random effects such as cache misses, and prior literature/source study on GPU runtime modeling.</p>
+<p>Event 012 then clarifies the validation target: the model should compare measured versus predicted results, and some stages should predict NCU counter trends, not only end-to-end runtime.</p>
+<h3 id="real-hardware-validation-contract">Real-Hardware Validation Contract</h3>
+<p>Events 026 through 029 define the evidence bar. The user asks for theoretical model output versus actual runs, challenges emulator-only error with “without actually run something on b200, how do you know the error,” tightens the topic requirement to theoretical-vs-actual data, and asks the agent to investigate why a kernel run was treated as too slow.</p>
+<p>This thread recurs later in Events 031, 033, 048, 052, 093, 094, and 096. The user asks to verify NCU availability, continue experiments, push inputs to saturate hardware resources, account for busy-GPU measurement noise, design reviewer-facing saturation experiments, collect hard evidence, and run multiple focused passes where mismatches drive model refinement.</p>
+<h3 id="hardware-flow-and-mini-simulator-direction">Hardware-Flow and Mini-Simulator Direction</h3>
+<p>Events 038, 040, and 042 shift the model from a formula bundle toward an explainable execution model. The user says the paper does not explain how latency is computed from input, asks the agent to study AccelSim internals, and then states the target more precisely: the analytical model should be mini-simulator-like and cycle-level, but still mathematical rather than a full simulator.</p>
+<p>The key user requirement in Event 042 is data movement sequencing: do not treat data movement as a coarse bandwidth term. Model how data is sliced into parts, how each part moves from one hardware component to another, and how that sequence contributes to latency.</p>
+<p>Events 056, 057, 061, 065, 066, 067, and 068 extend this direction. The user asks to clone AccelSim, check Hopper/Blackwell coverage, clarify that AccelSim should be used as an architectural reference rather than actually run, search for Blackwell simulation materials, download papers, update the analytical model to map to hardware execution flow, and run three rounds of increasingly detailed execution-flow modeling.</p>
+<h3 id="bottleneck-saturated-component-and-blocking-path">Bottleneck, Saturated Component, and Blocking Path</h3>
+<p>Events 075, 077, and 078 ask how the paper proves the model works, compare the three candidate models, and ask which model best identifies bottlenecks from input.</p>
+<p>Event 079 is the strongest correction: compute-bound versus memory-bound is too coarse. The user requires the exact saturated hardware component and the execution path that blocks progress. Event 080 then revises the research intent so the analytical model predicts not only runtime but also saturated component and blocking path.</p>
+<p>Events 081, 103, and 105 shape the paper around this scientific claim. The most relevant model becomes the proposed method, alternatives move to the appendix, detailed appendix evidence must include triggering inputs, predicted per-stage runtime, NCU measurement method, collected metrics, metric values, and why the measurements match the analytical prediction, and the proof is important enough to promote into the main experiment section.</p>
+<h3 id="mathematical-and-operational-presentation">Mathematical and Operational Presentation</h3>
+<p>Event 043 asks for a GPU hardware component execution-system diagram, which is part of making the model inspectable rather than only code-backed.</p>
+<p>Event 088 asks the agent to replace code-like formula names with concise mathematical symbols and define notation near usage. This is more than style: it makes the analytical model readable as math rather than as program output.</p>
+<h3 id="condensed-model-contract">Condensed Model Contract</h3>
+<p>Taken together, these prompts define the expected model as:</p>
+<ol>
+<li>A B200-targeted white-box analytical model for Flash Attention 4 forward runtime.</li>
+<li>A hardware-execution-flow model with closed-form or bounded probabilistic terms.</li>
+<li>A mini-simulator-style decomposition that tracks component stages, data movement, and sequencing without becoming a full event-driven simulator.</li>
+<li>A predictor of runtime, saturated hardware component, and blocking execution path.</li>
+<li>A model validated against real B200 timings and NCU counter evidence, not emulator-only ground truth.</li>
+<li>A publishable mathematical description with clear symbols, local notation definitions, rendered diagrams, and detailed evidence tables.</li>
+</ol>
+<h2 id="user-prompts-that-shaped-experimentation">User Prompts That Shaped Experimentation</h2>
+<p>The experimentation thread is related to the model thread but deserves its own section. The user repeatedly pushed the agent from plausible validation toward real, controlled, hardware-grounded evidence.</p>
+<h3 id="real-hardware-over-proxy-ground-truth">Real Hardware Over Proxy Ground Truth</h3>
+<p>Events 026 through 028 form the strongest correction. The user asks for theoretical model output versus actual runs, challenges the agent with “without actually run something on b200, how do you know the error,” and then tightens the topic requirement so the work must include theoretical-vs-actual run data.</p>
+<p>The correction is that emulator-generated ground truth may test internal consistency, but it does not establish real B200 prediction error. Any accuracy claim must name its evidence class and cannot imply real-hardware validation without measured B200 timings.</p>
+<h3 id="diagnose-failed-runs-before-declaring-infeasibility">Diagnose Failed Runs Before Declaring Infeasibility</h3>
+<p>In Event 029, the user points out that an attention kernel should not take something like 25 minutes and asks the agent to find what blocks the run. The important correction is that a failed setup path was being mistaken for evidence that the real-hardware experiment was infeasible.</p>
+<p>The correction is that failed or slow experiments should trigger measurement-path diagnosis before the agent concludes that a real-hardware experiment is infeasible. A failed first run is not evidence that the experiment cannot be done.</p>
+<h3 id="ncu-as-concrete-counter-evidence">NCU as Concrete Counter Evidence</h3>
+<p>Events 004, 012, and 031 define NCU as an experimental requirement. The user first adds NCU because the model reaches SM/cache level, then clarifies that some stages should predict NCU counter trends, and later asks the agent to verify that NCU is usable.</p>
+<p>The correction is that NCU should not be treated as a vague profiler label. It must provide concrete metric names, counter values, counter-to-component mapping, and a stated relationship to each model claim.</p>
+<h3 id="targeted-saturation-experiments">Targeted Saturation Experiments</h3>
+<p>Events 048, 093, 094, and 096 define the desired experiment shape. The user asks to push inputs to the GPU limit, saturate compute/storage/memory/bandwidth resources, prove that the model can predict bottlenecks, design reviewer-facing experiments that saturate each part of the critical path, collect hard evidence, and run multiple rounds where each round focuses on one node.</p>
+<p>The correction is that experiments should be adversarial and diagnostic, not passive validation over arbitrary inputs. Each round should choose shapes intended to stress a target component or path, predict the saturated node before measurement, collect matching NCU evidence, and explain mismatches.</p>
+<h3 id="auditable-experiment-reporting">Auditable Experiment Reporting</h3>
+<p>Events 103, 105, and 106 define how the evidence must be reported. The user asks for appendix detail about which inputs trigger saturation, how the model predicts each stage runtime, how NCU is measured, what metrics are collected, the metric values, and why the measurement matches the analytical prediction. The user then asks to promote the proof into the main experiment section and later corrects the NCU activity figure layout.</p>
+<p>The correction is that experimental evidence must be auditable. It should not be buried, summarized vaguely, or shown in unreadable figures. Core proof belongs in the main experiment narrative, with detailed tables and readable visualizations.</p>
+<h3 id="condensed-experiment-contract">Condensed Experiment Contract</h3>
+<p>Taken together, these prompts define the expected experiment discipline as:</p>
+<ol>
+<li>Run real Flash Attention 4 on B200 when making real accuracy claims.</li>
+<li>Collect both runtime and NCU counter evidence.</li>
+<li>Use targeted input shapes to saturate each critical-path node.</li>
+<li>Compare predicted runtime, saturated component, and blocking path against measured evidence.</li>
+<li>Keep calibration, validation, and query sets honest.</li>
+<li>Diagnose failed measurement paths before declaring a run infeasible.</li>
+<li>Treat mismatches as model-improvement signals, not failures to hide.</li>
+<li>Report commands, metrics, values, mappings, and rationale clearly enough for reviewer audit.</li>
+</ol>
+<h2 id="user-prompts-that-shaped-paper-writing">User Prompts That Shaped Paper Writing</h2>
+<p>The paper-writing prompts show a third thread: the user was not asking only for a generated PDF. They repeatedly corrected the agent toward a paper that communicates the analytical model, proves the central claims, uses the right venue conventions, and is inspectable as a rendered artifact.</p>
+<h3 id="drafting-and-paper-workflow">Drafting and Paper Workflow</h3>
+<p>Events 021 and 035 start the paper workflow: the user asks to finalize and write a paper, then later asks the pipeline to proceed to write or update the PDF paper and pick a workflow. Event 036 corrects the build tool choice by asking to use Tectonic instead.</p>
+<p>Events 044 and 069 ask whether the PDF or paper PDF was actually updated. The correction is that paper generation must produce an actual updated reading artifact, not only an intermediate draft claim.</p>
+<h3 id="rendered-pdf-inspection-and-formatting">Rendered-PDF Inspection and Formatting</h3>
+<p>Events 037, 046, 047, 071, 073, 092, 104, and 106 show that successful PDF builds are not enough. The user asks the agent to read the PDF, fix clipped figures, check a specific page when the claimed fix was wrong, repair chaotic or cluttered figures, find text overlaps, fix appendix overflow, and improve the NCU activity figure layout.</p>
+<p>The correction is that the agent must inspect the rendered PDF pages that the reader sees. Build success, regenerated SVG/PDF files, or source edits do not prove the artifact is readable.</p>
+<h3 id="paper-structure-and-venue-conventions">Paper Structure and Venue Conventions</h3>
+<p>Event 081 restructures the paper around the research goal: the model most relevant to predicting saturated component and blocking path should become the proposed method, while other models move to the appendix as alternatives.</p>
+<p>Events 083, 087, and 091 push venue formatting. The user asks for IEEE double-column style, considers PAMI style, asks whether the PAMI LaTeX template was downloaded, and then requires the official PAMI template.</p>
+<p>The correction is that paper structure should follow the scientific claim, and venue/template requirements should be concrete artifacts, not approximate styling.</p>
+<h3 id="explaining-the-analytical-model-in-the-paper">Explaining the Analytical Model in the Paper</h3>
+<p>Event 038 is a direct communication failure: the user says the paper does not explain how the math model computes latency from input. Event 043 asks for a GPU hardware component execution-system diagram. Event 075 asks how the paper proves the analytical model's effectiveness. Event 088 asks the agent to replace long programming-variable-like formula names with concise math symbols and define notation near usage.</p>
+<p>The correction is that a paper cannot merely point to code or list results. It must show the computation path from input to prediction, use mathematical notation, explain symbols locally, and provide diagrams that make the hardware execution model inspectable.</p>
+<h3 id="experimental-evidence-in-the-paper">Experimental Evidence in the Paper</h3>
+<p>Events 093, 094, 103, 105, and 107 define how experimental proof belongs in the paper. The user frames a reviewer challenge, asks for hard evidence in appendix and main text, requests detailed appendix information about saturation-triggering inputs, per-stage predictions, NCU measurement method, metrics, metric values, and matching rationale, then asks to promote Appendix D into the main experiment section and explain table columns in the main text.</p>
+<p>The correction is that central proof cannot be buried or summarized. The paper must make the evidence auditable in the main narrative, with detailed tables, readable figures, and explicit column/metric definitions.</p>
+<h3 id="condensed-paper-writing-contract">Condensed Paper-Writing Contract</h3>
+<p>Taken together, these prompts define the expected paper discipline as:</p>
+<ol>
+<li>Build the paper with the requested toolchain and venue template.</li>
+<li>Inspect rendered PDF pages, not only source files or build logs.</li>
+<li>Explain how input becomes predicted latency, saturated component, and blocking path.</li>
+<li>Use mathematical symbols and define notation near use.</li>
+<li>Keep the most goal-relevant model in the main method and move alternatives to appendix.</li>
+<li>Put central correctness evidence in the main experiment section.</li>
+<li>Make figures and tables readable, semantically connected, and explained in text.</li>
+<li>Include enough experimental detail for a reviewer to audit inputs, metrics, values, and model-evidence matching.</li>
+</ol>
+<h2 id="design-implications-for-gpu-analytical-modeling-callbacks">Design Implications for GPU Analytical Modeling Callbacks</h2>
+<p>The user-plugin should guard against these failure modes with four strong gates.</p>
+<ol>
+<li>Evidence class gate: emulator, simulator, synthetic, NCU, microbenchmark, and real hardware evidence must stay separate. Accuracy claims require the matching evidence class.</li>
+<li>Component/path gate: compute-vs-memory labels are insufficient when the topic asks for saturated hardware component and blocking execution path.</li>
+<li>Harness gate: failed or slow GPU runs require measurement-path diagnosis before the agent may conclude the experiment is infeasible.</li>
+<li>Artifact inspection gate: paper, figure, and table updates require rendered-output inspection, not only source edits or successful builds.</li>
+</ol>
+<h2 id="practical-prompt-reminder">Practical Prompt Reminder</h2>
+<p>Before closing a GPU analytical-modeling turn, the agent should ask:</p>
+<ol>
+<li>Is this claim based on real hardware, NCU, emulator, simulator, synthetic data, or analytical proxy?</li>
+<li>Does the model predict a concrete saturated component and blocking path, or only a coarse label?</li>
+<li>If a run failed or was slow, did I inspect why the measurement path failed?</li>
+<li>If I changed a paper artifact, did I inspect the rendered page that the user will read?</li>
+<li>If I used a simulator source, am I learning architecture/modeling structure rather than overclaiming simulator support for the target GPU?</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes", "navigation.top", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
