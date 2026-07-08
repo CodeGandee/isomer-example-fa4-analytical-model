@@ -20,12 +20,13 @@ under `actors/operator/isomer-managed/worker-output/...`.
 ## Research Chatlogs
 
 Sanitized, high-level analysis summaries from the original research sessions are
-hosted in `chatlogs/`. The recommended entry point is the merged timeline:
+hosted in `chatlogs/`. The recommended entry point is the merged timeline,
+rendered on GitHub Pages here:
 
-- [`chatlogs/analysis/merged-timeline.md`](chatlogs/analysis/merged-timeline.md)
+- **Live site:** https://codegandee.github.io/isomer-example-fa4-analytical-model/analysis/merged-timeline/
+- **Source:** [`chatlogs/analysis/merged-timeline.md`](chatlogs/analysis/merged-timeline.md)
 
 Individual session summaries are in [`chatlogs/analysis/`](chatlogs/analysis/).
-The chatlogs are also published as a GitHub Pages site (see `mkdocs.yml`).
 
 ## The Analytical Model
 
@@ -40,7 +41,7 @@ used for the 540-configuration evaluation and is the one we recommend using.
 The predictor takes a configuration tuple
 
 \[
-(b, h, s, d, 	ext{causal}, p)
+(b, h, s, d, \text{causal}, p)
 \]
 
 where \(b\) is batch size, \(h\) is number of heads, \(s\) is sequence length,
@@ -51,30 +52,31 @@ quantities in `predictor.py`:
 | Quantity | Symbol | Formula |
 |----------|--------|---------|
 | Causal sequence factor | \(\sigma\) | \(0.5\) if causal, else \(1.0\) |
-| MMA FLOPs | \(F_{	ext{MMA}}\) | \(4 \cdot b \cdot h \cdot s^2 \cdot d \cdot \sigma\) |
+| MMA FLOPs | \(F_{\text{MMA}}\) | \(4 \cdot b \cdot h \cdot s^2 \cdot d \cdot \sigma\) |
 | Softmax ops | \(E\) | \(2 \cdot b \cdot h \cdot s^2 \cdot \sigma\) |
-| HBM bytes | \(B_{	ext{HBM}}\) | \(	ext{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 4\) |
-| L2 bytes | \(B_{	ext{L2}}\) | \(	ext{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 6 \cdot \sigma\) |
-| SMEM bytes | \(B_{	ext{SMEM}}\) | \(b \cdot h \cdot s \cdot d \cdot 8 \cdot \sigma\) |
-| TMA bytes | \(B_{	ext{TMA}}\) | \(	ext{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 2.5 \cdot \sigma\) |
+| HBM bytes | \(B_{\text{HBM}}\) | \(\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 4\) |
+| L2 bytes | \(B_{\text{L2}}\) | \(\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 6 \cdot \sigma\) |
+| SMEM bytes | \(B_{\text{SMEM}}\) | \(b \cdot h \cdot s \cdot d \cdot 8 \cdot \sigma\) |
+| TMA bytes | \(B_{\text{TMA}}\) | \(\text{bpe}(p) \cdot b \cdot h \cdot s \cdot d \cdot 2.5 \cdot \sigma\) |
 
 ### Roofline core
 
 The baseline roofline is the maximum of the dominant-domain times:
 
 \[
-T_{	ext{base}} = \max\left(
-rac{F_{	ext{MMA}}}{R_{	ext{MMA}}},
-rac{E}{R_{	ext{MUFU}}},
-rac{B_{	ext{HBM}}}{eta_{	ext{HBM}}},
-rac{B_{	ext{L2}}}{eta_{	ext{L2}}},
-rac{B_{	ext{SMEM}}}{eta_{	ext{SMEM}}},
-rac{B_{	ext{TMA}}}{eta_{	ext{TMA}}}
-ight)
+T_{\text{base}} = \max\left(
+\frac{F_{\text{MMA}}}{R_{\text{MMA}}},
+\frac{E}{R_{\text{MUFU}}},
+\frac{B_{\text{HBM}}}{\beta_{\text{HBM}}},
+\frac{B_{\text{L2}}}{\beta_{\text{L2}}},
+\frac{B_{\text{SMEM}}}{\beta_{\text{SMEM}}},
+\frac{B_{\text{TMA}}}{\beta_{\text{TMA}}}
+
+ight)
 \]
 
-where \(R_{	ext{MMA}}\) and \(R_{	ext{MUFU}}\) are device-level peak Tensor
-Core and special-function throughputs and the \(eta\) terms are effective
+where \(R_{\text{MMA}}\) and \(R_{\text{MUFU}}\) are device-level peak Tensor
+Core and special-function throughputs and the \(\beta\) terms are effective
 bandwidths.
 
 ### Bounded corrections
@@ -84,11 +86,15 @@ on the calibration split only:
 
 1. **Occupancy factor.** With output tiles
    \(
-   N_{	ext{tiles}} = b \cdot h \cdot \lceil s / B_M ceil \cdot \lceil s / B_N ceil
+   N_{\text{tiles}} = b \cdot h \cdot \lceil s / B_M 
+ceil \cdot \lceil s / B_N 
+ceil
    \)
-   and active-warp fraction \(ho\), the occupancy efficiency is
+   and active-warp fraction \(
+ho\), the occupancy efficiency is
    \(
-   \eta_{	ext{occ}} = \min(1.0,\; 0.05 + 0.95 \sqrt{ho})
+   \eta_{\text{occ}} = \min(1.0,\; 0.05 + 0.95 \sqrt{
+ho})
    \).
 
 2. **Transfer-size-dependent bandwidth.** Effective HBM, L2, and TMA bandwidths
@@ -96,7 +102,7 @@ on the calibration split only:
    calibration factors are in `predictor.py` and `improved_predictor.py`.
 
 3. **Precision-specific throughput.** Per-precision MMA and MUFU rate tables
-   are stored in `constants.py` and scaled by \(\eta_{	ext{occ}}\) and bounded
+   are stored in `constants.py` and scaled by \(\eta_{\text{occ}}\) and bounded
    efficiency factors.
 
 ### Launch-overhead term
@@ -105,12 +111,12 @@ The dominant correction when moving from emulator to real B200 silicon is a
 fixed kernel dispatch latency:
 
 \[
-T_{	ext{launch}} = 	au_{	ext{fixed}} + 	au_{	ext{per-tile}} \cdot N_{	ext{tiles}}
+T_{\text{launch}} = \tau_{\text{fixed}} + \tau_{\text{per-tile}} \cdot N_{\text{tiles}}
 \]
 
-Calibration recovers \(	au_{	ext{fixed}} = 60\,\mu	ext{s}\) and
-\(	au_{	ext{per-tile}} = 0\,\mu	ext{s}\). The final runtime is
-\(T_{	ext{pred}} = T_{	ext{base}} + T_{	ext{launch}}\).
+Calibration recovers \(\tau_{\text{fixed}} = 60\,\mu\text{s}\) and
+\(\tau_{\text{per-tile}} = 0\,\mu\text{s}\). The final runtime is
+\(T_{\text{pred}} = T_{\text{base}} + T_{\text{launch}}\).
 
 ### Bottleneck label with NCU slack
 
