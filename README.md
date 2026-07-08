@@ -23,7 +23,7 @@ Sanitized, high-level analysis summaries from the original research sessions are
 hosted in `chatlogs/`. The recommended entry point is the merged timeline,
 rendered on GitHub Pages here:
 
-- **Live site:** https://codegandee.github.io/isomer-example-fa4-analytical-model/analysis/merged-timeline/
+- **Live site:** https://codegandee.github.io/isomer-example-fa4-analytical-model/chatlogs/analysis/merged-timeline/
 - **Source:** [`chatlogs/analysis/merged-timeline.md`](chatlogs/analysis/merged-timeline.md)
 
 Individual session summaries are in [`chatlogs/analysis/`](chatlogs/analysis/).

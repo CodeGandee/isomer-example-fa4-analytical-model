@@ -1,10 +1,10 @@
 site_name: FA4 Analytical Model Research Log
-site_description: Sanitized chatlog analysis from the FlashAttention-4 white-box analytical model research topic.
+site_description: Documentation and sanitized chatlog analysis for the FlashAttention-4 white-box analytical model research topic.
 site_url: https://codegandee.github.io/isomer-example-fa4-analytical-model/
 repo_url: https://github.com/CodeGandee/isomer-example-fa4-analytical-model
 edit_uri: ""
 
-docs_dir: chatlogs
+docs_dir: docs
 site_dir: tmp/mkdocs-site
 use_directory_urls: true
 
@@ -20,7 +20,7 @@ plugins:
   - search
 
 extra_css:
-  - assets/styles/chatlogs.css
+  - chatlogs/assets/styles/chatlogs.css
 
 extra_javascript:
-  - assets/js/chatlogs.js
+  - chatlogs/assets/js/chatlogs.js
