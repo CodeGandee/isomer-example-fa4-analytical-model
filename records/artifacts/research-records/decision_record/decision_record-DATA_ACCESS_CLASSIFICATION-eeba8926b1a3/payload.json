@@ -1,0 +1,4 @@
+{
+  "body": "# Data Access Classification — FlashAttention-4 White-Box Runtime Model\n\n| Dataset / file | Classification | Reason |\n| --- | --- | --- |\n| Synthetic configuration matrix | request-based / pre-submission deposit | No public DOI yet; authors control the file |\n| Emulator-generated runtimes (calibration + validation) | request-based / pre-submission deposit | Same as above |\n| White-box predictor code | request-based / pre-submission deposit | Same as above |\n| Figure PNG files | included in paper/supplementary | Bundled with submission |\n| Reused literature formulas and rates | reused public source | Cited from arXiv preprints |\n\nAll generated datasets can be redistributed once a repository is chosen; no access committee or legal restriction applies.\n",
+  "title": "Data Access Classification — FlashAttention-4 White-Box Runtime Model"
+}

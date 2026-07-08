@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "consumer": "External controller, isomer-deepsci-decision, user",
+    "placeholder": "pipeline-terminal-report",
+    "producer": "isomer-deepsci-pipeline",
+    "skill": "isomer-deepsci-pipeline"
+  },
+  "sections": {
+    "blocker": null,
+    "final_artifact": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-9932a6e83b29",
+    "pipeline_id": "hypothesis-pass",
+    "recommended_next": "experiment",
+    "resume_point": null,
+    "stages_run": [
+      {
+        "artifacts_in": [
+          "artifact-SELECTED_HYPOTHESIS-bab659036a3c"
+        ],
+        "artifacts_out": [
+          "artifact-SELECTED_HYPOTHESIS-80aa602f908c"
+        ],
+        "notes": "Refined the selected hypothesis for real-hardware validation on B200; set ready_for_experiment=true.",
+        "route_decision": "experiment",
+        "skill": "isomer-deepsci-idea",
+        "stage_id": "ideate",
+        "status": "complete"
+      },
+      {
+        "artifacts_in": [
+          "artifact-SELECTED_HYPOTHESIS-80aa602f908c"
+        ],
+        "artifacts_out": [
+          "evidence_item-EXPERIMENT_RESULT_SUMMARY-0e6af52b5f23",
+          "run-MAIN_RUN_RECORD-cc19cf5c010a",
+          "decision_record-EXPERIMENT_ROUTE_DECISION-882b4b189d19",
+          "artifact-IMPLEMENTATION_CHANGE_MAP-757b165cc2a7"
+        ],
+        "notes": "Real B200 benchmark of 864 configs (bf16/fp16/fp8) completed in 222s. Hypothesis refuted: combined MAPE 62.1% vs baseline 42.1%.",
+        "route_decision": "analysis",
+        "skill": "isomer-deepsci-experiment",
+        "stage_id": "run",
+        "status": "complete"
+      },
+      {
+        "artifacts_in": [
+          "evidence_item-EXPERIMENT_RESULT_SUMMARY-0e6af52b5f23"
+        ],
+        "artifacts_out": [
+          "evidence_item-ANALYSIS_CONTEXT_BRIEF-daed8feb7775",
+          "artifact-ANALYSIS_CAMPAIGN_SUMMARY-9932a6e83b29",
+          "decision_record-ANALYSIS_ROUTE_DECISION-b7e5994bbb9b"
+        ],
+        "notes": "Identified launch-overhead small-config latency and misspecified efficiency factors as transfer gaps.",
+        "route_decision": "experiment",
+        "skill": "isomer-deepsci-analysis",
+        "stage_id": "interpret",
+        "status": "complete"
+      }
+    ],
+    "status": "complete"
+  },
+  "status": "ready",
+  "summary": "Pipeline terminal report for the hypothesis-pass real-hardware validation of the FA4 B200 predictor.",
+  "title": "Pipeline Terminal Report: hypothesis-pass"
+}

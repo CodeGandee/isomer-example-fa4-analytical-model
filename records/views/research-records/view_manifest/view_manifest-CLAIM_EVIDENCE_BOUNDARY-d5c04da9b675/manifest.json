@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/claim-evidence-map/v1",
+  "payload_digest": "sha256:50b231f37fc09a0f397ef91b6a6e78aa527feec5bfa846c3ff068879a80715b0",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "view_manifest-CLAIM_EVIDENCE_BOUNDARY-d5c04da9b675",
+  "record_kind": "view_manifest",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/claim-evidence-map/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

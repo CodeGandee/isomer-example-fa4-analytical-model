@@ -1,0 +1,26 @@
+<!-- isomer-structured-research-record
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/analysis-context-brief/v1
+schema_ref: isomer:deepsci/record-format/schema/evidence/analysis-context-brief/v1
+payload_digest: sha256:0072bd8ee1a3adc0a436f61f2d0e4cdfe2497029904cc82a91f614a2ae609a72
+-->
+# Analysis context brief: interpret refuted real-hardware experiment
+
+The parent experiment produced a refuted result because the improved predictor missed the ≥75% NCU bottleneck-accuracy gate while passing MAPE and within-30% gates. This analysis determines whether the residual bottleneck gap warrants another experiment or is small enough to accept with documented limitations.
+
+
+```json
+{
+  "metadata": {
+    "recorded_at": "2026-07-04T21:01:22.593738Z"
+  },
+  "sections": {
+    "comparison_target": "MAPE \u226425%, \u226575% of predictions within 30%, and \u226575% NCU bottleneck accuracy.",
+    "evidence_question": "Does the improved predictor meet all usefulness thresholds, and what is the smallest follow-up that can close the remaining bottleneck-accuracy gap?",
+    "parent_result": "Experiment \u0027fa4-b200-improved-launch-overhead-ncu-calibration-v1\u0027 on NVIDIA B200.",
+    "stop_condition": "Stop once the error sources are identified and a route decision (experiment or finalize) is recorded."
+  },
+  "status": "ready",
+  "summary": "The parent experiment produced a refuted result because the improved predictor missed the \u226575% NCU bottleneck-accuracy gate while passing MAPE and within-30% gates. This analysis determines whether the residual bottleneck gap warrants another experiment or is small enough to accept with documented limitations.",
+  "title": "Analysis context brief: interpret refuted real-hardware experiment"
+}
+```

@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "consumer": "paper-outline, write, decision",
+    "placeholder": "<OUTLINE_VALIDATION_REPORT>",
+    "producer": "isomer-deepsci-paper-outline",
+    "skill": "isomer-deepsci-paper-outline"
+  },
+  "sections": {
+    "analysis_maturity": {
+      "note": "Analysis campaign summary already performed the planned per-bottleneck and worst-case analyses; the outline maps them to paper sections.",
+      "verdict": "pass"
+    },
+    "blockers": [],
+    "checks": {
+      "evidence_check": {
+        "note": "Every quantitative claim in the paper view maps to a durable record or a worker-output artifact; unsupported claims are explicitly listed in the claim-evidence boundary.",
+        "verdict": "pass"
+      },
+      "paper_hygiene_check": {
+        "note": "Manuscript-facing output uses paper-native language; route-control wording and local runtime details are confined to the evidence view.",
+        "verdict": "pass"
+      },
+      "placeholder_check": {
+        "note": "All handoff placeholders used by the skill are listed in migrate/placeholders.md and bound in placeholder-bindings.md.",
+        "verdict": "pass"
+      },
+      "route_check": {
+        "note": "The next skill route is write; no missing evidence blocks drafting.",
+        "verdict": "pass"
+      },
+      "source_preservation_check": {
+        "note": "Source code and experiment/analysis files are referenced in the evidence view and remain at their original paths.",
+        "verdict": "pass"
+      }
+    },
+    "evaluation_coverage": {
+      "note": "Evaluation plan includes MAPE, max APE, 30%-error coverage, bottleneck accuracy, ablations, precision breakdown, per-bottleneck residuals, and worst-case inspection.",
+      "verdict": "pass"
+    },
+    "method_clarity": {
+      "note": "Method section will present algorithm quantities, baseline roofline, and each correction with equations; the pipeline figure summarizes the full predictor.",
+      "verdict": "pass"
+    },
+    "reviewer_objection_coverage": [
+      {
+        "objection": "Is the improvement just overfitting the calibration split?",
+        "response": "Show calibration-set MAPE (4.56%) versus validation-set MAPE (4.50%) and emphasize bounded, physically interpretable factors."
+      },
+      {
+        "objection": "Does the emulator-based ground truth invalidate the result?",
+        "response": "Acknowledge the emulator caveat in Limitations; frame the result as a validated recovery of known generative structure and call for silicon transfer validation."
+      },
+      {
+        "objection": "Are the corrections black-box fits dressed as white-box terms?",
+        "response": "Define each factor's physical meaning and calibration bounds; show that the TMA/L2 correction alone reaches 5.76% MAPE, indicating structure rather than overfitting."
+      },
+      {
+        "objection": "Why focus on B200 rather than a more general model?",
+        "response": "State the hardware scope explicitly and ground constants in B200 microbenchmarks; treat generalization as future work."
+      },
+      {
+        "objection": "Could a simpler model achieve similar accuracy?",
+        "response": "Compare the TMA/L2-only model (5.76% MAPE) with the combined model (4.50% MAPE) to justify the additional occupancy and precision terms."
+      },
+      {
+        "objection": "Is the synthetic matrix representative?",
+        "response": "Describe the coverage and list omitted real-world parameters as limitations."
+      }
+    ]
+  },
+  "status": "ready",
+  "summary": "Validation of the paper outline against claim support, falsification boundaries, method clarity, evaluation coverage, and reviewer-risk checks.",
+  "title": "Academic Outline Validation Report: FA4 B200 White-Box Runtime Predictor"
+}

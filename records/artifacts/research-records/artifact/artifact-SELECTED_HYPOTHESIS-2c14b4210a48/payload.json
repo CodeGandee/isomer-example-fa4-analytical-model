@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "consumer": "experiment, analysis, decision",
+    "placeholder": "<SELECTED_HYPOTHESIS>",
+    "producer": "isomer-deepsci-idea",
+    "skill": "isomer-deepsci-idea"
+  },
+  "sections": {
+    "abandonment_condition": "If the calibrated threshold fails to raise NCU bottleneck accuracy above 75% on both validation and query splits, or if it degrades runtime MAPE above 25% or within-30% below 75%, the refinement is abandoned.",
+    "citations": [
+      "artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e — previous empirical-pass analysis finding.",
+      "artifact-pipeline-terminal-report-2b29337563c1 — previous empirical-pass terminal report."
+    ],
+    "comparator_relation": "The selected route is a targeted child of the previous empirical pass. It keeps the launch-overhead/runtime calibration intact and changes only the white-box → NCU bottleneck decision rule.",
+    "expected_effect": "NCU bottleneck accuracy on the profiled subset rises above 75% on both validation and query while runtime MAPE stays at or below the previous improved-predictor level.",
+    "experiment_ready_brief": {
+      "ablations_to_run": [
+        "Baseline FA4 roofline",
+        "Improved predictor (previous)",
+        "Refined predictor with bottleneck-threshold calibration"
+      ],
+      "code_touchpoints": [
+        "topic.repos.main/src/fa4_b200_predictor/improved_predictor.py",
+        "topic.repos.main/src/fa4_b200_predictor/run_bottleneck_refinement_experiment.py"
+      ],
+      "expected_outcome": "NCU bottleneck accuracy ≥ 75% on validation and query; MAPE ≤ 25% and ≥ 75% within 30% on both splits.",
+      "failure_criteria": [
+        "NCU bottleneck accuracy remains below 75% on validation or query.",
+        "Validation or query MAPE rises above 25% or within-30% drops below 75%."
+      ],
+      "inputs": [
+        "Existing 540-config real B200 measurement matrix from the previous improved run.",
+        "Existing NCU SpeedOfLight records for 60 representative configs.",
+        "Calibration split NCU labels used to set the bottleneck threshold."
+      ],
+      "success_criteria": [
+        "validation_ncu_bottleneck_accuracy >= 75%",
+        "query_ncu_bottleneck_accuracy >= 75%",
+        "validation_mape <= 25%",
+        "query_mape <= 25%",
+        "validation_pct_within_30 >= 75%",
+        "query_pct_within_30 >= 75%"
+      ]
+    },
+    "falsification": "If the refined predictor does not reach 75% NCU bottleneck accuracy on both held-out splits, the hypothesis is falsified.",
+    "hypothesis": "Adding an NCU-guided bottleneck-threshold calibration that labels a config compute-bound when its white-box memory time is close to its compute time will push NCU bottleneck accuracy above 75% without degrading runtime MAPE.",
+    "hypothesis_id": "fa4-b200-bottleneck-threshold-calibration-v1",
+    "mechanism": "The white-box predictor estimates per-stage compute and memory times. The dominant stage normally determines the bottleneck label, but on B200 FA4 kernels NCU SpeedOfLight labels every profiled config as compute-bound. A calibrated slack term shifts the decision boundary toward compute when compute and memory times are close, matching the empirical NCU regime.",
+    "minimal_test": "Reuse the previous real-hardware measurements, recalibrate only the bottleneck slack on the calibration NCU labels, and evaluate MAPE and NCU bottleneck accuracy on held-out validation and query splits.",
+    "next_route": "experiment",
+    "pitch": "Close the final useful-improvement gap by aligning the white-box bottleneck diagnosis with real NCU hardware-counter labels through a single calibrated threshold.",
+    "ready_for_experiment": true,
+    "risk": "The threshold may overfit the small NCU profiled subset. If the subset is not representative, query accuracy could regress. Runtime MAPE is unaffected because the threshold only changes labels, not the max(compute,memory) runtime estimate.",
+    "transfer_gaps_to_watch": [
+      "NCU profiled subset is small (60 of 540 configs).",
+      "All NCU labels are compute-bound, so the threshold cannot be validated against memory-bound cases in this dataset."
+    ]
+  },
+  "status": "ready",
+  "summary": "Targeted refinement of the white-box → NCU bottleneck mapping for the FlashAttention-4 B200 white-box runtime model.",
+  "title": "Selected Hypothesis: Bottleneck-Threshold Calibration for the FA4 B200 Predictor"
+}

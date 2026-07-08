@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/validation/academic-outline/v1",
+  "payload_digest": "sha256:2be5fedfe5629ff6267807f905c5297bcb28775e72ad283674c3f44530bc5826",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "view_manifest-OUTLINE_VALIDATION_REPORT-51d819cebf4d",
+  "record_kind": "view_manifest",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/validation/academic-outline/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

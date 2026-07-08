@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "consumer": "decision, finalize, write, experiment, idea",
+    "placeholder": "<ANALYSIS_CAMPAIGN_SUMMARY>",
+    "producer": "isomer-deepsci-analysis",
+    "skill": "isomer-deepsci-analysis"
+  },
+  "sections": {
+    "bottleneck_insights": {
+      "distribution_measured_validation": {
+        "hbm": 54,
+        "mma": 20,
+        "mufu": 13,
+        "tma": 73
+      },
+      "interpretation": "TMA-limited configurations are the most common and carry the largest errors; the combined model's effective TMA bandwidth curve is the dominant fix. HBM-limited large-problem configurations are predicted more accurately once the occupancy and bandwidth corrections are applied. MMA and MUFU bottlenecks are rare and well predicted.",
+      "per_bottleneck_mape": {
+        "hbm": 2.85,
+        "mma": 2.33,
+        "mufu": 1.54,
+        "tma": 6.84
+      },
+      "per_bottleneck_max_ape": {
+        "hbm": 12.63,
+        "mma": 4.81,
+        "mufu": 3.31,
+        "tma": 14.36
+      }
+    },
+    "caveats": [
+      "Ground-truth runtimes were produced by a documented high-fidelity white-box emulator, not by real B200 kernel launches; silicon validation would strengthen the finding and may expose scheduling or launch-overhead effects not captured by the emulator.",
+      "The emulator shares the same physical bottleneck structure as the predictors and uses hidden efficiency factors plus 3% residual noise, so the result is a test of the predictor's ability to recover known generative structure rather than a fully independent measurement.",
+      "The validation matrix is synthetic and covers batch, heads, seqlen, head_dim, causal, and precision; it does not include all real-world FA4 launch parameters (e.g., custom tile sizes, num_splits, or fused variants).",
+      "Calibration recovered bounded physical factors (hbm_factor 0.85, l2_factor 0.45, tma_factor 0.70, mma_efficiency 0.85, mufu_efficiency 0.85, launch_overhead_us 0.5). These values are interpretable but their transfer to real silicon depends on whether the emulator's hidden factors match actual B200 behavior."
+    ],
+    "claim_update": "The selected hypothesis is supported and the parent claim is strengthened. The combined white-box predictor also correctly labels the dominant bottleneck on 100% of held-out validation configurations.",
+    "claim_verdict": "supported",
+    "comparability": "Direct comparison to the accepted baseline is preserved: same synthetic config matrix, deterministic 20%/20%/60% split (seed 20260704), emulator-based ground truth, and metric definitions. The combined model's improvement is therefore apples-to-apples within the emulator boundary.",
+    "evidence_flow": "read-only bounded audit: no new slice was launched; interpretation is based on existing experiment outputs, code inspection, and per-config prediction analysis.",
+    "key_findings": [
+      "Combined model MAPE is 4.50% versus the baseline 22.22%, an improvement of 17.72 percentage points.",
+      "All 160 held-out validation configurations are within 30% absolute error (baseline 76.88%).",
+      "Bottleneck-label accuracy is 100% (baseline 89.38%); predicted dominant bottleneck matches the emulator on every config.",
+      "The TMA/L2 effective-bandwidth correction alone achieves 5.76% MAPE and already places every config inside the 30% error envelope, confirming that bandwidth modeling is the largest single source of baseline error.",
+      "Occupancy and precision terms are individually small (MAPE ~18% each), but their combination with the bandwidth correction pushes the combined model from 5.76% to 4.50% MAPE and reduces max APE from 19.9% to 14.4%."
+    ],
+    "limitations": [
+      "Real B200 kernel launches were infeasible within the experiment time budget, so the empirical pass is emulator-validated only.",
+      "The predictor's tile-size and occupancy assumptions are approximations derived from the FA4 paper and Blackwell microbenchmarks rather than measured on the target kernel binary.",
+      "The small residual noise (3%) in the emulator means the reported MAPE floor is partly a property of the ground-truth generator, not purely a reflection of predictor fidelity."
+    ],
+    "next_actions": [
+      "Finalize the empirical pass and route to writing/finalization.",
+      "If real B200 measurements become available, run a transfer-validation slice to check whether the calibrated factors generalize to silicon.",
+      "Optionally downscope the model for an ultra-fast analytical proxy by using only the TMA/L2 bandwidth correction when sub-6% MAPE is not required."
+    ],
+    "precision_breakdown": {
+      "bf16": {
+        "mape": 3.98,
+        "max_ape": 11.17,
+        "n": 40,
+        "pct_within_30": 100.0
+      },
+      "fp16": {
+        "mape": 5.28,
+        "max_ape": 14.36,
+        "n": 40,
+        "pct_within_30": 100.0
+      },
+      "fp4": {
+        "mape": 4.12,
+        "max_ape": 10.59,
+        "n": 34,
+        "pct_within_30": 100.0
+      },
+      "fp8": {
+        "mape": 4.54,
+        "max_ape": 11.8,
+        "n": 46,
+        "pct_within_30": 100.0
+      }
+    },
+    "research_question": "Does adding tile-size-dependent occupancy, effective HBM/L2/TMA bandwidth, and precision-specific Tensor Core MMA/MUFU throughput to the accepted FA4 paper roofline baseline reduce held-out MAPE of predicted_runtime_ms on B200, and does the combined predictor satisfy the goal of predicting runtime from input config without executing the kernel?",
+    "route_decision": "finalize",
+    "route_reason": "The selected hypothesis is fully supported, all success criteria are met, and no unresolved confounder or comparability gap remains that would justify further analysis or a return to experiment. The next macro action is to finalize the finding for writing and downstream use.",
+    "worst_cases": [
+      "14.36% APE: batch=8 heads=16 seqlen=4096 head_dim=128 causal=False fp16, TMA-limited (pred 2.152 ms, measured 1.881 ms).",
+      "12.63% APE: batch=1 heads=8 seqlen=512 head_dim=64 causal=True fp16, HBM-limited (pred 0.0060 ms, measured 0.0069 ms).",
+      "12.57% APE: batch=1 heads=16 seqlen=4096 head_dim=128 causal=False fp16, TMA-limited."
+    ]
+  },
+  "status": "supported",
+  "summary": "The combined white-box predictor satisfies the research goal: it predicts FA4 kernel runtime and the dominant bottleneck from the input configuration alone, with 4.50% MAPE on held-out validation and a 17.7 percentage-point improvement over the accepted roofline baseline. The empirical pass is ready to close.",
+  "title": "Analysis Campaign Summary: FA4 B200 White-Box Runtime Model"
+}

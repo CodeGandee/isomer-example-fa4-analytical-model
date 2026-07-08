@@ -1,0 +1,16 @@
+<!-- isomer-structured-research-record
+format_profile_ref: isomer:deepsci/record-format/profile/review/audit-plan/v1
+schema_ref: isomer:deepsci/record-format/schema/review/audit-plan/v1
+payload_digest: sha256:df23354a259ce3d03b01a967cd6e16a5f83f725212de8410eacb01752bee2f76
+-->
+# Review Audit Plan — FlashAttention-4 White-Box Runtime Model
+
+Generated from a structured JSON payload.
+
+
+```json
+{
+  "body": "# Review Audit Plan \u2014 FlashAttention-4 White-Box Runtime Model\n\n## Scope\nFinal pre-submission audit of the revised paper bundle (revised draft, references, figures) for `flash-attention-4-whitebox-runtime-model`.\n\n## Claim set\n1. The reproduced FlashAttention-4 roofline baseline achieves 22.22% MAPE / 42.07% max APE on the 160-config held-out validation set.\n2. Adding three bounded corrections (occupancy, effective HBM/L2/TMA bandwidth, precision-specific throughput) reduces MAPE to 4.50% and max APE to 14.36%.\n3. The combined model labels the dominant bottleneck correctly on 100% of validation configurations.\n4. Ground-truth runtimes come from a high-fidelity emulator, not real B200 silicon.\n\n## Strongest evidence\n- Held-out ablation table (Table 2) with five predictor variants and four metrics.\n- Per-precision (Table 3) and per-bottleneck (Table 4) residual breakdowns.\n- Calibration/validation split protocol and bounded grid search.\n\n## Weakest evidence / risks\n- No real silicon measurements; generalization to B200 production kernels is unverified.\n- Synthetic matrix omits custom tile sizes, `num_splits`, fused variants, and real workloads.\n- Venue is unspecified; Nature-family data-statement requirements are not confirmed.\n\n## Likely rejection routes\n- Reviewer questions emulator-to-silicon transfer validity.\n- Reviewer requests open-source predictor code or raw configuration matrix.\n- Venue mismatch if submitted as systems paper without public artifacts.\n\n## Comparator check\n- FlashAttention-4 paper [Zadouri et al., 2026]: baseline roofline source.\n- Jarmusch \u0026 Chandrasekaran Blackwell microbenchmarks: hardware rates source.\n- No direct white-box B200 predictor in the cited literature.\n\n## Language hygiene risks\n- Low: citations match references.bib, figures are referenced, section labels are sequential.\n\n## Route forecast\n`finalize` \u2014 the bundle is internally consistent, metrics meet stated success criteria, and residual risks are already disclosed as limitations.\n",
+  "title": "Review Audit Plan \u2014 FlashAttention-4 White-Box Runtime Model"
+}
+```

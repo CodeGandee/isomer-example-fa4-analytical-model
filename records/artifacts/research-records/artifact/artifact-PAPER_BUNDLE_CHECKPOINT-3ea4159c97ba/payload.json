@@ -1,0 +1,18 @@
+{
+  "bundle_path": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260705-152035-paper-pass-de86d077/bundle",
+  "files": [
+    "revised-draft.md",
+    "references.bib",
+    "figures/figure1_predicted_vs_measured.svg",
+    "figures/figure2_residuals_by_bottleneck.svg",
+    "figures/figure3_pipeline.png",
+    "refined_validation_predictions.csv",
+    "refined_query_predictions.csv",
+    "generate_figures.py"
+  ],
+  "review_status": "reviewed",
+  "route_decision": "finalize",
+  "status": "ready",
+  "summary": "Final reviewed paper bundle for the real-hardware FA4 B200 study.",
+  "title": "Paper Bundle Checkpoint: White-Box FA4 B200 Real Hardware"
+}

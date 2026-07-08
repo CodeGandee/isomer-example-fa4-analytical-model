@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/control/pipeline-run-record/v1",
+  "payload_digest": "sha256:b3ed5fe143b49cfc1f2705ccfb408dd8b69422b479c10392ec7185babbef142c",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "view_manifest-pipeline-run-record-4ecc9fe5bdec",
+  "record_kind": "view_manifest",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/control/pipeline-run-record/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

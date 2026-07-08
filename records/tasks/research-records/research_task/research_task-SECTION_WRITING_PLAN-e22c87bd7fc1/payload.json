@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "consumer": "write",
+    "placeholder": "<SECTION_WRITING_PLAN>",
+    "producer": "isomer-deepsci-paper-outline",
+    "skill": "isomer-deepsci-paper-outline"
+  },
+  "sections": {
+    "cross_cutting_tasks": [
+      {
+        "input": "combined_predictions.csv, validation_metrics.json",
+        "output": "Figure 1 (scatter), Figure 2 (residuals), Figure 3 (pipeline)",
+        "owner": "isomer-deepsci-figure-polish or isomer-deepsci-paper-plot",
+        "task": "Generate figures"
+      },
+      {
+        "input": "validation_metrics.json, analysis campaign summary precision/bottleneck breakdown",
+        "output": "Tables 1-3",
+        "owner": "write stage",
+        "task": "Format tables"
+      },
+      {
+        "input": "selected hypothesis citations and literature scouting report",
+        "output": "BibTeX entries for FA4, Blackwell microbenchmarks, and white-box modeling methodology",
+        "owner": "write stage",
+        "task": "Citations"
+      }
+    ],
+    "quality_gates_for_write": [
+      "Every numerical claim must trace to validation_metrics.json or combined_predictions.csv.",
+      "Figures and tables must be generated from the experiment output set, not redrawn from memory.",
+      "Limitations must appear verbatim or by reference in the manuscript.",
+      "The manuscript must not claim real-silicon accuracy."
+    ],
+    "ready_for_write": true,
+    "route_to": "isomer-deepsci-write",
+    "section_jobs": [
+      {
+        "evidence_limit": "Use only supported claims from the claim-evidence boundary.",
+        "job": "One-paragraph summary of problem, approach, key numbers (4.50% MAPE, +17.7 pp, 100% within 30%, 100% bottleneck accuracy), and implication.",
+        "required_displays": "none",
+        "section": "Abstract"
+      },
+      {
+        "evidence_limit": "Cite FA4 paper and Blackwell microbenchmarks; do not claim silicon validation.",
+        "job": "Motivate white-box modeling, state the research goal, preview the three corrections, list three contributions, and provide a roadmap.",
+        "required_displays": "none",
+        "section": "Introduction"
+      },
+      {
+        "evidence_limit": "Cite arXiv references from the selected hypothesis; keep claims about prior work verifiable.",
+        "job": "Position against FlashAttention family, GPU roofline/analytical models, emulation/simulation, and black-box ML surrogates; identify the gap the paper fills.",
+        "required_displays": "none",
+        "section": "Related Work"
+      },
+      {
+        "evidence_limit": "Ground constants in constants.py and B200 hardware spec; note approximations.",
+        "job": "Present workload computation, baseline roofline, occupancy correction, effective bandwidth curves, precision-specific throughput, calibration, and bottleneck labeling. Include a pipeline figure.",
+        "required_displays": "Figure 3: predictor pipeline; equations for occupancy factor and effective bandwidth.",
+        "section": "Method / Model"
+      },
+      {
+        "evidence_limit": "State emulator caveats and fairness rules explicitly.",
+        "job": "Describe the synthetic matrix, calibration/validation split, emulator, predictor variants, calibration procedure, and metrics.",
+        "required_displays": "none",
+        "section": "Experiments"
+      },
+      {
+        "evidence_limit": "All numbers from validation_metrics.json and combined_predictions.csv.",
+        "job": "Report ablation table, combined-model metrics, precision breakdown, per-bottleneck residuals, and worst-case analysis. Reference Figures 1 and 2.",
+        "required_displays": "Table 1 (ablations), Table 2 (per-precision), Table 3 (per-bottleneck), Figure 1 (scatter), Figure 2 (residuals).",
+        "section": "Results"
+      },
+      {
+        "evidence_limit": "Mirror the analysis campaign summary caveats.",
+        "job": "List emulator ground truth, synthetic matrix, approximate tile sizes/occupancy, and calibration-transfer risk.",
+        "required_displays": "none",
+        "section": "Limitations"
+      },
+      {
+        "evidence_limit": "Do not introduce new numbers.",
+        "job": "Restate the contribution, summarize the main result, and outline silicon validation and extension work.",
+        "required_displays": "none",
+        "section": "Conclusion"
+      }
+    ],
+    "target_document": "short technical paper/report"
+  },
+  "status": "ready",
+  "summary": "Section-level writing jobs derived from the validated paper outline for the FA4 B200 white-box runtime predictor manuscript.",
+  "title": "Section Writing Plan: FA4 B200 White-Box Runtime Predictor"
+}

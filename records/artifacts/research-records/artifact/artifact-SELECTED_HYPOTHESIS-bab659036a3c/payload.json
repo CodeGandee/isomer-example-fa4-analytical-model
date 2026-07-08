@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "consumer": "experiment, optimize, decision",
+    "placeholder": "<SELECTED_HYPOTHESIS>",
+    "producer": "isomer-deepsci-idea",
+    "skill": "isomer-deepsci-idea"
+  },
+  "sections": {
+    "abandonment_condition": "After two rounds of calibration the combined model fails to beat baseline MAPE by >= 5 percentage points or fails to meet the useful-improvement threshold (MAPE <= 25%; >= 75% within 30%; >= 75% bottleneck accuracy).",
+    "citations": [
+      "arXiv 2603.05451v1 — FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling.",
+      "arXiv 2605.04178v1 — white-box GPU performance modeling methodology.",
+      "arXiv 2512.02189v1 — Blackwell microbenchmarks (SMEM 128 B/clock/SM, MUFU 16 ops/clock/SM)."
+    ],
+    "comparator_relation": "The selected route is a direct child of the accepted baseline (artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4). It preserves the white-box structure and adds the B200-specific terms the baseline explicitly caveats as missing.",
+    "expected_effect": "Held-out MAPE drops from the baseline value to <= 25%; >= 75% of validation configs are within 30% absolute error; >= 75% bottleneck labels match the dominant measured NCU counter regime.",
+    "experiment_ready_brief": {
+      "ablations_to_run": [
+        "Baseline FA4 roofline",
+        "Occupancy-only correction",
+        "TMA/L2 effective bandwidth correction",
+        "Precision-only correction",
+        "Combined model"
+      ],
+      "code_touchpoints": [
+        "topic.repos.main/src/fa4_b200_predictor/predictor.py",
+        "topic.repos.main/src/fa4_b200_predictor/constants.py",
+        "topic.repos.main/src/fa4_b200_predictor/calibrate.py",
+        "topic.repos.main/src/fa4_b200_predictor/evaluate.py"
+      ],
+      "expected_outcome": "Combined analytical predictor beats the FA4 paper roofline baseline by >= 5 percentage points MAPE and meets the useful-improvement threshold.",
+      "failure_criteria": [
+        "Combined model does not beat baseline MAPE by >= 5 percentage points after two calibration rounds.",
+        "Combined model fails the useful-improvement threshold."
+      ],
+      "inputs": [
+        "Calibration split (~20% of synthetic configuration matrix) with measured B200 runtime and NCU counters.",
+        "Held-out validation split (~20%) with measured B200 runtime and NCU counters.",
+        "Accepted baseline predictor code and constants.",
+        "FA4 source tile sizes and launch parameters from repos/extern/flash-attention @ 002cce0.",
+        "B200 hardware parameters from actors/operator/host-b200-spec.md."
+      ],
+      "success_criteria": [
+        "held_out_mape_predicted_runtime_ms <= 25%",
+        "pct_validation_configs_within_30_pct_abs_error >= 75%",
+        "bottleneck_label_accuracy >= 75%",
+        "delta MAPE vs baseline >= 5 percentage points improvement"
+      ]
+    },
+    "falsification": "If the combined predictor, after calibration on the calibration split, does not beat the baseline MAPE by >= 5 percentage points on the held-out validation set, the hypothesis is falsified.",
+    "hypothesis": "A white-box forward-pass predictor that explicitly models (i) occupancy-limited active warps per SM, (ii) effective HBM/L2/TMA bandwidth as a function of transfer size and access pattern, and (iii) precision-specific MMA and MUFU throughput, will achieve held-out MAPE <= 25% and beat the FA4 paper roofline baseline by at least 5 percentage points MAPE on the B200 held-out validation set.",
+    "hypothesis_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1",
+    "mechanism": "The FA4 roofline bounds runtime by max(MMA FLOPs/peak, SMEM bytes/peak, exponential ops/peak). On B200 the actual runtime is larger because peak throughput is only reachable at sufficient occupancy and because HBM/L2/TMA transfers are not perfectly efficient. We add a multiplicative occupancy factor to each throughput term and replace peak HBM bandwidth with an effective bandwidth curve calibrated on transfer size; precision is handled via per-precision Tensor Core and MUFU rates instead of a single FLOP constant.",
+    "minimal_test": "Implement predictor.py in topic.repos.main with modular terms; calibrate constants on the calibration split; evaluate MAPE, max APE, 30%-error coverage, and bottleneck-label accuracy on held-out validation; compare to baseline predictor.",
+    "next_route": "experiment",
+    "pitch": "Extend the accepted FlashAttention-4 paper roofline baseline for B200 by adding tile-size-dependent occupancy, effective HBM/L2/TMA bandwidth, and precision-specific Tensor Core MMA/exponential throughput terms. The resulting analytical predictor should reduce held-out MAPE of predicted_runtime_ms and meet the useful-improvement threshold.",
+    "risk": "The dominant error source may be implementation-specific scheduling or launch overhead that a white-box model cannot capture, in which case the additions will not move MAPE materially."
+  },
+  "status": "ready",
+  "summary": "Selected hypothesis for the FlashAttention-4 B200 white-box runtime model.",
+  "title": "Selected Hypothesis: Combined Occupancy/TMA-L2/Precision Analytical Predictor"
+}

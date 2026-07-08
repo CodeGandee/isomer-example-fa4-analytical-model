@@ -1,0 +1,51 @@
+schema_version = "isomer-topic-workspace-manifest.v1"
+research_topic_id = "flash-attention-4-whitebox-runtime-model"
+topic_workspace_id = "flash-attention-4-whitebox-runtime-model"
+layout_profile = "isomer-default.v1"
+
+[[bindings]]
+label = "custom.accelsim_blackwell_survey"
+path = "records/artifacts/research-records/evidence_item/accelsim-blackwell-survey.md"
+storage_profile = "topic_records_dir"
+status = "active"
+
+[[bindings]]
+label = "custom.blackwell_execution_model_proposal"
+path = "records/artifacts/research-records/artifact/blackwell-execution-model-proposal.md"
+storage_profile = "topic_records_dir"
+status = "active"
+
+[[bindings]]
+label = "custom.blackwell_papers"
+path = "records/artifacts/research-records/evidence_item/papers"
+storage_profile = "topic_records_dir"
+status = "active"
+
+[[bindings]]
+label = "custom.blackwell_simulation_research"
+path = "records/artifacts/research-records/evidence_item/blackwell-simulation-research.md"
+storage_profile = "topic_records_dir"
+status = "active"
+
+[[bindings]]
+label = "topic.repos.accelsim"
+path = "repos/extern/accel-sim-framework"
+storage_profile = "topic_repo"
+status = "active"
+
+[[bindings]]
+label = "topic.repos.flash-attention"
+path = "repos/extern/flash-attention"
+storage_profile = "topic_repo"
+status = "active"
+
+[[topic_actors]]
+topic_actor_name = "operator"
+actor_kind = "operator"
+runtime_kind = "custom.local"
+role_kind = "operator"
+controller_kind = "custom.manual"
+default_cwd_label = "topic.actors.workspace"
+workspace_label = "topic.actors.workspace"
+branch = "per-topic-actor/operator/main"
+status = "ready"

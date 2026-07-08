@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "consumer": "experiment, optimize, decision",
+    "placeholder": "<SELECTED_HYPOTHESIS>",
+    "producer": "isomer-deepsci-idea",
+    "skill": "isomer-deepsci-idea"
+  },
+  "sections": {
+    "abandonment_condition": "After two rounds of calibration the combined model fails to beat baseline MAPE by >= 5 percentage points or fails to meet the useful-improvement threshold (MAPE <= 25%; >= 75% within 30%; >= 75% bottleneck accuracy) on real B200 measurements.",
+    "citations": [
+      "arXiv 2603.05451v1 — FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling.",
+      "arXiv 2605.04178v1 — white-box GPU performance modeling methodology.",
+      "arXiv 2512.02189v1 — Blackwell microbenchmarks (SMEM 128 B/clock/SM, MUFU 16 ops/clock/SM).",
+      "artifact-SELECTED_HYPOTHESIS-bab659036a3c — original emulator-validated selected hypothesis."
+    ],
+    "comparator_relation": "The selected route is a direct child of the accepted baseline (artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4) and a real-hardware refinement of artifact-SELECTED_HYPOTHESIS-bab659036a3c. It preserves the white-box structure and replaces the emulator ground truth with real B200 FlashAttention-4 kernel launches.",
+    "expected_effect": "Held-out MAPE on real B200 measurements drops from the baseline value to <= 25%; >= 75% of validation configs are within 30% absolute error; >= 75% bottleneck labels match the dominant measured regime.",
+    "experiment_ready_brief": {
+      "ablations_to_run": [
+        "Baseline FA4 roofline",
+        "Occupancy-only correction",
+        "TMA/L2 effective bandwidth correction",
+        "Precision-only correction",
+        "Combined model"
+      ],
+      "code_touchpoints": [
+        "topic.repos.main/src/fa4_b200_predictor/predictor.py",
+        "topic.repos.main/src/fa4_b200_predictor/constants.py",
+        "topic.repos.main/src/fa4_b200_predictor/calibrate.py",
+        "topic.repos.main/src/fa4_b200_predictor/evaluate.py",
+        "topic.repos.main/src/fa4_b200_predictor/real_hardware_benchmark.py"
+      ],
+      "expected_outcome": "Combined analytical predictor beats the FA4 paper roofline baseline by >= 5 percentage points MAPE and meets the useful-improvement threshold on real B200 FlashAttention-4 forward-pass measurements.",
+      "failure_criteria": [
+        "Combined model does not beat baseline MAPE by >= 5 percentage points after two calibration rounds on real measurements.",
+        "Combined model fails the useful-improvement threshold on real measurements.",
+        "Real B200 kernel execution is infeasible or fp8/fp4 precision is unsupported and reduced coverage prevents a fair test."
+      ],
+      "inputs": [
+        "Real B200 calibration split (~20% of configuration matrix) with measured FlashAttention-4 forward-pass runtime via flash_attn_func from flash_attn.cute on cuda:0.",
+        "Real B200 held-out validation split (~20%) with measured runtime from the same kernel launches.",
+        "Accepted baseline predictor code and constants.",
+        "FA4 source tile sizes and launch parameters from repos/extern/flash-attention @ 002cce0.",
+        "B200 hardware parameters from actors/operator/host-b200-spec.md."
+      ],
+      "success_criteria": [
+        "held_out_mape_predicted_runtime_ms <= 25%",
+        "pct_validation_configs_within_30_pct_abs_error >= 75%",
+        "bottleneck_label_accuracy >= 75%",
+        "delta MAPE vs baseline >= 5 percentage points improvement"
+      ]
+    },
+    "falsification": "If the combined predictor, after calibration on the real B200 calibration split, does not beat the baseline MAPE by >= 5 percentage points on the held-out real B200 validation set, the hypothesis is falsified.",
+    "hypothesis": "The existing white-box predictor (fa4-b200-whitebox-occupancy-tma-l2-precision-v1) achieves the useful-improvement threshold when validated against real B200 FlashAttention-4 forward-pass measurements.",
+    "hypothesis_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1-real-hardware",
+    "mechanism": "The FA4 roofline bounds runtime by max(MMA FLOPs/peak, SMEM bytes/peak, exponential ops/peak). On B200 the actual runtime is larger because peak throughput is only reachable at sufficient occupancy and because HBM/L2/TMA transfers are not perfectly efficient. The existing predictor adds a multiplicative occupancy factor to each throughput term and replaces peak HBM bandwidth with an effective bandwidth curve calibrated on transfer size; precision is handled via per-precision Tensor Core and MUFU rates. The real-hardware test checks whether these physically motivated corrections generalize from the emulator to actual B200 kernel launches.",
+    "minimal_test": "Run flash_attn_func from flash_attn.cute on cuda:0 for the design matrix; measure median runtime; calibrate predictor.py constants on the calibration split only; evaluate MAPE, max APE, 30%-error coverage, and bottleneck-label accuracy on held-out validation; compare to baseline predictor.",
+    "next_route": "experiment",
+    "pitch": "Validate the existing combined occupancy/TMA-L2/precision analytical predictor against real B200 FlashAttention-4 kernel measurements and confirm it meets the useful-improvement threshold.",
+    "ready_for_experiment": true,
+    "risk": "Real B200 scheduling, launch overhead, or precision-format support may differ from the emulator. If fp8/fp4 are unsupported, coverage is reduced to bf16/fp16. If the dominant error source is implementation-specific scheduling, the white-box additions may not move MAPE materially.",
+    "transfer_gaps_to_watch": [
+      "Precision format support (fp8/fp4) in the installed FA4 build.",
+      "Launch overhead and CPU/Python dispatch latency for tiny configs.",
+      "OOM behavior on large batch x seqlen combinations."
+    ]
+  },
+  "status": "ready",
+  "summary": "Real-hardware refinement of the selected hypothesis for the FlashAttention-4 B200 white-box runtime model.",
+  "title": "Selected Hypothesis: Real-Hardware Validation of the FA4 B200 White-Box Predictor"
+}

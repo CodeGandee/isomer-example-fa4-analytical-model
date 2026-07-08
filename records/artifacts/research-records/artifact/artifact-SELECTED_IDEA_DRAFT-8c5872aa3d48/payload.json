@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "consumer": "experiment, optimize, writing, review",
+    "placeholder": "<SELECTED_IDEA_DRAFT>",
+    "producer": "isomer-deepsci-idea",
+    "skill": "isomer-deepsci-idea"
+  },
+  "sections": {
+    "citation_markers": [
+      "[1] FlashAttention-4 paper: seed roofline and algorithm structure.",
+      "[2] White-box GPU modeling paper: occupancy and memory-hierarchy correction methodology.",
+      "[3] Blackwell microbenchmark paper: SMEM and MUFU per-SM throughput constants."
+    ],
+    "code_level_plan": [
+      "Create topic.repos.main/src/fa4_b200_predictor/ package.",
+      "Implement constants.py with B200 SM count, clock, SMEM/MUFU/MMA rates per precision, and placeholder effective-bandwidth curve.",
+      "Implement predictor.py with functions for each stage and occupancy resolution.",
+      "Implement calibrate.py to fit effective-bandwidth and occupancy factors on the calibration split.",
+      "Implement evaluate.py to compute MAPE, max APE, 30%-error coverage, and bottleneck labels on held-out validation.",
+      "Run ablations: baseline, occupancy-only, TMA/L2-only, precision-only, combined."
+    ],
+    "falsification_and_abandonment": "Falsified if combined model does not beat baseline MAPE by >= 5 percentage points on held-out validation after two calibration rounds. Abandon and return to idea/optimize if the useful-improvement threshold is also missed.",
+    "mechanism_summary": "The predictor computes stage times for MMA, SMEM, HBM/L2/TMA, and exponential ops, each scaled by an occupancy factor and, where applicable, an effective-bandwidth or precision-throughput factor. The predicted runtime is the maximum of the scaled stage times plus a small launch overhead.",
+    "references": [
+      "[1] arXiv 2603.05451v1, FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling.",
+      "[2] arXiv 2605.04178v1, white-box GPU performance modeling methodology.",
+      "[3] arXiv 2512.02189v1, Blackwell microbenchmarks."
+    ],
+    "risks": [
+      "Implementation-specific scheduling noise may dominate, making white-box terms insufficient.",
+      "Tile sizes and launch bounds may not be extractable from the FA4 repo without significant effort.",
+      "Calibration split may be too small to fit effective-bandwidth curves robustly."
+    ],
+    "scqa": {
+      "answer": "Yes — add tile-occupancy, effective HBM/L2/TMA bandwidth, and precision-specific MMA/exponential terms, then calibrate on a disjoint calibration split and validate on held-out data.",
+      "complication": "These omissions are likely the dominant source of prediction error, especially for small sequence lengths and FP8/FP4 precisions, so the baseline may not meet the useful-improvement threshold.",
+      "question": "Can we extend the roofline with white-box B200-specific terms to reduce held-out MAPE without violating the no-query-execution constraint?",
+      "situation": "The accepted baseline for FlashAttention-4 runtime prediction on B200 is the FA4 paper roofline. It is simple and interpretable but explicitly omits occupancy, L2/HBM/TMA bandwidth, and precision-specific throughput."
+    }
+  },
+  "status": "ready",
+  "summary": "Selected idea draft for the FlashAttention-4 B200 white-box runtime model.",
+  "title": "Selected Idea Draft: Combined Occupancy/TMA-L2/Precision Analytical Predictor"
+}

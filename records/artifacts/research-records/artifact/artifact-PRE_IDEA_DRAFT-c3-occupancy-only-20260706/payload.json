@@ -1,0 +1,49 @@
+{
+  "ideas": {
+    "family": "model",
+    "id": "C3",
+    "one_liner": "Occupancy-only correction based on tile size and SM resource limits.",
+    "selected": false,
+    "source_candidate_id": "C3",
+    "source_raw_idea_ids": [
+      "R1"
+    ],
+    "source_record_id": "artifact-CANDIDATE_IDEA_FRONTIER-ece06ce63e08",
+    "status": "serious_alternative"
+  },
+  "metadata": {
+    "consumer": "selection gate",
+    "placeholder": "<PRE_IDEA_DRAFT>",
+    "producer": "isomer-deepsci-idea",
+    "repair_provenance": {
+      "change": "repair-flash-attention-topic-idea-iteration-data",
+      "source_record_id": "artifact-CANDIDATE_IDEA_FRONTIER-ece06ce63e08"
+    },
+    "skill": "isomer-deepsci-idea"
+  },
+  "sections": {
+    "abandonment_condition": "Occupancy-only variant does not improve MAPE on small-S configurations.",
+    "candidate_id": "C3",
+    "closest_prior_work": "arXiv 2605.04178v1 occupancy modeling.",
+    "falsification_path": "Run the occupancy-only variant on held-out validation, especially small-S configurations; reject this candidate if it does not beat the accepted baseline on that slice.",
+    "family": "model",
+    "hidden_assumptions": [
+      "Tile size and SM resource limits are recoverable from the FA4 source and launch configuration.",
+      "Small-S prediction error is dominated by occupancy rather than memory hierarchy or precision throughput.",
+      "Occupancy can be modeled as a separable correction before adding bandwidth terms."
+    ],
+    "hypothesis": "An occupancy-only correction based on tile size and SM resource limits will reduce held-out MAPE for small-S FA4 configurations on B200.",
+    "local_optimum_risk": "Medium - this route is interpretable and cheap, but it may underfit precision and TMA/L2 effects.",
+    "minimal_experiment": "Implement only the occupancy factor; calibrate no memory or precision constants; compare held-out MAPE on small-S configurations against the baseline and C1 ablations.",
+    "novelty_type": "incremental but valuable",
+    "one_sentence_claim": "Adding tile-size-dependent occupancy limits should reduce small-S runtime prediction error in the FA4 B200 roofline model.",
+    "outside_family_alternative": "C2 tests precision-only correction; C1 combines occupancy with TMA/L2 and precision terms.",
+    "strongest_rejection_case": "FA4 tile choices already achieve near-peak occupancy on B200, so the missing error comes from bandwidth, precision throughput, or scheduling.",
+    "targeted_bottleneck": "The FA4 roofline assumes full SM utilization.",
+    "verdict": "defer",
+    "why_now": "This is a direct test of the occupancy hypothesis and can be implemented without memory bandwidth calibration."
+  },
+  "status": "ready",
+  "summary": "Pre-idea draft for serious alternative C3.",
+  "title": "Pre-Idea Draft: Occupancy-Only Correction"
+}

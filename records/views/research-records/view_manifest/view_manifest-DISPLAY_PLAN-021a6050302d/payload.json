@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "consumer": "paper-plot, figure-polish, review",
+    "paper_surface": "display_plan",
+    "placeholder": "<DISPLAY_PLAN>",
+    "producer": "isomer-deepsci-write",
+    "skill": "isomer-deepsci-write",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "figures": [
+      {
+        "caption": "Combined-model predicted vs. measured runtime on the 160-config validation set.",
+        "file": "figures/figure1_predicted_vs_measured.png",
+        "id": "Figure 1"
+      },
+      {
+        "caption": "Residual distribution by predicted bottleneck.",
+        "file": "figures/figure2_residuals_by_bottleneck.png",
+        "id": "Figure 2"
+      },
+      {
+        "caption": "Predictor pipeline diagram.",
+        "file": "figures/figure3_pipeline.png",
+        "id": "Figure 3"
+      }
+    ],
+    "tables": [
+      "Table 1",
+      "Table 2",
+      "Table 3",
+      "Table 4"
+    ]
+  },
+  "status": "ready",
+  "summary": "Figures and tables for the revised manuscript, all rendered or included.",
+  "title": "Display Plan: FA4 B200 Revised Draft"
+}

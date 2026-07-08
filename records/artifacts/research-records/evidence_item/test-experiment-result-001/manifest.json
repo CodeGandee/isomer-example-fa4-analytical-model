@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/evidence/experiment-result-summary/v1",
+  "payload_digest": "sha256:97af4c7610dc2b66566606e39250b8db58bdbc631233f862c3f1ae7da673435f",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "test-experiment-result-001",
+  "record_kind": "evidence_item",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/evidence/experiment-result-summary/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

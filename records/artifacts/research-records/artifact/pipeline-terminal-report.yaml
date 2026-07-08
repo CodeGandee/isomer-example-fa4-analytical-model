@@ -1,0 +1,46 @@
+pipeline_id: empirical-pass
+status: complete
+stages_run:
+  - stage_id: frame
+    skill: isomer-deepsci-scout
+    status: complete
+    artifacts_in: []
+    artifacts_out: []
+    route_decision: baseline
+    notes: Implicit framing from earlier conversation; durable scout record not recreated for this pass.
+  - stage_id: comparator
+    skill: isomer-deepsci-baseline
+    status: complete
+    artifacts_in: []
+    artifacts_out: []
+    route_decision: idea
+    notes: Comparator established implicitly; durable baseline record not recreated for this pass.
+  - stage_id: ideate
+    skill: isomer-deepsci-idea
+    status: complete
+    artifacts_in: []
+    artifacts_out: []
+    route_decision: experiment
+    notes: Selected hypothesis established implicitly; durable idea record not recreated for this pass.
+  - stage_id: run
+    skill: isomer-deepsci-experiment
+    status: complete
+    artifacts_in: []
+    artifacts_out:
+      - evidence_item-EXPERIMENT_RESULT_SUMMARY-0e6af52b5f23
+    route_decision: analysis
+    notes: 540 configs measured on NVIDIA B200 (bf16/fp16/fp8); fp4 skipped; 60 configs NCU-profiled. Result status refuted.
+  - stage_id: interpret
+    skill: isomer-deepsci-analysis
+    status: complete
+    artifacts_in:
+      - evidence_item-EXPERIMENT_RESULT_SUMMARY-0e6af52b5f23
+    artifacts_out:
+      - artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e
+    route_decision: experiment
+    notes: Improved predictor passes MAPE and within-30% thresholds but narrowly misses NCU bottleneck accuracy (60.0% validation, 74.3% query). Route to targeted bottleneck-mapping experiment.
+final_artifact: artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e
+recommended_next: experiment
+blocker: null
+resume_point: null
+generated_at: 2026-07-04T21:02:51.946379Z

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "consumer": "write, analysis, decision",
+    "paper_surface": "revision_log",
+    "placeholder": "<REVISION_LOG>",
+    "producer": "isomer-deepsci-review",
+    "skill": "isomer-deepsci-review",
+    "source_draft": "artifact-DRAFT_SECTION_SET-db586e5e0d48",
+    "source_review_report": "<REVIEW_REPORT>",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "deferred_items": [
+      {
+        "how_to_reflect": "Keep existing Limitations paragraph on emulator-based ground truth.",
+        "item": "Silicon transfer-validation experiment",
+        "reason": "Real B200 measurements unavailable; explicitly scoped out."
+      }
+    ],
+    "issue_log": [
+      {
+        "blocks_finalize": true,
+        "concrete_change": "Revise Method and Results to state combined model calibrates four factors; report l2_factor/tma_factor values only in ablation subsection.",
+        "fix_type": [
+          "text revision",
+          "claim downgrade"
+        ],
+        "id": "REV-001",
+        "severity": "high",
+        "source_issue": "Sections 3.3, 3.4, and 5.6 claim six-factor calibration for combined model; evidence shows four calibrated factors plus fixed defaults.",
+        "status": "open",
+        "why_it_matters": "Misrepresents method and interpretability claim."
+      },
+      {
+        "blocks_finalize": true,
+        "concrete_change": "Replace placeholders with real citations; add full BibTeX entries.",
+        "fix_type": [
+          "text revision",
+          "literature positioning"
+        ],
+        "id": "REV-002",
+        "severity": "medium",
+        "source_issue": "Related Work contains placeholder citations and References section is incomplete.",
+        "status": "open",
+        "why_it_matters": "Prevents submission readiness."
+      },
+      {
+        "blocks_finalize": true,
+        "concrete_change": "Generate figures from combined_predictions.csv and validation_metrics.json.",
+        "fix_type": [
+          "figure / table regeneration"
+        ],
+        "id": "REV-003",
+        "severity": "medium",
+        "source_issue": "Figures 1–3 described but not rendered.",
+        "status": "open",
+        "why_it_matters": "Camera-ready paper needs actual plots."
+      }
+    ],
+    "revision_summary": {
+      "blockers": "None requiring new experiments.",
+      "current_draft_state": "artifact-DRAFT_SECTION_SET-db586e5e0d48",
+      "highest_priority_fixes": [
+        "Correct combined-model calibration-factor description",
+        "Resolve Related Work citation placeholders and add full BibTeX",
+        "Render Figures 1–3"
+      ],
+      "manuscript_edit_mode": "targeted text correction plus citation/figure production; no new experiments",
+      "review_followup_policy": "single-round revision; re-route to review after fixes",
+      "source_compile_preference": "Tectonic first; LaTeX engine fallback only when required or blocked"
+    }
+  },
+  "status": "ready",
+  "summary": "Concrete issue-to-fix log for the FA4 B200 white-box runtime predictor draft. All items are text or production fixes; no new experiments are required.",
+  "title": "Revision Log: FA4 B200 White-Box Runtime Predictor Review"
+}

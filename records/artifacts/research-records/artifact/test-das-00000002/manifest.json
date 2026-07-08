@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/data-availability-statement/v1",
+  "payload_digest": "sha256:aedd46169768d132ae8faa7c9568f1aee0933059ed427b1224ba724f16c1c895",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "test-das-00000002",
+  "record_kind": "artifact",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/data-availability-statement/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

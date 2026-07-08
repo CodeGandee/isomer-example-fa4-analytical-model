@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "consumer": "<LITERATURE_SCOUTING_REPORT>, <EVALUATION_CONTRACT>, <BASELINE_SHORTLIST>, <NEXT_ROUTE_DECISION>",
+    "placeholder": "<SCOUT_DISCOVERY_LEDGER>",
+    "producer": "isomer-deepsci-scout through Literature Provider Binding, repository inspection, and compatibility artifact calls.",
+    "skill": "isomer-deepsci-scout"
+  },
+  "sections": {
+    "rejected_references": [
+      "cuDNN 9.13 / Triton Attention - indirect plausibility only",
+      "SageAttention family - consumer GPU scope mismatch"
+    ],
+    "retained_references": [
+      "arXiv 2603.05451v1 - primary algorithm/hardware source",
+      "arXiv 2512.02189v1 - independent Blackwell microbenchmarks",
+      "arXiv 2605.04178v1 - analytical GPU modeling methodology",
+      "repos/extern/flash-attention - implementation and validation harness"
+    ],
+    "search_passes": [
+      {
+        "query": "FA4 forward-pass roofline and B200 pipeline",
+        "retained": "arXiv 2603.05451v1",
+        "surface": "arXiv 2603.05451v1"
+      },
+      {
+        "query": "Blackwell SMEM and MUFU throughput",
+        "retained": "arXiv 2512.02189v1",
+        "surface": "arXiv 2512.02189v1"
+      },
+      {
+        "query": "Cross-GPU analytical modeling methodology",
+        "retained": "arXiv 2605.04178v1",
+        "surface": "arXiv 2605.04178v1"
+      },
+      {
+        "query": "FA4 implementation and benchmarks",
+        "retained": "Official Dao-AILab/flash-attention repo (local clone)",
+        "surface": "repos/extern/flash-attention"
+      },
+      {
+        "query": "Existing white-box FA4 predictor",
+        "retained": "None found",
+        "surface": "Local repo + project grep"
+      }
+    ],
+    "unresolved_ambiguity": [
+      "Exact FA4 tile/occupancy defaults per precision.",
+      "Numeric accuracy target pending operator approval."
+    ]
+  },
+  "status": "ready",
+  "summary": "Compact record of targeted discovery for the Flash Attention 4 white-box runtime model scout pass.",
+  "title": "Scout Discovery Ledger"
+}

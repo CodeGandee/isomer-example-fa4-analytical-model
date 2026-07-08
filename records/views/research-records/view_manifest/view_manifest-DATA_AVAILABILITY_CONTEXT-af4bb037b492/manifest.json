@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/data-availability-context/v1",
+  "payload_digest": "sha256:0e1b91a2a33d4c10acaee8526036a8ef5ade86bd7d024912f5809b279a249b86",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "view_manifest-DATA_AVAILABILITY_CONTEXT-af4bb037b492",
+  "record_kind": "view_manifest",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/data-availability-context/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

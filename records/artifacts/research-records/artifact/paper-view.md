@@ -1,0 +1,84 @@
+<!-- isomer-structured-research-record
+format_profile_ref: isomer:deepsci/record-format/profile/paper/outline/paper-view/v1
+schema_ref: isomer:deepsci/record-format/schema/paper/outline/paper-view/v1
+payload_digest: sha256:0d60ac41c2a350d19483630338f85c5dfde99afbaa004e133a929ba6f3b640fc
+-->
+# White-Box FlashAttention-4 Runtime Prediction on NVIDIA B200
+
+Paper outline for a short technical paper validating a white-box FA4 runtime predictor on real B200 hardware, including launch-overhead and NCU-guided bottleneck calibration.
+
+
+```json
+{
+  "one_sentence_idea": "A white-box analytical predictor for FlashAttention-4 forward runtime, calibrated only on real B200 silicon, achieves \u226413% validation MAPE and 100% NCU bottleneck accuracy after adding a fixed launch-overhead term and an NCU-guided bottleneck slack.",
+  "required_displays": [
+    "Table 1: White-box algorithm quantities",
+    "Table 2: Real-hardware results across passes",
+    "Table 3: Final per-precision accuracy",
+    "Figure 1: Predicted vs measured runtime",
+    "Figure 2: Residual distribution by predicted bottleneck",
+    "Figure 3: Predictor pipeline diagram"
+  ],
+  "route_decision": "ready_for_write",
+  "sections": {
+    "abstract": {
+      "key_claims": [
+        "Real-hardware validation",
+        "launch-overhead correction",
+        "NCU bottleneck calibration"
+      ],
+      "purpose": "Summarize problem, method, real-hardware result, and limitation."
+    },
+    "conclusion": {
+      "key_claims": [],
+      "purpose": "Summarize contributions and next steps."
+    },
+    "experiments": {
+      "key_claims": [
+        "540 measured configs",
+        "60 NCU-profiled",
+        "fp4 unsupported"
+      ],
+      "purpose": "Describe matrix, measurement protocol, NCU subset, and metrics."
+    },
+    "introduction": {
+      "key_claims": [
+        "Emulator preliminary result",
+        "first real pass refuted",
+        "final model meets thresholds"
+      ],
+      "purpose": "Motivate white-box prediction and the emulator-to-silicon narrative arc."
+    },
+    "limitations": {
+      "key_claims": [
+        "All NCU labels compute-bound",
+        "synthetic matrix",
+        "driver-specific calibration"
+      ],
+      "purpose": "State coverage and validation caveats."
+    },
+    "method": {
+      "key_claims": [
+        "Bounded calibration grid",
+        "NCU-guided bottleneck mapping"
+      ],
+      "purpose": "Describe workload, baseline roofline, bounded corrections, launch overhead, and NCU slack."
+    },
+    "related_work": {
+      "key_claims": [],
+      "purpose": "Position against FlashAttention family and GPU analytical models."
+    },
+    "results": {
+      "key_claims": [
+        "First pass refuted",
+        "improved pass 12.62%/10.01% MAPE",
+        "refined pass 100% NCU accuracy"
+      ],
+      "purpose": "Report emulator vs real hardware, ablations, and final metrics."
+    }
+  },
+  "status": "ready",
+  "summary": "Paper outline for a short technical paper validating a white-box FA4 runtime predictor on real B200 hardware, including launch-overhead and NCU-guided bottleneck calibration.",
+  "title": "White-Box FlashAttention-4 Runtime Prediction on NVIDIA B200"
+}
+```

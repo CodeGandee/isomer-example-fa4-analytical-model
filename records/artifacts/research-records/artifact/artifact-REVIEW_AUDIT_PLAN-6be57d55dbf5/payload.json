@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "consumer": "review",
+    "paper_surface": "review_audit_plan",
+    "placeholder": "<REVIEW_AUDIT_PLAN>",
+    "producer": "isomer-deepsci-review",
+    "skill": "isomer-deepsci-review",
+    "source_analysis_summary": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154",
+    "source_claim_boundary": "view_manifest-CLAIM_EVIDENCE_BOUNDARY-d5c04da9b675",
+    "source_draft": "artifact-DRAFT_SECTION_SET-db586e5e0d48",
+    "source_paper_bundle": "artifact-PAPER_BUNDLE_CHECKPOINT-a1f0b0ac3937",
+    "source_validation_report": "view_manifest-MANUSCRIPT_VALIDATION_REPORT-de3a171ebf2d",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "claims_audited": [
+      "Combined predictor 4.50% MAPE vs baseline 22.22%",
+      "100% within 30% error and 100% bottleneck accuracy",
+      "TMA/L2 effective bandwidth is the dominant improvement (5.76% MAPE alone)",
+      "Occupancy and precision terms refine the combined model",
+      "Correction factors are bounded, interpretable, and calibrated from data"
+    ],
+    "experiment_inventory": "No new experiment is required; all metrics already exist.",
+    "likely_rejection_reasons": [
+      "Calibration-factor misstatement between text and artifact/code",
+      "Unresolved citation placeholders and sparse reference list",
+      "Missing rendered figures"
+    ],
+    "preferred_route": "revise",
+    "strongest_evidence": [
+      "validation_metrics.json in operation set 20260704-130224-experiment-7f255a5e",
+      "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673",
+      "combined_predictions.csv",
+      "Auditable source code in repos/topic-main/src/fa4_b200_predictor/"
+    ],
+    "weakest_evidence": [
+      "Claim that six factors are calibrated in the combined model; code/artifact show only four are calibrated",
+      "Figures described but not rendered",
+      "Citation placeholders in Related Work"
+    ]
+  },
+  "status": "ready",
+  "summary": "Skeptical audit plan for the FlashAttention-4 B200 white-box runtime predictor draft, identifying the strongest and weakest evidence, likely rejection reasons, and the preferred revise route.",
+  "title": "Review Audit Plan: FA4 B200 White-Box Runtime Predictor"
+}

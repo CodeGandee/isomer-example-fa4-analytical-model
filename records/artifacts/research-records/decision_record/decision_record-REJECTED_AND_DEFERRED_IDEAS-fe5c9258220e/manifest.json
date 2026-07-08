@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/decision/rejected-and-deferred-ideas/v1",
+  "payload_digest": "sha256:427ca8b6b2c8af0a88958449deabadebf90a879733ac9f8f239d2f362424db33",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "decision_record-REJECTED_AND_DEFERRED_IDEAS-fe5c9258220e",
+  "record_kind": "decision_record",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/decision/rejected-and-deferred-ideas/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

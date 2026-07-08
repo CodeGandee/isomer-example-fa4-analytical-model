@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/evidence/scout-discovery-ledger/v1",
+  "payload_digest": "sha256:e76beccb5cf770134439e08d3be057010b1f89a073271e2528731683e35a5623",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "evidence_item-SCOUT_DISCOVERY_LEDGER-7593d1f4ab32",
+  "record_kind": "evidence_item",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/evidence/scout-discovery-ledger/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

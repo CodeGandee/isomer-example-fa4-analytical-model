@@ -1,0 +1,69 @@
+<!-- isomer-structured-research-record
+format_profile_ref: isomer:deepsci/record-format/profile/report/pipeline-terminal-report/v1
+schema_ref: isomer:deepsci/record-format/schema/report/pipeline-terminal-report/v1
+payload_digest: sha256:0944ab9bb2f6632b6061a17ce375b49c9b95698927cf7827a9f4bc99fe73762b
+-->
+# Structured Research Record
+
+Generated from a structured JSON payload.
+
+
+```json
+{
+  "blocker": null,
+  "final_artifact": "artifact-FINAL_SUMMARY-fc75b922",
+  "pipeline_id": "submission-pass",
+  "recommended_next": "park",
+  "record_id": "artifact-pipeline-terminal-report-e01d3f59",
+  "resume_point": null,
+  "stages_run": [
+    {
+      "artifacts_in": [
+        "artifact-PAPER_BUNDLE_CHECKPOINT-3ea4159c97ba"
+      ],
+      "artifacts_out": [
+        "artifact-REVIEW_REPORT-d7b43af5dbff",
+        "decision_record-REVIEW_ROUTE_DECISION-91f4063a629b"
+      ],
+      "notes": "Existing review report confirms route decision finalize; no new experiments required.",
+      "route_decision": "finalize",
+      "skill": "isomer-deepsci-review",
+      "stage_id": "audit",
+      "status": "complete"
+    },
+    {
+      "artifacts_in": [
+        "artifact-PAPER_BUNDLE_CHECKPOINT-3ea4159c97ba"
+      ],
+      "artifacts_out": [
+        "artifact-DATA_AVAILABILITY_STATEMENT-9649d66c"
+      ],
+      "notes": "General data-availability statement produced because venue is unspecified; no blocker.",
+      "route_decision": null,
+      "skill": "isomer-deepsci-nature-data",
+      "stage_id": "data_statement",
+      "status": "complete"
+    },
+    {
+      "artifacts_in": [
+        "artifact-REVIEW_REPORT-d7b43af5dbff",
+        "artifact-DATA_AVAILABILITY_STATEMENT-9649d66c",
+        "artifact-PAPER_BUNDLE_CHECKPOINT-3ea4159c97ba"
+      ],
+      "artifacts_out": [
+        "artifact-CLAIM_LEDGER-17563d6f",
+        "artifact-FINAL_LIMITATIONS_REPORT-dc8749c0",
+        "artifact-FINAL_SUMMARY-fc75b922",
+        "artifact-RESUME_PACKET-e14f7a3d",
+        "decision_record-CLOSURE_DECISION-4b441b63"
+      ],
+      "notes": "Closure decision is park pending public repository deposit and venue confirmation.",
+      "route_decision": "park",
+      "skill": "isomer-deepsci-finalize",
+      "stage_id": "close",
+      "status": "complete"
+    }
+  ],
+  "status": "complete"
+}
+```

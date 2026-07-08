@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "consumer": "review, scout, write",
+    "paper_surface": "literature_benchmark_note",
+    "placeholder": "<LITERATURE_BENCHMARK_NOTE>",
+    "producer": "isomer-deepsci-review",
+    "skill": "isomer-deepsci-review",
+    "source_draft": "artifact-DRAFT_SECTION_SET-db586e5e0d48",
+    "source_literature_scouting": "artifact-LITERATURE_SCOUTING_REPORT-fc6d5ca8b4a3",
+    "source_literature_survey": "artifact-LITERATURE_SURVEY_REPORT-1cf5125a64f8",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "coverage_gaps": [
+      {
+        "action": "Resolve from literature scouting report and add full citation",
+        "status": "placeholder",
+        "topic": "FlashAttention-1/2"
+      },
+      {
+        "action": "Resolve from literature scouting report and add full citation",
+        "status": "placeholder",
+        "topic": "FlashAttention-3"
+      },
+      {
+        "action": "Add full BibTeX entry for arXiv 2603.05451v1",
+        "status": "arXiv ID only",
+        "topic": "FlashAttention-4"
+      },
+      {
+        "action": "Add real citation",
+        "status": "placeholder",
+        "topic": "Roofline model"
+      },
+      {
+        "action": "Add real citations",
+        "status": "placeholder",
+        "topic": "GPU performance modeling"
+      },
+      {
+        "action": "Add full BibTeX entry for arXiv 2512.02189v1",
+        "status": "arXiv ID only",
+        "topic": "Blackwell microbenchmarks"
+      },
+      {
+        "action": "Add full BibTeX entry for arXiv 2605.04178v1",
+        "status": "arXiv ID only",
+        "topic": "White-box methodology"
+      }
+    ],
+    "recommendation": "Resolve placeholders using the literature scouting reports, add full BibTeX entries, and ensure every arXiv ID has title, authors, year, and primary category.",
+    "venue_expectations": "A strong systems/ML-hardware submission cites the algorithm paper, prior FlashAttention versions, roofline/machine-balance literature, recent white-box GPU modeling work, and architecture/microbenchmark papers."
+  },
+  "status": "ready",
+  "summary": "Benchmark of the draft's Related Work and citation coverage against the topic's literature scouting reports and standard venue expectations.",
+  "title": "Literature Benchmark Note: FA4 B200 White-Box Runtime Predictor"
+}

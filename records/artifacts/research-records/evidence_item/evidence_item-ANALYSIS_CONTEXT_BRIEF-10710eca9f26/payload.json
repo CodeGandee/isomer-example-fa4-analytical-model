@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "consumer": "analysis slices and route decision",
+    "placeholder": "<ANALYSIS_CONTEXT_BRIEF>",
+    "producer": "isomer-deepsci-analysis",
+    "skill": "isomer-deepsci-analysis"
+  },
+  "sections": {
+    "analysis_flow": "read-only bounded audit (existing experiment outputs already answer the question; no new slice was launched).",
+    "comparison_target": "Accepted FA4 paper roofline baseline predictor (artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4) evaluated on the same held-out validation split and emulator-based ground truth.",
+    "evidence_question": "Does the combined white-box predictor satisfy the research goal of predicting FA4 kernel runtime and bottleneck from the input configuration alone, and what are the dominant mechanisms, caveats, and next actions?",
+    "parent_claim": "A white-box forward-pass predictor that models occupancy-limited active warps, effective HBM/L2/TMA bandwidth, and precision-specific MMA/MUFU throughput will achieve held-out MAPE <= 25% and beat the FA4 paper roofline baseline by at least 5 percentage points MAPE on the B200 held-out validation set (artifact-SELECTED_HYPOTHESIS-bab659036a3c).",
+    "parent_object": "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5 / run-MAIN_RUN_RECORD-a1ae25dec69e",
+    "stop_condition": "The analysis stage ends when the empirical pass has a documented interpretation, bottleneck diagnosis, limitation statement, and a recommended next macro route."
+  },
+  "status": "ready",
+  "summary": "Read-only audit of the completed FA4 B200 experiment, interpreting whether the combined white-box predictor satisfies the goal of predicting kernel runtime from input configuration without executing the kernel.",
+  "title": "Analysis Context Brief: FA4 B200 Combined White-Box Predictor"
+}

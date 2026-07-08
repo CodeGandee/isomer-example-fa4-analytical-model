@@ -1,0 +1,4 @@
+[submodule "actors/operator"]
+	path = actors/operator
+	url = https://github.com/CodeGandee/isomer-example-fa4-analytical-model.git
+	branch = actor-operator

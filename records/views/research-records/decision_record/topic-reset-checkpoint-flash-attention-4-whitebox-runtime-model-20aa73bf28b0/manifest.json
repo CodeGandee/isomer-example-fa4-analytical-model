@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/control/topic-reset-checkpoint/v1",
+  "payload_digest": "sha256:4c14351b60f26bc30f48ede2d57bd7e631f7db9486a2baef0ed4d08aa40fee3c",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "topic-reset-checkpoint-flash-attention-4-whitebox-runtime-model-20aa73bf28b0",
+  "record_kind": "decision_record",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/control/topic-reset-checkpoint/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "topic-reset.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

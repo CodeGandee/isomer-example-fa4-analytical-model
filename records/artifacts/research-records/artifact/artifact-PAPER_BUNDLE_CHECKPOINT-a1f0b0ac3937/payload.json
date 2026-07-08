@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "bundle_stage": "draft-section-set",
+    "consumer": "review, finalize, user",
+    "next_stage": "isomer-deepsci-review",
+    "paper_surface": "bundle_manifest",
+    "placeholder": "<PAPER_BUNDLE_CHECKPOINT>",
+    "producer": "isomer-deepsci-write",
+    "skill": "isomer-deepsci-write",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "bundle_contents": [
+      {
+        "file": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-145412-write-32150288/draft-section-set.md",
+        "placeholder": "<DRAFT_SECTION_SET>",
+        "role": "draft_sections"
+      },
+      {
+        "file": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-145412-write-32150288/manuscript-validation-payload.json",
+        "placeholder": "<MANUSCRIPT_VALIDATION_REPORT>",
+        "role": "validation_report"
+      }
+    ],
+    "outstanding_items": [
+      "Generate BibTeX entries for FA4, Blackwell microbenchmarks, and white-box methodology citations.",
+      "Render Figures 1-3 from combined_predictions.csv and validation_metrics.json.",
+      "Route to isomer-deepsci-review for external review and revision."
+    ],
+    "route_decision": {
+      "next_skill": "isomer-deepsci-review",
+      "reason": "Draft is internally validated, claims stay inside the evidence boundary, and remaining gaps are production-ready for the review stage."
+    },
+    "source_evidence": [
+      "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154",
+      "decision_record-ANALYSIS_ROUTE_DECISION-21767b5a6cb1",
+      "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5",
+      "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673",
+      "artifact-SELECTED_HYPOTHESIS-bab659036a3c",
+      "artifact-EVALUATION_CONTRACT-7f255a5e6694",
+      "artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4"
+    ],
+    "source_worker_outputs": [
+      "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-130224-experiment-7f255a5e",
+      "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-130919-analysis-7f255a5e",
+      "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-144744-paper-outline-32150288"
+    ]
+  },
+  "status": "draft_ready",
+  "summary": "Checkpoint for a coherent draft-section-set manuscript ready for the review stage. Includes the draft manuscript, internal validation report, and pointers to source evidence records.",
+  "title": "Paper Bundle Checkpoint: FA4 B200 White-Box Runtime Predictor Draft"
+}

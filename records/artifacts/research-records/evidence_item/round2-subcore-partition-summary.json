@@ -1,0 +1,18 @@
+{
+  "subcore_calibration_mape_percent": 8.39,
+  "subcore_validation_mape_percent": 16.41,
+  "baseline_validation_mape_percent": 56.23,
+  "improved_validation_mape_percent": 14.89,
+  "calibration_count": 16,
+  "validation_count": 8,
+  "calibration_success": true,
+  "fit_params": {
+    "tc_efficiency": 3.0,
+    "sfu_efficiency": 0.20000799744646316,
+    "fp_efficiency": 3.0,
+    "mem_efficiency": 0.9798226856140166,
+    "partition_imbalance_factor": 1.6094252028702893,
+    "stage_overlap_factor": 0.85,
+    "launch_overhead_us": 16.39856082847466
+  }
+}

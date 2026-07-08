@@ -1,0 +1,2 @@
+# Ignore topic-owned projection content by default; keep tracked/manifests trackable.
+topic-owned/

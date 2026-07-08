@@ -1,0 +1,2 @@
+Test record created by isomer-cli ext research records create.
+Purpose: verify record creation works after the previous SQLite index error.

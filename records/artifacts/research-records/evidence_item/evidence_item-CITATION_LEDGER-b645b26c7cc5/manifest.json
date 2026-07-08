@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/citation-ledger/v1",
+  "payload_digest": "sha256:019f5ab9931f5a29732356b5df37a440c07952ef2768e9c7b8bfe9bd22716796",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "evidence_item-CITATION_LEDGER-b645b26c7cc5",
+  "record_kind": "evidence_item",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/citation-ledger/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

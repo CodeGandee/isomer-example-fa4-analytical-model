@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/evidence/parent-result-evidence/v1",
+  "payload_digest": "sha256:ca8c7c008e1806814608b0f061b77dd9e91a3209330b6c629ca1759bef26001a",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "evidence_item-PARENT_RESULT_EVIDENCE-448c9b3fb135",
+  "record_kind": "evidence_item",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/evidence/parent-result-evidence/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

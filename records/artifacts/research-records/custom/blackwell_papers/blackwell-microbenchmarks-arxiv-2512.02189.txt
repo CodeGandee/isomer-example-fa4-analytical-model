@@ -1,0 +1,1535 @@
+arXiv:2512.02189v3 [cs.AR] 2 Mar 2026
+
+Microbenchmarking NVIDIA’s Blackwell
+Architecture: An in-depth Architectural Analysis
+Aaron Jarmusch
+
+Sunita Chandrasekaran
+
+dept. of Computer Information Sciences
+University of Delaware
+Newark, US
+
+dept. of Computer Information Sciences
+University of Delaware
+Newark, US
+schandra@udel.edu
+
+Abstract—
+As GPU architectures rapidly evolve to meet the overcoming
+demands of exascale computing and machine learning, the
+performance implications of architectural innovations remain
+poorly understood across diverse workloads. NVIDIA’s Blackwell
+(B200) generation introduce significant architectural advances including the 5th-generation tensor cores, tensor memory (TMEM),
+decompression engine (DE), and dual chips; however systematic
+methodologies for quantifying these improvements lag behind
+hardware development cycles. We contribute an open-source microbenchmark suite that offers practical insights into optimizing
+workloads to fully utilize the rich feature sets of the modern GPU
+architecture. This work aims to enable application developers
+make informed architectural decisions and guide future GPU
+design directions.
+Our work studies Blackwell GPUs, compares them to H200
+generation with regards to the memory subsystem, tensor core
+pipeline and floating-point precisions (FP32, FP16, FP8, FP6,
+FP4). Our systematic evaluation of dense/sparse GEMM, transformer inference, and training workloads demonstrates that
+B200’s tensor core enhancements achieve 1.85× ResNet-50 and
+1.55× GPT-1.3B mixed-precision training throughput with 32%
+better energy efficiency than H200.
+Index Terms—Blackwell, GPU, Microbenchmark, HPC
+
+I. I NTRODUCTION
+Artificial Intelligence (AI) and high-performance computing
+(HPC) have evolved into data-intensive disciplines that continuously challenge hardware efficiency, scalability, and precision. Large language models (LLMs) now exceed hundreds of
+billions of parameters and process context windows spanning
+millions of tokens [1], [2], alongside multi-physics and climate
+simulations that demand teraflops of sustained performance,
+thus shifting GPU design to enable both massive parallel and
+architectural adaptability. At these scales, modern accelerators must balance several demands: maintaining arithmetic
+throughput for dense tensor workloads, minimizing on-chip
+and off-chip memory latency, while offering hardware primitives that effectively support mixed-precision computation.
+The growing demands have exposed several limitations
+of current GPU architectures, particularly within their memory hierarchies, precision flexibility, and latency-sensitive
+task scheduling. As a result, sustained architectural innovation in accelerators has become essential for advancing
+both throughput-optimized training and time-critical inference
+workloads. One such architecture that is designed to address
+
+some of these challenges is NVIDIA’s Blackwell architecture [3] that showcases a major generational evolution.
+As the direct successor to the Hopper generation, the Blackwell architecture extends NVIDIA’s GPU design in several
+modifications across the compute pipeline, memory hierarchy, and tensor processing subsystems. Blackwell introduces
+5th-generation tensor cores capable of FP4 and FP6 precision
+execution, offering trade-offs between accuracy and performance for large-scale training. In addition, the introduction
+of the Tensor Memory (TMEM) subsystem as a dedicated
+on-chip memory for tensor data movement reduces reliance
+on shared memory (SMEM) and per SM register files (RF)
+during matrix-intensive operations. Next, NVIDIA included a
+hardware decompression engine (DE) and redesigned the instruction pipeline for access to compressed model weights. Beyond raw compute enhancements, Blackwell also has a revised
+thread and Cooperative Thread Array (CTA) scheduling model
+to utilize inter-SM communication and memory concurrency.
+With so many changes introduced, intended to address the
+escalating demands of AI, gaming and scientific computing,
+an analysis of the microarchitecture and new instructions
+is necessary, which will provide application developers and
+scientists to achieve the highest performance possible for
+modern and future GPUs.
+This paper introduces a newly developed open-source microbenchmark suite (unable to share the code at this time
+due to double-blind), implemented in PTX and CUDA, that
+enables comprehensive architectural analysis of NVIDIA’s
+Blackwell GPU. Emphasizing innovations that distinguish it
+from Hopper, the suite systematically evaluates performance
+under stress—particularly in compute-bound and memorybound workloads—revealing implications for parallel computing applications.
+The key contributions of our work are as follows:
+• Build targeted microbenchmarks to characterize key components of NVIDIA Blackwell B200, to the best of our
+knowledge - our work is the first detailed microbenchmark characterization of this next-generation GPU.
+• Quantify TMEM’s impact on matrix-heavy workloads
+and its role in reducing memory bottlenecks in tensor
+computations.
+• Evaluate the decompression engine’s throughput across
+formats and identify optimal usage.
+
+Analyze 5th-generation tensor core execution via the
+new tcgen05 PTX instructions to study performance
+implications
+• Assess FP4/FP6 performance and accuracy trade-offs in
+mixed-precision tensor operations quantifying accuracyperformance trade-offs
+• Benchmark Blackwell across LLM inference/training,
+scientific kernels, and mixed-precision workloads to
+demonstrate real-world impact and performance gains.
+• Provide actionable performance guidelines for developers
+leveraging Blackwell’s architecture.
+•
+
+The remainder of this paper is organized as follows: Section
+II details our contributions to the current state of the art GPU
+microbenchmarks. Following, Section III presents an overview
+of the Blackwell’s B200 architecture. After which, Section
+IV details the microbenchmark methodology we employ to
+systematically characterize the Blackwell microarchitecture.
+While, Section V details the memory subsystem before Section
+VI presents the tensor core pipeline. Section VII presents
+performance analysis across key workloads and to conclude
+we discuss implications and trade-offs in Section VIII.
+
+Fig. 1. NVIDIA Blackwell GPU dual-die design interconnected via NV-HBI.
+
+III. B LACKWELL A RCHITECTURE
+In this Section, we introduce the architecture of the data
+center NVIDIA B200 GPU, based on the NVIDIA Blackwell
+Architecture, and then detail the divergence from prior designs.
+A. Blackwell Architecture
+
+II. R ELATED W ORK
+Understanding GPU performance has long been a critical
+focus in HPC research. Over the years, several studies have
+used microbenchmarks and other methodologies to dissect
+architectural layers and analyze GPU microarchitectures in
+fine-grained detail. Early studies on Tesla and Fermi focused
+on memory and cache behavior [4], [5], while later work
+dissecting Kepler, Pascal [6], and Maxwell [7] examined warp
+scheduling and instruction latency. With Turing through Hopper [8]–[15], research shifted to mixed-precision and tensor
+core performance, introducing benchmarks for mma instructions, tile sizes, and data layouts. Recent efforts also explore
+instruction-level parallelism [16], and pipeline dynamics under
+high register pressure.
+Beyond microbenchmarking, researchers built frameworks
+to characterize GPU performance. Application profiling [17]
+gathers runtime metrics but faces overhead and limited architectural visibility. Roofline models [18] offer throughput
+vs. intensity plots, yet oversimplify bottlenecks and miss dynamic memory behaviors. Cache stall prediction [19] estimates
+pipeline delays from access patterns but fails to capture modern GPU complexities like cache bypassing, warp scheduling,
+and memory coalescing.
+Analytical models like Accel-Sim [20] and GCoM [21],
+built on Hong and Kim’s work [22], offer useful GPU performance insights but neither of them model Blackwell-specific
+features like TMEM or the DE, as the detailed architectural
+information required for accurate simulation remain unknown.
+Thus, without a systematic understanding of these components, the research community lacks critical data needed for
+performance modeling, workload optimization, and accurate
+simulation of AI reasoning workloads typically needed for
+datacenter deployments.
+
+The B200 GPU signifies a decisive progression in architectural philosophy. Previously, GPU generations from Tesla to
+Hopper focused on maximizing floating-point operations per
+second (FLOPS) for large-scale model training. In contrast,
+Blackwell emphasizes post-training and inference efficiency,
+adopting transformational changes in both memory and compute organization. One B200 GPU includes a dual-die configuration [3] where two GPU dies comprise 208 billion transistors, feature 148 SMs spread across eight GPCs, provide four
+L2 cache partitions (double those in Hopper), and include eight
+HBM3e memory stacks. Though physically partitioned, both
+dies are unified by the NVIDIA High-Bandwidth Interface
+(NV-HBI) providing a coherent and single device to software,
+with unified 192 GB HBM3e memory space.
+Within each SM, Blackwell introduces 5th-generation tensor cores that break from the warp-synchronous paradigm
+characterizing earlier architectures (Volta, Ampere, Hopper).
+Previous generations enforced that all 32 threads within a warp
+synchronize before executing matrix multiply–accumulate
+(MMA) operations via the mma.sync or wgmma instructions.
+This lock-step model reduced scheduling flexibility and created idle cycles, especially for dependency chains of varying
+lengths.
+Blackwell replaces warp-synchronous MMA with
+tcgen05.mma, a single-thread instruction. Now, each
+thread independently issues MMA operations, removing
+warp-level synchronization and enabling true per-thread
+scheduling for tensor operations. Operands are now supplied
+from shared memory (SMEM) and a new memory pathway:
+Tensor Memory (TMEM). Per SM, the TMEM provides
+memory access to and from tensor cores. Allocation, data
+movement, and deallocation are explicitly managed in
+software via the tcgen PTX set of instructions, giving
+
+Blackwell’s microarchitectural features. While prior GPU
+characterization studies [4], [7], [14] established foundational
+PTX-level benchmarking principles, we extend these methodologies with novel techniques specifically designed to dissect
+Blackwell’s previously characterized components, including
+the 5th-generation tensor cores’s FP4/FP6 precision modes,
+the DE, and the revised cache hierarchy.
+Our approach leverages PTX to provide explicit control over
+registers and memory operations specific to architectures. PTX
+code is compiled into Streaming Assembler (SASS) instructions. We design dependency-controlled kernels to isolate the
+targeted behaviors, and validate the PTX-to-SASS translation.
+A. Novel Benchmark Design for Blackwell-Specific Features
+Fig. 2. Tensor Core instruction pipeline for tcgen05, wgmma, and Volta/
+Ampere architectures.
+
+compiler toolchains precise control over tile locality and
+traffic patterns.
+The flexibility of independent MMA dispatch reduces idle
+cycles and exposes optimization opportunities for the compiler,
+though it also raises questions on new performance limits:
+instruction latency under dependency, concurrency of tensor
+core usage, and pipeline saturation. These remain undocumented in vendor literature and are explored in our systematic
+characterization.
+In terms of numerical support, Blackwell’s Tensor Cores
+introduce native 4-bit and 6-bit floating-point precision (FP4
+and FP6) for quantized inference, further improving memory
+and computational efficiency for AI workloads. Architectural
+innovations extend to the thread-block level, with CTA pair
+execution: two Cooperative Thread Arrays (CTAs) with adjacent ranks share operands, reducing redundant data movement.
+Each CTA pair maps to a TPC and leverages a dedicated intraTPC communication network for efficient operand sharing.
+Further broadening the functionality, Blackwell’s Tensor
+Cores provide native support for convolution operators with
+weight-stationary dataflows that use a collector buffer to
+cache and reuse matrix B (weight tensor) operands. Hence,
+optimizing for convolutional kernels that benefit from operand
+locality. Blackwell also addresses growing model and data
+sizes by introducing a hardware-based Decompression Engine
+(DE) to offload decompression tasks from general-purpose
+SMs. This subsystem supports various algorithms, more on
+that in Section V, enabling model weights and large database
+tables to be stored in compressed form within HBM3e and
+decompressed transparently during memory access [3].
+While some architectural details are publicly disclosed, critical microarchitectural information, such as instruction latency,
+pipeline depth, cache interaction, and saturation, remains unknown. Our PTX microbenchmark experiments (Sections VVI) provide a systematic investigation to fill these knowledge
+gaps as they relate to AI and HPC performance.
+IV. PTX-M ICROBENCHMARK M ETHODOLOGY
+We employ a microbenchmarking approach based on
+NVIDIA’s Parallel Thread Execution (PTX) to characterize
+
+1) Tensor Memory (TMEM): Unlike previous architectures where MMA operations relied exclusively on SMEM,
+DSMEM, and RFs, Blackwell introduces TMEM as a dedicated on-chip memory specifically for tensor operations.
+This necessitates new data movement paradigms and presents
+unexplored opportunities for performance optimization. Understanding TMEM’s performance characteristics is critical
+for several reasons. First, traditional data movement instructions (including wmma.load, ldmatrix, ld.shared, and
+cp.async) which cannot interface with TMEM. Thus developers are required to adopt entirely new instruction sequences
+(tcgen05.ld, tcgen05.st, tcgen05.cp). Second, the
+performance implications of this new memory tier remain
+characterized, leaving application developers without guidance
+on when and how to leverage TMEM effectively.
+Our work addresses this gap by providing the first comprehensive empirical analysis of TMEM performance characteristics and their impact on real-world computational kernels.
+Our methodology comprises of three evaluation strategies.
+(a) Establish performance baselines by comparing memory
+access latencies between traditional shared memory and
+TMEM, using pointer-chase benchmarks [23]. To isolates
+access latency of each memory tier, we use dependent
+pointer-chase loads by creating dependent memory accesses that prevent pipeline overlap.
+(b) Systematically compare the new TMEM data movement
+instructions (tcgen05.* family) against their predecessors across varying access patterns.
+(c) With varying operand sizes and access strides, bandwidth
+saturation points are identified and per-access latency
+across different configurations is measured. This reveals
+both the capabilities and limitations of the new instruction
+set.
+2) Decompression Engine Characterization: To systematically characterize the B200’s hardware DE, we develop a
+custom microbenchmarking suite targeting seven compression
+formats (LZ4, Snappy, Zstandard, GZIP, Cascaded, Bitcomp,
+ANS) across controlled test conditions. We measure endto-end decompression throughput for 100MB datasets using
+each supported format. Input throughput is calculated as compressed data read rate from GPU memory; output throughput
+measures decompressed data generation rate. Latency captures
+
+complete decompression time including memory transfers. To
+isolate DE behavior from compression overhead, all datasets
+are pre-compressed on the CPU and the benchmark measures
+only device-side decompression. Each measurement averages
+1000 iterations after 100-iteration warmup to ensure thermal
+and cache stability. We generate synthetic datasets with varying entropy: random data (incompressible, 1.00x ratio), mixed
+alphanumeric (1.98x), repetitive patterns (15.02x), and zerofilled buffers (245.45x).
+We systematically vary chunk sizes (32KB, 64KB, 128KB,
+256KB) and batch concurrency (1–1024 concurrent operations) to identify optimal parallelism levels. Peak throughput is
+measured at maximum sustainable bandwidth before efficiency
+degradation. Pipeline depth represents the concurrency level
+maintaining roughly 85% efficiency (defined as throughput per
+operation / peak single-operation throughput). Saturation point
+identifies where additional concurrency yields around 5%
+marginal throughput improvement. This methodology reveals
+hardware resource limits and memory bandwidth constraints
+not documented by NVIDIA.
+3) Tensor Core Characterization: We develop custom
+GPU kernels to execute MMA operations of the form D =
+A × B + D using Blackwell’s newly introduced tensor core
+instruction set (tcgen05).
+We conduct latency and throughput measurements across
+varying instruction types, matrix tile shapes, and operand
+layouts to characterize execution pipeline behavior. To isolate
+instruction latency, we use dependency chains carried through
+the accumulator so each MMA depends on the prior result,
+preventing overlap; throughput is measured with independent MMAs to saturate the tensor-core pipeline. Power efficiency analysis compares compute throughput against boardlevel power consumption to identify energy-optimal operating
+points for different precision modes and tile configurations.
+4) Extended Precision Characterization: Unlike prior
+work focusing on FP8, FP16, and INT8 tensor operations [8],
+[11], we develop the first systematic benchmarks for Blackwell’s FP4 and FP6 MMA instructions using the tcgen05
+PTX opcode with e2m1 (FP4), e3m2 (FP6), and e2m3 (FP6)
+encoding formats. We use dependency chains carried through
+the destination operand to prevent independent issues and
+expose true dependent latency for each FP4/FP6 instruction
+variant.
+5) Workflow Benchmarks: To assess each of these individual features as well as the whole B200 we develop integrated
+workloads that exercise multiple architectural innovations simultaneously.
+First, we select the Mistral model family [24] as an LLM
+for several reasons: (1) Mistral-7B provides a representative
+dense decoder architecture with performance comparable to
+larger models, (2) Mixtral-8x7B’s Mixture-of-Experts (MoE)
+architecture exercises different dataflow patterns that stress
+Blackwell’s memory hierarchy, and (3) the Mistral family’s
+public availability enables reproducibility. The architectural
+diversity spanning dense (Mistral-7B) to sparse MoE (Mixtral-
+
+8x7B, Mixtral-8x22B) provides comprehensive coverage of
+modern LLM deployment scenarios.
+Next, we develop custom matrix multiplication kernels
+using FP64 to measure the realistic performance for scientific
+workloads. In addition, we run STREAM Triad [25] for
+memory bandwidth and SpMV tests with real-world data to
+benchmark the DE. Finally, we measure end-to-end training performance using mixed-precision training with ResNet50 [26], and GPT-1.3B [27].
+Our PTX-microbenchmark methodology, detailed above,
+provides empirical performance data unavailable in existing
+simulation frameworks of the B200’s features. By isolating
+the individual and combined effects of TMEM, the Decompression Engine, and extended-precision tensor cores, we
+provide actionable insights for researchers, HPC practitioners,
+and AI framework developers targeting memory-intensive and
+compute-intensive workloads on emerging GPU architectures.
+V. M EMORY S UBSYSTEM
+In this Section, we present a comparative evaluation of
+the memory subsystems, including TMEM and DE, through
+microbenchmarking methodologies that measure latency, saturation behavior, and sensitivity to access patterns. These
+new characteristics can significantly change data movement
+patterns and effective bandwidth utilization for workloads that
+(i) stage tensor operands/accumulators through TMEM and (ii)
+stream compressed inputs through the DE, compared to prior
+architectures.
+A. Tensor Memory (TMEM)
+The TMEM is a dedicated 256KB on-chip memory per SM
+designed solely for Tensor Core operations. Structured as a 2D
+array of 512 columns by 128 lanes of 32-bit cells, TMEM uses
+a lane-column addressing scheme [3]. The TMEM separates
+tensor core storage from registers, enabling intermediate matrix results to persist across warp groups and reducing reliance
+on registers or shared memory.
+The transition to TMEM necessitates entirely new instruction sequences, as traditional data movement instructions cannot interface with this memory tier. On Hopper, the standard
+pipeline used cp.async.bulk.tensor.2d (or TMA) for
+global-to-shared tile copies, then ldmatrix or wmma.load to
+stage operands; the wgmma instruction accepts operand A from
+registers or shared memory and operand B from shared memory (B is not staged into registers before MMA). On Blackwell, the tcgen05 instruction family replaces this entire
+sequence. The tcgen05.cp instruction handles asynchronous
+tensor data transfers into or out of TMEM. The tcgen05.ld
+and tcgen05.st instructions provide specialized load/store operations between TMEM and registers or shared memory,
+enabling fine-grained control over data placement. Importantly,
+while Hopper required A and B operand matrices to traverse
+SMEM before consumption by tensor cores, tcgen05 allows
+MMA instructions to read operands from SMEM or TMEM.
+After which, tcgen05 will write accumulator results directly
+to TMEM, creating an asymmetric but more efficient data flow.
+
+formats
+lz4
+snappy
+zstd
+gzip
+cascaded
+bitcomp
+ans
+
+Compression Ratio
+1.00x
+1.91x
+2.00x
+2.00x
+N/A
+3.00x
+N/A
+
+Input Throughput (GB/s)
+Output Throughput (GB/s)
+Latency (ms)
+Use Case
+173.23
+172.55
+0.608
+61.38
+117.24
+0.894
+Real-time
+77.50
+154.94
+0.677
+General
+42.00
+83.83
+1.251
+Legacy
+N/A
+213.42
+0.491
+154.02
+462.37
+0.227
+Scientific
+N/A
+539.21
+0.194
+TABLE I
+F ORMAT- SPECIFIC PERFORMANCE ANALYSIS REVEALING SPECIALIZED HARDWARE OPTIMIZATIONS . I NPUT THROUGHPUT MEASURES COMPRESSED
+DATA PROCESSING RATE ; OUTPUT THROUGHPUT MEASURES DECOMPRESSED DATA GENERATION RATE . L ATENCY REPRESENTS END - TO - END
+DECOMPRESSION TIME FOR 100 MB DATASETS , 64 KB CHUNK SIZE .
+
+Our instruction-level analysis across varying operand sizes
+and access strides reveals critical performance characteristics.
+TMEM achieves optimal efficiency at 64×64 element tiles
+(4KB for FP8 precision), aligning with the 256KB TMEM
+capacity per SM and fully utilizing the 1024-bit memory
+interface width. (PTX wgmma matrix shapes require M≥64,
+e.g. m64n8k16 through m64n256k16.) Tiles smaller than
+32×32 elements underutilize the wide memory interface in
+our TMEM microbenchmarks, while tiles larger than 128×128
+elements can trigger multi-phase transfers. These bandwidth
+saturation points directly inform optimal kernel design: matrix
+multiplication kernels should decompose computations into
+64×64 tiles to maximize TMEM utilization, and chained
+operations such as those in transformer attention mechanisms
+(Q×KT followed by softmax and value multiplication) should
+maintain intermediate results in TMEM to exploit the 16 TB/s
+read bandwidth for subsequent operations.
+Traditional Hopper operations exhibit a serial dependency
+chain: global memory fetch (e.g. TMA or cp.async.bulk),
+shared memory write, barrier wait, then wgmma consuming
+operands from shared (and optionally registers). On Blackwell, TMEM is software-managed via tcgen05.alloc,
+tcgen05.cp, tcgen05.ld/tcgen05.st; software uses
+tcgen05.cp to copy data into TMEM from shared memory, and tcgen05.mma can then overlap with subsequent
+tcgen05.cp for double-buffered pipelines.
+For chained matrix multiplications where D = (A×B)×C,
+keeping the intermediate result in TMEM eliminates a substantial amount of off-chip traffic relative to a Hopper-style
+design that writes intermediates back to global memory. Under
+bandwidth and traffic assumptions, this corresponds to an
+estimated ≈ 12 TB/s of data movement per SM that can be
+avoided on a fully utilized Blackwell SM.
+B. Decompression Engine (DE)
+The NVIDIA Blackwell B200 GPU introduces a dedicated
+hardware Decompression Engine (DE), marking a significant
+architectural advancement over the software-only decompression of its predecessor, the H100. This subsystem natively
+supports popular compression formats, refer to Table I, enabling accelerated data loading and preprocessing critical to
+AI and HPC workloads. The rate of decompression directly
+determines batch latency, GPU utilization, and overall system
+throughput.
+To characterize the performance of the B200’s Decompression Engine, we developed a suite of microbenchmarks target-
+
+Data Pattern
+Random
+Mixed
+Repetitive
+Zeros
+
+Compression
+Ratio
+1.00x
+1.98x
+15.02x
+245.45x
+
+Input
+(GB/s)
+173.23
+80.11
+14.63
+0.85
+
+Output
+(GB/s)
+172.55
+158.94
+219.80
+209.83
+
+Latency
+(ms)
+0.608
+0.660
+0.477
+0.500
+
+TABLE II
+C OMPRESSION RATIO SENSITIVITY ANALYSIS REVEALING THE INVERSE
+RELATIONSHIP BETWEEN EFFECTIVENESS AND INPUT BANDWIDTH . A LL
+MEASUREMENTS USE LZ4 FORMAT WITH 100MB DATASETS .
+
+ing formats across varying data sizes, compression ratios, and
+memory bandwidth conditions. This design enables controlled
+evaluation of decompression speed, latency, and overlap with
+compute compared to both software-based GPU and CPU
+decompression paths. Through our systematic benchmarking
+across multiple compression formats, we notice significant
+format-specific optimizations within the B200 DE hardware.
+Table I presents comprehensive performance metrics across
+supported formats, demonstrating throughput variations from
+42 to 462 GB/s depending on the compression algorithm. This
+indicates the dedicated optimization path for the DE. Most
+notably, Bitcomp achieves exceptional output throughput of
+462.4 GB/s with minimal latency of 0.227ms in our measurements, likely benefiting from integer-specific optimizations
+tailored for scientific workloads involving numerical data.
+All tested formats achieve sub-millisecond decompression
+latency ranging from 0.227 to 1.251ms. This demonstrates
+that the DE maintains consistent low-latency performance
+regardless of format complexity, with even the oldest algorithm
+(GZIP) achieving sub-millisecond response times. This universal low-latency capability makes the DE suitable for interactive
+applications and real-time data streaming scenarios.
+Zstandard (zstd) demonstrates balanced performance across
+data types with 77.5 GB/s input and 154.9 GB/s output
+throughput, positioning it as the optimal choice for generalpurpose workloads. In contrast, Snappy prioritizes ultra-low
+latency (0.894ms) while sacrificing peak throughput, making it
+ideal for real-time applications where response time is critical.
+GZIP, despite being an older algorithm, maintains reasonable
+performance (42.0 GB/s input, 83.8 GB/s output) while supporting legacy systems and standardized data formats.
+The data in Table II indicate that, for LZ4 on B200,
+decompressed output bandwidth is the dominant limiter rather
+than compressed-input bandwidth or DE compute capacity.
+Across patterns, the DE sustains roughly 170–220 GB/s
+of decompressed output while input bandwidth varies with
+compression ratio. For incompressible data (1.00×), the DE
+
+effectively behaves as a pass-through, so compressed input
+throughput closely matches the output rate (173.23 GB/s). For
+highly compressible data, each compressed byte expands into
+many decompressed bytes; because output bandwidth remains
+near its limit, the compressed input rate necessarily decreases
+(0.85 GB/s at 245×), following an approximate 1/C trend
+where C is the compression ratio. Thus incompressible data
+achieves higher input throughput not because input bandwidth
+is the bottleneck, but because no expansion occurs and the DE
+can forward bytes at its maximum observed output rate.
+Despite large variation in input processing rates, decompressed output throughput stays within approximately 160–
+220 GB/s across all patterns, with peak output performance
+of 219.80 GB/s on repetitive data. This consistency suggests
+that, under our test conditions, DE performance is primarily
+bounded by available output bandwidth rather than by the
+cost of decompression itself. The stable output performance
+across widely varying compression ratios is consistent with
+a decompression-throughput–bounded design for these LZ4
+workloads.
+The latency characteristics shown in Table II remain consistently low across all data patterns (0.477–0.660ms for 100MB
+datasets), demonstrating that the hardware maintains predictable response times regardless of compression complexity.
+This temporal consistency is crucial for real-time applications
+where predictable performance is more important than peak
+throughput, and suggests that the DE implements sophisticated
+workload balancing mechanisms to maintain consistent service
+levels.
+Chunk Size
+32 KB
+64 KB
+128 KB
+256 KB
+
+Peak Throughput
+(GB/s)
+55.84
+71.70
+87.67
+112.10
+
+Pipeline Depth
+(Concurrent Ops)
+1
+2
+8
+8
+
+Saturation Point
+(Batch Size)
+1024
+512
+256
+256
+
+Max Speedup
+vs Sequential
+89.11x
+60.61x
+35.77x
+47.19x
+
+TABLE III
+P IPELINE DEPTH CHARACTERISTICS ACROSS CHUNK SIZES (32–256 KB)
+ON A B200 GPU. P IPELINE DEPTH REFLECTS THE MINIMUM
+CONCURRENCY LEVEL THAT MAINTAINS APPROXIMATELY >85% OF
+PEAK THROUGHPUT. M ETHODOLOGY: 100 MB TOTAL PAYLOAD USING
+NV COMP WITH THE HARDWARE D ECOMPRESSION E NGINE ENABLED .
+
+The pipeline depth analysis in Table III shows that, on
+B200 with our nvCOMP-based benchmark, small and medium
+chunks (32–64 KB) reach near-peak throughput with shallow
+pipeline depths (1–2), while larger chunks (128–256 KB)
+benefit from deeper concurrency (depth 8). Rather than a
+strictly monotonic “smaller chunk ⇒ higher optimal depth”
+pattern, these results indicate that the effective concurrency
+needed to saturate the DE depends on both chunk size and the
+implementation’s internal scheduling strategy.
+Peak throughput increases from 55.84 GB/s at 32 KB to
+112.10 GB/s at 256 KB, even though the optimal depth grows
+from 1–2 for 32–64 KB to 8 for 128–256 KB. This suggests
+that, for small chunks, the DE and memory system can saturate
+with only a few in-flight operations per stream, whereas
+larger chunks require additional parallelism to hide per-request
+overheads and fully utilize available bandwidth. Maximum
+observed speedups relative to a single sequential request range
+
+from roughly 35.8× to 89.1×, confirming substantial benefit
+from batching and concurrency.
+The saturation-point column further illustrates how batching
+behavior changes with chunk size. For 32 KB, throughput
+continues improving up to a batch size of 1024, whereas for
+128–256 KB the best efficiency is reached by 256 in-flight
+requests. Beyond these points, additional concurrency yields
+diminishing returns, consistent with DRAM and internal-buffer
+pressure limiting further scaling.
+Single-request throughput also scales with chunk size (from
+0.63 GB/s at 32 KB to 3.13 GB/s at 256 KB in our runs),
+but aggregate throughput is dominated by how many such
+requests can be overlapped in hardware. Together, these results
+provide practical guidance for B200: applications with many
+small chunks can use low pipeline depths (1–2) and large
+batches, while large-chunk workloads should increase depth
+up to the point where throughput saturates (around depth 8 and
+batch size 256 in our configuration) without oversubscribing
+the memory subsystem.
+The combination of rising per-request throughput with
+chunk size and modest gains beyond the saturation point
+suggests that, at high utilization, DE performance is primarily
+limited by downstream memory bandwidth rather than by
+decompression compute.
+Based on our empirical characterization, the optimal utilization strategy varies with application requirements and data
+characteristics. For applications processing numerous small
+files, our B200 measurements indicate that 32–64 KB chunks
+with shallow pipeline depth (1–2) and large batch sizes (up
+to roughly 512–1024 requests) are sufficient to reach nearpeak aggregate bandwidth while keeping per-request latency
+low. Large-file workloads should leverage 128–256 KB chunks
+with deeper concurrency (depth ≈8) and batches around 256
+requests to achieve the highest observed throughput.
+VI. GPU C ORES M ICROARCHITECTURE
+In this Section, we describe our findings regarding the
+microarchitecture of the Blackwell GPU cores. Below, we
+describe in detail the microarchitecture of the tensor core
+specifically the tcgen05 instructions, CTA pair scheduling,
+and the extended precision support.
+A. 5th-Generation Tensor Cores
+Previous studies show that tensor core PTX instruction
+compiles to a set of SASS instructions (HMMA, HGMMA,
+QGMMA, IGMMA, or BGMMA) depending on operand
+precision. In table IV, we observe the tcgen05.mma PTX
+instructions compile into respective precisions while including
+new SASS instructions. Our analysis reveals that issuing a
+tcgen05 instruction compiles to their respective SASS ops
+for each precision, see table IV.
+Blackwell introduces the tcgen05.mma PTX instruction,
+which compiles to different SASS instructions depending on
+operand precision. This represents a departure from Hopper’s
+unified wgmma approach, enabling precision-specific optimizations at the hardware level.
+
+Precision
+FP16, BF16
+FP32, TF32
+FP8
+FP6
+FP4
+INT4, INT8
+FP64
+
+PTX (tcgen05.mma)
+kind::f16
+kind::tf32
+kind::mxf8 / f8f6f4
+kind::mxf6
+kind::mxf4 / mxf4nvf4
+kind::i8
+not supported
+
+SASS
+HMMA
+HMMA
+QMMA
+QMMA
+OMMA
+IMMA
+—∗
+
+wgmma
+HGMMA
+HGMMA
+QGMMA
+N/A
+N/A
+IGMMA
+DMMA
+
+TABLE IV
+PTX→SASS MAPPING FOR B LACKWELL T ENSOR C ORES .
+T C G E N 05. M M A USES DESCRIPTOR FORM ( C T A _ G R O U P ::1. K I N D ::* );
+SASS OPCODES CAN BE OBTAINED FROM CUTLASS BINARIES . ∗ FP64 IS
+NOT SUPPORTED BY T C G E N 05. M M A ; B200 FP64 USES A SEPARATE PATH
+( DOUBLED FP64 UNITS , DMMA), NOT THE TCGEN 05 TMEM PATH .
+
+Instruction
+wgmma
+wgmma
+wgmma
+tcgen05.mma
+tcgen05.mma
+tcgen05.mma
+
+Tile Shape
+m64n64k16
+m64n128k16
+m64n256k16
+m64n64k16
+m128n128k16
+m256n256k16
+
+Scope
+Warp-group
+Warp-group
+Warp-group
+Warp
+Warp
+Warp
+
+SI-LAT (cycles)
+32.0
+64.0
+128.0
+11.0
+11.3
+11.4
+
+TABLE V
+S INGLE - INSTRUCTION LATENCY (SI-LAT) COMPARISON : H OPPER
+WARP - GROUP W G M M A VS . B LACKWELL WARP - LEVEL T C G E N 05. M M A .
+FP16; TMEM FOR ACCUMULATORS ONLY.
+
+With the shift from warp-group-level (wgmma, 128 threads)
+on Hopper to warp-level (tcgen05.mma, 32 threads) execution, our benchmarks reveal in Table V the latency implications
+of this design choice. SI-LAT values are from dependencychain microbenchmarks (accumulator-carried dependency).
+The data in Table V are consistent with Blackwell achieving
+2.9–11.2× lower single-instruction latency than Hopper for the
+tile sizes measured. Latency remains nearly constant across
+tile sizes (11.0–11.4 cycles), whereas Hopper scales linearly
+with tile width. The reported cycle counts reflect instructionlevel latency from dependency-chain microbenchmarks. We
+hypothesize that tile size affects throughput rather than latency;
+pipeline depth is not directly measured, and the constant
+latency across tiles is consistent with a spatial array design
+rather than Hopper-style temporal pipelining.
+In addition, the warp-level granularity enables finer-grained
+scheduling and reduced synchronization overhead: in Hopper,
+four warps must synchronize for each wgmma operation,
+whereas Blackwell eliminates this requirement. In memorybound kernels where tensor core utilization is limited by
+data availability, reduced warp-level synchronization can improve scheduler efficiency; quantitative stall percentages are
+environment- and workload-dependent. Class C warp-group
+scaling benchmarks (Hopper: warp-groups per SM for wgmma;
+B200: warps per CTA for tcgen05.mma) collect Nsight
+Compute scheduler-stall and tensor-utilization counters.
+Expanding our analysis across supported precisions, our
+results in Table VI show that across the measured precisions,
+throughput spans 8.2× (481.6 to 3928.5 TFLOPS or TOPS),
+while latency varies by only 1.12× (11.2–12.6 cycles). This
+is consistent with throughput scaling being achieved through
+increased parallelism (wider datapaths) rather than deeper
+pipelining. Hence, the data suggest Blackwell prioritizes con-
+
+Input (A/B)
+FP16
+FP16
+BF16
+FP8
+FP8
+FP6
+FP4
+INT8
+
+Accum (C/D)
+FP16
+FP32
+FP32
+FP16
+FP32
+FP16
+FP16
+INT32
+
+Shape
+m64n8k16
+m64n8k16
+m64n8k16
+m64n8k16
+m64n8k16
+m64n8k16
+m64n8k16
+m64n8k16
+
+Latency
+11.2
+11.5
+11.4
+11.8
+12.1
+12.3
+12.6
+11.9
+
+Throughput
+964.8
+482.4
+481.6
+1925.3
+1912.8
+2567.2
+3850.1
+3928.5
+
+TABLE VI
+C OMPREHENSIVE TENSOR CORE PERFORMANCE CHARACTERIZATION
+ACROSS SUPPORTED PRECISIONS ( LATENCY IN CYCLES ; THROUGHPUT IN
+TFLOPS OR TOPS).
+
+sistent low-latency operation across all precisions, enabling
+predictable performance regardless of quantization level.
+Comparing FP16 inputs with FP16 vs. FP32 accumulators
+reveals a critical bottleneck that FP32 accumulation halves
+throughput (964.8 → 482.4 TFLOPS). This indicates the
+accumulator datapath, not the multiply units, limits throughput,
+also noted in the previous sections. Meaning a trade-off is that
+applications requiring high numerical precision must sacrifice
+50% performance, while inference workloads using FP16
+accumulators achieve maximum throughput.
+INT8 (3928.5 TOPS) exceeds FP8 (1912.8 TFLOPS), and
+FP4 (3850.1 TFLOPS) outperforms FP8. This advantage suggests both integer and floating-point operations share the same
+execution units, with integer formats requiring marginally
+simpler control logic. With most precisions showing a similar
+latency (Table VI), this is consistent with a similar pipeline
+and increased parallelism improving throughput.
+B. Extended Precision Support: FP4 and FP6
+One of Blackwell’s most significant improvements is native
+hardware support for FP4 and FP6 (6-bit floating-point) data
+types. FP4 tensor operations are verified via CUTLASS disassembly, which shows the OMMA instruction. FP6 is documented
+to map kind::mxf6 to QMMA per the PTX ISA (Table IV).
+Table VI shows latency (12.6 cycles for FP4/FP16, 12.3 for
+FP6/FP16) and throughput (3850.1 and 2567.2 TFLOPS at
+m64n8k16). The FP4/FP16 and FP6/FP16 configurations use
+FP32 accumulation (PTX .f32 output); reported throughput
+values include accumulator datapath costs.
+The FP4 format uses 1 sign bit, 2 exponent bits, and 1
+mantissa bit as e2m1. Available on Blackwell are MXFP4,
+microscaling floating-point [28], and NVFP4, from NVIDIA.
+MXFP4 enhances low-precision training by dividing data
+into blocks of size 32, with each using a scale with E8M0
+format. On the other hand NVFP4 divides data into blocks
+of size 16 and uses e4m3 format for scales, providing finergrained scaling. Work by Chmiel et. al [29] provides a more
+indepth comparison. While this extremely limited precision
+might seem impractical, recent quantization research has
+demonstrated that for inference workloads FP4 can maintain
+acceptable accuracy [30]. Blackwell’s FP4 path integrates any
+necessary precision conversion within the MMA pipeline;
+reported latency (12.6 cycles) and throughput (96.2% of peak)
+include the complete FP4 execution path. We do not measure
+dequantization as a standalone operation.
+
+Precision
+FP64
+FP32
+TF32
+BF16
+FP16
+FP8
+FP6
+FP4
+INT8
+
+B200
+44.8
+482.0
+964.5
+1926.4
+1929.6
+3850.6
+5134.4
+7700.2
+3928.5
+
+% Peak
+99.6%
+96.4%
+96.5%
+96.3%
+96.5%
+96.3%
+96.0%
+96.2%
+98.2%
+
+H200
+34.0
+378.4
+756.9
+1513.5
+1515.2
+3026.9
+N/A
+N/A
+3088.4
+
+Speedup
+1.32×
+1.27×
+1.27×
+1.27×
+1.27×
+1.27×
+New
+New
+1.27×
+
+TABLE VII
+T ENSOR CORE THROUGHPUT BY PRECISION (TFLOPS). % P EAK
+RELATIVE TO THEORETICAL PEAK ; B200 VS . H200 SPEEDUP FROM SAME
+WORKLOAD .
+
+On the other hand, FP6 provides a middle ground, using
+1 sign bit, 3 exponent bits, and 2 mantissa bits. This format
+offers significantly better dynamic range than FP4 while still
+providing 1.33× memory and bandwidth savings compared
+to FP8. Table VII shows effective throughput for different
+precision modes (FP6: 5134.4 TFLOPS, 96.0% peak; FP4:
+7700.2 TFLOPS, 96.2% peak).
+Our achieved throughput is consistent with architectural
+specifications when compared to theoretical peak (peak =
+#SMs×tensor ops per cycle×clock rate). At the reported
+matrix dimensions, we observe 3850.6 TFLOPS in FP8 mode
+(96.3% of theoretical peak) and 7700.2 TFLOPS in FP4
+(96.2% of peak), see Table VII. With 96–99% of theoretical
+peak across all precisions in our runs, tensor cores are not the
+bottleneck; memory bandwidth and kernel launch overhead
+dominate.
+In Section VII, we analyze the use of tensor cores, TMEM,
+and DE for different real-world workloads.
+VII. P ERFORMANCE A NALYSIS & C ASE S TUDIES
+This section presents a comprehensive empirical evaluation of GPU performance across three critical workload
+categories: LLM inference, scientific computing applications,
+and mixed-precision neural-network training. Our analysis
+quantifies the performance benefits of architectural innovations
+in the NVIDIA B200 compared to the H200 baseline. The reported speedups are directly informed by our microbenchmark
+findings: TMEM latency and bandwidth (Section V) explain
+improved fused-attention and tensor-resident accumulation;
+DE output-bandwidth behavior (Section V) underlies SpMV
+and compressed-data workloads; and 5th-generation tensor
+core latency and precision scaling (Section VI) drive the LLM
+and training gains below.
+A. Experimental Methodology
+Each reported metric represents the average of 100 iterations
+following a 10-iteration warm-up period to eliminate cold-start
+effects. Latency measurements include median, 95th percentile
+(P95), and 99th percentile (P99) values to capture tail behavior characteristics. Energy consumption is monitored using
+the NVIDIA Management Library (NVML) API with 10ms
+sampling intervals to provide high-resolution power profiling.
+Software and environment. All experiments use
+CUDA 12.6 (B200 and H200), cuBLAS/cuBLASLt from
+
+the same toolkit, and PyTorch 2.4 with Transformer Engine
+where applicable for LLM inference and training. DGEMM
+and STREAM runs use the same CUDA driver (560.x)
+and compiler (nvcc 12.6). We report L2 cache hit rates
+(e.g., in Section VII.B) from NVIDIA Nsight Compute
+memory-workload analysis; the reported 68–84% range is
+derived from the l2tex_throughput and global memory
+throughput counters over the kernel execution.
+B. Large Language Model Inference
+1) Precision Mode Impact: We evaluate four quantization
+approaches to assess their impact on inference throughput
+and model quality: FP16 (baseline), FP8 (E4M3 with pertensor dynamic), and FP4 (E2M1 weight-only with NVFP4
+block-16, FP8 activations). All experiments use a standardized
+configuration of batch size 32 and sequence length 2048
+tokens, as presented in Table VIII.
+Our findings reveal that lower-precision formats achieve performance gains over the FP16 baseline. Specifically, FP8 and
+FP4 deliver throughput improvements over the FP16 baseline
+for Mistral-7B. While these gains approach the theoretical
+bandwidth, 2 and 4, they represent practical speedups achievable in real workloads. The performance scaling is enabled by
+reduced memory traffic and improved cache locality, with L2
+hit rates increasing from 68% to 84% as precision decreases.
+In addition, as the precision decreases, workloads shift from
+being memory-bound limited to compute-throughput limited.
+This is evidenced by bandwidth utilization decreasing from
+67.3% (FP16) to 47.6% (FP4) on the B200, indicating that
+lower precision formats better utilize the available compute
+resources rather than being bottlenecked by memory subsystem performance.
+Sparse mixture-of-experts models demonstrate amplified
+benefits from quantization compared to dense models. For
+FP4 quantization, Mixtral-8x7B achieves 2.69× throughput
+improvement (76,900 tok/s vs 31,033 tok/s FP16 baseline,)
+compared to 2.50× for the dense Mistral-7B model. This
+additional benefit stems from quantization enabling more
+efficient expert weight caching and reduced overhead in the
+expert routing mechanism.
+The B200 maintains consistent performance advantages
+over the H200 across all precision modes where both architectures support the format. For both FP16 and FP8, the
+B200 delivers 1.57–1.59× higher throughput than the H200
+(Table VIII, Section VI). This scaling factor is consistent with
+combined contributions from increased SM count (1.09×),
+enhanced tensor core efficiency (1.27×; see Table VII), and
+improved effective memory bandwidth (1.23×); we have not
+directly measured this decomposition.
+Lastly, while quantization delivers substantial performance
+benefits, it comes with measurable but often acceptable quality
+degration. FP8 incurs minimal perplexity increases (+1.9%
+to +2.4% across models), while FP4 shows larger but still
+practical degradation (+7.7% to +9.1%)
+2) Batch Size Sensitivity: To understand the relationship
+between batch size and inference latency, we conducted a
+
+Model
+Mistral-7B
+
+Mixtral-8x7B
+
+Precision
+FP16
+FP8
+FP4
+FP16
+FP8
+FP4
+
+B200 tok/s
+56,028
+57,125
+112,800
+31,033
+51,200†
+76,900
+
+H200 tok/s
+28,500
+49,200
+N/A
+18,100
+32,400
+N/A
+
+Speedup
+1.97×
+1.16×
+N/A
+1.71×
+1.58×
+N/A
+
+B200 BW%
+67.3
+58.4
+47.6
+72.1
+61.8
+49.1
+
+H200 BW%
+71.2
+62.8
+N/A
+76.4
+65.2
+N/A
+
+Perplexity
+6.82
+6.95
+7.38
+5.94
+6.08
+6.48
+
+∆PPL
+—
++1.9%
++8.2%
+—
++2.4%
++9.1%
+
+TABLE VIII
+LLM I NFERENCE P ERFORMANCE ACROSS P RECISION M ODES (BATCH S IZE 32, S EQUENCE L ENGTH 2048).
+
+Batch Size
+1
+2
+4
+8
+16
+32
+
+B200 (ms)
+12.3
+14.8
+19.2
+28.6
+47.1
+89.3
+
+H200 (ms)
+18.7
+22.1
+28.4
+41.3
+67.8
+128.4
+
+Ratio
+1.52×
+1.49×
+1.48×
+1.44×
+1.44×
+1.44×
+
+B200 tok/s
+166,504
+276,757
+426,667
+572,727
+696,178
+734,264
+
+TABLE IX
+L ATENCY VS . BATCH S IZE (M IXTRAL -8 X 7B, FP8, 2048 TOKENS )
+
+comprehensive analysis using Mixtral-8x7B in FP8 precision
+across varying batch sizes. The results, presented in Table IX,
+reveal distinct operational modes in the inference pipeline.
+The B200 achieves superior performance improvements
+of 1.48 − 1.52× over the H200, exceeding the 1.44× improvement observed at higher batch sizes. This performance
+most likely stems from automatic pipeline reconfiguration that
+reduces processing stages from 18-20 to 8-10 stages, enabling
+sub-20ms latency. When at higher batch sizes, the system optimizes for maximum throughput rather than per-request latency,
+stabilizing the performance ratio at 1.44×. While individual
+request latency increases, overall system throughput continues
+to improve, reaching peak efficiency around batch size 32. In
+addition, the B200 demonstrates more consistent performance
+with P99/median latency ratios of 1.12-1.14 compared to 1.231.38 for H200. Improved tail behavior is vital for production
+environments demanding consistent response times.
+C. Scientific Computing Workload
+1) FP64 Performance: Scientific computing applications
+present fundamentally different computational characteristics compared to deep learning workloads, needing highprecision arithmetic, sustainable memory bandwidth, and irregular access patterns. We evaluate dense matrix multiplication (DGEMM) performance using double-precision FP
+arithmetic (FP64), which remains essential for scientific simulations requiring numerical accuracy. Table XII presents our
+results across varying matrix dimensions. The B200 achieves
+36.3 TFLOPS at large matrix size, representing 80.7% utilization of its 40 TFLOPS theoretical peak [31], compared
+to the H200’s 18.9 TFLOPS (55.6% of 34 TFLOPS). PTX
+tcgen05.mma does not support FP64 (documented precisions are tf32, f16/bf16, i8/u8, and f4/f6/f8), so FP64 DGEMM
+uses a different execution path. The additional 45% efficiency
+improvement (1.92/1.32 = 1.45×) is attributed to doubled
+FP64 units and improved memory access coalescing.
+2) Sustained Memory Bandwidth: Memory-intensive scientific applications require sustained high-bandwidth data
+
+movement capabilities. We employ the STREAM Triad benchmark to measure achievable memory bandwidth. Table XIII
+reports results from our B200 runs. Triad uses three arrays, so
+64 GB and 128 GB array sizes would require device memory
+≥192 GB and ≥384 GB respectively; our evaluation node had
+insufficient memory for those sizes, so we report only 4–
+16 GB. At 4–16 GB working sets, B200 achieves ∼4.14 TB/s
+(∼52% of 8 TB/s peak). Larger arrays would be needed to
+approach peak bandwidth but require devices with ≥192 GB
+memory for 64 GB and ≥384 GB for 128 GB in our benchmark
+setup.
+3) Sparse Operations: Irregular patterns in FEM and graph
+workloads challenge GPUs tuned for regular execution; we
+sparse matrix-vector multiplication (SpMV) using decompression features, see Table XIV.
+Using compressed sparse
+representations (software compression), SpMV achieves an
+estimated 3.16× speedup over an uncompressed baseline in
+our benchmarks; run-length encoding (RLE) yields approximately 8.2× compression ratio for sparse row pointer arrays. Hardware decompression engine (DE) characterization
+- throughput, latency, and pipeline depth - is presented in
+Section V.
+D. Mixed-Precision Training: End-to-End Training Performance
+We present comprehensive training benchmarks across different model architectures to assess the practical impact of
+architectural improvements in realistic training scenarios, as
+summarized in Table XI. Training speedup decomposes into
+SM count (1.09×), CTA pairing (1.27×), and TMEM (1.26×).
+Energy efficiency improves for GPT training despite higher
+power consumption.
+VIII. D ISCUSSION
+Table X provides a comprehensive overview of performance
+improvements across all evaluated workload categories, highlighting the specific architectural features responsible for each
+performance gain.
+Architectural Tradeoffs: TMEM, dual-mode tensor cores,
+and decompression increase transistor count (208B vs. 180B)
+but deliver 1.5–3.9× gains. The 256KB TMEM per SM (10%
+of SM memory) achieves 61–82% hit rates in our characterization. Tradeoffs and drawbacks: (1) TMEM addresses
+register pressure and L2 traffic but requires explicit allocation
+and tcgen05 data movement; kernels must be rewritten for
+Blackwell. (2) The DE is output-bandwidth-limited; on highly
+compressible data, compressed input throughput drops (e.g.,
+
+Workload
+LLM Inf. (7B, FP4)
+LLM Inf. (8x7B, FP8)
+LLM Inf. (BS=1, FP8)
+Attention Block
+HPC DGEMM (FP64)
+STREAM Triad (4–16 GB)
+SpMV (compressed)
+GPT Training (1.3B)
+ResNet Training
+Energy Eff. (Training)
+
+Metric
+tok/s
+tok/s
+Latency (ms)
+Latency (µs)
+TFLOPS
+BW (TB/s)
+GFLOPS
+tok/s
+img/s
+tok/s/W
+
+B200
+112,800
+51,200
+12.3
+284
+36.3
+4.14
+5.08
+14,363
+2,928
+20.63
+
+H200
+N/A
+32,400
+18.7
+468
+18.9
+–
+3.2
+9,240
+1,580
+15.6
+
+Improvement
+2.50× vs FP16
+1.58×
+1.52×
+1.65×
+1.92×
+–
+1.58×
+1.55×
+1.85×
+1.32×
+
+Key Feature
+FP4 Tensor Cores
+5th Gen TC, TMEM
+Latency pipeline
+TMEM
+Doubled FP64 units
+HBM3e (B200 only)
+Decomp engine
+CTA pairs, TMEM, TC
+5th Gen TC, mem BW
+Process, efficiency
+
+TABLE X
+P ERFORMANCE S UMMARY ACROSS W ORKLOADS . STREAM: B200 ONLY, 4–16 GB; SEE TABLE XIII. T RAINING : B200 R ES N ET-50 AND GPT-1.3B.
+
+Model
+
+Batch Size
+
+ResNet-50
+GPT-1.3B
+GPT-1.3B
+
+1024
+128
+64
+
+B200
+Throughput
+2,928 img/s
+14,363 tok/s
+14,121 tok/s
+
+H200
+Throughput
+1,580 img/s
+9,240 tok/s
+9,070 tok/s
+
+Ratio
+1.85×
+1.55×
+1.55×
+
+Time to Acc
+B200 (hrs)
+0.87
+5,788
+5,893
+
+Time to Acc
+H200 (hrs)
+1.62
+9,020
+9,184
+
+Energy
+Eff (B200)
+5.09 img/s/W
+20.63 tok/s/W
+20.27 tok/s/W
+
+TABLE XI
+E ND - TO -E ND T RAINING P ERFORMANCE . R ES N ET-50 B200 2,928 IMG / S (AMP); GPT-1.3B STEADY- STATE TOK / S AND ENERGY FROM SAME RUN .
+
+Size
+81923
+163843
+327683
+
+B200
+(TFLOPS)
+35.45
+36.14
+36.30
+
+H200
+Ratio
+B200
+(TFLOPS)
+% Peak
+18.2 1.95×
+78.8
+18.7 1.93×
+80.3
+18.9 1.92×
+80.7
+TABLE XII
+DGEMM FP64 P ERFORMANCE
+
+H200
+% Peak
+53.5
+55.0
+55.6
+
+Array Size B200 (TB/s) B200 % peak
+4 GB
+4.141
+51.8
+16 GB
+4.140
+51.8
+TABLE XIII
+STREAM T RIAD M EMORY BANDWIDTH . M EASURED ON B200 WITH
+4 GB AND 16 GB ARRAY SIZES ; PEAK 8 TB/ S .
+
+1/C scaling), so DE use is most beneficial when decompressed output, not input bandwidth, is the bottleneck. (3) PTX
+tcgen05.mma does not support FP64; FP64 DGEMM uses
+a different path (e.g., doubled FP64 units), so TMEM does
+not directly improve FP64 scientific kernels.
+Software Ecosystem: CUDA 13.0 provides preliminary
+TMEM/CTA support; framework integration ongoing. FP6
+hardware support exists but lacks software tooling. FP4/FP6
+require per-layer precision selection—8.2% perplexity degradation for FP4 represents averages; some layers tolerate FP4
+while others need FP8.
+Performance guidelines. We consolidate actionable recommendations: (a) Use TMEM for accumulator staging and
+multi-stage tensor pipelines (e.g., fused attention QKT then
+softmax then value) when working sets exceed L1; for singleshot small matrices, minimize TMEM round-trips. (b) Scale
+DE usage with compression ratio: expect ∼170–220 GB/s
+decompressed output; compressed input rate scales inversely
+with ratio. (c) Leverage warp-level tcgen05.mma and CTApair execution for GEMM and LLM inference; target 64×64
+tiles for TMEM. (d) For LLM inference, FP8 balances
+throughput and quality; FP4 yields higher throughput with
+
+Matrix
+Sparsity GFLOPS Speedup Avg Time (ms)
+webbase-1M 99.99%
+5.08
+3.16×
+39.32
+circuit5M
+99.95%
+4.94
+3.16×
+201.44
+ldoor
+99.98%
+5.03
+3.16×
+71.93
+TABLE XIV
+S P MV WITH H ARDWARE D ECOMPRESSION ON B200
+
+acceptable perplexity increase when validated per model.
+Deployment: For LLM inference, B200 provides 1.8–3.9×
+advantages; FP4 practical for 70B models. Training improvements (1.85× ResNet-50, 1.55× GPT-1.3B) enable larger
+batches. HPC gains (1.92× FP64) competitive for scientific
+computing.
+IX. C ONCLUSION
+NVIDIA’s B200 GPU marks a major shift in GPU architectures. Our work presents the first detailed microbenchmark
+suite-based characterization of the NVIDIA Blackwell B200
+GPU. Our work offers insights into its architectural innovations and performance behavior. We quantify the impact of
+TMEM on matrix-heavy workloads, evaluate the throughput
+and optimal usage of the hardware decompression engine,
+and analyze 5th-generation tensor core execution via the new
+tcgen05 PTX instructions. Our study further assesses FP4
+and FP6 precision trade-offs, benchmarks Blackwell across
+diverse workloads—including LLM inference, scientific kernels, and mixed-precision training—and distills actionable
+performance guidelines for developers targeting this nextgeneration architecture. Our experiments primarily exercised
+single-die behavior; dual-die (NV-HBI) interactions and crossdie latency remain as future work.
+ACKNOWLEDGMENT
+This research used resources from the NVIDIA Brev Cloud
+Compute and the Google Cloud Provider. This material is
+
+based upon work supported by the U.S. DOE under Contract
+DE-FOA-0003177, S4PST: Next Generation Science Software
+Technologies Project.
+R EFERENCES
+[1] Y. Ding, L. L. Zhang, C. Zhang, Y. Xu, N. Shang, J. Xu, F. Yang, and
+M. Yang, “Longrope: Extending llm context window beyond 2 million
+tokens,” arXiv preprint arXiv:2402.13753, 2024. [Online]. Available:
+https://doi.org/10.48550/arXiv.2402.13753
+[2] D. Kevian, U. Syed, X. Guo, A. Havens, G. Dullerud, P. Seiler,
+L. Qin, and B. Hu, “Capabilities of large language models in control
+engineering: A benchmark study on gpt-4, claude 3 opus, and gemini
+1.0 ultra,” 2024. [Online]. Available: https://arxiv.org/abs/2404.03647
+[3] NVIDIA Corporation, NVIDIA Blackwell Architecture Technical Brief:
+Powering the New Era of Generative AI and Accelerated Computing,
+NVIDIA, Mar. 2024. [Online]. Available: https://resources.nvidia.com/
+en-us-blackwell-architecture
+[4] H. Wong, M.-M. Papadopoulou, M. Sadooghi-Alvandi, and
+A. Moshovos, “Demystifying gpu microarchitecture through
+microbenchmarking,” in 2010 ISPASS, 2010, pp. 235–246.
+[5] S. Subramoniapillai Ajeetha, “Architectural analysis and performance
+characterization of nvidia gpus using microbenchmarking,” Ph.D.
+dissertation, The Ohio State University, The Ohio State University,
+2012. [Online]. Available: http://rave.ohiolink.edu/etdc/view?acc num=
+osu1344623484
+[6] X. Zhang, G. Tan, S. Xue, J. Li, K. Zhou, and M. Chen, “Understanding
+the gpu microarchitecture to achieve bare-metal performance tuning,”
+in Proceedings of the 22nd ACM SIGPLAN SPPPP, ser. PPoPP ’17.
+New York, NY, USA: ACM, 2017, p. 31–43. [Online]. Available:
+https://doi.org/10.1145/3018743.3018755
+[7] X. Mei and X. Chu, “Dissecting gpu memory hierarchy through microbenchmarking,” IEEE TPDS, vol. 28, no. 1, pp. 72–86, 2017.
+[8] M. Fasi, N. J. Higham, M. Mikaitis, and S. Pranesh, “Numerical
+behavior of NVIDIA tensor cores,” PeerJ Computer Science, vol. 7, p.
+e330, 2021. [Online]. Available: https://doi.org/10.7717/peerj-cs.330
+[9] Z. Jia, M. Maggioni, J. Smith, and D. P. Scarpazza, “Dissecting the
+nvidia turing T4 GPU via microbenchmarking,” CoRR, vol. 1903.07486,
+2019. [Online]. Available: http://arxiv.org/abs/1903.07486
+[10] G. Tan, L. Li, S. Triechle, E. Phillips, Y. Bao, and N. Sun, “Fast
+implementation of dgemm on fermi gpu,” in Proceedings of SC 2011,
+ser. SC ’11. New York, NY, USA: ACM, 2011. [Online]. Available:
+https://doi.org/10.1145/2063384.2063431
+[11] S. Markidis, S. W. D. Chien, E. Laure, I. B. Peng, and J. S. Vetter,
+“Nvidia tensor core programmability, performance &amp; precision,”
+in 2018 IEEE IPDPSW. IEEE, May 2018, p. 522–531. [Online].
+Available: http://dx.doi.org/10.1109/IPDPSW.2018.00091
+[12] M. Martineau, P. Atkinson, and S. McIntosh-Smith, “Benchmarking the
+nvidia v100 gpu and tensor cores,” in Euro-Par 2018: Parallel Processing Workshops, G. Mencagli, D. B. Heras, V. Cardellini, E. Casalicchio,
+E. Jeannot, F. Wolf, A. Salis, C. Schifanella, R. R. Manumachu, L. Ricci,
+M. Beccuti, L. Antonelli, J. D. Garcia Sanchez, and S. L. Scott, Eds.
+Cham: Springer International Publishing, 2019, pp. 444–455.
+[13] M. A. Raihan, N. Goli, and T. M. Aamodt, “Modeling deep learning
+accelerator enabled gpus,” in 2019 IEEE ISPASS, 2019, pp. 79–92.
+[14] D. Yan, W. Wang, and X. Chu, “Demystifying tensor cores to optimize
+half-precision matrix multiply,” in 2020 IEEE International Parallel and
+Distributed Processing Symposium (IPDPS), 2020, pp. 634–643.
+[15] W. Luo, R. Fan, Z. Li, D. Du, H. Liu, Q. Wang, and X. Chu,
+“Dissecting the nvidia hopper architecture through microbenchmarking
+and multiple level analysis,” 2025. [Online]. Available: https:
+//arxiv.org/abs/2501.12084
+[16] W. Sun, A. Li, T. Geng, S. Stuijk, and H. Corporaal, “Dissecting
+tensor cores via microbenchmarks: Latency, throughput and numeric
+behaviors,” IEEE TPDS, vol. 34, no. 1, pp. 246–261, 2023.
+[17] B. R. Coutinho, G. L. M. Teodoro, R. S. Oliveira, D. O. G. Neto, and
+R. A. C. Ferreira, “Profiling general purpose gpu applications,” in 2009
+21st ISCA and HPC, 2009, pp. 11–18.
+[18] M. Leinhauser, R. Widera, S. Bastrakov, A. Debus, M. Bussmann,
+and S. Chandrasekaran, “Metrics and design of an instruction
+roofline model for amd gpus,” 2021. [Online]. Available: https:
+//arxiv.org/abs/2110.08221
+
+[19] W. Jia, K. A. Shaw, and M. Martonosi, “Characterizing and improving
+the use of demand-fetched caches in gpus,” in Proceedings of the
+26th ACM International Conference on Supercomputing, ser. ICS ’12.
+New York, NY, USA: ACM, 2012, p. 15–24. [Online]. Available:
+https://doi.org/10.1145/2304576.2304582
+[20] M. Khairy, Z. Shen, T. M. Aamodt, and T. G. Rogers, “Accel-sim:
+An extensible simulation framework for validated gpu modeling,” in
+2020 ACM/IEEE 47th Annual International Symposium on Computer
+Architecture (ISCA), 2020, pp. 473–486.
+[21] J. Lee, Y. Ha, S. Lee, J. Woo, J. Lee, H. Jang, and Y. Kim, “Gcom:
+a detailed gpu core model for accurate analytical modeling of modern
+gpus,” in Proceedings of the 49th Annual ISCA, ser. ISCA ’22.
+New York, NY, USA: ACM, 2022, p. 424–436. [Online]. Available:
+https://doi.org/10.1145/3470496.3527384
+[22] S. Hong and H. Kim, “An analytical model for a gpu architecture
+with memory-level and thread-level parallelism awareness,” SIGARCH
+Comput. Archit. News, vol. 37, no. 3, p. 152–163, Jun. 2009. [Online].
+Available: https://doi.org/10.1145/1555815.1555775
+[23] V. Volkov and J. W. Demmel, “Benchmarking gpus to tune dense
+linear algebra,” in Proceedings of the 2008 ACM/IEEE Conference on
+Supercomputing, ser. SC ’08. IEEE Press, 2008.
+[24] A. Q. Jiang, A. Sablayrolles, A. Mensch, C. Bamford, D. S. Chaplot,
+D. de las Casas, F. Bressand, G. Lengyel, G. Lample, L. Saulnier,
+L. R. Lavaud, M.-A. Lachaux, P. Stock, T. L. Scao, T. Lavril, T. Wang,
+T. Lacroix, and W. E. Sayed, “Mistral 7b,” 2023. [Online]. Available:
+https://arxiv.org/abs/2310.06825
+[25] J. D. McCalpin, “Memory bandwidth and machine balance in current
+high performance computers,” IEEE Computer Society Technical Committee on Computer Architecture (TCCA) Newsletter, pp. 19–25, Dec.
+1995.
+[26] K. He, X. Zhang, S. Ren, and J. Sun, “Deep residual learning for image
+recognition,” 2015. [Online]. Available: https://arxiv.org/abs/1512.03385
+[27] L. Gao, S. Biderman, S. Black, L. Golding, T. Hoppe, C. Foster,
+J. Phang, H. He, A. Thite, N. Nabeshima et al., “The pile: An
+800gb dataset of diverse text for language modeling,” arXiv preprint
+arXiv:2101.00027, 2020.
+[28] B. D. Rouhani, R. Zhao, A. More, M. Hall, A. Khodamoradi,
+S. Deng, D. Choudhary, M. Cornea, E. Dellinger, K. Denolf, D. Stosic,
+V. Elango, M. Golub, A. Heinecke, P. James-Roxby, D. Jani,
+G. Kolhe, M. Langhammer, A. Li, L. Melnick, M. Mesmakhosroshahi,
+A. Rodriguez, M. Schulte, R. Shafipour, L. Shao, M. Y. Siu,
+P. Dubey, P. Micikevicius, M. Naumov, C. Verilli, R. Wittig,
+D. Burger, and E. S. Chung, “Microscaling data formats for deep
+learning,” ArXiv, vol. abs/2310.10537, 2023. [Online]. Available:
+https://api.semanticscholar.org/CorpusID:264146384
+[29] B. Chmiel, M. Fishman, R. Banner, and D. Soudry, “Fp4 all the
+way: Fully quantized training of llms,” 2025. [Online]. Available:
+https://arxiv.org/abs/2505.19115
+[30] T. Dettmers and L. Zettlemoyer, “The case for 4-bit precision:
+k-bit inference scaling laws,” 2023. [Online]. Available: https:
+//arxiv.org/abs/2212.09720
+[31] N. Corporation, “Nvidia blackwell b200 datasheet,” https:
+//www.primeline-solutions.com/media/categories/server/nach-gpu/
+nvidia-hgx-h200/nvidia-blackwell-b200-datasheet.pdf, 2024, accessed:
+Oct. 9, 2025.
+
+

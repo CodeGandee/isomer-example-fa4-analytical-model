@@ -1,0 +1,19 @@
+{
+  "recommendation": "finalize after minor text fixes",
+  "status": "ready",
+  "strengths": [
+    "Clear distinction between emulator preliminary and real-hardware final results",
+    "All main numerical claims map to metrics.json or analysis-campaign-summary records",
+    "NCU profiling methodology is described in reproducible detail",
+    "Tables and figures are consistent with source data",
+    "Limitations are explicit"
+  ],
+  "summary": "Independent claim-evidence audit of the revised real-hardware manuscript.",
+  "title": "Review Report: White-Box FA4 B200 Predictor on Real Hardware",
+  "weaknesses": [
+    "All NCU labels are compute-bound; memory-bound validation pending",
+    "Worst-case APEs occur for very small runtimes; relative-error fairness could be questioned",
+    "No PDF toolchain; bundle is Markdown only",
+    "References should be verified before external submission"
+  ]
+}

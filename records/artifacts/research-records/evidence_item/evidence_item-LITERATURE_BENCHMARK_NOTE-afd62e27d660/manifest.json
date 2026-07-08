@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/review/literature-benchmark-note/v1",
+  "payload_digest": "sha256:5eadea95fc05138c84067a38490bff3b0cb586c4b9c1bda096219abf0c19a7b4",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "evidence_item-LITERATURE_BENCHMARK_NOTE-afd62e27d660",
+  "record_kind": "evidence_item",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/review/literature-benchmark-note/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}

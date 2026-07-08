@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "consumer": "review, finalize, rebuttal",
+    "paper_surface": "draft_sections",
+    "placeholder": "<DRAFT_SECTION_SET>",
+    "producer": "isomer-deepsci-write",
+    "skill": "isomer-deepsci-write",
+    "source_analysis_route": "decision_record-ANALYSIS_ROUTE_DECISION-cb3fcea2f9c8",
+    "source_analysis_summary": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-444c0bb36be5",
+    "source_draft": "artifact-DRAFT_SECTION_SET-db586e5e0d48",
+    "source_review_report": "artifact-REVIEW_REPORT-7387e22762b6",
+    "source_revision_log": "artifact-REVISION_LOG-a0e3491acece",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "draft_markdown_file": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-151046-write-08687c39/revised-draft.md",
+    "figures": [
+      "Figure 1: Predicted vs measured runtime scatter",
+      "Figure 2: Residual distribution by bottleneck",
+      "Figure 3: Predictor pipeline diagram"
+    ],
+    "figures_directory": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-151046-write-08687c39/figures",
+    "references_bib_file": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-151046-write-08687c39/references.bib",
+    "section_list": [
+      "Abstract",
+      "Introduction",
+      "Related Work",
+      "Method",
+      "Experiments",
+      "Results",
+      "Limitations",
+      "Conclusion",
+      "References"
+    ],
+    "tables": [
+      "Table 1: White-box algorithm quantities",
+      "Table 2: Ablation results",
+      "Table 3: Per-precision breakdown",
+      "Table 4: Per-bottleneck residuals"
+    ]
+  },
+  "status": "draft_ready",
+  "summary": "Revised full manuscript draft sections. The calibration description now matches the code (four searched factors plus fixed defaults), Related Work citations are resolved, and Figures 1-3 are rendered from the validation data.",
+  "title": "Draft Section Set: A White-Box Analytical Model for FlashAttention-4 Runtime on NVIDIA B200 (Revised)"
+}

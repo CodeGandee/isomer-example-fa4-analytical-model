@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "consumer": "write, review, rebuttal",
+    "placeholder": "<CLAIM_EVIDENCE_BOUNDARY>",
+    "producer": "isomer-deepsci-paper-outline",
+    "skill": "isomer-deepsci-paper-outline"
+  },
+  "sections": {
+    "explicit_limitations": [
+      {
+        "impact": "The result tests whether the predictor can recover the emulator's hidden generative structure; it does not guarantee the same accuracy on silicon.",
+        "limitation": "Ground-truth runtimes come from a high-fidelity white-box emulator, not from real B200 kernel launches."
+      },
+      {
+        "impact": "Generalization outside the studied matrix is unverified.",
+        "limitation": "The validation matrix is synthetic and covers batch, heads, sequence length, head dimension, causal mask, and precision; it omits custom tile sizes, num_splits, fused variants, and real workloads."
+      },
+      {
+        "impact": "Actual kernel launch geometry may differ, especially for custom configurations.",
+        "limitation": "Tile sizes and occupancy assumptions are approximations derived from the FA4 paper and Blackwell microbenchmarks rather than measured on a target kernel binary."
+      },
+      {
+        "impact": "MAPE on cleaner silicon measurements could be lower or higher depending on unmodeled scheduling effects.",
+        "limitation": "The emulator injects 3% residual noise, so part of the reported MAPE floor reflects the ground-truth generator rather than predictor fidelity alone."
+      }
+    ],
+    "falsification_boundary": "If real B200 measurements become available and the combined predictor's MAPE exceeds the useful-improvement threshold (MAPE > 25% or fewer than 75% within 30%), the current claim boundary must be narrowed and the paper must report the transfer-validation result.",
+    "supported_claims": [
+      {
+        "claim": "The combined white-box predictor achieves 4.50% MAPE on the 160-configuration held-out validation set, compared with 22.22% for the reproduced FlashAttention-4 roofline baseline.",
+        "evidence": "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5, validation_metrics.json in operation set 20260704-130224-experiment-7f255a5e"
+      },
+      {
+        "claim": "100% of held-out validation configurations are within 30% absolute percentage error and the predicted dominant bottleneck matches the emulator on 100% of configurations.",
+        "evidence": "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673, combined_predictions.csv"
+      },
+      {
+        "claim": "The TMA/L2 effective-bandwidth correction is the dominant improvement: by itself it reduces MAPE to 5.76% and already places every configuration inside the 30% error envelope.",
+        "evidence": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154, validation_metrics.json ablation block"
+      },
+      {
+        "claim": "Occupancy and precision terms provide measurable refinement, pushing the combined model from 5.76% to 4.50% MAPE and reducing max APE from 19.9% to 14.4%.",
+        "evidence": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154, validation_metrics.json"
+      },
+      {
+        "claim": "All correction factors are bounded multiplicative terms with a physical interpretation (hbm_factor 0.85, l2_factor 0.45, tma_factor 0.70, mma_efficiency 0.85, mufu_efficiency 0.85, launch_overhead_us 0.5).",
+        "evidence": "calibration_params.json in operation set 20260704-130224-experiment-7f255a5e, source code predictor.py and constants.py"
+      }
+    ],
+    "unsupported_claims": [
+      "The predictor achieves 4.5% MAPE on real B200 silicon without silicon validation.",
+      "The correction factors transfer unchanged to other GPUs or other attention kernels.",
+      "The model captures all implementation-specific scheduling, launch, or power-throttling effects.",
+      "The synthetic matrix is representative of production FA4 workloads."
+    ]
+  },
+  "status": "ready",
+  "summary": "Allowed claims, supporting evidence, falsification boundaries, and explicit limitations for the paper outline.",
+  "title": "Claim-Evidence Boundary: FA4 B200 White-Box Runtime Predictor"
+}

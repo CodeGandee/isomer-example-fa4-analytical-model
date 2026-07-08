@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "consumer": "any selected production DeepSci skill",
+    "paper_surface": "review_route_decision",
+    "placeholder": "<REVIEW_ROUTE_DECISION>",
+    "producer": "isomer-deepsci-review",
+    "skill": "isomer-deepsci-review",
+    "source_draft": "artifact-DRAFT_SECTION_SET-db586e5e0d48",
+    "source_review_report": "<REVIEW_REPORT>",
+    "source_revision_log": "<REVISION_LOG>",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "blocker": "None requiring new experiments. Blocker is text/artifact correction.",
+    "chosen_route": "revise",
+    "considered_options": [
+      {
+        "option": "finalize",
+        "reason_for_rejection": "The manuscript contains a material misstatement about the combined model's calibrated factors that would survive into the submission bundle."
+      },
+      {
+        "option": "revise",
+        "reason_for_selection": "A focused text correction and citation/figure production pass is needed before the manuscript is ready for finalization."
+      }
+    ],
+    "decision_question": "Should the paper-pass route the FA4 B200 white-box runtime predictor manuscript to finalize or revise?",
+    "evidence_basis": [
+      "calibration_params.json shows combined model calibrates only hbm_factor, mma_efficiency, mufu_efficiency, launch_overhead_us",
+      "calibrate.py calibrate_combined hardcodes l2_factor=0.70, tma_factor=0.65, smem_factor=0.90 and only grids four parameters",
+      "Draft sections 3.3, 3.4, and 5.6 describe six-factor calibration and report ablation values as combined values"
+    ],
+    "next_action": "Apply REVISION_LOG, re-run manuscript validation, then re-route to review or finalize."
+  },
+  "status": "ready",
+  "summary": "Route the FA4 B200 white-box runtime predictor manuscript to revise because the draft misstates the combined model's calibrated factors. Citation placeholders and unrendered figures are additional production blockers.",
+  "title": "Review Route Decision: FA4 B200 White-Box Runtime Predictor"
+}

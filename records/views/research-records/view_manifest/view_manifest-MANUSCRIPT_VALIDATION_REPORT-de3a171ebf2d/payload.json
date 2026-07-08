@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "consumer": "review, finalize, decision",
+    "paper_surface": "manuscript_validation",
+    "placeholder": "<MANUSCRIPT_VALIDATION_REPORT>",
+    "producer": "isomer-deepsci-write",
+    "skill": "isomer-deepsci-write",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator",
+    "validated_draft_record": "<DRAFT_SECTION_SET>"
+  },
+  "sections": {
+    "bundle_readiness": {
+      "notes": "Draft is coherent and internally validated. Remaining gaps (BibTeX, rendered figures) do not block review. The paper bundle checkpoint references this report and the draft.",
+      "status": "ready_for_review"
+    },
+    "citation_legitimacy": {
+      "notes": "Citations are listed as placeholders with arXiv IDs from the paper-view citation needs (FA4 2603.05451v1, Blackwell microbenchmarks 2512.02189v1, white-box methodology 2605.04178v1). Full BibTeX entries were not generated in this stage and should be added during review or finalization.",
+      "status": "partial"
+    },
+    "claim_support": {
+      "notes": "All numerical claims trace to validation_metrics.json or combined_predictions.csv. Combined MAPE 4.50%, baseline MAPE 22.22%, delta 17.72 pp, 100% within 30%, 100% bottleneck accuracy, and per-precision/per-bottleneck breakdowns are all inside the claim-evidence boundary. No unsupported real-silicon claims appear.",
+      "status": "pass"
+    },
+    "figure_readiness": {
+      "notes": "Figures 1, 2, and 3 are referenced and described but not rendered. The draft includes explicit descriptions of what each figure would show. Rendering is deferred to isomer-deepsci-paper-plot or isomer-deepsci-figure-polish.",
+      "status": "partial"
+    },
+    "language_hygiene": {
+      "notes": "Draft avoids operator, agent, route-control, worktree, and local runtime details. Claims are calibrated with explicit scope and emulator caveat. No strict-dominance language beyond evidence support.",
+      "status": "pass"
+    },
+    "next_route": "isomer-deepsci-review",
+    "remaining_blockers": [
+      {
+        "blocker": "BibTeX entries not yet generated",
+        "impact": "low",
+        "resolution_route": "finalize or review stage"
+      },
+      {
+        "blocker": "Figures 1-3 not rendered",
+        "impact": "medium",
+        "resolution_route": "isomer-deepsci-paper-plot or isomer-deepsci-figure-polish"
+      },
+      {
+        "blocker": "Ground truth is emulator-based, not silicon",
+        "impact": "intrinsic limitation",
+        "resolution_route": "future transfer-validation experiment if real B200 measurements become available"
+      }
+    ],
+    "section_coverage": {
+      "notes": "All sections from the paper outline are present: Abstract, Introduction, Related Work, Method, Experiments, Results, Limitations, Conclusion. Tables 1-4 are included as Markdown tables.",
+      "status": "pass"
+    }
+  },
+  "status": "validated_with_gaps",
+  "summary": "Internal validation of the draft-section-set manuscript against the claim-evidence boundary, section writing plan, and oral-quality gates.",
+  "title": "Manuscript Validation Report: FA4 B200 White-Box Runtime Predictor Draft"
+}

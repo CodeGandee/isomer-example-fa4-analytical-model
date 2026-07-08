@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "consumer": "isomer-deepsci-analysis, write, decision, finalize",
+    "placeholder": "<CLAIM_VALIDATION_RECORD>",
+    "producer": "isomer-deepsci-experiment",
+    "skill": "isomer-deepsci-experiment"
+  },
+  "sections": {
+    "claims": [
+      {
+        "caveat": "Measured on emulator-based ground truth.",
+        "claim": "held_out_mape_predicted_runtime_ms <= 25%",
+        "expected_direction": "<=",
+        "expected_value": 25.0,
+        "metric_key": "held_out_mape_predicted_runtime_ms",
+        "observed_value": 4.496608444017569,
+        "verdict": "supported"
+      },
+      {
+        "caveat": "",
+        "claim": "pct_validation_configs_within_30_pct_abs_error >= 75%",
+        "expected_direction": ">=",
+        "expected_value": 75.0,
+        "metric_key": "pct_validation_configs_within_30_pct_abs_error",
+        "observed_value": 100.0,
+        "verdict": "supported"
+      },
+      {
+        "caveat": "",
+        "claim": "bottleneck_label_accuracy >= 75%",
+        "expected_direction": ">=",
+        "expected_value": 75.0,
+        "metric_key": "bottleneck_label_accuracy",
+        "observed_value": 100.0,
+        "verdict": "supported"
+      },
+      {
+        "caveat": "Baseline MAPE was 22.22%; combined MAPE was 4.50%.",
+        "claim": "Delta MAPE vs baseline >= 5 percentage points improvement",
+        "expected_direction": ">=",
+        "expected_value": 5.0,
+        "metric_key": "delta_mape_pp",
+        "observed_value": 17.719831614694343,
+        "verdict": "supported"
+      }
+    ]
+  },
+  "status": "ready",
+  "summary": "Claim-to-metric traceability for the selected hypothesis.",
+  "title": "Claim Validation Record: FA4 B200 Combined Predictor"
+}

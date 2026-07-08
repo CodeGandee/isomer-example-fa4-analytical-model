@@ -1,0 +1,114 @@
+<!-- isomer-structured-research-record
+format_profile_ref: isomer:deepsci/record-format/profile/paper/contract/evidence-view/v1
+schema_ref: isomer:deepsci/record-format/schema/paper/contract/evidence-view/v1
+payload_digest: sha256:d0b4ab91a1c437a442ed44659c7c0aec711ba70f8a08c2bc006f16190d3cf6f8
+-->
+# Evidence View: FA4 B200 White-Box Runtime Predictor
+
+Runs, paths, metrics, source data, reproducibility details, and appendix-only support for the paper outline.
+
+
+```json
+{
+  "metadata": {
+    "consumer": "write, review, finalize",
+    "placeholder": "\u003cEVIDENCE_VIEW\u003e",
+    "producer": "isomer-deepsci-paper-outline",
+    "skill": "isomer-deepsci-paper-outline"
+  },
+  "sections": {
+    "ablation_metrics": {
+      "baseline_fa4_roofline": {
+        "bottleneck_accuracy": 89.38,
+        "mape": 22.22,
+        "max_ape": 42.07,
+        "pct_within_30": 76.88
+      },
+      "combined": {
+        "bottleneck_accuracy": 100.0,
+        "mape": 4.5,
+        "max_ape": 14.36,
+        "pct_within_30": 100.0
+      },
+      "occupancy_only": {
+        "bottleneck_accuracy": 86.88,
+        "mape": 18.11,
+        "max_ape": 38.39,
+        "pct_within_30": 77.5
+      },
+      "precision_only": {
+        "bottleneck_accuracy": 89.38,
+        "mape": 18.21,
+        "max_ape": 42.07,
+        "pct_within_30": 76.88
+      },
+      "tma_l2_effective_bw": {
+        "bottleneck_accuracy": 100.0,
+        "mape": 5.76,
+        "max_ape": 19.91,
+        "pct_within_30": 100.0
+      }
+    },
+    "appendix_only_support": [
+      "Full per-configuration prediction CSV (combined_predictions.csv).",
+      "Calibration parameter JSON (calibration_params.json).",
+      "Experiment run log and main-run record (run-MAIN_RUN_RECORD-a1ae25dec69e).",
+      "FA4 source tile sizes and repository commit (002cce0)."
+    ],
+    "durable_records": {
+      "accepted_baseline": "artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4",
+      "analysis_campaign_summary": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154",
+      "analysis_route_decision": "decision_record-ANALYSIS_ROUTE_DECISION-21767b5a6cb1",
+      "claim_validation": "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673",
+      "evaluation_contract": "artifact-EVALUATION_CONTRACT-7f255a5e6694",
+      "experiment_artifact_manifest": "evidence_item-EXPERIMENT_ARTIFACT_MANIFEST-59158a8c22c0",
+      "experiment_contract": "artifact-EXPERIMENT_CONTRACT-e7295ce58a6a",
+      "experiment_result_summary": "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5",
+      "main_run_record": "run-MAIN_RUN_RECORD-a1ae25dec69e",
+      "selected_hypothesis": "artifact-SELECTED_HYPOTHESIS-bab659036a3c"
+    },
+    "key_artifacts": {
+      "calibration_parameters": "calibration_params.json",
+      "combined_predictions": "combined_predictions.csv",
+      "experiment_result": "experiment_result.json",
+      "validation_metrics": "validation_metrics.json"
+    },
+    "metrics_snapshot": {
+      "baseline_mape": 22.216442058711912,
+      "bottleneck_accuracy": 100.0,
+      "calibration_mape": 4.558023500138211,
+      "combined_mape": 4.496608444017569,
+      "delta_mape_pp": 17.719831614694343,
+      "max_ape": 14.363718640933895,
+      "n_validation_configs": 160,
+      "pct_within_30": 100.0
+    },
+    "reproducibility": {
+      "commands_to_reproduce": [
+        "pixi run python -m fa4_b200_predictor.run_experiment --config repos/topic-main/src/fa4_b200_predictor/config_matrix.py --out-dir \u003coutput_dir\u003e",
+        "pixi run python -m fa4_b200_predictor.evaluate --calibration calibration_measurements.json --validation validation_measurements.json --params calibration_params.json --out-dir \u003ceval_dir\u003e"
+      ],
+      "ground_truth": "High-fidelity white-box emulator with hidden efficiency factors and 3% residual noise, seeded 20260704.",
+      "hardware_context": "NVIDIA B200 (peak SM clock 1965 MHz, 180 SMs, 4480 GB/s realistic HBM bandwidth) from actors/operator/host-b200-spec.md and Blackwell microbenchmarks.",
+      "software_context": "Python predictor package in repos/topic-main/src/fa4_b200_predictor; no kernel execution is required for predictions.",
+      "split": "Deterministic 20%/20%/60% calibration/validation/test split with seed 20260704."
+    },
+    "source_code": {
+      "calibration": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/repos/topic-main/src/fa4_b200_predictor/calibrate.py",
+      "constants": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/repos/topic-main/src/fa4_b200_predictor/constants.py",
+      "emulator": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/repos/topic-main/src/fa4_b200_predictor/emulator.py",
+      "evaluation": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/repos/topic-main/src/fa4_b200_predictor/evaluate.py",
+      "experiment_runner": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/repos/topic-main/src/fa4_b200_predictor/run_experiment.py",
+      "predictor": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/repos/topic-main/src/fa4_b200_predictor/predictor.py"
+    },
+    "worker_output_paths": {
+      "analysis_set": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-130919-analysis-7f255a5e",
+      "experiment_set": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-130224-experiment-7f255a5e",
+      "paper_outline_set": "isomer-content/topic-ws/flash-attention-4-whitebox-runtime-model/actors/operator/isomer-managed/worker-output/topic-actors/operator/sets/20260704-144744-paper-outline-32150288"
+    }
+  },
+  "status": "ready",
+  "summary": "Runs, paths, metrics, source data, reproducibility details, and appendix-only support for the paper outline.",
+  "title": "Evidence View: FA4 B200 White-Box Runtime Predictor"
+}
+```

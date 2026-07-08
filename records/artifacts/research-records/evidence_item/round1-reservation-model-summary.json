@@ -1,0 +1,20 @@
+{
+  "reservation_calibration_mape_percent": 8.15,
+  "reservation_validation_mape_percent": 16.69,
+  "baseline_validation_mape_percent": 56.23,
+  "improved_validation_mape_percent": 14.89,
+  "calibration_count": 16,
+  "validation_count": 8,
+  "calibration_success": true,
+  "fit_params": {
+    "tc_efficiency": 1.1959348654962858,
+    "sfu_efficiency": 0.6810263953831777,
+    "fp_efficiency": 3.0,
+    "tma_efficiency": 1.0,
+    "tmem_efficiency": 1.0,
+    "cluster_efficiency": 1.0,
+    "stage_overlap_factor": 0.85,
+    "launch_overhead_us": 16.126837099840067,
+    "tmem_spill_coefficient": 0.0
+  }
+}

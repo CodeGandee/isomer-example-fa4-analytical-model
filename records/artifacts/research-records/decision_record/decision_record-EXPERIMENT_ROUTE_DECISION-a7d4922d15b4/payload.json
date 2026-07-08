@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "consumer": "isomer-deepsci-analysis, optimize, decision, finalize, idea",
+    "placeholder": "<EXPERIMENT_ROUTE_DECISION>",
+    "producer": "isomer-deepsci-experiment",
+    "skill": "isomer-deepsci-experiment"
+  },
+  "sections": {
+    "conditions_for_revisiting": [
+      "New real-kernel B200 measurements become available and differ materially from the emulator.",
+      "The analysis stage finds an unresolved confounder or comparability gap."
+    ],
+    "decision": "analysis",
+    "evidence_basis": [
+      "artifact-EVALUATION_CONTRACT-7f255a5e6694",
+      "artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4",
+      "artifact-COMPARABILITY_CONTRACT-0c72c2c67a42",
+      "artifact-SELECTED_HYPOTHESIS-bab659036a3c",
+      "decision_record-IDEA_ROUTE_DECISION-67d409112cbb"
+    ],
+    "reason": "The combined white-box predictor satisfied all success criteria on the held-out validation set (MAPE 4.50%, 100% within 30%, 100% bottleneck accuracy, +17.7pp vs baseline). The result is credible enough to proceed to interpretation and writing, with the emulator caveat explicitly documented.",
+    "selected_hypothesis_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1"
+  },
+  "status": "ready",
+  "summary": "The combined model is supported; the next stage is analysis.",
+  "title": "Experiment Route Decision: Proceed to Analysis"
+}

@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "consumer": "any production DeepSci research skill",
+    "placeholder": "<ANALYSIS_ROUTE_DECISION>",
+    "producer": "isomer-deepsci-analysis",
+    "skill": "isomer-deepsci-analysis"
+  },
+  "sections": {
+    "conditions_for_revisiting": [
+      "Real B200 kernel measurements become available and differ materially from the emulator-based ground truth.",
+      "New FA4 configurations or launch parameters fall outside the synthetic matrix and violate the predictor's structural assumptions.",
+      "A downstream writing or review stage identifies a claim that requires additional ablation or robustness evidence."
+    ],
+    "decision": "finalize",
+    "evidence_basis": [
+      "evidence_item-ANALYSIS_CONTEXT_BRIEF-10710eca9f26",
+      "evidence_item-PARENT_RESULT_EVIDENCE-524c4bdb38e9",
+      "evidence_item-EXPERIMENT_RESULT_SUMMARY-7390c54fdef5",
+      "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673",
+      "run-MAIN_RUN_RECORD-a1ae25dec69e",
+      "artifact-SELECTED_HYPOTHESIS-bab659036a3c",
+      "artifact-EVALUATION_CONTRACT-7f255a5e6694",
+      "artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4"
+    ],
+    "reason": "The combined predictor met every success criterion on held-out validation (MAPE 4.50%, 100% within 30% error, 100% bottleneck-label accuracy, +17.7pp vs baseline). The ablation structure shows the TMA/L2 bandwidth correction is the dominant improvement, while occupancy and precision terms provide a measurable additional reduction in error and max APE. The emulator caveat is documented and does not block finalization.",
+    "selected_hypothesis_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1"
+  },
+  "status": "ready",
+  "summary": "The analysis stage confirms the combined FA4 B200 white-box predictor is supported and the empirical pass can be finalized.",
+  "title": "Analysis Route Decision: Finalize Empirical Pass"
+}

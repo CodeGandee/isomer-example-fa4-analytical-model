@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "consumer": "any production DeepSci research skill",
+    "paper_surface": "analysis_route_decision",
+    "placeholder": "<ANALYSIS_ROUTE_DECISION>",
+    "producer": "isomer-deepsci-analysis",
+    "skill": "isomer-deepsci-analysis",
+    "topic": "flash-attention-4-whitebox-runtime-model",
+    "topic_actor": "operator"
+  },
+  "sections": {
+    "conditions_for_revisiting": [
+      "If manuscript validation after revise still fails, return to analysis or review.",
+      "If real B200 measurements become available, run a transfer-validation slice."
+    ],
+    "decision": "write",
+    "evidence_basis": [
+      "artifact-REVIEW_REPORT-7387e22762b6",
+      "artifact-REVISION_LOG-a0e3491acece",
+      "artifact-ANALYSIS_CAMPAIGN_SUMMARY-6fc33c201154",
+      "operation set 20260704-130224-experiment-7f255a5e"
+    ],
+    "reason": "Review route decision was 'revise'. The review issues are text/production gaps (calibration description, citations, figures), not missing measurements. The existing experiment and analysis evidence fully supports the corrected claims."
+  },
+  "status": "ready",
+  "summary": "The revision pass has no evidence gap that requires new experiments. The analysis stage routes to write so the draft can be corrected, figures rendered, and citations resolved.",
+  "title": "Analysis Route Decision: Revision-Pass Fill-Gaps"
+}

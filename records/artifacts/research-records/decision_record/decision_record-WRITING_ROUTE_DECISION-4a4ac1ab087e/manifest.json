@@ -1,0 +1,14 @@
+{
+  "format_profile_ref": "isomer:deepsci/record-format/profile/decision/writing-route-decision/v1",
+  "payload_digest": "sha256:7002563c13ea1c3e2b49329dbaeab4ad233e95aa989591ff8a4feca867564458",
+  "payload_file": "payload.json",
+  "payload_media_type": "application/json",
+  "record_id": "decision_record-WRITING_ROUTE_DECISION-4a4ac1ab087e",
+  "record_kind": "decision_record",
+  "research_topic_id": "flash-attention-4-whitebox-runtime-model",
+  "schema_ref": "isomer:deepsci/record-format/schema/decision/writing-route-decision/v1",
+  "schema_version": "isomer-structured-payload-file.v1",
+  "schema_version_ref": "deepsci-structured-record.v1",
+  "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
+  "validation_status": "valid"
+}
