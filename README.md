@@ -11,11 +11,9 @@ targeting NVIDIA Blackwell GPUs.
 
 ## Paper
 
-The final compiled paper is available at:
-[`records/artifacts/research-records/evidence_item/final-three-round-paper-update.pdf`](records/artifacts/research-records/evidence_item/final-three-round-paper-update.pdf)
+The final compiled paper is [`revised-draft.pdf`](https://github.com/CodeGandee/isomer-example-fa4-analytical-model/blob/actor-operator/isomer-managed/worker-output/topic-actors/operator/sets/20260706-round1-paper-update-055958/revised-draft.pdf) from the operator actor workspace.
 
-LaTeX sources and intermediate revisions live in the operator actor workspace
-under `actors/operator/isomer-managed/worker-output/...`.
+The corresponding LaTeX sources, figures, and intermediate revisions live alongside it under `actors/operator/isomer-managed/worker-output/...`.
 
 The research-record bundle also includes the cited reference PDFs used during scouting and analysis. The FlashAttention-4 paper and banner remain part of the pinned upstream checkout fetched by `scripts/setup-extern.sh`.
 
