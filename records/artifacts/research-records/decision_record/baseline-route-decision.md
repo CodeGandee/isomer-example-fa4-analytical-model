@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/decision/baseline-route-decision/v1
-schema_ref: isomer:deepsci/record-format/schema/decision/baseline-route-decision/v1
+format_profile_ref: isomer:deepsci/record-format/profile/decision/baseline-route-decision/v2
+schema_ref: isomer:deepsci/record-format/schema/decision/baseline-route-decision/v2
 payload_digest: sha256:daa754ccb9014b74e294d107169b504f592f9e583912d5089560043e2ea1b810
 -->
 # Baseline Route Decision: isomer-deepsci-idea
@@ -12,7 +12,7 @@ Route decision after baseline acceptance: proceed to isomer-deepsci-idea.
 {
   "metadata": {
     "consumer": "Any production DeepSci research skill",
-    "placeholder": "\u003cBASELINE_ROUTE_DECISION\u003e",
+    "placeholder": "<BASELINE_ROUTE_DECISION>",
     "producer": "isomer-deepsci-baseline",
     "skill": "isomer-deepsci-baseline"
   },

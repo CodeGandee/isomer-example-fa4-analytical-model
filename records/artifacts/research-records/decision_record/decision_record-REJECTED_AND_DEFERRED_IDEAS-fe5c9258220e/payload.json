@@ -10,30 +10,30 @@
       {
         "family": "model",
         "id": "R5",
-        "one_liner": "Symbolic regression over white-box features.",
-        "reason": "Useful fallback if pure analytical terms fail, but risks non-interpretable terms that violate the white-box constraint; defer until after C1 ablations."
+        "reason": "Useful fallback if pure analytical terms fail, but risks non-interpretable terms that violate the white-box constraint; defer until after C1 ablations.",
+        "summary": "Symbolic regression over white-box features."
       },
       {
         "family": "infrastructure",
         "id": "R8",
-        "one_liner": "Synthetic B200 microbenchmark suite for constant calibration.",
-        "reason": "High value for future reproducibility but not needed for the first falsifiable hypothesis; can be built in parallel during experiment."
+        "reason": "High value for future reproducibility but not needed for the first falsifiable hypothesis; can be built in parallel during experiment.",
+        "summary": "Synthetic B200 microbenchmark suite for constant calibration."
       }
     ],
     "folded": [
       {
         "family": "measurement",
         "id": "R6",
-        "one_liner": "NCU counter trend collection and bottleneck classifier.",
-        "reason": "Folded into C1 as validation instrumentation; not a separate route."
+        "reason": "Folded into C1 as validation instrumentation; not a separate route.",
+        "summary": "NCU counter trend collection and bottleneck classifier."
       }
     ],
     "rejected": [
       {
         "family": "objective",
         "id": "R7",
-        "one_liner": "Change primary metric from MAPE to log-MAE.",
-        "reason": "Evaluation contract and comparability contract fix the primary metric as held_out_mape_predicted_runtime_ms; changing it would break comparability."
+        "reason": "Evaluation contract and comparability contract fix the primary metric as held_out_mape_predicted_runtime_ms; changing it would break comparability.",
+        "summary": "Change primary metric from MAPE to log-MAE."
       }
     ]
   },

@@ -1,4 +1,5 @@
 {
   "body": "# Review Route Decision — FlashAttention-4 White-Box Runtime Model\n\n- route: finalize\n- evidence: The revised draft meets its stated success criteria, the review found only packaging-level issues, and no real evidence blocker remains.\n- priority ordering:\n  1. Produce data-availability statement.\n  2. Produce final-summary and closure decision.\n- notes: The route decision is `finalize`, satisfying the submission-pass audit continue condition.\n",
+  "summary": "Review route decision for the FlashAttention-4 B200 paper bundle, routing the work to finalize after packaging-level fixes.",
   "title": "Review Route Decision — FlashAttention-4 White-Box Runtime Model"
 }

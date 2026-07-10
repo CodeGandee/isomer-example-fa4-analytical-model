@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/decision/next-route-decision/v1
-schema_ref: isomer:deepsci/record-format/schema/decision/next-route-decision/v1
+format_profile_ref: isomer:deepsci/record-format/profile/decision/next-route-decision/v2
+schema_ref: isomer:deepsci/record-format/schema/decision/next-route-decision/v2
 payload_digest: sha256:5afb988f35886a6cb13e30a8b70fbe0d1a8f6c0eee2c0fe0fc6467706bbfd37e
 -->
 # Next Route Decision: isomer-deepsci-baseline
@@ -12,7 +12,7 @@ Proceed to the baseline stage for the Flash Attention 4 white-box runtime model 
 {
   "metadata": {
     "consumer": "Any production DeepSci research skill selected as the next route.",
-    "placeholder": "\u003cNEXT_ROUTE_DECISION\u003e",
+    "placeholder": "<NEXT_ROUTE_DECISION>",
     "producer": "isomer-deepsci-scout or isomer-deepsci-decision",
     "skill": "isomer-deepsci-scout"
   },

@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/handoff/baseline-shortlist/v1
-schema_ref: isomer:deepsci/record-format/schema/handoff/baseline-shortlist/v1
+format_profile_ref: isomer:deepsci/record-format/profile/handoff/baseline-shortlist/v2
+schema_ref: isomer:deepsci/record-format/schema/handoff/baseline-shortlist/v2
 payload_digest: sha256:e34eeee60b92b8bbb045bfe6e431e99494cf14d27e22adc446255a7a5b72c282
 -->
 # Baseline Shortlist
@@ -12,7 +12,7 @@ Comparator candidates for the Flash Attention 4 white-box runtime model on NVIDI
 {
   "metadata": {
     "consumer": "isomer-deepsci-baseline, isomer-deepsci-idea, isomer-deepsci-decision",
-    "placeholder": "\u003cBASELINE_SHORTLIST\u003e",
+    "placeholder": "<BASELINE_SHORTLIST>",
     "producer": "isomer-deepsci-scout",
     "skill": "isomer-deepsci-scout"
   },

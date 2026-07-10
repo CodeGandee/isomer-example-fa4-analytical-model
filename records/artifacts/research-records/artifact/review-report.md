@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/review/report/v1
-schema_ref: isomer:deepsci/record-format/schema/review/report/v1
+format_profile_ref: isomer:deepsci/record-format/profile/review/report/v2
+schema_ref: isomer:deepsci/record-format/schema/review/report/v2
 payload_digest: sha256:625411b6c1c2993db324be3a42a20916a9d8781ec432f6b1b4cbc85ab61f266f
 -->
 # Review Report: White-Box FA4 B200 Predictor on Real Hardware

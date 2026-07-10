@@ -8,7 +8,7 @@ What is the next research stage after validating the overlap-aware roofline revi
 - The TMA regime improved from **0% to 100%** accuracy.
 - MMA and MUFU regimes remained at 100% accuracy.
 - HBM accuracy remained at 62.5%.
-- The result was replicated on an idle B200 GPU (cuda:2 on <GPU_HOST>), confirming it is not an artifact of local GPU load.
+- The result was replicated on an idle B200 GPU (cuda:2 on b200-14-hz), confirming it is not an artifact of local GPU load.
 
 ## Options considered
 1. **Accept the revision as the new default predictor.** The improvement is large, physically grounded, and replicated on idle hardware. The remaining HBM misclassifications are a smaller secondary issue.

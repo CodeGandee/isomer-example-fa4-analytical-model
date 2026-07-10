@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/contract/evidence-view/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/contract/evidence-view/v1
+format_profile_ref: isomer:deepsci/record-format/profile/paper/contract/evidence-view/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/contract/evidence-view/v2
 payload_digest: sha256:d0b4ab91a1c437a442ed44659c7c0aec711ba70f8a08c2bc006f16190d3cf6f8
 -->
 # Evidence View: FA4 B200 White-Box Runtime Predictor
@@ -12,7 +12,7 @@ Runs, paths, metrics, source data, reproducibility details, and appendix-only su
 {
   "metadata": {
     "consumer": "write, review, finalize",
-    "placeholder": "\u003cEVIDENCE_VIEW\u003e",
+    "placeholder": "<EVIDENCE_VIEW>",
     "producer": "isomer-deepsci-paper-outline",
     "skill": "isomer-deepsci-paper-outline"
   },
@@ -85,8 +85,8 @@ Runs, paths, metrics, source data, reproducibility details, and appendix-only su
     },
     "reproducibility": {
       "commands_to_reproduce": [
-        "pixi run python -m fa4_b200_predictor.run_experiment --config repos/topic-main/src/fa4_b200_predictor/config_matrix.py --out-dir \u003coutput_dir\u003e",
-        "pixi run python -m fa4_b200_predictor.evaluate --calibration calibration_measurements.json --validation validation_measurements.json --params calibration_params.json --out-dir \u003ceval_dir\u003e"
+        "pixi run python -m fa4_b200_predictor.run_experiment --config repos/topic-main/src/fa4_b200_predictor/config_matrix.py --out-dir <output_dir>",
+        "pixi run python -m fa4_b200_predictor.evaluate --calibration calibration_measurements.json --validation validation_measurements.json --params calibration_params.json --out-dir <eval_dir>"
       ],
       "ground_truth": "High-fidelity white-box emulator with hidden efficiency factors and 3% residual noise, seeded 20260704.",
       "hardware_context": "NVIDIA B200 (peak SM clock 1965 MHz, 180 SMs, 4480 GB/s realistic HBM bandwidth) from actors/operator/host-b200-spec.md and Blackwell microbenchmarks.",

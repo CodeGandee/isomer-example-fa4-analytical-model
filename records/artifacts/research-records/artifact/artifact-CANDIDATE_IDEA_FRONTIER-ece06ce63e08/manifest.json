@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/report/candidate-idea-frontier/v1",
-  "payload_digest": "sha256:333de22d755fb4250ebccccba251bed36fc7b4e9999abb7b2bfbc9121f790a5b",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/report/candidate-idea-frontier/v2",
+  "payload_digest": "sha256:b6aeda3572eecf980aa47b06bc9f6f68aae54a7a6449fa3b60fec1a074ea1501",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-CANDIDATE_IDEA_FRONTIER-ece06ce63e08",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/report/candidate-idea-frontier/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/report/candidate-idea-frontier/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

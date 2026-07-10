@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/control/pipeline-run-record/v1
-schema_ref: isomer:deepsci/record-format/schema/control/pipeline-run-record/v1
+format_profile_ref: isomer:deepsci/record-format/profile/control/pipeline-run-record/v2
+schema_ref: isomer:deepsci/record-format/schema/control/pipeline-run-record/v2
 payload_digest: sha256:42ac96999ca85bbfb9902cb1298cc2af1e4258123f17ef2e21def7c0f478fda5
 -->
 # Pipeline Run Record: hypothesis-pass

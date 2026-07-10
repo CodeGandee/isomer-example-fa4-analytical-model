@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/decision/comparator-route-record/v1
-schema_ref: isomer:deepsci/record-format/schema/decision/comparator-route-record/v1
+format_profile_ref: isomer:deepsci/record-format/profile/decision/comparator-route-record/v2
+schema_ref: isomer:deepsci/record-format/schema/decision/comparator-route-record/v2
 payload_digest: sha256:58e6487cf8977446d347b2e9c0e64a453f26c91947c16d54a962c55c2dda96b5
 -->
 # Comparator Route Record: FlashAttention-4 Roofline Baseline for B200
@@ -12,7 +12,7 @@ Comparator route record selecting reproduce/extend of the FlashAttention-4 paper
 {
   "metadata": {
     "consumer": "verification",
-    "placeholder": "\u003cCOMPARATOR_ROUTE_RECORD\u003e",
+    "placeholder": "<COMPARATOR_ROUTE_RECORD>",
     "producer": "isomer-deepsci-baseline",
     "skill": "isomer-deepsci-baseline"
   },
@@ -34,10 +34,10 @@ Comparator route record selecting reproduce/extend of the FlashAttention-4 paper
         "Exact sustained HBM bandwidth and L2 behavior require calibration."
       ],
       "required_metric_ids_and_directions": [
-        "held_out_mape_predicted_runtime_ms -\u003e minimize",
-        "max_absolute_percentage_error -\u003e minimize",
-        "pct_validation_configs_within_30_pct_abs_error -\u003e maximize",
-        "bottleneck_label_accuracy -\u003e maximize"
+        "held_out_mape_predicted_runtime_ms -> minimize",
+        "max_absolute_percentage_error -> minimize",
+        "pct_validation_configs_within_30_pct_abs_error -> maximize",
+        "bottleneck_label_accuracy -> maximize"
       ],
       "source_paper_repository_or_package": "arXiv 2603.05451v1 + https://github.com/Dao-AILab/flash-attention @ 002cce0",
       "task": "White-box forward-pass runtime predictor for Flash Attention 4 on a single NVIDIA B200 across BF16/FP16/FP8/FP4 precisions, without executing the queried kernel."

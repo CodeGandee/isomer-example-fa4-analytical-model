@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/claim-evidence-map/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/claim-evidence-map/v1
+format_profile_ref: isomer:deepsci/record-format/profile/paper/claim-evidence-map/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/claim-evidence-map/v2
 payload_digest: sha256:50b231f37fc09a0f397ef91b6a6e78aa527feec5bfa846c3ff068879a80715b0
 -->
 # Claim-Evidence Boundary: FA4 B200 White-Box Runtime Predictor
@@ -12,14 +12,14 @@ Allowed claims, supporting evidence, falsification boundaries, and explicit limi
 {
   "metadata": {
     "consumer": "write, review, rebuttal",
-    "placeholder": "\u003cCLAIM_EVIDENCE_BOUNDARY\u003e",
+    "placeholder": "<CLAIM_EVIDENCE_BOUNDARY>",
     "producer": "isomer-deepsci-paper-outline",
     "skill": "isomer-deepsci-paper-outline"
   },
   "sections": {
     "explicit_limitations": [
       {
-        "impact": "The result tests whether the predictor can recover the emulator\u0027s hidden generative structure; it does not guarantee the same accuracy on silicon.",
+        "impact": "The result tests whether the predictor can recover the emulator's hidden generative structure; it does not guarantee the same accuracy on silicon.",
         "limitation": "Ground-truth runtimes come from a high-fidelity white-box emulator, not from real B200 kernel launches."
       },
       {
@@ -35,7 +35,7 @@ Allowed claims, supporting evidence, falsification boundaries, and explicit limi
         "limitation": "The emulator injects 3% residual noise, so part of the reported MAPE floor reflects the ground-truth generator rather than predictor fidelity alone."
       }
     ],
-    "falsification_boundary": "If real B200 measurements become available and the combined predictor\u0027s MAPE exceeds the useful-improvement threshold (MAPE \u003e 25% or fewer than 75% within 30%), the current claim boundary must be narrowed and the paper must report the transfer-validation result.",
+    "falsification_boundary": "If real B200 measurements become available and the combined predictor's MAPE exceeds the useful-improvement threshold (MAPE > 25% or fewer than 75% within 30%), the current claim boundary must be narrowed and the paper must report the transfer-validation result.",
     "supported_claims": [
       {
         "claim": "The combined white-box predictor achieves 4.50% MAPE on the 160-configuration held-out validation set, compared with 22.22% for the reproduced FlashAttention-4 roofline baseline.",

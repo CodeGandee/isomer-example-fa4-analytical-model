@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/decision/closure-decision/v1",
-  "payload_digest": "sha256:e956d4921a0ad68d8f27da5da4bd364910a473b90a9b14eb852f50339024d840",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/decision/closure-decision/v2",
+  "payload_digest": "sha256:c495dddc956e4f2b7bafae4ae87cc37e7e16c4cb2156fda977e012c51f870a8e",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "decision_record-CLOSURE_DECISION-99920824616d",
   "record_kind": "decision_record",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/decision/closure-decision/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/decision/closure-decision/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

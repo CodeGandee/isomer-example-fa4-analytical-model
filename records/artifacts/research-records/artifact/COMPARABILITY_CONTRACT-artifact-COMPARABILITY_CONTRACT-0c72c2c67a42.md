@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/handoff/comparability-contract/v1
-schema_ref: isomer:deepsci/record-format/schema/handoff/comparability-contract/v1
-payload_digest: sha256:959d6d918768287c7a980e223191b62d216eaa21f8c2f1a150cc1c44d97f42ca
+format_profile_ref: isomer:deepsci/record-format/profile/handoff/comparability-contract/v2
+schema_ref: isomer:deepsci/record-format/schema/handoff/comparability-contract/v2
+payload_digest: sha256:a98081ff50e79b1f6083c45376cbf43077f6505b318512b72579853abfd556eb
 -->
 # Comparability Contract: FlashAttention-4 Roofline Baseline for B200
 
@@ -12,7 +12,7 @@ Comparability contract for the FlashAttention-4 paper roofline model reproduced 
 {
   "metadata": {
     "consumer": "isomer-deepsci-idea, isomer-deepsci-experiment, isomer-deepsci-analysis, isomer-deepsci-decision",
-    "placeholder": "\u003cCOMPARABILITY_CONTRACT\u003e",
+    "placeholder": "<COMPARABILITY_CONTRACT>",
     "producer": "isomer-deepsci-baseline",
     "skill": "isomer-deepsci-baseline"
   },
@@ -44,7 +44,7 @@ Comparability contract for the FlashAttention-4 paper roofline model reproduced 
       "The FA4 paper roofline is a seed model; B200-specific terms (L2/HBM bandwidth, TMA latency, occupancy, TMEM) will be added during reproduction/extension.",
       "Exact sustained HBM bandwidth and L2 transaction behavior on B200 are not yet measured; calibration constants will be derived from a disjoint calibration set.",
       "FA4 default tile sizes and occupancy per precision are assumptions until measured or read from the official repository source.",
-      "The numeric accuracy target (MAPE \u003c= 25%) is a proposed threshold pending operator approval.",
+      "The numeric accuracy target (MAPE <= 25%) is a proposed threshold pending operator approval.",
       "Backward pass and multi-GPU execution are explicitly out of scope."
     ],
     "handoff": {
@@ -79,7 +79,7 @@ Comparability contract for the FlashAttention-4 paper roofline model reproduced 
         "per-stage_residual",
         "ncu_counter_trend_correlation"
       ],
-      "useful_improvement_threshold": "Held-out MAPE \u003c= 25%; \u003e= 75% of validation configs within 30% absolute error; \u003e= 75% bottleneck-label accuracy. Subsequent models should reduce MAPE by \u003e= 5 percentage points or improve bottleneck accuracy by \u003e= 10 percentage points."
+      "useful_improvement_threshold": "Held-out MAPE <= 25%; >= 75% of validation configs within 30% absolute error; >= 75% bottleneck-label accuracy. Subsequent models should reduce MAPE by >= 5 percentage points or improve bottleneck accuracy by >= 10 percentage points."
     },
     "task_and_data_contract": {
       "dataset": "Synthetic configuration matrix drawn from the FlashAttention-4 paper and official repository benchmark scripts: batch, heads, sequence length, head dimension, causal/non-causal mask, precision.",

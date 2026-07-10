@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/decision/review-route-decision/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/decision/review-route-decision/v2",
   "payload_digest": "sha256:9eb01a92267a1315a2d667d05984a21d70635d088649a5f299418e1a617e76c5",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "decision_record-REVIEW_ROUTE_DECISION-a3f768273ce3",
   "record_kind": "decision_record",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/decision/review-route-decision/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/decision/review-route-decision/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

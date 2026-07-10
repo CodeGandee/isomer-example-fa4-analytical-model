@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/experiment-artifact-manifest/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/experiment-artifact-manifest/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/experiment-artifact-manifest/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/experiment-artifact-manifest/v2
 payload_digest: sha256:7cee73739a57c1fef94c3ac1288ee360a67f150af6bb1f2686c5496747b530c0
 -->
 # Experiment Artifact Manifest: FA4 B200 Combined Predictor
@@ -12,7 +12,7 @@ Inventory of durable artifacts produced by the experiment run.
 {
   "metadata": {
     "consumer": "isomer-deepsci-analysis, decision, optimize, finalize",
-    "placeholder": "\u003cEXPERIMENT_ARTIFACT_MANIFEST\u003e",
+    "placeholder": "<EXPERIMENT_ARTIFACT_MANIFEST>",
     "producer": "isomer-deepsci-experiment",
     "skill": "isomer-deepsci-experiment"
   },

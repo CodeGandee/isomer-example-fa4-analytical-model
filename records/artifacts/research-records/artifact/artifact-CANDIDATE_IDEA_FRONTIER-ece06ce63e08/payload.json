@@ -15,10 +15,11 @@
         "id": "C1",
         "minimal_validation": "Implement predictor with modular terms; ablate each term on held-out validation; report delta MAPE and bottleneck accuracy.",
         "novelty_label": "incremental but valuable",
-        "one_liner": "Combined occupancy + TMA/L2 effective bandwidth + precision-specific throughput analytical predictor.",
         "prior_work_overlap": "Extends arXiv 2603.05451v1 roofline with methodology from arXiv 2605.04178v1 and constants from arXiv 2512.02189v1.",
         "status": "selected",
+        "summary": "Baseline accepted with explicit caveats naming these exact terms; falsifiable by held-out validation.",
         "targeted_limitation": "FA4 paper roofline ignores occupancy, memory-hierarchy bandwidth, and precision throughput.",
+        "title": "Combined occupancy-bandwidth-precision predictor",
         "why_now": "Baseline accepted with explicit caveats naming these exact terms; falsifiable by held-out validation."
       },
       {
@@ -28,10 +29,11 @@
         "id": "C2",
         "minimal_validation": "Run precision-only variant on held-out validation across all four precisions.",
         "novelty_label": "incremental but valuable",
-        "one_liner": "Precision-only throughput and exponential emulation correction.",
         "prior_work_overlap": "arXiv 2512.02189v1 Blackwell microbenchmarks.",
         "status": "serious_alternative",
+        "summary": "Cheapest first ablation of C1; directly tests whether precision is the dominant missing term.",
         "targeted_limitation": "Roofline treats precision only through FLOP count.",
+        "title": "Precision-only throughput correction",
         "why_now": "Cheapest first ablation of C1; directly tests whether precision is the dominant missing term."
       },
       {
@@ -41,10 +43,11 @@
         "id": "C3",
         "minimal_validation": "Run occupancy-only variant on held-out validation; compare to baseline and C1.",
         "novelty_label": "incremental but valuable",
-        "one_liner": "Occupancy-only correction based on tile size and SM resource limits.",
         "prior_work_overlap": "arXiv 2605.04178v1 occupancy modeling.",
         "status": "serious_alternative",
+        "summary": "Direct test of the occupancy hypothesis; can be implemented without memory bandwidth calibration.",
         "targeted_limitation": "Roofline assumes full SM utilization.",
+        "title": "Occupancy-only correction",
         "why_now": "Direct test of the occupancy hypothesis; can be implemented without memory bandwidth calibration."
       }
     ]

@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/report/literature-scouting-report/v1
-schema_ref: isomer:deepsci/record-format/schema/report/literature-scouting-report/v1
+format_profile_ref: isomer:deepsci/record-format/profile/report/literature-scouting-report/v2
+schema_ref: isomer:deepsci/record-format/schema/report/literature-scouting-report/v2
 payload_digest: sha256:6731543982e5bf8610a50d44a823c67e70f686163e9cad7dde0b0c4a32d2c491
 -->
 # Literature Scouting Report
@@ -12,7 +12,7 @@ External discovery summary for the Flash Attention 4 white-box runtime model sco
 {
   "metadata": {
     "consumer": "isomer-deepsci-baseline, isomer-deepsci-idea, isomer-deepsci-decision, future scout passes",
-    "placeholder": "\u003cLITERATURE_SCOUTING_REPORT\u003e",
+    "placeholder": "<LITERATURE_SCOUTING_REPORT>",
     "producer": "isomer-deepsci-scout",
     "skill": "isomer-deepsci-scout"
   },

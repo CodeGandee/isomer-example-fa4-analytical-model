@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/writing-plan/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/writing-plan/v2",
   "payload_digest": "sha256:7469d2b639994da0e0817fc4c5763640c4f7fd551194aa58a0da72386d74d86d",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "research_task-SECTION_WRITING_PLAN-9c82294575fc",
   "record_kind": "research_task",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/paper/writing-plan/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/writing-plan/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

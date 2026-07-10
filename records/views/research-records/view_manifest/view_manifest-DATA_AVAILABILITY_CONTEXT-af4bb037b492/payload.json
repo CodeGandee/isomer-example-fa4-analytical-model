@@ -1,4 +1,5 @@
 {
   "body": "# Data Availability Context — FlashAttention-4 White-Box Runtime Model\n\n- target_journal: **unspecified**\n- article_type: research article / preprint\n- policy_source: general research-data practice; no journal-specific policy was checked\n- author_constraints: No public repository has been deposited yet. Identifiers must not be invented.\n- note: Because the venue is unspecified, the statement below is a general data-availability statement. It must be replaced with a venue-specific statement before final submission.\n",
+  "summary": "Data availability context for the FlashAttention-4 B200 topic, including venue uncertainty, author constraints, and non-invented identifiers.",
   "title": "Data Availability Context — FlashAttention-4 White-Box Runtime Model"
 }

@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/report/raw-idea-slate/v1
-schema_ref: isomer:deepsci/record-format/schema/report/raw-idea-slate/v1
-payload_digest: sha256:806a0b177c89568d5778cb56af67c3733f8289acb92aa1918b1c41f5f30613bd
+format_profile_ref: isomer:deepsci/record-format/profile/report/raw-idea-slate/v2
+schema_ref: isomer:deepsci/record-format/schema/report/raw-idea-slate/v2
+payload_digest: sha256:fbd140a1df12202fc9a37ab9288e6f6a584727a0ad52c760087d5911af3e798a
 -->
 # Raw Idea Slate: FlashAttention-4 B200 Runtime Model Idea Pass
 
@@ -12,7 +12,7 @@ Raw idea slate for the FlashAttention-4 B200 runtime model idea pass.
 {
   "metadata": {
     "consumer": "candidate frontier filtering",
-    "placeholder": "\u003cRAW_IDEA_SLATE\u003e",
+    "placeholder": "<RAW_IDEA_SLATE>",
     "producer": "isomer-deepsci-idea",
     "skill": "isomer-deepsci-idea"
   },
@@ -27,42 +27,50 @@ Raw idea slate for the FlashAttention-4 B200 runtime model idea pass.
       {
         "family": "model",
         "id": "R1",
-        "one_liner": "Add tile-size-dependent occupancy correction to the FA4 roofline."
+        "summary": "Add tile-size-dependent occupancy correction to the FA4 roofline.",
+        "title": "Occupancy correction"
       },
       {
         "family": "model",
         "id": "R2",
-        "one_liner": "Add effective HBM/L2/TMA bandwidth model with transfer-size efficiency."
+        "summary": "Add effective HBM/L2/TMA bandwidth model with transfer-size efficiency.",
+        "title": "Effective bandwidth model"
       },
       {
         "family": "model",
         "id": "R3",
-        "one_liner": "Add precision-specific Tensor Core MMA throughput and exponential emulation terms."
+        "summary": "Add precision-specific Tensor Core MMA throughput and exponential emulation terms.",
+        "title": "Precision throughput correction"
       },
       {
         "family": "model",
         "id": "R4",
-        "one_liner": "Combine occupancy, TMA/L2, and precision corrections into one analytical predictor."
+        "summary": "Combine occupancy, TMA/L2, and precision corrections into one analytical predictor.",
+        "title": "Combined analytical predictor"
       },
       {
         "family": "model",
         "id": "R5",
-        "one_liner": "Use a small symbolic-regression fit over white-box features to discover interaction terms."
+        "summary": "Use a small symbolic-regression fit over white-box features to discover interaction terms.",
+        "title": "Symbolic-regression interaction fit"
       },
       {
         "family": "measurement",
         "id": "R6",
-        "one_liner": "Collect NCU counter trends on calibration split and train a bottleneck classifier as a side output."
+        "summary": "Collect NCU counter trends on calibration split and train a bottleneck classifier as a side output.",
+        "title": "NCU bottleneck classifier"
       },
       {
         "family": "objective",
         "id": "R7",
-        "one_liner": "Change primary metric from MAPE to log-MAE to reduce sensitivity to tiny-runtime configs."
+        "summary": "Change primary metric from MAPE to log-MAE to reduce sensitivity to tiny-runtime configs.",
+        "title": "Log-MAE objective alternative"
       },
       {
         "family": "infrastructure",
         "id": "R8",
-        "one_liner": "Build a synthetic kernel microbenchmark suite to calibrate B200 constants independently of FA4."
+        "summary": "Build a synthetic kernel microbenchmark suite to calibrate B200 constants independently of FA4.",
+        "title": "Synthetic B200 microbenchmark suite"
       }
     ]
   },

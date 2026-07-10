@@ -49,3 +49,8 @@ default_cwd_label = "topic.actors.workspace"
 workspace_label = "topic.actors.workspace"
 branch = "per-topic-actor/operator/main"
 status = "ready"
+[[toolboxes]]
+toolbox_id = "gpu-analytical-modeling"
+scope = "research_topic"
+status = "active"
+source_path = "skillset/toolboxes/gpu-analytical-modeling"

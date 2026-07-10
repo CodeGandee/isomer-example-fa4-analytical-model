@@ -2,7 +2,6 @@
   "ideas": {
     "family": "model",
     "id": "C1",
-    "one_liner": "Combined occupancy + TMA/L2 effective bandwidth + precision-specific throughput analytical predictor.",
     "selected": true,
     "source_candidate_id": "C1",
     "source_raw_idea_ids": [
@@ -13,7 +12,8 @@
       "R6"
     ],
     "source_record_id": "artifact-CANDIDATE_IDEA_FRONTIER-ece06ce63e08",
-    "status": "selected"
+    "status": "selected",
+    "summary": "Combined occupancy + TMA/L2 effective bandwidth + precision-specific throughput analytical predictor."
   },
   "metadata": {
     "consumer": "selection gate",
@@ -43,7 +43,9 @@
     "one_sentence_claim": "Adding tile-occupancy, TMA/L2 effective bandwidth, and precision-specific MMA/exponential terms to the FA4 paper roofline will reduce held-out MAPE below the baseline on B200.",
     "outside_family_alternative": "C2 (precision-only) and C3 (occupancy-only) isolate the terms; if C1 fails, one of these may still reveal the true bottleneck.",
     "strongest_rejection_case": "The FA4 kernel is already well-tuned for B200, so occupancy is near peak and memory bandwidth is saturated; adding these terms yields no improvement and the real error is scheduling/launch overhead that the white-box model cannot capture.",
+    "summary": "Adding tile-occupancy, TMA/L2 effective bandwidth, and precision-specific MMA/exponential terms to the FA4 paper roofline will reduce held-out MAPE below the baseline on B200.",
     "targeted_bottleneck": "FA4 paper roofline overestimates utilization and underestimates runtime because it omits occupancy, memory-hierarchy bandwidth, and precision throughput effects.",
+    "title": "Combined occupancy-bandwidth-precision predictor",
     "verdict": "promote",
     "why_now": "The accepted baseline explicitly lists these omissions as caveats, and the comparability contract defines the exact calibration constants needed to test them."
   },

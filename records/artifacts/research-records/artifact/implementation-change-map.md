@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/code/implementation-change-map/v1
-schema_ref: isomer:deepsci/record-format/schema/code/implementation-change-map/v1
+format_profile_ref: isomer:deepsci/record-format/profile/code/implementation-change-map/v2
+schema_ref: isomer:deepsci/record-format/schema/code/implementation-change-map/v2
 payload_digest: sha256:cce9d470c4f1ff81e87f7d4be796567e4470c27ef09e314aae2e182dac646228
 -->
 # Implementation Change Map: Real-Hardware Benchmark Harness
@@ -12,7 +12,7 @@ Implementation change map for the real-hardware benchmark harness.
 {
   "metadata": {
     "consumer": "execution",
-    "placeholder": "\u003cIMPLEMENTATION_CHANGE_MAP\u003e",
+    "placeholder": "<IMPLEMENTATION_CHANGE_MAP>",
     "producer": "isomer-deepsci-experiment",
     "skill": "isomer-deepsci-experiment"
   },

@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/writing-plan/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/writing-plan/v1
+format_profile_ref: isomer:deepsci/record-format/profile/paper/writing-plan/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/writing-plan/v2
 payload_digest: sha256:7469d2b639994da0e0817fc4c5763640c4f7fd551194aa58a0da72386d74d86d
 -->
 # Section Writing Plan: White-Box FA4 B200 Predictor

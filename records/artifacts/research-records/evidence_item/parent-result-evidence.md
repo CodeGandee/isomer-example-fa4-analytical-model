@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/parent-result-evidence/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/parent-result-evidence/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/parent-result-evidence/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/parent-result-evidence/v2
 payload_digest: sha256:ca8c7c008e1806814608b0f061b77dd9e91a3209330b6c629ca1759bef26001a
 -->
 # Real-hardware experiment result: improved FA4 white-box runtime predictor
@@ -116,7 +116,7 @@ The refuted experiment 'fa4-b200-improved-launch-overhead-ncu-calibration-v1' me
     }
   },
   "status": "ready",
-  "summary": "The refuted experiment \u0027fa4-b200-improved-launch-overhead-ncu-calibration-v1\u0027 measured 540 configurations on NVIDIA B200 (bf16/fp16/fp8; fp4 skipped) and NCU-profiled 60. The improved predictor cut MAPE dramatically versus both the combined original model and the baseline, but it fell short of the \u226575% NCU bottleneck-accuracy threshold.",
+  "summary": "The refuted experiment 'fa4-b200-improved-launch-overhead-ncu-calibration-v1' measured 540 configurations on NVIDIA B200 (bf16/fp16/fp8; fp4 skipped) and NCU-profiled 60. The improved predictor cut MAPE dramatically versus both the combined original model and the baseline, but it fell short of the ≥75% NCU bottleneck-accuracy threshold.",
   "title": "Real-hardware experiment result: improved FA4 white-box runtime predictor"
 }
 ```

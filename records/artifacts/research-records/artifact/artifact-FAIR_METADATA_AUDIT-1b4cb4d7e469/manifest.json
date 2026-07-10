@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/fair-metadata-audit/v1",
-  "payload_digest": "sha256:9203d3f2798d4fc00b1d9b299c9c5a5d67e84ee0b9cb62de9e90a13254ace3c0",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/fair-metadata-audit/v2",
+  "payload_digest": "sha256:6bfaa1c24b234afdf5979bf14e78da7dc90241b3f9064e54bc631251406aa6d5",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-FAIR_METADATA_AUDIT-1b4cb4d7e469",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/paper/fair-metadata-audit/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/fair-metadata-audit/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

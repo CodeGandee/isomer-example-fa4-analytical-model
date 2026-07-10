@@ -54,7 +54,9 @@
     "minimal_test": "Implement predictor.py in topic.repos.main with modular terms; calibrate constants on the calibration split; evaluate MAPE, max APE, 30%-error coverage, and bottleneck-label accuracy on held-out validation; compare to baseline predictor.",
     "next_route": "experiment",
     "pitch": "Extend the accepted FlashAttention-4 paper roofline baseline for B200 by adding tile-size-dependent occupancy, effective HBM/L2/TMA bandwidth, and precision-specific Tensor Core MMA/exponential throughput terms. The resulting analytical predictor should reduce held-out MAPE of predicted_runtime_ms and meet the useful-improvement threshold.",
-    "risk": "The dominant error source may be implementation-specific scheduling or launch overhead that a white-box model cannot capture, in which case the additions will not move MAPE materially."
+    "risk": "The dominant error source may be implementation-specific scheduling or launch overhead that a white-box model cannot capture, in which case the additions will not move MAPE materially.",
+    "summary": "Extend the accepted FlashAttention-4 paper roofline baseline for B200 by adding tile-size-dependent occupancy, effective HBM/L2/TMA bandwidth, and precision-specific Tensor Core MMA/exponential throughput terms.",
+    "title": "Selected hypothesis: combined predictor"
   },
   "status": "ready",
   "summary": "Selected hypothesis for the FlashAttention-4 B200 white-box runtime model.",

@@ -36,7 +36,9 @@
       "complication": "These omissions are likely the dominant source of prediction error, especially for small sequence lengths and FP8/FP4 precisions, so the baseline may not meet the useful-improvement threshold.",
       "question": "Can we extend the roofline with white-box B200-specific terms to reduce held-out MAPE without violating the no-query-execution constraint?",
       "situation": "The accepted baseline for FlashAttention-4 runtime prediction on B200 is the FA4 paper roofline. It is simple and interpretable but explicitly omits occupancy, L2/HBM/TMA bandwidth, and precision-specific throughput."
-    }
+    },
+    "summary": "The predictor computes stage times for MMA, SMEM, HBM/L2/TMA, and exponential ops, each scaled by an occupancy factor and, where applicable, an effective-bandwidth or precision-throughput factor. The predicted runtime is the maximum of the scaled stage times plus a small launch overhead.",
+    "title": "Selected idea draft: combined predictor"
   },
   "status": "ready",
   "summary": "Selected idea draft for the FlashAttention-4 B200 white-box runtime model.",

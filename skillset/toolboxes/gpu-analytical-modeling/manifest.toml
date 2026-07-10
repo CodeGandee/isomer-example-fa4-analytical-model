@@ -1,0 +1,130 @@
+schema_version = "isomer-toolbox.v1"
+toolbox_id = "gpu-analytical-modeling"
+kind = "toolbox-callback-bundle"
+name = "GPU Analytical Modeling"
+description = "Project-local stage-prior callbacks for GPU kernel analytical modeling."
+distribution = "project-local"
+
+[install]
+default_scope = "research_topic"
+requires_explicit_install = true
+
+[[callbacks]]
+key = "scout/begin/framing-prior"
+target_skill = "isomer-deepsci-scout"
+stage = "begin"
+source_type = "prompt_file"
+prompt_file = "callbacks/scout-begin-framing-prior.md"
+description = "Invoke gpu-analytic-scout-prior framing-prior before scout framing."
+
+[[callbacks]]
+key = "scout/end/output-check"
+target_skill = "isomer-deepsci-scout"
+stage = "end"
+source_type = "prompt_file"
+prompt_file = "callbacks/scout-end-output-check.md"
+description = "Invoke gpu-analytic-scout-prior output-check before scout handoff."
+
+[[callbacks]]
+key = "idea/begin/hypothesis-model-contract"
+target_skill = "isomer-deepsci-idea"
+stage = "begin"
+source_type = "prompt_file"
+prompt_file = "callbacks/idea-begin-hypothesis-model-contract.md"
+description = "Invoke gpu-analytic-idea-prior hypothesis-model-contract before idea work hardens."
+
+[[callbacks]]
+key = "baseline/begin/evidence-baseline-contract"
+target_skill = "isomer-deepsci-baseline"
+stage = "begin"
+source_type = "prompt_file"
+prompt_file = "callbacks/baseline-begin-evidence-baseline-contract.md"
+description = "Invoke gpu-analytic-baseline-prior evidence-baseline-contract before baseline acceptance."
+
+[[callbacks]]
+key = "analysis/begin/hardware-grounded-interpretation"
+target_skill = "isomer-deepsci-analysis"
+stage = "begin"
+source_type = "prompt_file"
+prompt_file = "callbacks/analysis-begin-hardware-grounded-interpretation.md"
+description = "Invoke gpu-analytic-analysis-prior hardware-grounded-interpretation before analysis interpretation."
+
+[[callbacks]]
+key = "analysis/end/component-proof-check"
+target_skill = "isomer-deepsci-analysis"
+stage = "end"
+source_type = "prompt_file"
+prompt_file = "callbacks/analysis-end-component-proof-check.md"
+description = "Invoke gpu-analytic-analysis-prior component-proof-check before analysis handoff."
+
+[[callbacks]]
+key = "experiment/begin/evaluation-and-profiler-contract"
+target_skill = "isomer-deepsci-experiment"
+stage = "begin"
+source_type = "prompt_file"
+prompt_file = "callbacks/experiment-begin-evaluation-and-profiler-contract.md"
+description = "Invoke gpu-analytic-experiment-prior evaluation-and-profiler-contract before experiment design."
+
+[[callbacks]]
+key = "experiment/end/result-evidence-check"
+target_skill = "isomer-deepsci-experiment"
+stage = "end"
+source_type = "prompt_file"
+prompt_file = "callbacks/experiment-end-result-evidence-check.md"
+description = "Invoke gpu-analytic-experiment-prior result-evidence-check before experiment handoff."
+
+[[callbacks]]
+key = "review/begin/source-and-evidence-review"
+target_skill = "isomer-deepsci-review"
+stage = "begin"
+source_type = "prompt_file"
+prompt_file = "callbacks/review-begin-source-and-evidence-review.md"
+description = "Invoke gpu-analytic-review-prior source-and-evidence-review before review."
+
+[[callbacks]]
+key = "review/end/claim-strength-review"
+target_skill = "isomer-deepsci-review"
+stage = "end"
+source_type = "prompt_file"
+prompt_file = "callbacks/review-end-claim-strength-review.md"
+description = "Invoke gpu-analytic-review-prior claim-strength-review before review closure."
+
+[[callbacks]]
+key = "decision/begin/mismatch-route"
+target_skill = "isomer-deepsci-decision"
+stage = "begin"
+source_type = "prompt_file"
+prompt_file = "callbacks/decision-begin-mismatch-route.md"
+description = "Invoke gpu-analytic-decision-prior mismatch-route before decision routing."
+
+[[callbacks]]
+key = "pipeline/begin/evidence-route"
+target_skill = "isomer-deepsci-pipeline"
+stage = "begin"
+source_type = "prompt_file"
+prompt_file = "callbacks/pipeline-begin-evidence-route.md"
+description = "Invoke gpu-analytic-pipeline-prior evidence-route before pipeline planning."
+
+[[callbacks]]
+key = "write/end/claim-and-proxy-check"
+target_skill = "isomer-deepsci-write"
+stage = "end"
+source_type = "prompt_file"
+prompt_file = "callbacks/write-end-claim-and-proxy-check.md"
+description = "Invoke gpu-analytic-write-prior claim-and-proxy-check before writing handoff."
+
+[[callbacks]]
+key = "finalize/begin/closure-readiness"
+target_skill = "isomer-deepsci-finalize"
+stage = "begin"
+source_type = "prompt_file"
+prompt_file = "callbacks/finalize-begin-closure-readiness.md"
+description = "Invoke gpu-analytic-finalize-prior closure-readiness before finalization."
+
+[[callbacks]]
+key = "finalize/end/final-evidence-class"
+target_skill = "isomer-deepsci-finalize"
+stage = "end"
+source_type = "prompt_file"
+prompt_file = "callbacks/finalize-end-final-evidence-class.md"
+description = "Invoke gpu-analytic-finalize-prior final-evidence-class before final closure."

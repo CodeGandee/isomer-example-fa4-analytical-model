@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/baseline-verification-evidence/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/baseline-verification-evidence/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/baseline-verification-evidence/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/baseline-verification-evidence/v2
 payload_digest: sha256:b9a88e186b0648699d8b8f8c8e74a70e79728beb3a25a2874fe414cb86f17c2a
 -->
 # Baseline Verification Evidence: FlashAttention-4 Roofline Baseline for B200
@@ -12,7 +12,7 @@ Verification evidence for the accepted FlashAttention-4 roofline baseline compar
 {
   "metadata": {
     "consumer": "verification, accepted baseline, route decision",
-    "placeholder": "\u003cBASELINE_VERIFICATION_EVIDENCE\u003e",
+    "placeholder": "<BASELINE_VERIFICATION_EVIDENCE>",
     "producer": "isomer-deepsci-baseline",
     "skill": "isomer-deepsci-baseline"
   },
@@ -42,10 +42,10 @@ Verification evidence for the accepted FlashAttention-4 roofline baseline compar
         "records/artifacts/research-records/artifact/literature-scouting-report.md"
       ],
       "required_metric_ids_and_directions": [
-        "held_out_mape_predicted_runtime_ms -\u003e minimize",
-        "max_absolute_percentage_error -\u003e minimize",
-        "pct_validation_configs_within_30_pct_abs_error -\u003e maximize",
-        "bottleneck_label_accuracy -\u003e maximize"
+        "held_out_mape_predicted_runtime_ms -> minimize",
+        "max_absolute_percentage_error -> minimize",
+        "pct_validation_configs_within_30_pct_abs_error -> maximize",
+        "bottleneck_label_accuracy -> maximize"
       ]
     },
     "route_and_comparator": {

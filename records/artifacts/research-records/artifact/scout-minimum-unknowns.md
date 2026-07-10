@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/report/scout-minimum-unknowns/v1
-schema_ref: isomer:deepsci/record-format/schema/report/scout-minimum-unknowns/v1
+format_profile_ref: isomer:deepsci/record-format/profile/report/scout-minimum-unknowns/v2
+schema_ref: isomer:deepsci/record-format/schema/report/scout-minimum-unknowns/v2
 payload_digest: sha256:7d88e4eba7cdf52f0bc39cf8b9b7b2886c76b35554836d40517c97e19a4dedcd
 -->
 # Scout Minimum Unknowns
@@ -12,7 +12,7 @@ Unresolved route-changing questions for the Flash Attention 4 white-box runtime 
 {
   "metadata": {
     "consumer": "isomer-deepsci-scout, literature discovery, evaluation contract drafting, baseline shortlist drafting.",
-    "placeholder": "\u003cSCOUT_MINIMUM_UNKNOWNS\u003e",
+    "placeholder": "<SCOUT_MINIMUM_UNKNOWNS>",
     "producer": "isomer-deepsci-scout",
     "skill": "isomer-deepsci-scout"
   },

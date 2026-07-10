@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/decision/writing-route-decision/v1
-schema_ref: isomer:deepsci/record-format/schema/decision/writing-route-decision/v1
+format_profile_ref: isomer:deepsci/record-format/profile/decision/writing-route-decision/v2
+schema_ref: isomer:deepsci/record-format/schema/decision/writing-route-decision/v2
 payload_digest: sha256:7002563c13ea1c3e2b49329dbaeab4ad233e95aa989591ff8a4feca867564458
 -->
 # Writing Route Decision: FA4 B200 Revised Draft
@@ -13,7 +13,7 @@ The revised draft passes validation; route to finalize.
   "metadata": {
     "consumer": "any selected production DeepSci skill",
     "paper_surface": "writing_route_decision",
-    "placeholder": "\u003cWRITING_ROUTE_DECISION\u003e",
+    "placeholder": "<WRITING_ROUTE_DECISION>",
     "producer": "isomer-deepsci-write",
     "skill": "isomer-deepsci-write",
     "topic": "flash-attention-4-whitebox-runtime-model",

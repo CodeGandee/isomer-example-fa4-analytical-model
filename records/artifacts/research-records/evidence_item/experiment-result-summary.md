@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/experiment-result-summary/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/experiment-result-summary/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/experiment-result-summary/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/experiment-result-summary/v2
 payload_digest: sha256:fa0955dba87128d21c9aa036a41032a1703b935346183ac9dabce0565de0428c
 -->
 # Experiment Result Summary: Real-Hardware Validation of the FA4 B200 Predictor
@@ -12,7 +12,7 @@ Real B200 measurements refute the selected hypothesis: the combined predictor fa
 {
   "metadata": {
     "consumer": "isomer-deepsci-analysis, decision, optimize, finalize",
-    "placeholder": "\u003cEXPERIMENT_RESULT_SUMMARY\u003e",
+    "placeholder": "<EXPERIMENT_RESULT_SUMMARY>",
     "producer": "isomer-deepsci-experiment",
     "skill": "isomer-deepsci-experiment"
   },

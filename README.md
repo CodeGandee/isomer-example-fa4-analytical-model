@@ -17,6 +17,8 @@ The final compiled paper is available at:
 LaTeX sources and intermediate revisions live in the operator actor workspace
 under `actors/operator/isomer-managed/worker-output/...`.
 
+The research-record bundle also includes the cited reference PDFs used during scouting and analysis. The FlashAttention-4 paper and banner remain part of the pinned upstream checkout fetched by `scripts/setup-extern.sh`.
+
 ## Research Chatlogs
 
 Sanitized, high-level analysis summaries from the original research sessions are
@@ -187,9 +189,11 @@ On 540 real B200 configurations (20% calibration, 20% validation, 60% query):
 │   └── operator/               # Operator actor workspace (submodule)
 ├── records/                    # Research records and evidence
 ├── intent/                     # Topic intent and environment gates
+├── skillset/toolboxes/         # Active GPU analytical-modeling Toolbox
 ├── chatlogs/                   # Sanitized analysis summaries
 ├── scripts/
-│   └── setup-extern.sh         # Clone upstream simulator dependencies
+│   ├── setup-extern.sh         # Clone upstream simulator dependencies
+│   └── update-sanitized-export.py # Refresh safe workspace content
 ├── pixi.toml / pixi.lock       # Reproducible Python environment
 └── README.md                   # This file
 ```
@@ -243,6 +247,10 @@ To update the actor submodule:
 ```bash
 git submodule update --init --remote
 ```
+
+## Sanitized Export Maintenance
+
+Maintainers can refresh the public records, source package, workspace metadata, and active project-local Toolbox from a local Topic Workspace with `scripts/update-sanitized-export.py <source-workspace>`. The script excludes runtime databases and generated caches, replaces host-specific paths with placeholders, and recomputes structured-record payload digests after sanitization. The actor workspace remains a separate branch and must be reviewed and updated independently before advancing the submodule pointer.
 
 ## License
 

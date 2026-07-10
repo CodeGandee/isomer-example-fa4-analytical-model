@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/claim-ledger/v1",
-  "payload_digest": "sha256:513fc2b2d14ba01e183d8c89b5d0b3269eca6e7f6d81f4d9ce8140dff611856b",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/claim-ledger/v2",
+  "payload_digest": "sha256:e6a849daf261120229e6cc9f7838ac5a21dabc7e0dbf4c7f64d093e96c801a2d",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-CLAIM_LEDGER-17563d6f",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/paper/claim-ledger/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/claim-ledger/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

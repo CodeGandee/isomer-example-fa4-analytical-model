@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/report/limitations-map/v1
-schema_ref: isomer:deepsci/record-format/schema/report/limitations-map/v1
+format_profile_ref: isomer:deepsci/record-format/profile/report/limitations-map/v2
+schema_ref: isomer:deepsci/record-format/schema/report/limitations-map/v2
 payload_digest: sha256:a17ab7c3556a8e7dc05ecf511f06f94bd322f76eb369e711807cbcb0310a74e4
 -->
 # Limitations Map: FlashAttention-4 B200 Runtime Model Idea Pass
@@ -12,7 +12,7 @@ Limitations map for the FlashAttention-4 B200 runtime model idea pass.
 {
   "metadata": {
     "consumer": "candidate generation",
-    "placeholder": "\u003cLIMITATIONS_MAP\u003e",
+    "placeholder": "<LIMITATIONS_MAP>",
     "producer": "isomer-deepsci-idea",
     "skill": "isomer-deepsci-idea"
   },
@@ -38,9 +38,9 @@ Limitations map for the FlashAttention-4 B200 runtime model idea pass.
       }
     ],
     "priority_ranking": [
-      "Occupancy and TMA/L2 effective bandwidth \u2014 likely highest impact because FA4 is designed to be memory/compute balanced and B200 has a deep hierarchy.",
-      "Precision-specific MMA throughput \u2014 high impact for FP8/FP4 configs, lower for BF16/FP16.",
-      "Exponential emulation correction \u2014 smaller but measurable impact for causal/non-causal and softmax scaling."
+      "Occupancy and TMA/L2 effective bandwidth — likely highest impact because FA4 is designed to be memory/compute balanced and B200 has a deep hierarchy.",
+      "Precision-specific MMA throughput — high impact for FP8/FP4 configs, lower for BF16/FP16.",
+      "Exponential emulation correction — smaller but measurable impact for causal/non-causal and softmax scaling."
     ],
     "root_cause_hypotheses": [
       "The baseline omits a tile-occupancy term, so latency-hiding and SM utilization are overestimated.",

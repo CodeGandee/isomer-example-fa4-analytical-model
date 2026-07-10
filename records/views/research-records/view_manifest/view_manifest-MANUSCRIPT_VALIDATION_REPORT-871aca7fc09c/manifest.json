@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/validation/manuscript-coverage/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/validation/manuscript-coverage/v2",
   "payload_digest": "sha256:fd9c003df7846d25baadbc8542a75a78e1880be52a46c59eacaa24b0ce568a0f",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "view_manifest-MANUSCRIPT_VALIDATION_REPORT-871aca7fc09c",
   "record_kind": "view_manifest",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/paper/validation/manuscript-coverage/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/validation/manuscript-coverage/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

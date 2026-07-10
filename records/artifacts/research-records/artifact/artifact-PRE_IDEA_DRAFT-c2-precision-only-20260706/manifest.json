@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/draft/pre-idea-draft/v1",
-  "payload_digest": "sha256:a5005eb7ae6749446c8bd0460fd4f6ff6110bd36cd7026a4d37e67e5181506c4",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/draft/pre-idea-draft/v2",
+  "payload_digest": "sha256:88b7d0c210b245d302a7814e6b0b82d081ca0f1e07a004c5e4eab551fadf80e7",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-PRE_IDEA_DRAFT-c2-precision-only-20260706",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/draft/pre-idea-draft/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/draft/pre-idea-draft/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "source_payload_file": "<PROJECT_ROOT>/tmp/repair-flash-attention-topic-idea-iteration-data/pre-idea-c2-payload.json",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"

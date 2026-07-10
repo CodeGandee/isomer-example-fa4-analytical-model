@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/report/literature-survey-report/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/report/literature-survey-report/v2",
   "payload_digest": "sha256:f35915b274566f77b4c6c04751858c9e6ec370e0dedb247559ffc0e617b95852",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-LITERATURE_SURVEY_REPORT-1cf5125a64f8",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/report/literature-survey-report/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/report/literature-survey-report/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

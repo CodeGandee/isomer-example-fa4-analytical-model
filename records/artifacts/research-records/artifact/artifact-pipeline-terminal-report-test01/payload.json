@@ -5,5 +5,7 @@
   "recommended_next": null,
   "resume_point": null,
   "stages_run": [],
-  "status": "complete"
+  "status": "complete",
+  "summary": "Pipeline terminal report for a submission-pass run, recording completed stages, produced artifacts, route decisions, and pause or closeout status.",
+  "title": "Pipeline Terminal Report Test01"
 }

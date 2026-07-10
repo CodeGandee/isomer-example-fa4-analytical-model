@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/section-draft/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/section-draft/v1
+format_profile_ref: isomer:deepsci/record-format/profile/paper/section-draft/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/section-draft/v2
 payload_digest: sha256:3b5f4a6dffc3f37e6af9e4ed3b1b65fd0919d1da0b1fdf0bc407f78af2b6bb63
 -->
 # Draft Section Set: White-Box FA4 B200 Predictor on Real Hardware

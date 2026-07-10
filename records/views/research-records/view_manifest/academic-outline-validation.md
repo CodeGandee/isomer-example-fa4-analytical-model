@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/validation/academic-outline/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/validation/academic-outline/v1
+format_profile_ref: isomer:deepsci/record-format/profile/paper/validation/academic-outline/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/validation/academic-outline/v2
 payload_digest: sha256:2be5fedfe5629ff6267807f905c5297bcb28775e72ad283674c3f44530bc5826
 -->
 # Academic Outline Validation Report: FA4 B200 White-Box Runtime Predictor
@@ -12,7 +12,7 @@ Validation of the paper outline against claim support, falsification boundaries,
 {
   "metadata": {
     "consumer": "paper-outline, write, decision",
-    "placeholder": "\u003cOUTLINE_VALIDATION_REPORT\u003e",
+    "placeholder": "<OUTLINE_VALIDATION_REPORT>",
     "producer": "isomer-deepsci-paper-outline",
     "skill": "isomer-deepsci-paper-outline"
   },
@@ -63,7 +63,7 @@ Validation of the paper outline against claim support, falsification boundaries,
       },
       {
         "objection": "Are the corrections black-box fits dressed as white-box terms?",
-        "response": "Define each factor\u0027s physical meaning and calibration bounds; show that the TMA/L2 correction alone reaches 5.76% MAPE, indicating structure rather than overfitting."
+        "response": "Define each factor's physical meaning and calibration bounds; show that the TMA/L2 correction alone reaches 5.76% MAPE, indicating structure rather than overfitting."
       },
       {
         "objection": "Why focus on B200 rather than a more general model?",

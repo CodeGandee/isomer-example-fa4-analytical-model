@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/review/literature-benchmark-note/v1",
-  "payload_digest": "sha256:0f59b8a6931ec6abb9646d361fe9f26d28a11ff9b089e2626060e850f6006ca0",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/review/literature-benchmark-note/v2",
+  "payload_digest": "sha256:165a6c071b12cd20f9bbe2fd51d71e9ed5dadd306d80b58d144a190ffac62758",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "evidence_item-LITERATURE_BENCHMARK_NOTE-956bd3369486",
   "record_kind": "evidence_item",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/review/literature-benchmark-note/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/review/literature-benchmark-note/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/report/analysis-campaign-summary/v1
-schema_ref: isomer:deepsci/record-format/schema/report/analysis-campaign-summary/v1
+format_profile_ref: isomer:deepsci/record-format/profile/report/analysis-campaign-summary/v2
+schema_ref: isomer:deepsci/record-format/schema/report/analysis-campaign-summary/v2
 payload_digest: sha256:708559cf1437a8e904ea233c8ba60756a59acbf5252fdfee18c871f749fe5b2b
 -->
 # Analysis campaign summary: bottleneck-threshold refinement

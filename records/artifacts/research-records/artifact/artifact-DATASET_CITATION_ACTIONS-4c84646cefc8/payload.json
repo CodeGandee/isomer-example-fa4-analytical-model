@@ -1,4 +1,5 @@
 {
   "body": "# Dataset Citation Actions — FlashAttention-4 White-Box Runtime Model\n\n- public_generated_datasets:\n  - action: deposit synthetic config matrix and runtimes in a public repository (Zenodo/Figshare/GitHub release)\n  - missing: DOI/accession\n  - citation_text: to be added after deposit\n- reused_public_datasets:\n  - source: FlashAttention-4 paper (Zadouri et al., 2026)\n  - citation: already in references.bib\n  - source: Blackwell microbenchmarks (Jarmusch & Chandrasekaran, 2025/2026)\n  - citation: already in references.bib\n- figure_source_data:\n  - action: include PNGs in supplementary materials or repository\n  - missing: none for bundle; persistent link pending deposit\n",
+  "summary": "Dataset citation action plan for the FlashAttention-4 B200 generated data, reused sources, and missing persistent identifiers.",
   "title": "Dataset Citation Actions — FlashAttention-4 White-Box Runtime Model"
 }

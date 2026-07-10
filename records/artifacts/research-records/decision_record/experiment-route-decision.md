@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/decision/experiment-route-decision/v1
-schema_ref: isomer:deepsci/record-format/schema/decision/experiment-route-decision/v1
+format_profile_ref: isomer:deepsci/record-format/profile/decision/experiment-route-decision/v2
+schema_ref: isomer:deepsci/record-format/schema/decision/experiment-route-decision/v2
 payload_digest: sha256:e1eaa93f984cb09d94263d6ce5a3a117c2b68c75f1707635ca20679c86c45ecf
 -->
 # Experiment Route Decision: Analysis
@@ -12,7 +12,7 @@ Route to analysis after real-hardware experiment refuted the selected hypothesis
 {
   "metadata": {
     "consumer": "analysis, optimize, decision, finalize, idea",
-    "placeholder": "\u003cEXPERIMENT_ROUTE_DECISION\u003e",
+    "placeholder": "<EXPERIMENT_ROUTE_DECISION>",
     "producer": "isomer-deepsci-experiment",
     "skill": "isomer-deepsci-experiment"
   },

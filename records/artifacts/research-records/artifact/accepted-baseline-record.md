@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/handoff/accepted-baseline-record/v1
-schema_ref: isomer:deepsci/record-format/schema/handoff/accepted-baseline-record/v1
-payload_digest: sha256:04aee43db465bca1dd833129310b39e1914b160538b58b6287240c426d49a5b0
+format_profile_ref: isomer:deepsci/record-format/profile/handoff/accepted-baseline-record/v2
+schema_ref: isomer:deepsci/record-format/schema/handoff/accepted-baseline-record/v2
+payload_digest: sha256:c873e77cf56d63b3f9b25452dee2080cd45dd56fe0d79caa51af02c2df4ac757
 -->
 # Accepted Baseline Record: FlashAttention-4 Roofline Baseline for B200
 
@@ -12,7 +12,7 @@ Accepted baseline record for the FlashAttention-4 paper roofline model on NVIDIA
 {
   "metadata": {
     "consumer": "isomer-deepsci-idea, isomer-deepsci-experiment, isomer-deepsci-analysis, isomer-deepsci-decision",
-    "placeholder": "\u003cACCEPTED_BASELINE_RECORD\u003e",
+    "placeholder": "<ACCEPTED_BASELINE_RECORD>",
     "producer": "isomer-deepsci-baseline",
     "skill": "isomer-deepsci-baseline"
   },
@@ -68,7 +68,7 @@ Accepted baseline record for the FlashAttention-4 paper roofline model on NVIDIA
         "per-stage_residual",
         "ncu_counter_trend_correlation"
       ],
-      "threshold": "MAPE \u003c= 25%; \u003e= 75% of validation configs within 30% absolute error; \u003e= 75% bottleneck-label accuracy"
+      "threshold": "MAPE <= 25%; >= 75% of validation configs within 30% absolute error; >= 75% bottleneck-label accuracy"
     },
     "primary_metric": "held_out_mape_predicted_runtime_ms (minimize)",
     "source": {

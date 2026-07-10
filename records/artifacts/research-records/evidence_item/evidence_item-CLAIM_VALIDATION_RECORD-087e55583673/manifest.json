@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/evidence/claim-validation-record/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/evidence/claim-validation-record/v2",
   "payload_digest": "sha256:c169fbbeeb58b3025d4027cc75c2eaa2745863b9a93d787bdfb376f42f57ec98",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "evidence_item-CLAIM_VALIDATION_RECORD-087e55583673",
   "record_kind": "evidence_item",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/evidence/claim-validation-record/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/evidence/claim-validation-record/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

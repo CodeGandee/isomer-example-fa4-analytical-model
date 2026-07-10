@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/baseline-context-brief/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/baseline-context-brief/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/baseline-context-brief/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/baseline-context-brief/v2
 payload_digest: sha256:e8f89035848ceff50a2e8d716867051443098c92d3c88f69b4627f2abfa7c1e0
 -->
 # Baseline Context Brief: FlashAttention-4 Roofline Baseline for B200
@@ -12,7 +12,7 @@ Baseline context brief for the FlashAttention-4 roofline comparator on NVIDIA B2
 {
   "metadata": {
     "consumer": "route selection, verification",
-    "placeholder": "\u003cBASELINE_CONTEXT_BRIEF\u003e",
+    "placeholder": "<BASELINE_CONTEXT_BRIEF>",
     "producer": "isomer-deepsci-baseline",
     "skill": "isomer-deepsci-baseline"
   },

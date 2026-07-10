@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/report/pipeline-terminal-report/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/report/pipeline-terminal-report/v2",
   "payload_digest": "sha256:8123d460982b64ddddf17aefd6fa61d55462085fea1440b56995e7f0db90ccc6",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-pipeline-terminal-report-da8f784dff95",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/report/pipeline-terminal-report/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/report/pipeline-terminal-report/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

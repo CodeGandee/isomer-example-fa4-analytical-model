@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/section-draft/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/paper/section-draft/v2",
   "payload_digest": "sha256:3b5f4a6dffc3f37e6af9e4ed3b1b65fd0919d1da0b1fdf0bc407f78af2b6bb63",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-DRAFT_SECTION_SET-34fb534e1a6c",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/paper/section-draft/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/paper/section-draft/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

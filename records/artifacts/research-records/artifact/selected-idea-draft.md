@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/draft/selected-idea-draft/v1
-schema_ref: isomer:deepsci/record-format/schema/draft/selected-idea-draft/v1
-payload_digest: sha256:b6b921366aadb2fc843155325d58bd865a644ec4b5537ae1a5ba82a26f44575a
+format_profile_ref: isomer:deepsci/record-format/profile/draft/selected-idea-draft/v2
+schema_ref: isomer:deepsci/record-format/schema/draft/selected-idea-draft/v2
+payload_digest: sha256:454fbf903ad5f5bb575dfeaac5a927c95fc27e745c9b21dc7ee704c37d78d9de
 -->
 # Selected Idea Draft: Combined Occupancy/TMA-L2/Precision Analytical Predictor
 
@@ -12,7 +12,7 @@ Selected idea draft for the FlashAttention-4 B200 white-box runtime model.
 {
   "metadata": {
     "consumer": "experiment, optimize, writing, review",
-    "placeholder": "\u003cSELECTED_IDEA_DRAFT\u003e",
+    "placeholder": "<SELECTED_IDEA_DRAFT>",
     "producer": "isomer-deepsci-idea",
     "skill": "isomer-deepsci-idea"
   },
@@ -30,7 +30,7 @@ Selected idea draft for the FlashAttention-4 B200 white-box runtime model.
       "Implement evaluate.py to compute MAPE, max APE, 30%-error coverage, and bottleneck labels on held-out validation.",
       "Run ablations: baseline, occupancy-only, TMA/L2-only, precision-only, combined."
     ],
-    "falsification_and_abandonment": "Falsified if combined model does not beat baseline MAPE by \u003e= 5 percentage points on held-out validation after two calibration rounds. Abandon and return to idea/optimize if the useful-improvement threshold is also missed.",
+    "falsification_and_abandonment": "Falsified if combined model does not beat baseline MAPE by >= 5 percentage points on held-out validation after two calibration rounds. Abandon and return to idea/optimize if the useful-improvement threshold is also missed.",
     "mechanism_summary": "The predictor computes stage times for MMA, SMEM, HBM/L2/TMA, and exponential ops, each scaled by an occupancy factor and, where applicable, an effective-bandwidth or precision-throughput factor. The predicted runtime is the maximum of the scaled stage times plus a small launch overhead.",
     "references": [
       "[1] arXiv 2603.05451v1, FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling.",
@@ -43,11 +43,13 @@ Selected idea draft for the FlashAttention-4 B200 white-box runtime model.
       "Calibration split may be too small to fit effective-bandwidth curves robustly."
     ],
     "scqa": {
-      "answer": "Yes \u2014 add tile-occupancy, effective HBM/L2/TMA bandwidth, and precision-specific MMA/exponential terms, then calibrate on a disjoint calibration split and validate on held-out data.",
+      "answer": "Yes — add tile-occupancy, effective HBM/L2/TMA bandwidth, and precision-specific MMA/exponential terms, then calibrate on a disjoint calibration split and validate on held-out data.",
       "complication": "These omissions are likely the dominant source of prediction error, especially for small sequence lengths and FP8/FP4 precisions, so the baseline may not meet the useful-improvement threshold.",
       "question": "Can we extend the roofline with white-box B200-specific terms to reduce held-out MAPE without violating the no-query-execution constraint?",
       "situation": "The accepted baseline for FlashAttention-4 runtime prediction on B200 is the FA4 paper roofline. It is simple and interpretable but explicitly omits occupancy, L2/HBM/TMA bandwidth, and precision-specific throughput."
-    }
+    },
+    "summary": "The predictor computes stage times for MMA, SMEM, HBM/L2/TMA, and exponential ops, each scaled by an occupancy factor and, where applicable, an effective-bandwidth or precision-throughput factor. The predicted runtime is the maximum of the scaled stage times plus a small launch overhead.",
+    "title": "Selected Idea Draft"
   },
   "status": "ready",
   "summary": "Selected idea draft for the FlashAttention-4 B200 white-box runtime model.",

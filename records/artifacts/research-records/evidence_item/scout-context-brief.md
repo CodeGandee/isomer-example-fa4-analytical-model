@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/scout-context-brief/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/scout-context-brief/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/scout-context-brief/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/scout-context-brief/v2
 payload_digest: sha256:4e983779b87627b4a27ae746e6c3428782b7e18a79533713494c983e001539ef
 -->
 # Scout Context Brief
@@ -12,7 +12,7 @@ Reconstructed research frame for the Flash Attention 4 white-box runtime model o
 {
   "metadata": {
     "consumer": "isomer-deepsci-scout, isomer-deepsci-baseline, isomer-deepsci-idea, isomer-deepsci-decision",
-    "placeholder": "\u003cSCOUT_CONTEXT_BRIEF\u003e",
+    "placeholder": "<SCOUT_CONTEXT_BRIEF>",
     "producer": "isomer-deepsci-scout from user context, Workspace Runtime records, Artifacts, Findings, Evidence Items, and Decision Records.",
     "skill": "isomer-deepsci-scout"
   },

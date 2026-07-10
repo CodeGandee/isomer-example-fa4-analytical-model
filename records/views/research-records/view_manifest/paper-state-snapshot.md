@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/line-state/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/line-state/v1
-payload_digest: sha256:d6f5d429f66dd75fbbccfcca5260cf15db531e0ca2e4c84a65e2b3547deca44f
+format_profile_ref: isomer:deepsci/record-format/profile/paper/line-state/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/line-state/v2
+payload_digest: sha256:c907ccb30e2d1144a380e1bce8cb4002036ef0533d858c24b1a4448bb2ea32f8
 -->
 # Paper State Snapshot: FA4 B200 White-Box Runtime Predictor
 
@@ -12,7 +12,7 @@ Snapshot of paper-line state before drafting the FlashAttention-4 B200 white-box
 {
   "metadata": {
     "consumer": "paper-outline, write",
-    "placeholder": "\u003cPAPER_STATE_SNAPSHOT\u003e",
+    "placeholder": "<PAPER_STATE_SNAPSHOT>",
     "producer": "isomer-deepsci-paper-outline",
     "skill": "isomer-deepsci-paper-outline"
   },

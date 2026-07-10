@@ -2,14 +2,14 @@
   "ideas": {
     "family": "model",
     "id": "C3",
-    "one_liner": "Occupancy-only correction based on tile size and SM resource limits.",
     "selected": false,
     "source_candidate_id": "C3",
     "source_raw_idea_ids": [
       "R1"
     ],
     "source_record_id": "artifact-CANDIDATE_IDEA_FRONTIER-ece06ce63e08",
-    "status": "serious_alternative"
+    "status": "serious_alternative",
+    "summary": "Occupancy-only correction based on tile size and SM resource limits."
   },
   "metadata": {
     "consumer": "selection gate",
@@ -39,7 +39,9 @@
     "one_sentence_claim": "Adding tile-size-dependent occupancy limits should reduce small-S runtime prediction error in the FA4 B200 roofline model.",
     "outside_family_alternative": "C2 tests precision-only correction; C1 combines occupancy with TMA/L2 and precision terms.",
     "strongest_rejection_case": "FA4 tile choices already achieve near-peak occupancy on B200, so the missing error comes from bandwidth, precision throughput, or scheduling.",
+    "summary": "Adding tile-size-dependent occupancy limits should reduce small-S runtime prediction error in the FA4 B200 roofline model.",
     "targeted_bottleneck": "The FA4 roofline assumes full SM utilization.",
+    "title": "Occupancy-only correction",
     "verdict": "defer",
     "why_now": "This is a direct test of the occupancy hypothesis and can be implemented without memory bandwidth calibration."
   },

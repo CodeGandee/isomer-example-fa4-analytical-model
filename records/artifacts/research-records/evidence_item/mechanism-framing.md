@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/mechanism-framing/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/mechanism-framing/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/mechanism-framing/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/mechanism-framing/v2
 payload_digest: sha256:7a94b4282bcfc5b7111bc6c97837a97786cc1081a8ab2b357a6239a19e8a3628
 -->
 # Mechanism Framing: FlashAttention-4 B200 Runtime Model Idea Pass
@@ -12,7 +12,7 @@ Mechanism framing for the FlashAttention-4 B200 runtime model idea pass.
 {
   "metadata": {
     "consumer": "candidate generation and pre-idea draft",
-    "placeholder": "\u003cMECHANISM_FRAMING\u003e",
+    "placeholder": "<MECHANISM_FRAMING>",
     "producer": "isomer-deepsci-idea",
     "skill": "isomer-deepsci-idea"
   },

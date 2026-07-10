@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/handoff/baseline-payload-record/v1
-schema_ref: isomer:deepsci/record-format/schema/handoff/baseline-payload-record/v1
+format_profile_ref: isomer:deepsci/record-format/profile/handoff/baseline-payload-record/v2
+schema_ref: isomer:deepsci/record-format/schema/handoff/baseline-payload-record/v2
 payload_digest: sha256:d51d3c8e6bd5f7ca95776aabb2adfd9decdff6bec5bc3ed0cccf3fa15c0f46d3
 -->
 # Baseline Payload Record: FlashAttention-4 Roofline Baseline for B200
@@ -12,7 +12,7 @@ Baseline payload record for the accepted FlashAttention-4 roofline comparator.
 {
   "metadata": {
     "consumer": "isomer-deepsci-idea, isomer-deepsci-experiment, isomer-deepsci-analysis, isomer-deepsci-decision",
-    "placeholder": "\u003cBASELINE_PAYLOAD_RECORD\u003e",
+    "placeholder": "<BASELINE_PAYLOAD_RECORD>",
     "producer": "isomer-deepsci-baseline",
     "skill": "isomer-deepsci-baseline"
   },
@@ -57,7 +57,7 @@ Baseline payload record for the accepted FlashAttention-4 roofline comparator.
         "pct_validation_configs_within_30_pct_abs_error",
         "bottleneck_label_accuracy"
       ],
-      "threshold": "MAPE \u003c= 25%; \u003e= 75% of validation configs within 30% absolute error; \u003e= 75% bottleneck-label accuracy"
+      "threshold": "MAPE <= 25%; >= 75% of validation configs within 30% absolute error; >= 75% bottleneck-label accuracy"
     },
     "path_or_package_identity": "repos/extern/flash-attention @ 002cce0 + arXiv 2603.05451v1 + B200 host spec",
     "primary_metric": "held_out_mape_predicted_runtime_ms (minimize)",

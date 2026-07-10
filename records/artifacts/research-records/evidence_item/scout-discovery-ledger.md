@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/scout-discovery-ledger/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/scout-discovery-ledger/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/scout-discovery-ledger/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/scout-discovery-ledger/v2
 payload_digest: sha256:e76beccb5cf770134439e08d3be057010b1f89a073271e2528731683e35a5623
 -->
 # Scout Discovery Ledger
@@ -11,8 +11,8 @@ Compact record of targeted discovery for the Flash Attention 4 white-box runtime
 ```json
 {
   "metadata": {
-    "consumer": "\u003cLITERATURE_SCOUTING_REPORT\u003e, \u003cEVALUATION_CONTRACT\u003e, \u003cBASELINE_SHORTLIST\u003e, \u003cNEXT_ROUTE_DECISION\u003e",
-    "placeholder": "\u003cSCOUT_DISCOVERY_LEDGER\u003e",
+    "consumer": "<LITERATURE_SCOUTING_REPORT>, <EVALUATION_CONTRACT>, <BASELINE_SHORTLIST>, <NEXT_ROUTE_DECISION>",
+    "placeholder": "<SCOUT_DISCOVERY_LEDGER>",
     "producer": "isomer-deepsci-scout through Literature Provider Binding, repository inspection, and compatibility artifact calls.",
     "skill": "isomer-deepsci-scout"
   },

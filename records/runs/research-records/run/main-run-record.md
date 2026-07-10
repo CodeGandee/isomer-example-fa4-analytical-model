@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/run/main-run-record/v1
-schema_ref: isomer:deepsci/record-format/schema/run/main-run-record/v1
-payload_digest: sha256:c866cbb518d063d7b0898a44c95a2d66d759811c109ce2642a9f56b94b2bc3cd
+format_profile_ref: isomer:deepsci/record-format/profile/run/main-run-record/v2
+schema_ref: isomer:deepsci/record-format/schema/run/main-run-record/v2
+payload_digest: sha256:1f1433f26cbe645664b2bfd17477d26eefe28f037fd78a010af906b6255a4ea1
 -->
 # Main Run Record: Real-Hardware FA4 B200 Benchmark
 
@@ -12,7 +12,7 @@ Main real-hardware measurement run for the FA4 B200 predictor hypothesis pass.
 {
   "metadata": {
     "consumer": "analysis, decision, optimize, finalize",
-    "placeholder": "\u003cMAIN_RUN_RECORD\u003e",
+    "placeholder": "<MAIN_RUN_RECORD>",
     "producer": "isomer-deepsci-experiment",
     "skill": "isomer-deepsci-experiment"
   },

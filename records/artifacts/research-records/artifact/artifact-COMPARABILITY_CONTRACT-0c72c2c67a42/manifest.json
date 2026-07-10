@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/handoff/comparability-contract/v1",
-  "payload_digest": "sha256:959d6d918768287c7a980e223191b62d216eaa21f8c2f1a150cc1c44d97f42ca",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/handoff/comparability-contract/v2",
+  "payload_digest": "sha256:a98081ff50e79b1f6083c45376cbf43077f6505b318512b72579853abfd556eb",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-COMPARABILITY_CONTRACT-0c72c2c67a42",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/handoff/comparability-contract/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/handoff/comparability-contract/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

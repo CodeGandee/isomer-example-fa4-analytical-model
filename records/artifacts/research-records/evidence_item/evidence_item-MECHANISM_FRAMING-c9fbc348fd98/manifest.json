@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/evidence/mechanism-framing/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/evidence/mechanism-framing/v2",
   "payload_digest": "sha256:7a94b4282bcfc5b7111bc6c97837a97786cc1081a8ab2b357a6239a19e8a3628",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "evidence_item-MECHANISM_FRAMING-c9fbc348fd98",
   "record_kind": "evidence_item",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/evidence/mechanism-framing/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/evidence/mechanism-framing/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

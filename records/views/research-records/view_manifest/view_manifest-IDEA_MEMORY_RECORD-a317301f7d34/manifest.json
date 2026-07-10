@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/control/idea-memory-record/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/control/idea-memory-record/v2",
   "payload_digest": "sha256:7a2c391e624ea8ff9e775e18281360dae722ad157654c5359b142e2a060fa420",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "view_manifest-IDEA_MEMORY_RECORD-a317301f7d34",
   "record_kind": "view_manifest",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/control/idea-memory-record/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/control/idea-memory-record/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

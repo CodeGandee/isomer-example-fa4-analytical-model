@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/experiment-result-summary/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/experiment-result-summary/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/experiment-result-summary/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/experiment-result-summary/v2
 payload_digest: sha256:db6b416d9fb8d149cc27bffff0b44131a7c8d94219c8a409055541ea34e2c839
 -->
 # Experiment Result Summary: Bottleneck-Threshold Calibration on Real B200
@@ -12,7 +12,7 @@ The bottleneck-threshold refinement is supported: NCU bottleneck accuracy reache
 {
   "metadata": {
     "consumer": "isomer-deepsci-analysis, decision, optimize, finalize",
-    "placeholder": "\u003cEXPERIMENT_RESULT_SUMMARY\u003e",
+    "placeholder": "<EXPERIMENT_RESULT_SUMMARY>",
     "producer": "isomer-deepsci-experiment",
     "skill": "isomer-deepsci-experiment"
   },
@@ -63,7 +63,7 @@ The bottleneck-threshold refinement is supported: NCU bottleneck accuracy reache
     "primary_metric": "ncu_bottleneck_accuracy",
     "research_question": "Does adding an NCU-guided bottleneck-threshold calibration push NCU bottleneck accuracy above 75% without degrading runtime MAPE on real B200 FlashAttention-4 measurements?",
     "selected_hypothesis_id": "fa4-b200-bottleneck-threshold-calibration-v1",
-    "takeaway": "The refinement is supported. A single calibrated slack term that labels configs compute-bound when memory time is within 3\u00d7 of compute time aligns the white-box diagnosis with NCU and pushes bottleneck accuracy to 100% on the profiled subset, with no runtime MAPE degradation."
+    "takeaway": "The refinement is supported. A single calibrated slack term that labels configs compute-bound when memory time is within 3× of compute time aligns the white-box diagnosis with NCU and pushes bottleneck accuracy to 100% on the profiled subset, with no runtime MAPE degradation."
   },
   "status": "ready",
   "summary": "The bottleneck-threshold refinement is supported: NCU bottleneck accuracy reaches 100% on both validation and query while runtime MAPE and within-30% coverage remain unchanged.",

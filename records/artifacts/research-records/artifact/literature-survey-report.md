@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/report/literature-survey-report/v1
-schema_ref: isomer:deepsci/record-format/schema/report/literature-survey-report/v1
+format_profile_ref: isomer:deepsci/record-format/profile/report/literature-survey-report/v2
+schema_ref: isomer:deepsci/record-format/schema/report/literature-survey-report/v2
 payload_digest: sha256:f35915b274566f77b4c6c04751858c9e6ec370e0dedb247559ffc0e617b95852
 -->
 # Literature Survey Report: FlashAttention-4 B200 Runtime Model Idea Pass
@@ -12,7 +12,7 @@ Literature survey report for the FlashAttention-4 B200 runtime model idea pass.
 {
   "metadata": {
     "consumer": "candidate selection and writing",
-    "placeholder": "\u003cLITERATURE_SURVEY_REPORT\u003e",
+    "placeholder": "<LITERATURE_SURVEY_REPORT>",
     "producer": "isomer-deepsci-idea",
     "skill": "isomer-deepsci-idea"
   },
@@ -63,17 +63,17 @@ Literature survey report for the FlashAttention-4 B200 runtime model idea pass.
     },
     "paper_buckets": {
       "adjacent_inspirations": [
-        "arXiv 2512.02189v1 \u2014 Blackwell microbenchmarks; SMEM 128 B/clock/SM and MUFU 16 ops/clock/SM constants."
+        "arXiv 2512.02189v1 — Blackwell microbenchmarks; SMEM 128 B/clock/SM and MUFU 16 ops/clock/SM constants."
       ],
       "closest_competitors": [
-        "arXiv 2605.04178v1 \u2014 white-box GPU performance modeling methodology; provides analytical correction for memory hierarchies and occupancy."
+        "arXiv 2605.04178v1 — white-box GPU performance modeling methodology; provides analytical correction for memory hierarchies and occupancy."
       ],
       "core_papers": [
-        "arXiv 2603.05451v1 \u2014 FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling; primary algorithm and seed roofline model."
+        "arXiv 2603.05451v1 — FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling; primary algorithm and seed roofline model."
       ],
       "watchlist": [
-        "cuDNN 9.13 / Triton Attention \u2014 indirect plausibility only; closed-source or different kernels.",
-        "SageAttention family \u2014 consumer GPU scope mismatch."
+        "cuDNN 9.13 / Triton Attention — indirect plausibility only; closed-source or different kernels.",
+        "SageAttention family — consumer GPU scope mismatch."
       ]
     },
     "prior_evidence_reused": [
@@ -100,7 +100,7 @@ Literature survey report for the FlashAttention-4 B200 runtime model idea pass.
       "comparator_basis": "FlashAttention-4 Paper Roofline Model reproduced and extended for NVIDIA B200",
       "date": "2026-07-04",
       "metric_contract": "held_out_mape_predicted_runtime_ms minimize; max_absolute_percentage_error minimize; pct_validation_configs_within_30_pct_abs_error maximize; bottleneck_label_accuracy maximize.",
-      "minimum_gate_status": "passed \u2014 prior scouting report reused and extended with mechanism-focused review.",
+      "minimum_gate_status": "passed — prior scouting report reused and extended with mechanism-focused review.",
       "research_topic_id": "flash-attention-4-whitebox-runtime-model",
       "task": "White-box forward-pass runtime predictor for Flash Attention 4 on a single NVIDIA B200 across BF16/FP16/FP8/FP4 precisions."
     }

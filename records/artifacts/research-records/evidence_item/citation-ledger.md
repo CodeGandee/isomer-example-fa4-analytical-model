@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/citation-ledger/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/citation-ledger/v1
+format_profile_ref: isomer:deepsci/record-format/profile/paper/citation-ledger/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/citation-ledger/v2
 payload_digest: sha256:019f5ab9931f5a29732356b5df37a440c07952ef2768e9c7b8bfe9bd22716796
 -->
 # Citation Ledger: FA4 B200 White-Box Runtime Predictor
@@ -13,7 +13,7 @@ Resolved citations for the revised draft. All Related Work placeholders have bee
   "metadata": {
     "consumer": "write, review, finalize",
     "paper_surface": "citation_ledger",
-    "placeholder": "\u003cCITATION_LEDGER\u003e",
+    "placeholder": "<CITATION_LEDGER>",
     "producer": "isomer-deepsci-write",
     "skill": "isomer-deepsci-write",
     "topic": "flash-attention-4-whitebox-runtime-model",

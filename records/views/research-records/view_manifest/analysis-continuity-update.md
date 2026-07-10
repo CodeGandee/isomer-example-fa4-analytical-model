@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/control/analysis-continuity-update/v1
-schema_ref: isomer:deepsci/record-format/schema/control/analysis-continuity-update/v1
+format_profile_ref: isomer:deepsci/record-format/profile/control/analysis-continuity-update/v2
+schema_ref: isomer:deepsci/record-format/schema/control/analysis-continuity-update/v2
 payload_digest: sha256:c8c6d27a05b9526ab03be7668cab229def1b0bdec096fceb4f64413f76429f7b
 -->
 # Analysis continuity update: preserve MAPE gains, refine bottleneck mapping

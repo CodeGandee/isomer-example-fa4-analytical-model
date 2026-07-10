@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/review/report/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/review/report/v2",
   "payload_digest": "sha256:4e1574fe7367cee5bdabbaa601df1ecf5160eb658cff54973c258025e899eaf0",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-REVIEW_REPORT-7387e22762b6",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/review/report/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/review/report/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/run/main-run-record/v1",
-  "payload_digest": "sha256:c866cbb518d063d7b0898a44c95a2d66d759811c109ce2642a9f56b94b2bc3cd",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/run/main-run-record/v2",
+  "payload_digest": "sha256:1f1433f26cbe645664b2bfd17477d26eefe28f037fd78a010af906b6255a4ea1",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "run-MAIN_RUN_RECORD-cc19cf5c010a",
   "record_kind": "run",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/run/main-run-record/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/run/main-run-record/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

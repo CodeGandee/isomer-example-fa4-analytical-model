@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/outline/paper-view/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/outline/paper-view/v1
+format_profile_ref: isomer:deepsci/record-format/profile/paper/outline/paper-view/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/outline/paper-view/v2
 payload_digest: sha256:0d60ac41c2a350d19483630338f85c5dfde99afbaa004e133a929ba6f3b640fc
 -->
 # White-Box FlashAttention-4 Runtime Prediction on NVIDIA B200
@@ -10,7 +10,7 @@ Paper outline for a short technical paper validating a white-box FA4 runtime pre
 
 ```json
 {
-  "one_sentence_idea": "A white-box analytical predictor for FlashAttention-4 forward runtime, calibrated only on real B200 silicon, achieves \u226413% validation MAPE and 100% NCU bottleneck accuracy after adding a fixed launch-overhead term and an NCU-guided bottleneck slack.",
+  "one_sentence_idea": "A white-box analytical predictor for FlashAttention-4 forward runtime, calibrated only on real B200 silicon, achieves ≤13% validation MAPE and 100% NCU bottleneck accuracy after adding a fixed launch-overhead term and an NCU-guided bottleneck slack.",
   "required_displays": [
     "Table 1: White-box algorithm quantities",
     "Table 2: Real-hardware results across passes",

@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/control/analysis-resource-envelope/v1
-schema_ref: isomer:deepsci/record-format/schema/control/analysis-resource-envelope/v1
-payload_digest: sha256:531236d27e6512d55fe1c6ecf0487ff05f67e59d15b15fdceda50dc1e4814261
+format_profile_ref: isomer:deepsci/record-format/profile/control/analysis-resource-envelope/v2
+schema_ref: isomer:deepsci/record-format/schema/control/analysis-resource-envelope/v2
+payload_digest: sha256:6d25cc7fb0bcc5df43469248928c934623f8c4f07d8f3c4e1e078599ebf6a53a
 -->
 # Analysis Resource Envelope: FA4 B200 Read-Only Audit
 
@@ -12,7 +12,7 @@ Execution envelope for the analysis stage: a read-only audit of existing experim
 {
   "metadata": {
     "consumer": "campaign design and execution",
-    "placeholder": "\u003cANALYSIS_RESOURCE_ENVELOPE\u003e",
+    "placeholder": "<ANALYSIS_RESOURCE_ENVELOPE>",
     "producer": "isomer-deepsci-analysis",
     "skill": "isomer-deepsci-analysis"
   },

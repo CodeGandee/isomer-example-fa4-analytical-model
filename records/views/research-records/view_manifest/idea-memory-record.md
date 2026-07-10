@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/control/idea-memory-record/v1
-schema_ref: isomer:deepsci/record-format/schema/control/idea-memory-record/v1
+format_profile_ref: isomer:deepsci/record-format/profile/control/idea-memory-record/v2
+schema_ref: isomer:deepsci/record-format/schema/control/idea-memory-record/v2
 payload_digest: sha256:7a2c391e624ea8ff9e775e18281360dae722ad157654c5359b142e2a060fa420
 -->
 # Idea Memory Record: FlashAttention-4 B200 Runtime Model Idea Pass
@@ -12,7 +12,7 @@ Memory record for the FlashAttention-4 B200 runtime model idea pass.
 {
   "metadata": {
     "consumer": "future idea, scout, experiment, or write routes",
-    "placeholder": "\u003cIDEA_MEMORY_RECORD\u003e",
+    "placeholder": "<IDEA_MEMORY_RECORD>",
     "producer": "isomer-deepsci-idea",
     "skill": "isomer-deepsci-idea"
   },
@@ -32,18 +32,18 @@ Memory record for the FlashAttention-4 B200 runtime model idea pass.
       "selected_hypothesis_id": "fa4-b200-whitebox-occupancy-tma-l2-precision-v1"
     },
     "records_created": [
-      "\u003cOBJECTIVE_CONTRACT\u003e",
-      "\u003cCURRENT_BOARD_PACKET\u003e",
-      "\u003cLITERATURE_SURVEY_REPORT\u003e",
-      "\u003cLIMITATIONS_MAP\u003e",
-      "\u003cMECHANISM_FRAMING\u003e",
-      "\u003cRAW_IDEA_SLATE\u003e",
-      "\u003cCANDIDATE_IDEA_FRONTIER\u003e",
-      "\u003cREJECTED_AND_DEFERRED_IDEAS\u003e",
-      "\u003cPRE_IDEA_DRAFT\u003e",
-      "\u003cSELECTED_HYPOTHESIS\u003e",
-      "\u003cSELECTED_IDEA_DRAFT\u003e",
-      "\u003cIDEA_ROUTE_DECISION\u003e"
+      "<OBJECTIVE_CONTRACT>",
+      "<CURRENT_BOARD_PACKET>",
+      "<LITERATURE_SURVEY_REPORT>",
+      "<LIMITATIONS_MAP>",
+      "<MECHANISM_FRAMING>",
+      "<RAW_IDEA_SLATE>",
+      "<CANDIDATE_IDEA_FRONTIER>",
+      "<REJECTED_AND_DEFERRED_IDEAS>",
+      "<PRE_IDEA_DRAFT>",
+      "<SELECTED_HYPOTHESIS>",
+      "<SELECTED_IDEA_DRAFT>",
+      "<IDEA_ROUTE_DECISION>"
     ],
     "rejected_lessons": [
       "Do not change the primary metric away from MAPE; the evaluation contract is fixed.",

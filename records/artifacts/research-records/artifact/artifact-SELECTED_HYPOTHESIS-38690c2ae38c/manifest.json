@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/handoff/selected-hypothesis/v1",
-  "payload_digest": "sha256:96660705eb84ae01fcdcf6b08ff26d9de1a9605677bb8c74a4f2787f56d37e57",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/handoff/selected-hypothesis/v2",
+  "payload_digest": "sha256:c1e27ea03ce608b69ae52875e0a4a3cce4842fa88133167325d956f114f7c2ca",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-SELECTED_HYPOTHESIS-38690c2ae38c",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/handoff/selected-hypothesis/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/handoff/selected-hypothesis/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "source_payload_file": "<PROJECT_ROOT>/tmp/fix-primary-idea-source-contract-selected-hypothesis-38690c2ae38c.json",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"

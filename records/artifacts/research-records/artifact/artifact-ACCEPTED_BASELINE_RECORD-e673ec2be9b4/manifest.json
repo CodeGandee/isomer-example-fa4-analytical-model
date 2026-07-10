@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/handoff/accepted-baseline-record/v1",
-  "payload_digest": "sha256:04aee43db465bca1dd833129310b39e1914b160538b58b6287240c426d49a5b0",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/handoff/accepted-baseline-record/v2",
+  "payload_digest": "sha256:c873e77cf56d63b3f9b25452dee2080cd45dd56fe0d79caa51af02c2df4ac757",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-ACCEPTED_BASELINE_RECORD-e673ec2be9b4",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/handoff/accepted-baseline-record/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/handoff/accepted-baseline-record/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

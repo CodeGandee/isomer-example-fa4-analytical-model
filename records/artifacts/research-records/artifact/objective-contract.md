@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/handoff/objective-contract/v1
-schema_ref: isomer:deepsci/record-format/schema/handoff/objective-contract/v1
+format_profile_ref: isomer:deepsci/record-format/profile/handoff/objective-contract/v2
+schema_ref: isomer:deepsci/record-format/schema/handoff/objective-contract/v2
 payload_digest: sha256:3494aeefd6535a3f0a1e7c1a4b5e59930668f52ed43edd5db7be2b981f3b6ca4
 -->
 # Objective Contract: FlashAttention-4 White-Box B200 Runtime Model Idea Pass
@@ -12,7 +12,7 @@ Objective contract for the Flash Attention 4 white-box B200 runtime model idea p
 {
   "metadata": {
     "consumer": "candidate generation and selection",
-    "placeholder": "\u003cOBJECTIVE_CONTRACT\u003e",
+    "placeholder": "<OBJECTIVE_CONTRACT>",
     "producer": "isomer-deepsci-idea",
     "skill": "isomer-deepsci-idea"
   },
@@ -29,7 +29,7 @@ Objective contract for the Flash Attention 4 white-box B200 runtime model idea p
       "No measured runtime of a query input may enter the predictor; calibration constants must come from a disjoint calibration split.",
       "Predictions must be produced without executing the queried kernel.",
       "Scope is single-GPU forward pass only; backward pass and multi-GPU are out of scope.",
-      "Comparator is the accepted FA4 paper roofline baseline reproduced and extended for B200; a new route must improve it by \u003e= 5 percentage points MAPE or \u003e= 10 percentage points bottleneck accuracy.",
+      "Comparator is the accepted FA4 paper roofline baseline reproduced and extended for B200; a new route must improve it by >= 5 percentage points MAPE or >= 10 percentage points bottleneck accuracy.",
       "All constants must remain white-box interpretable; black-box curve fitting of query inputs is prohibited."
     ],
     "real_objective": "Build a white-box forward-pass runtime predictor for Flash Attention 4 on a single NVIDIA B200 across BF16/FP16/FP8/FP4 precisions that beats the reproduced FlashAttention-4 paper roofline baseline on held-out MAPE of predicted_runtime_ms without executing the queried kernel.",
@@ -42,7 +42,7 @@ Objective contract for the Flash Attention 4 white-box B200 runtime model idea p
       {
         "direction": "maximize",
         "metric_id": "pct_validation_configs_within_30_pct_abs_error",
-        "why_trusted": "Directly tied to user-facing reliability of the predictor; threshold is \u003e= 75%."
+        "why_trusted": "Directly tied to user-facing reliability of the predictor; threshold is >= 75%."
       },
       {
         "direction": "maximize",

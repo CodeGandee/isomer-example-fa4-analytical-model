@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/review/revision-log/v1
-schema_ref: isomer:deepsci/record-format/schema/review/revision-log/v1
+format_profile_ref: isomer:deepsci/record-format/profile/review/revision-log/v2
+schema_ref: isomer:deepsci/record-format/schema/review/revision-log/v2
 payload_digest: sha256:fdd642bb5b997d1732027890fbc9160bb89eaa30e08a14589ff5ad93cec49a75
 -->
 # Revision Log

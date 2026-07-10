@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/package/paper/resume-packet/v1
-schema_ref: isomer:deepsci/record-format/schema/package/paper/resume-packet/v1
-payload_digest: sha256:fc9cf25b72fad538f5a63713a34deaea65011a104422bab95d40c8a5a4bd4687
+format_profile_ref: isomer:deepsci/record-format/profile/package/paper/resume-packet/v2
+schema_ref: isomer:deepsci/record-format/schema/package/paper/resume-packet/v2
+payload_digest: sha256:23c9ea3e67ab99e4c972c5b27cecf2c2cf20400c0da83310d70a479734e14c3d
 -->
 # Resume Packet — FlashAttention-4 White-Box Runtime Model
 
@@ -10,7 +10,8 @@ Generated from a structured JSON payload.
 
 ```json
 {
-  "body": "# Resume Packet \u2014 FlashAttention-4 White-Box Runtime Model\n\n## Current state\n- Objective: develop and validate a white-box analytical model for FlashAttention-4 runtime on NVIDIA B200.\n- Current stage: submission-pass complete; topic paused with closure decision `park`.\n- Final recommendation at pause time: `park`.\n\n## Accepted baseline and strongest evidence\n- Reproduced FA4 roofline baseline and the real-hardware failure of the emulator-tuned model.\n- Final refined model: 12.62% validation MAPE, 10.01% query MAPE, 100% NCU bottleneck accuracy.\n- Evidence records: `artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e`, `artifact-ANALYSIS_CAMPAIGN_SUMMARY-e8fa897761c1`, `artifact-PAPER_BUNDLE_CHECKPOINT-3ea4159c97ba`.\n\n## Open blockers\n- No public repository or persistent identifiers.\n- Target venue and data policy unspecified.\n- Memory-bound NCU cases and fp4 not validated.\n\n## Next action\nDeposit code and data in a public repository, then re-run `isomer-deepsci-finalize` to move from `park` to `publish` or route to venue-specific polishing.\n\n## Do-not-repeat notes\n- Do not re-run the real-hardware measurement campaign; the 540-configuration dataset is accepted.\n- Do not retrain the emulator-tuned model and expect it to transfer to B200 without launch-overhead correction.\n- Do not treat the 100% NCU bottleneck accuracy as generalising to memory-bound regimes.\n\n## Reopen conditions\n- Public repository exists with code, data, and README.\n- Target venue chosen.\n- References verified.\n",
-  "title": "Resume Packet \u2014 FlashAttention-4 White-Box Runtime Model"
+  "body": "# Resume Packet — FlashAttention-4 White-Box Runtime Model\n\n## Current state\n- Objective: develop and validate a white-box analytical model for FlashAttention-4 runtime on NVIDIA B200.\n- Current stage: submission-pass complete; topic paused with closure decision `park`.\n- Final recommendation at pause time: `park`.\n\n## Accepted baseline and strongest evidence\n- Reproduced FA4 roofline baseline and the real-hardware failure of the emulator-tuned model.\n- Final refined model: 12.62% validation MAPE, 10.01% query MAPE, 100% NCU bottleneck accuracy.\n- Evidence records: `artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e`, `artifact-ANALYSIS_CAMPAIGN_SUMMARY-e8fa897761c1`, `artifact-PAPER_BUNDLE_CHECKPOINT-3ea4159c97ba`.\n\n## Open blockers\n- No public repository or persistent identifiers.\n- Target venue and data policy unspecified.\n- Memory-bound NCU cases and fp4 not validated.\n\n## Next action\nDeposit code and data in a public repository, then re-run `isomer-deepsci-finalize` to move from `park` to `publish` or route to venue-specific polishing.\n\n## Do-not-repeat notes\n- Do not re-run the real-hardware measurement campaign; the 540-configuration dataset is accepted.\n- Do not retrain the emulator-tuned model and expect it to transfer to B200 without launch-overhead correction.\n- Do not treat the 100% NCU bottleneck accuracy as generalising to memory-bound regimes.\n\n## Reopen conditions\n- Public repository exists with code, data, and README.\n- Target venue chosen.\n- References verified.\n",
+  "summary": "Resume packet for reopening the FlashAttention-4 B200 runtime-model topic with first reads, current state, and work not to repeat.",
+  "title": "Resume Packet — FlashAttention-4 White-Box Runtime Model"
 }
 ```

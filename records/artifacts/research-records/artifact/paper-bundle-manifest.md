@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/package/paper/bundle-manifest/v1
-schema_ref: isomer:deepsci/record-format/schema/package/paper/bundle-manifest/v1
+format_profile_ref: isomer:deepsci/record-format/profile/package/paper/bundle-manifest/v2
+schema_ref: isomer:deepsci/record-format/schema/package/paper/bundle-manifest/v2
 payload_digest: sha256:31bcc8d10a18651ae93aaf2354a272413e8e7e05df6424e662b123e31853bdf2
 -->
 # Paper Bundle Checkpoint: White-Box FA4 B200 Real Hardware

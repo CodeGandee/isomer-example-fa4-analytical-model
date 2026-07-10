@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/decision/idea-route-decision/v1
-schema_ref: isomer:deepsci/record-format/schema/decision/idea-route-decision/v1
+format_profile_ref: isomer:deepsci/record-format/profile/decision/idea-route-decision/v2
+schema_ref: isomer:deepsci/record-format/schema/decision/idea-route-decision/v2
 payload_digest: sha256:11301f6b226d03843aa8548b8d54c1756eacde4c412a0c3f08629f80bc539e1c
 -->
 # Idea Route Decision: isomer-deepsci-experiment
@@ -12,7 +12,7 @@ Route decision after idea selection: proceed to experiment.
 {
   "metadata": {
     "consumer": "any production DeepSci research skill",
-    "placeholder": "\u003cIDEA_ROUTE_DECISION\u003e",
+    "placeholder": "<IDEA_ROUTE_DECISION>",
     "producer": "isomer-deepsci-idea",
     "skill": "isomer-deepsci-idea"
   },

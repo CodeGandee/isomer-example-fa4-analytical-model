@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/experiment-matrix/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/experiment-matrix/v1
+format_profile_ref: isomer:deepsci/record-format/profile/paper/experiment-matrix/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/experiment-matrix/v2
 payload_digest: sha256:eb2bc05821fbcf8baa95607f04577e23c0c543ff3ad67539bc29e55f2dac4035
 -->
 # Display Plan: FA4 B200 Revised Draft
@@ -13,7 +13,7 @@ Figures and tables for the revised manuscript, all rendered or included.
   "metadata": {
     "consumer": "paper-plot, figure-polish, review",
     "paper_surface": "display_plan",
-    "placeholder": "\u003cDISPLAY_PLAN\u003e",
+    "placeholder": "<DISPLAY_PLAN>",
     "producer": "isomer-deepsci-write",
     "skill": "isomer-deepsci-write",
     "topic": "flash-attention-4-whitebox-runtime-model",

@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/evidence/experiment-result-summary/v1
-schema_ref: isomer:deepsci/record-format/schema/evidence/experiment-result-summary/v1
+format_profile_ref: isomer:deepsci/record-format/profile/evidence/experiment-result-summary/v2
+schema_ref: isomer:deepsci/record-format/schema/evidence/experiment-result-summary/v2
 payload_digest: sha256:97af4c7610dc2b66566606e39250b8db58bdbc631233f862c3f1ae7da673435f
 -->
 # Test Experiment Result Summary 001
@@ -12,7 +12,7 @@ Test experiment result summary for CLI verification.
 {
   "metadata": {
     "consumer": "isomer-deepsci-analysis, decision, optimize, finalize",
-    "placeholder": "\u003cEXPERIMENT_RESULT_SUMMARY\u003e",
+    "placeholder": "<EXPERIMENT_RESULT_SUMMARY>",
     "producer": "isomer-deepsci-experiment",
     "skill": "isomer-deepsci-experiment"
   },

@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/report/analysis-campaign-summary/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/report/analysis-campaign-summary/v2",
   "payload_digest": "sha256:708559cf1437a8e904ea233c8ba60756a59acbf5252fdfee18c871f749fe5b2b",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-ANALYSIS_CAMPAIGN_SUMMARY-e8fa897761c1",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/report/analysis-campaign-summary/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/report/analysis-campaign-summary/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

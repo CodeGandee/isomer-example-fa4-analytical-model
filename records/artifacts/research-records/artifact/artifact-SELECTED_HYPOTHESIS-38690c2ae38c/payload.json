@@ -50,10 +50,10 @@
         ],
         "family": "follow-up",
         "idea_id": "idea-bottleneck-saturation-predictability",
-        "one_liner": "Bottleneck saturation predictability from calibrated counters",
         "rationale": "Best-effort migration from the canonical follow-up idea row created for this selected-hypothesis record; the original payload did not contain a separate follow-up idea object.",
         "source_label": "B2",
         "status": "candidate",
+        "summary": "Bottleneck saturation predictability from calibrated counters",
         "title": "Bottleneck saturation predictability from calibrated counters",
         "visibility": "primary"
       }
@@ -66,6 +66,8 @@
     "pitch": "Close the final useful-improvement gap by aligning the white-box bottleneck diagnosis with real NCU hardware-counter labels through a single calibrated threshold.",
     "ready_for_experiment": true,
     "risk": "The threshold may overfit the small NCU profiled subset. If the subset is not representative, query accuracy could regress. Runtime MAPE is unaffected because the threshold only changes labels, not the max(compute,memory) runtime estimate.",
+    "summary": "Close the final useful-improvement gap by aligning the white-box bottleneck diagnosis with real NCU hardware-counter labels through a single calibrated threshold.",
+    "title": "Selected hypothesis: bottleneck-threshold calibration",
     "transfer_gaps_to_watch": [
       "NCU profiled subset is small (60 of 540 configs).",
       "All NCU labels are compute-bound, so the threshold cannot be validated against memory-bound cases in this dataset."

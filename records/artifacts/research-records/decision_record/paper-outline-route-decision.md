@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/decision/paper-outline-route-decision/v1
-schema_ref: isomer:deepsci/record-format/schema/decision/paper-outline-route-decision/v1
+format_profile_ref: isomer:deepsci/record-format/profile/decision/paper-outline-route-decision/v2
+schema_ref: isomer:deepsci/record-format/schema/decision/paper-outline-route-decision/v2
 payload_digest: sha256:cfa3e4789f2db820a578832cf4fc019f61522b853434dcaa71c50e5a0d0b5df2
 -->
 # Paper Outline Route Decision: Proceed to Write
@@ -12,7 +12,7 @@ Route decision for the paper-outline stage of the FA4 B200 white-box runtime pre
 {
   "metadata": {
     "consumer": "analysis, decision, write",
-    "placeholder": "\u003cPAPER_OUTLINE_ROUTE_DECISION\u003e",
+    "placeholder": "<PAPER_OUTLINE_ROUTE_DECISION>",
     "producer": "isomer-deepsci-paper-outline",
     "skill": "isomer-deepsci-paper-outline"
   },

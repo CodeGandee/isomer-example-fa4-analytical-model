@@ -1,6 +1,6 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/paper/validation/manuscript-coverage/v1
-schema_ref: isomer:deepsci/record-format/schema/paper/validation/manuscript-coverage/v1
+format_profile_ref: isomer:deepsci/record-format/profile/paper/validation/manuscript-coverage/v2
+schema_ref: isomer:deepsci/record-format/schema/paper/validation/manuscript-coverage/v2
 payload_digest: sha256:fd9c003df7846d25baadbc8542a75a78e1880be52a46c59eacaa24b0ce568a0f
 -->
 # Manuscript Validation Report

@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/handoff/selected-hypothesis/v1
-schema_ref: isomer:deepsci/record-format/schema/handoff/selected-hypothesis/v1
-payload_digest: sha256:6e6400a234bd178f375378fbdc69df37b643c30593e6b29c4a4ff2cf8f8f39c6
+format_profile_ref: isomer:deepsci/record-format/profile/handoff/selected-hypothesis/v2
+schema_ref: isomer:deepsci/record-format/schema/handoff/selected-hypothesis/v2
+payload_digest: sha256:efde391580a18e082bcf7f99f376bed226bc71e1cfd19228f9366ffccf5aaf6d
 -->
 # Selected Hypothesis: Bottleneck-Threshold Calibration for the FA4 B200 Predictor
 
@@ -12,17 +12,17 @@ Targeted refinement of the white-box → NCU bottleneck mapping for the FlashAtt
 {
   "metadata": {
     "consumer": "experiment, analysis, decision",
-    "placeholder": "\u003cSELECTED_HYPOTHESIS\u003e",
+    "placeholder": "<SELECTED_HYPOTHESIS>",
     "producer": "isomer-deepsci-idea",
     "skill": "isomer-deepsci-idea"
   },
   "sections": {
     "abandonment_condition": "If the calibrated threshold fails to raise NCU bottleneck accuracy above 75% on both validation and query splits, or if it degrades runtime MAPE above 25% or within-30% below 75%, the refinement is abandoned.",
     "citations": [
-      "artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e \u2014 previous empirical-pass analysis finding.",
-      "artifact-pipeline-terminal-report-2b29337563c1 \u2014 previous empirical-pass terminal report."
+      "artifact-ANALYSIS_CAMPAIGN_SUMMARY-320d852cdf6e — previous empirical-pass analysis finding.",
+      "artifact-pipeline-terminal-report-2b29337563c1 — previous empirical-pass terminal report."
     ],
-    "comparator_relation": "The selected route is a targeted child of the previous empirical pass. It keeps the launch-overhead/runtime calibration intact and changes only the white-box \u2192 NCU bottleneck decision rule.",
+    "comparator_relation": "The selected route is a targeted child of the previous empirical pass. It keeps the launch-overhead/runtime calibration intact and changes only the white-box → NCU bottleneck decision rule.",
     "expected_effect": "NCU bottleneck accuracy on the profiled subset rises above 75% on both validation and query while runtime MAPE stays at or below the previous improved-predictor level.",
     "experiment_ready_brief": {
       "ablations_to_run": [
@@ -34,7 +34,7 @@ Targeted refinement of the white-box → NCU bottleneck mapping for the FlashAtt
         "topic.repos.main/src/fa4_b200_predictor/improved_predictor.py",
         "topic.repos.main/src/fa4_b200_predictor/run_bottleneck_refinement_experiment.py"
       ],
-      "expected_outcome": "NCU bottleneck accuracy \u2265 75% on validation and query; MAPE \u2264 25% and \u2265 75% within 30% on both splits.",
+      "expected_outcome": "NCU bottleneck accuracy ≥ 75% on validation and query; MAPE ≤ 25% and ≥ 75% within 30% on both splits.",
       "failure_criteria": [
         "NCU bottleneck accuracy remains below 75% on validation or query.",
         "Validation or query MAPE rises above 25% or within-30% drops below 75%."
@@ -45,12 +45,12 @@ Targeted refinement of the white-box → NCU bottleneck mapping for the FlashAtt
         "Calibration split NCU labels used to set the bottleneck threshold."
       ],
       "success_criteria": [
-        "validation_ncu_bottleneck_accuracy \u003e= 75%",
-        "query_ncu_bottleneck_accuracy \u003e= 75%",
-        "validation_mape \u003c= 25%",
-        "query_mape \u003c= 25%",
-        "validation_pct_within_30 \u003e= 75%",
-        "query_pct_within_30 \u003e= 75%"
+        "validation_ncu_bottleneck_accuracy >= 75%",
+        "query_ncu_bottleneck_accuracy >= 75%",
+        "validation_mape <= 25%",
+        "query_mape <= 25%",
+        "validation_pct_within_30 >= 75%",
+        "query_pct_within_30 >= 75%"
       ]
     },
     "falsification": "If the refined predictor does not reach 75% NCU bottleneck accuracy on both held-out splits, the hypothesis is falsified.",
@@ -62,13 +62,15 @@ Targeted refinement of the white-box → NCU bottleneck mapping for the FlashAtt
     "pitch": "Close the final useful-improvement gap by aligning the white-box bottleneck diagnosis with real NCU hardware-counter labels through a single calibrated threshold.",
     "ready_for_experiment": true,
     "risk": "The threshold may overfit the small NCU profiled subset. If the subset is not representative, query accuracy could regress. Runtime MAPE is unaffected because the threshold only changes labels, not the max(compute,memory) runtime estimate.",
+    "summary": "Close the final useful-improvement gap by aligning the white-box bottleneck diagnosis with real NCU hardware-counter labels through a single calibrated threshold.",
+    "title": "Selected hypothesis: bottleneck-threshold calibration",
     "transfer_gaps_to_watch": [
       "NCU profiled subset is small (60 of 540 configs).",
       "All NCU labels are compute-bound, so the threshold cannot be validated against memory-bound cases in this dataset."
     ]
   },
   "status": "ready",
-  "summary": "Targeted refinement of the white-box \u2192 NCU bottleneck mapping for the FlashAttention-4 B200 white-box runtime model.",
+  "summary": "Targeted refinement of the white-box → NCU bottleneck mapping for the FlashAttention-4 B200 white-box runtime model.",
   "title": "Selected Hypothesis: Bottleneck-Threshold Calibration for the FA4 B200 Predictor"
 }
 ```

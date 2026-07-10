@@ -1,14 +1,14 @@
 {
-  "format_profile_ref": "isomer:deepsci/record-format/profile/report/scout-minimum-unknowns/v1",
+  "format_profile_ref": "isomer:deepsci/record-format/profile/report/scout-minimum-unknowns/v2",
   "payload_digest": "sha256:7d88e4eba7cdf52f0bc39cf8b9b7b2886c76b35554836d40517c97e19a4dedcd",
   "payload_file": "payload.json",
   "payload_media_type": "application/json",
   "record_id": "artifact-SCOUT_MINIMUM_UNKNOWNS-baf78e69e3b7",
   "record_kind": "artifact",
   "research_topic_id": "flash-attention-4-whitebox-runtime-model",
-  "schema_ref": "isomer:deepsci/record-format/schema/report/scout-minimum-unknowns/v1",
+  "schema_ref": "isomer:deepsci/record-format/schema/report/scout-minimum-unknowns/v2",
   "schema_version": "isomer-structured-payload-file.v1",
-  "schema_version_ref": "deepsci-structured-record.v1",
+  "schema_version_ref": "deepsci-structured-record.v2",
   "topic_workspace_id": "flash-attention-4-whitebox-runtime-model",
   "validation_status": "valid"
 }

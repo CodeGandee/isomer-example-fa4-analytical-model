@@ -59,6 +59,8 @@
     "pitch": "Validate the existing combined occupancy/TMA-L2/precision analytical predictor against real B200 FlashAttention-4 kernel measurements and confirm it meets the useful-improvement threshold.",
     "ready_for_experiment": true,
     "risk": "Real B200 scheduling, launch overhead, or precision-format support may differ from the emulator. If fp8/fp4 are unsupported, coverage is reduced to bf16/fp16. If the dominant error source is implementation-specific scheduling, the white-box additions may not move MAPE materially.",
+    "summary": "Validate the existing combined occupancy/TMA-L2/precision analytical predictor against real B200 FlashAttention-4 kernel measurements and confirm it meets the useful-improvement threshold.",
+    "title": "Selected hypothesis: real B200 validation",
     "transfer_gaps_to_watch": [
       "Precision format support (fp8/fp4) in the installed FA4 build.",
       "Launch overhead and CPU/Python dispatch latency for tiny configs.",

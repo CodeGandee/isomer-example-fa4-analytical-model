@@ -1,7 +1,7 @@
 <!-- isomer-structured-research-record
-format_profile_ref: isomer:deepsci/record-format/profile/report/pipeline-terminal-report/v1
-schema_ref: isomer:deepsci/record-format/schema/report/pipeline-terminal-report/v1
-payload_digest: sha256:6718ca41ceef8319d7b5cc37639d00343ec801224a541fc898557f759b759b10
+format_profile_ref: isomer:deepsci/record-format/profile/report/pipeline-terminal-report/v2
+schema_ref: isomer:deepsci/record-format/schema/report/pipeline-terminal-report/v2
+payload_digest: sha256:1c4bd79c9a25a45f4e7a0b2b3a26e8858cd93bb68b719c8a59392dcd87a22d49
 -->
 # Structured Research Record
 
@@ -16,6 +16,8 @@ Generated from a structured JSON payload.
   "recommended_next": null,
   "resume_point": null,
   "stages_run": [],
-  "status": "complete"
+  "status": "complete",
+  "summary": "Pipeline terminal report for a submission-pass run, recording completed stages, produced artifacts, route decisions, and pause or closeout status.",
+  "title": "Pipeline Terminal Report Artifact Pipeline Terminal Report Test01"
 }
 ```
